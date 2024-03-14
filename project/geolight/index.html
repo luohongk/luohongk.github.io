@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reconstruction of Depth and Normals from Interreflections</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	
+	<!--- Google Analytics --->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-25519337-3', 'nus.edu.sg');
+	  ga('send', 'pageview');
+	</script>
+</head>
+
+<body>
+	<div class="container">
+	<h3 align="center">Reconstruction of Depth and Normals from Interreflections</h3>
+
+	<strong>Abstract</strong>
+	<p>
+While geometry reconstruction has been extensively studied, several shortcomings still exist. First, traditional geometry reconstruction methods such as geometric or photometric stereo only recover either surface depth or normals. Second, such methods require calibration. Third, such methods cannot recover accurate geometry in the presence of interreflections. 
+In order to address these problems in a single system, we propose an approach to reconstruct geometry from light transport data. Specifically, we investigate the problem of geometry reconstruction from interreflections in a light transport matrix. We show that by solving a system of polynomial equations derived directly from the interreflection matrix, both surface depth and normals can be fully reconstructed. Our system does not require projector-camera calibration, but only make use of a calibration object such as a checkerboard in the scene to pre-determine a few known points to simplify the polynomial solver. Our experimental results show that our system is able to reconstruct accurate geometry from interreflections up to a certain noise level. Our system is easy to set up in practice. 
+	</p>
+
+	<strong>Publication</strong>
+	<p>1. Binh-Son Hua, <a href="http://www1.i2r.a-star.edu.sg/~ttng/">Tian-Tsong Ng</a>, and <a href="http://www.comp.nus.edu.sg/~lowkl/">Kok-Lim Low</a>, Reconstruction of Depth and Normals from Interreflections, IEEE International Conference on Image Processing (ICIP'13), Sep 2013.</p>
+	<table>
+	<tr align="center">
+	<td>
+		<a href='files/hua-geolight-icip13.pdf'><img src='images/hua-geolight-icip13-thumbnail.png'></img></a>
+	</td>	
+	<td></td>
+	</tr>
+	<tr align="center">
+	<td>
+		<a href='files/hua-geolight-icip13.pdf'>PDF</a>
+	</td>	
+	<td>
+		<p>Code (coming soon)</p>
+	</td>
+	</tr>
+	</table>	
+	</div>
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>	
+</body>
+</html>

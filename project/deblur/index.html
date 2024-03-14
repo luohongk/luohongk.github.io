@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25519337-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  <link rel="stylesheet" type="text/css" href="jquery.ad-gallery.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.ad-gallery.js"></script>
+  <script type="text/javascript">
+  $(function() {
+/*
+    $('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');
+    $('img.image1').data('ad-title', 'Title through $.data');
+    $('img.image4').data('ad-desc', 'This image is wider than the wrapper, so it has been scaled down');
+    $('img.image5').data('ad-desc', 'This image is higher than the wrapper, so it has been scaled down');
+*/
+    var galleries = $('.ad-gallery').adGallery();
+    $('#switch-effect').change(
+      function() {
+        galleries[0].settings.effect = $(this).val();
+        return false;
+      }
+    );
+	galleries[0].settings.effect = "fade"; // set default effect to Fade.
+    $('#toggle-slideshow').click(
+      function() {
+        galleries[0].slideshow.toggle();
+        return false;
+      }
+    );
+    $('#toggle-description').click(
+      function() {
+        if(!galleries[0].settings.description_wrapper) {
+          galleries[0].settings.description_wrapper = $('#descriptions');
+        } else {
+          galleries[0].settings.description_wrapper = false;
+        }
+        return false;
+      }
+    );
+  });
+  </script>
+
+  <style type="text/css">
+  * {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Arial, sans-serif;
+    color: #333;
+    line-height: 140%;
+  }
+  select, input, textarea {
+    font-size: 1em;
+  }
+  body {
+    padding: 0px;
+    font-size: 70%;
+    /*width: 800px;*/
+    width: 930px;
+  }
+  h2 {
+    margin-top: 1.2em;
+    margin-bottom: 0;
+    padding: 0;
+    border-bottom: 1px dotted #dedede;
+  }
+  h3 {
+    margin-top: 1.2em;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  .example {
+    border: 1px solid #CCC;
+    background: #f2f2f2;
+    padding: 10px;
+  }
+  ul {
+    list-style-image:url(list-style.gif);
+  }
+  pre {
+    font-family: "Lucida Console", "Courier New", Verdana;
+    border: 1px solid #CCC;
+    background: #f2f2f2;
+    padding: 10px;
+  }
+  code {
+    font-family: "Lucida Console", "Courier New", Verdana;
+    margin: 0;
+    padding: 0;
+  }
+
+  #gallery {
+    padding: 30px;
+    /*background: #e1eef5;*/
+    background: #EFEFEF
+  }
+  #descriptions {
+    position: relative;
+    height: 50px;
+    background: #EEE;
+    margin-top: 10px;
+    width: 640px;
+    padding: 10px;
+    overflow: hidden;
+  }
+    #descriptions .ad-image-description {
+      position: absolute;
+    }
+      #descriptions .ad-image-description .ad-description-title {
+        display: block;
+      }
+  </style>
+  <title>Interactive Motion Deblurring with Point Light Streaks - Supplementary Material</title>
+</head>
+<body>
+  <div id="container">
+    <h1 align='center'>Interactive Motion Deblurring Using Light Streaks</h1>
+    <p align='center'>Binh-Son Hua and Kok-Lim Low</p>
+
+    <h3>Abstract</h3>
+    <p>We propose a single-image, shift-invariant motion deblurring approach where the blur kernel is directly estimated from light streaks in the blurred image. Combining with the sparsity constraint, the blur kernel can be solved quickly and accurately from a user input region containing a light streak. This kernel can then be applied to state-of-the-art single-image motion deblurring methods to restore the sharp image. As our approach does not require verification of the blur kernel against the blurred image, the deblurring can be performed quickly enough for interactive use. For example, our method can be used for interactively revealing scene details in different image regions when the motion blur is not shift-invariant.</p>
+    
+    <!--
+    <p>Read more here: <a href="http://coffeescripter.com/2009/07/ad-gallery-a-jquery-gallery-plugin/" target="_blank">http://coffeescripter.com/2009/07/ad-gallery-a-jquery-gallery-plugin/</a> | <a href="http://coffeescripter.com/code/">More code at Coffeescripter.com</a></p>
+    -->
+    <div id="gallery" class="ad-gallery">
+      <div class="ad-image-wrapper">
+      </div>
+      <div class="ad-controls">
+      </div>
+      <div class="ad-nav">
+        <div class="ad-thumbs">
+          <ul class="ad-thumb-list">
+            <li>
+              <a href="images/deblur/chek-jawa_06_figure.jpg">
+                <img src="images/deblur/thumbs/chek-jawa-thumb.jpg" class="image0">
+              </a>
+            </li>
+	    <li>
+              <a href="images/deblur/chek-jawa_deblurred_06_figure.jpg">
+                <img src="images/deblur/thumbs/chek-jawa-thumb.jpg" class="image0">
+              </a>
+            </li>
+            
+	    <li>
+              <a href="images/deblur/tv_02_figure.jpg">
+                <img src="images/deblur/thumbs/tv-thumb.jpg" class="image1">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/tv_deblurred_02_figure.jpg">
+                <img src="images/deblur/thumbs/tv-thumb.jpg" class="image1">
+              </a>
+            </li>
+
+	    <li>
+              <a href="images/deblur/yasaka_01_figure.jpg">
+                <img src="images/deblur/thumbs/yasaka-thumb.jpg" class="image2">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/yasaka_deblurred_01_figure.jpg">
+                <img src="images/deblur/thumbs/yasaka-thumb.jpg" class="image2">
+              </a>
+            </li>
+
+	    
+	    <li>
+              <a href="images/deblur/yasaka2_01_figure.jpg">
+                <img src="images/deblur/thumbs/yasaka2-thumb.jpg" class="image3">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/yasaka2_deblurred_01_figure.jpg">
+                <img src="images/deblur/thumbs/yasaka2-thumb.jpg" class="image3">
+              </a>
+            </li>
+
+	    <li>
+              <a href="images/deblur/highway_01_figure.jpg">
+                <img src="images/deblur/thumbs/highway-thumb.jpg" class="image4">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/highway_deblurred_01_figure.jpg">
+                <img src="images/deblur/thumbs/highway-thumb.jpg" class="image4">
+              </a>
+            </li>
+
+	    <li>
+              <a href="images/deblur/hachiko_01_figure.jpg">
+                <img src="images/deblur/thumbs/hachiko-thumb.jpg" class="image5">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/hachiko_deblurred_01_figure.jpg">
+                <img src="images/deblur/thumbs/hachiko-thumb.jpg" class="image5">
+              </a>
+            </li>
+
+	    <li>
+              <a href="images/deblur/hostel_01_figure.jpg">
+                <img src="images/deblur/thumbs/hostel-thumb.jpg" class="image6">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/hostel_deblurred_01_figure.jpg">
+                <img src="images/deblur/thumbs/hostel-thumb.jpg" class="image6">
+              </a>
+            </li>
+
+	    <li>
+              <a href="images/deblur/tree_02_figure.jpg">
+                <img src="images/deblur/thumbs/tree-thumb.jpg" class="image7">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/tree_deblurred_02_figure.jpg">
+                <img src="images/deblur/thumbs/tree-thumb.jpg" class="image7">
+              </a>
+            </li>
+
+	    <li>
+              <a href="images/deblur/kyoto2_01_figure.jpg">
+                <img src="images/deblur/thumbs/kyoto2-thumb.jpg" class="image8">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/kyoto2_deblurred_01_figure.jpg">
+                <img src="images/deblur/thumbs/kyoto2-thumb.jpg" class="image8">
+              </a>
+            </li>
+
+	    <li>
+              <a href="images/deblur/nara_01_figure.jpg">
+                <img src="images/deblur/thumbs/nara-thumb.jpg" class="image9">
+              </a>
+            </li>	    
+	    <li>
+              <a href="images/deblur/nara_deblurred_01_figure.jpg">
+                <img src="images/deblur/thumbs/nara-thumb.jpg" class="image9">
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+<h3>Publication</h3>
+<p>	
+	[1] Binh-Son Hua and Kok-Lim Low, Interactive Motion Deblurring Using Light Streaks, ICIP 2011. [<a href="files/hua-interactive-deblur.pdf">PDF</a> | <a href="files/interactive-deblur-0.1.zip">MATLAB code</a>]
+</p>
+
+<h3>Contact</h3>
+<p>If you have any questions or comments about the code, please kindly email me at <img style="vertical-align:middle" src='./email.png'></img>.</p>
+
+    <!-- Description panel 
+    <div id="descriptions">
+      
+    </div>
+    -->
+
+<!--
+    <p>
+    Effect: <select id="switch-effect">
+		<option value="fade">Fade</option>
+		<option value="slide-hori">Slide horizontal</option>
+		<option value="slide-vert">Slide vertical</option>
+		<option value="resize">Shrink/grow</option>
+		<option value="">None</option> 
+    </select><br>
+    <a href="#" id="toggle-slideshow">Toggle slideshow</a> |
+    <a href="#" id="toggle-description">Toggle having description outside of image</a>
+    </p>
+-->
+  </div>
+</body>
+</html>
