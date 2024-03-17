@@ -228,10 +228,9 @@ p + ul, p + ol {
 }
 
 li {
-	margin-top: 0em;
-	list-style: none;
+	margin-top:0em;
 	list-style-position: inside;
-	float: left;
+    float: left;
 }
 
 ol {
