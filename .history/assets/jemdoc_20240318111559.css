@@ -229,8 +229,6 @@ p + ul, p + ol {
 
 li {
 	margin-top:0.6em;
-	list-style-position: inside;
-    float: left;
 }
 
 ol {
@@ -377,3 +375,11 @@ table.imgtable, table.imgtable td {
     text-align: left;
 }
 
+.two-column {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .column {
+    flex: 1;
+  }

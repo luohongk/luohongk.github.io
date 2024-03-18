@@ -230,7 +230,6 @@ p + ul, p + ol {
 li {
 	margin-top:0.6em;
 	list-style-position: inside;
-    float: left;
 }
 
 ol {
