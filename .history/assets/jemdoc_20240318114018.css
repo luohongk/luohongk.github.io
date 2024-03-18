@@ -228,12 +228,11 @@ p + ul, p + ol {
 }
 
 li {
-	/* margin-top: 0em; */
+	margin-top: 0em;
 	list-style: disc;
 	list-style-position: inside;
-	margin-bottom: 10px;
-	text-indent: -1.5em; /* 设置文本悬挂缩进为1.5倍的列表项标记宽度 */
-  }
+	float: left;
+}
 
 ol {
 	list-style-position: outside;

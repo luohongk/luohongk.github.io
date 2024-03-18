@@ -231,9 +231,10 @@ li {
 	/* margin-top: 0em; */
 	list-style: disc;
 	list-style-position: inside;
+	float: left;
 	margin-bottom: 10px;
 	text-indent: -1.5em; /* 设置文本悬挂缩进为1.5倍的列表项标记宽度 */
-  }
+}
 
 ol {
 	list-style-position: outside;

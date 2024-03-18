@@ -228,12 +228,11 @@ p + ul, p + ol {
 }
 
 li {
-	/* margin-top: 0em; */
-	list-style: disc;
+	margin-top: 0em;
+	list-style: none;
 	list-style-position: inside;
-	margin-bottom: 10px;
-	text-indent: -1.5em; /* 设置文本悬挂缩进为1.5倍的列表项标记宽度 */
-  }
+	float: left;
+}
 
 ol {
 	list-style-position: outside;
@@ -378,4 +377,9 @@ table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
 }
+.list-item {
+	/* 默认的<li>样式 */
+	list-style-type: disc; /* 设置列表项的标记为实心圆点 */
+	margin-bottom: 10px; /* 设置下方间距为10像素 */
+  }
 
