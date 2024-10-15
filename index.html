@@ -115,6 +115,35 @@
     transform: scale(1.1); /* 鼠标悬停时放大 */
     box-shadow: 0 0 20px rgba(76, 91, 206, 0.5); /* 鼠标悬停时的光晕效果 */
     }
+    .body_awards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            margin: 10px;
+            background-color: #f0f0f0;
+            overflow: hidden; /* 隐藏溢出内容 */
+        }
+    .carousel-container {
+            overflow: hidden; /* 隐藏溢出部分 */
+            width: 80%; /* 设置容器宽度 */
+            position: relative;
+        }
+    .carousel {
+            display: flex; /* 使用弹性布局 */
+            animation: scroll 10s linear infinite; /* 启动滚动动画 */
+        }
+    .carousel img {
+            width: 150px; /* 设置图片宽度 */
+            height: 150px; /* 设置图片高度 */
+            margin: 0 5px; /* 添加一些外边距 */
+            border-radius: 8px; /* 可选：添加圆角 */
+        }
+    @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+    
   </style>
   <script>
     (function (i, s, o, g, r, a, m) {
@@ -515,6 +544,31 @@
       <img src="./images/honor.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Individual Awards
     </h2>
+    <script>
+        const imageCount = 5; // 设置图片数量
+        const carousel = document.getElementById('carousel');
+
+        for (let i = 0; i < imageCount; i++) {
+            const img = document.createElement('img');
+            img.src = `https://via.placeholder.com/300x300?text=Image+${i + 1}`; // 图片源
+            img.alt = `Image ${i + 1}`;
+            carousel.appendChild(img);
+        }
+
+        let currentIndex = 0;
+
+        function rotateCarousel() {
+            // 计算旋转角度
+            const angle = (360 / imageCount) * currentIndex;
+            carousel.style.transform = `rotateY(-${angle}deg)`;
+        }
+
+        // 每隔2秒旋转到下一张
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % imageCount; // 更新当前索引
+            rotateCarousel();
+        }, 2000);
+    </script>
     <div class="table_background">
       <p>2024.6 Outstanding graduates of China University of Mining and Technology.</p>
       <p>2022-2023 National Scholarship for Chinese Undergraduate Students.</p>
@@ -523,6 +577,24 @@
       <p>2023 Mathematical Contest in Modeling/Interdisciplinary Contest in Modeling Meritorious Winner</p>
       <p>2021,2022 First Class Academic Scholarship in CUMT</p>
     </div>
+    <div class="body_awards">
+    <div class="carousel-container">
+      <div class="carousel" id="carousel">
+          <img src="./AwardsImages/nation.jpg" alt="国家奖学金">
+          <img src="./AwardsImages/ICM.png" alt="国际大学生数学建模竞赛">
+          <img src="./AwardsImages/cehui.png" alt="测绘程序设计竞赛">
+          <img src="./AwardsImages/diangong.png" alt="“电工杯”全国大学生数学建模大赛">
+          <img src="./AwardsImages/mathorcup.jpg" alt="mathorcup大数据挑战赛">
+          <!-- 重复部分以实现无缝滚动 -->
+          <img src="./AwardsImages/nation.jpg" alt="国家奖学金">
+          <img src="./AwardsImages/ICM.png" alt="国际大学生数学建模竞赛">
+          <img src="./AwardsImages/cehui.png" alt="测绘程序设计竞赛">
+          <img src="./AwardsImages/diangong.png" alt="“电工杯”全国大学生数学建模大赛">
+          <img src="./AwardsImages/mathorcup.jpg" alt="mathorcup大数据挑战赛">
+      </div>
+    </div>
+  </div>
+
     <div id="footer">
       <div id="footer-text"></div>
     </div>
