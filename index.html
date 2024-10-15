@@ -43,6 +43,22 @@
         opacity: 1;
         transition: opacity 0.5s;
     }
+    .styled-link {
+            color: rgba(179, 29, 216, 0.895);
+            font-weight: bold;
+        }
+
+    @font-face {
+            font-family: 'Times New Roman';
+            src: url('font/TIMES.TTF') format('truetype'); /* 根据实际文件名调整 */
+        }
+
+    .italic {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bold; /* 加粗 */
+            font-size: 20px; /* 加大字号，调整为你需要的大小 */
+        }
   </style>
   <script>
     (function (i, s, o, g, r, a, m) {
@@ -256,10 +272,13 @@
           <img src="./materials/SuperVINS.png" width="220px" style="box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); border: 5px solid transparent; border-radius: 5px;">
         </td>
         <td>
-          <p><b>SuperVINS: A visual-inertial SLAM framework integrated deep learning features</b></p>
+          <p class="italic"><b>SuperVINS: A visual-inertial SLAM framework integrated deep learning features</b></p>
           <p><strong>Hongkun Luo<sup>*</sup></strong>, Chi Guo<sup>&#8224</sup>, Yang Liu , Zengke Li</p>
           <p><b>Release time</b>:2024.7.31(<b>Preprints</b>)</p>
-          <p><a href="https://arxiv.org/abs/2407.21348">[PDF]</a><a href="https://github.com/luohongk/SuperVINS">[Code]</a></p>
+          <p>
+            <a href="https://arxiv.org/abs/2407.21348" class="styled-link">[PDF]</a>
+            <a href="https://github.com/luohongk/SuperVINS" class="styled-link">[Code]</a>
+          </p>
         </td>
         <p></p>
       </tbody>
@@ -272,10 +291,13 @@
           <img src="./materials/huaweibei2024.png" width="220px" style="box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); border: 5px solid transparent; border-radius: 5px;">
         </td>
         <td>
-          <p><b>Modeling and simulation of X-ray pulsar photon arrival times(written in Chinese)</b></p>
+          <p class="italic"><b>Modeling and simulation of X-ray pulsar photon arrival times(written in Chinese)</b></p>
           <p><strong>Hongkun Luo<sup>*</sup></strong>, Kaichun Yang , Dan Zheng</p>
           <p><b>Release time</b>:2024.10.3(<b>submitted</b>)</p>
-          <p><a href="./papers/huaweibei2024.pdf">[PDF]</a><a href="https://github.com/luohongk/luohongk.github.io/releases/download/HuaWei2024F/F.zip">[Problem]</a></p>
+          <p>
+            <a href="./papers/huaweibei2024.pdf" class="styled-link">[PDF]</a>
+            <a href="https://github.com/luohongk/luohongk.github.io/releases/download/HuaWei2024F/F.zip" class="styled-link">[Problem]</a>
+          </p>
         </td>
         <p></p>
       </tbody>
