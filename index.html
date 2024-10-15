@@ -149,6 +149,30 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
+
+    .pub_container {
+            position: relative;
+            display: inline-block;
+        }
+    .pub_image {
+            width: 250px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            border: 5px solid transparent;
+            border-radius: 5px;
+        }
+    .pub_text-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background-color: #00369F;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bold; /* 加粗 */
+        }
     
   </style>
   <script>
@@ -401,7 +425,10 @@
 
       <tbody>
         <td width="300">
-          <img src="./materials/SuperVINS.png" width="220px" style="box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); border: 5px solid transparent; border-radius: 5px;">
+          <div class="pub_container">
+            <img src="./materials/SuperVINS.png" class="pub_image">
+            <div class="pub_text-overlay">Submit to IEEE Sensor Journal</div>
+          </div>
         </td>
         <td>
           <p class="italic" style="color: rgb(37, 131, 208);"><b>SuperVINS: A visual-inertial SLAM framework integrated deep learning features</b></p>
@@ -420,7 +447,10 @@
       <!-- 第二篇文章 -->
       <tbody>
         <td width="300">
-          <img src="./materials/huaweibei2024.png" width="220px" style="box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); border: 5px solid transparent; border-radius: 5px;">
+          <div class="pub_container">
+            <img src="./materials/huaweibei2024.png" class="pub_image">
+            <div class="pub_text-overlay">CPIPC</div>
+          </div>
         </td>
         <td>
           <p class="italic" style="color: rgb(37, 131, 208);" ><b>Modeling and simulation of X-ray pulsar photon arrival times(written in Chinese)</b></p>
