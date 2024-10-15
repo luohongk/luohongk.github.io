@@ -80,7 +80,7 @@
             border-collapse: collapse;
             background-color: rgba(76, 91, 206, 0.15); /* 红色背景，30% 透明度 */
     }
-    .container {
+    .button_container {
             display: grid;
             grid-template-columns: repeat(5, 1fr); /* 创建 5 列 */
             gap: 10px; /* 列之间的间距 */
@@ -169,7 +169,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="button_container">
     <button class="button" onclick="buttonClick(this); smoothScroll('#news')">News</button>
     <button class="button" onclick="buttonClick(this); smoothScroll('#edu')">Education & Visiting</button>
     <button class="button" onclick="buttonClick(this); smoothScroll('#pub')">Selected Publications</button>
