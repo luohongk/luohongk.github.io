@@ -57,8 +57,30 @@
             font-family: 'Times New Roman', Times, serif;
             font-style: italic;
             font-weight: bold; /* 加粗 */
-            font-size: 20px; /* 加大字号，调整为你需要的大小 */
+            font-size: 23px; /* 加大字号，调整为你需要的大小 */
         }
+
+    .introduction {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bold; /* 加粗 */
+        }
+
+    .introduction_highlight {
+            color: rgba(179, 29, 216, 0.895);
+    }
+    .table_background {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(125, 206, 186, 0.15); /* 红色背景，30% 透明度 */
+    }
+
+    .h2_background {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(76, 91, 206, 0.15); /* 红色背景，30% 透明度 */
+    }
+    
   </style>
   <script>
     (function (i, s, o, g, r, a, m) {
@@ -76,7 +98,7 @@
 
 <body>
   <div id="layout-content" style="margin-top:25px">
-    <table>
+    <table class="table_background">
       <tbody>
         <tr>
           <td width="670">
@@ -89,15 +111,9 @@
                   deep</strong></span>
             </div>
             <p></p>
-            <p>
-              <!-- I am an undergraduate majoring in surveying and mapping engineering in the class of 2020 from <a
-                href="https://cesi.cumt.edu.cn/">China University of Mining and Technology</a>.
-              I will go to <a href="https://luojia.whu.edu.cn/">Luojia Laboratory of Wuhan University</a> to study for a
-              master's degree in surveying and mapping science and technology.I am interested in <strong>GNSS</strong>,
-              <strong>INS</strong>,<strong>Visual Semantic SLAM</strong> in the direction. -->
+            <p class="introduction">
               <img src="./images/brief_introduction.png" alt="brief_introduction" style="height: 20px; vertical-align: middle; margin-right: 5px;">
-              I am a first-year master's student from <a href="https://luojia.whu.edu.cn/"> Luojia Laboratory</a> and <a href="https://www.sgg.whu.edu.cn/">School of Surveying and Mapping</a> of Wuhan University. I graduated from <a href="https://cesi.cumt.edu.cn/">China University of Mining and Technology</a> with a bachelor's degree.I am interested in <strong>GNSS</strong>,
-              <strong>INS</strong>,<strong>Visual Semantic SLAM</strong> in the direction.
+              I am a first-year master's student from <a href="https://luojia.whu.edu.cn/"> Luojia Laboratory</a> and <a href="https://www.sgg.whu.edu.cn/">School of Surveying and Mapping</a> of Wuhan University. I graduated from <a href="https://cesi.cumt.edu.cn/">China University of Mining and Technology</a> with a bachelor's degree.I am interested in <span class="introduction_highlight">Localization</span>, <span class="introduction_highlight">Perception</span>, <span class="introduction_highlight">3D Vision</span>,<span class="introduction_highlight">Embodied AI</span> in the direction.
 
 
               <!-- I am a graduate student at the <a href="http://www.lmars.whu.edu.cn/en">State Key Laboratory of information Engineering in Surveying, Mapping and Remote Sensing</a> (LIESMARS), <a href="https://en.whu.edu.cn/">Wuhan University</a>.
@@ -148,11 +164,11 @@
       </tbody>
     </table>
 
-    <h2>
+    <h2 class="h2_background">
       <img src="./images/news.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       News
     </h2>
-    <div style="height: 100px; overflow: auto;">
+    <div style="height: 100px; overflow: auto;" class="table_background">
       <!-- 这里写具体的消息 -->
       <ul>
         <li>
@@ -185,11 +201,11 @@
 
 
 
-    <h2>
+    <h2 class="h2_background">
       <img src="./images/school.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Education & Visiting
     </h2>
-    <table id="tbPublications" width="100%" align="center">
+    <table id="tbPublications" width="100%" align="center" class="table_background">
       <tbody>
         <td width="306">
           <img src="https://s2.loli.net/2024/03/26/xjbfV2r8nkoJW1d.png" width="180px"
@@ -211,7 +227,7 @@
         <tr>
 
           <td width="306" width="100%">
-            <img src="https://s2.loli.net/2024/03/26/7eivSLcgbn2UI8p.jpg" width="190px"
+            <img src="https://s2.loli.net/2024/10/15/zkWyMKrSuqJdl7I.png" width="190px"
               style="box-shadow: 4px 4px 8px #ffffff">
           </td>
 
@@ -254,7 +270,7 @@
 
 
 
-    <h2>
+    <h2 class="h2_background">
       <img src="./images/paper.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Selected Publications
     </h2>
@@ -262,7 +278,7 @@
       <a> <strong>Notes:</strong> Joint first authors are indicated using * and corresponding authors are indicated
         using <sup>&#8224</sup>. </a>
     </div>
-    <table id="tbPublications" width="100%" align="center">
+    <table id="tbPublications" width="100%" align="center" class="table_background">
       <!--########################-->
       <!-- 第一篇文章 -->
 
@@ -272,7 +288,7 @@
           <img src="./materials/SuperVINS.png" width="220px" style="box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); border: 5px solid transparent; border-radius: 5px;">
         </td>
         <td>
-          <p class="italic"><b>SuperVINS: A visual-inertial SLAM framework integrated deep learning features</b></p>
+          <p class="italic" style="color: rgb(37, 131, 208);"><b>SuperVINS: A visual-inertial SLAM framework integrated deep learning features</b></p>
           <p><strong>Hongkun Luo<sup>*</sup></strong>, Chi Guo<sup>&#8224</sup>, Yang Liu , Zengke Li</p>
           <p><b>Release time</b>:2024.7.31(<b>Preprints</b>)</p>
           <p>
@@ -291,7 +307,7 @@
           <img src="./materials/huaweibei2024.png" width="220px" style="box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); border: 5px solid transparent; border-radius: 5px;">
         </td>
         <td>
-          <p class="italic"><b>Modeling and simulation of X-ray pulsar photon arrival times(written in Chinese)</b></p>
+          <p class="italic" style="color: rgb(37, 131, 208);" ><b>Modeling and simulation of X-ray pulsar photon arrival times(written in Chinese)</b></p>
           <p><strong>Hongkun Luo<sup>*</sup></strong>, Kaichun Yang , Dan Zheng</p>
           <p><b>Release time</b>:2024.10.3(<b>submitted</b>)</p>
           <p>
@@ -356,13 +372,13 @@
 
 
 
-    <h2>
+    <h2  class="h2_background">
       <img src="./images/company.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Industrial Experience
     </h2>
-    <table id="tbPublications" width="100%">
+    <table id="tbPublications" width="100%" class="table_background">
       <tbody>
-        <p>None</p>
+        <p class="table_background">None</p>
 
         <!-- 第一段经历 -->
         <!--########################-->
@@ -414,16 +430,18 @@
       </tbody>
     </table>
 
-    <h2>
+    <h2  class="h2_background">
       <img src="./images/honor.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Individual Awards
     </h2>
-    <p>2024.6 Outstanding graduates of China University of Mining and Technology.</p>
-    <p>2022-2023 National Scholarship for Chinese Undergraduate Students.</p>
-    <p>2023 Surveying and Mapping Skills Competition-National Second Prize in Surveying and Mapping Programming Group.
-    </p>
-    <p>2023 Mathematical Contest in Modeling/Interdisciplinary Contest in Modeling Meritorious Winner</p>
-    <p>2021,2022 First Class Academic Scholarship in CUMT</p>
+    <div class="table_background">
+      <p>2024.6 Outstanding graduates of China University of Mining and Technology.</p>
+      <p>2022-2023 National Scholarship for Chinese Undergraduate Students.</p>
+      <p>2023 Surveying and Mapping Skills Competition-National Second Prize in Surveying and Mapping Programming Group.
+      </p>
+      <p>2023 Mathematical Contest in Modeling/Interdisciplinary Contest in Modeling Meritorious Winner</p>
+      <p>2021,2022 First Class Academic Scholarship in CUMT</p>
+    </div>
     <div id="footer">
       <div id="footer-text"></div>
     </div>
