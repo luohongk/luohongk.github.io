@@ -80,7 +80,41 @@
             border-collapse: collapse;
             background-color: rgba(76, 91, 206, 0.15); /* 红色背景，30% 透明度 */
     }
-    
+    .container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 创建 5 列 */
+            gap: 10px; /* 列之间的间距 */
+        }
+    .button {
+            background: linear-gradient(45deg, rgba(76, 91, 206, 0.3),  rgba(125, 206, 186, 0.3));
+            padding: 10px;
+            background-color: rgba(76, 91, 206, 0.15);
+            color:#527BBD; /* 设置文本颜色为黑色 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bold; /* 加粗 */
+            font-size: 18px; /* 设置文本字号，您可以根据需要调整 */
+            transition: box-shadow 0.3s, transform 0.2s; /* 添加过渡效果 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加边界阴影 */
+        }
+
+    .button:focus {
+            outline: none; /* 去掉焦点样式 */
+        }
+    .clicked {
+            transform: scale(0.95); /* 点击时缩小 */
+            background-color: #0056b3; /* 点击时变色 */
+            transition: transform 0.1s, background-color 0.3s; /* 添加过渡效果 */
+        }
+    .button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 鼠标悬停时加深阴影 */
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+    box-shadow: 0 0 20px rgba(76, 91, 206, 0.5); /* 鼠标悬停时的光晕效果 */
+    }
   </style>
   <script>
     (function (i, s, o, g, r, a, m) {
@@ -92,12 +126,59 @@
     ga('create', 'UA-88572407-1', 'auto');
     ga('send', 'pageview');
   </script>
+
+  <script>
+     function smoothScroll(target) {
+            const targetElement = document.querySelector(target);
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = 800; // 滚动持续时间（毫秒）
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1); // 确保进度不会超过 1
+
+                window.scrollTo(0, startPosition + distance * easeInOutQuad(progress));
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            function easeInOutQuad(t) {
+                return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        function buttonClick(button) {
+            button.classList.add('clicked'); // 添加点击效果类
+
+            // 移除效果类以便下次点击时能重新应用
+            setTimeout(() => {
+                button.classList.remove('clicked');
+            }, 200); // 200毫秒后移除
+        }
+  </script>
   <meta name="google-site-verification" content="F0Q0t5oLq1pGwXGMf_38oA2MxW_zfiMRsQTYD4_GJoQ" />
   <title>Hongkun Luo (Ternence Luo)</title>
 </head>
 
 <body>
-  <div id="layout-content" style="margin-top:25px">
+  <div class="container">
+    <button class="button" onclick="buttonClick(this); smoothScroll('#news')">News</button>
+    <button class="button" onclick="buttonClick(this); smoothScroll('#edu')">Education & Visiting</button>
+    <button class="button" onclick="buttonClick(this); smoothScroll('#pub')">Selected Publications</button>
+    <button class="button" onclick="buttonClick(this); smoothScroll('#exp')">Industrial Experience</button>
+    <button class="button" onclick="buttonClick(this); smoothScroll('#Awards')">Individual Awards</button>
+</div>
+
+
+  <div id="layout-content" style="margin-top:5px">
     <table class="table_background">
       <tbody>
         <tr>
@@ -164,7 +245,7 @@
       </tbody>
     </table>
 
-    <h2 class="h2_background">
+    <h2 class="h2_background" id="news">
       <img src="./images/news.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       News
     </h2>
@@ -201,7 +282,7 @@
 
 
 
-    <h2 class="h2_background">
+    <h2 class="h2_background" id="edu">
       <img src="./images/school.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Education & Visiting
     </h2>
@@ -270,7 +351,7 @@
 
 
 
-    <h2 class="h2_background">
+    <h2 class="h2_background" id="pub">
       <img src="./images/paper.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Selected Publications
     </h2>
@@ -372,7 +453,7 @@
 
 
 
-    <h2  class="h2_background">
+    <h2  class="h2_background" id="exp">
       <img src="./images/company.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Industrial Experience
     </h2>
@@ -430,7 +511,7 @@
       </tbody>
     </table>
 
-    <h2  class="h2_background">
+    <h2  class="h2_background" id="Awards">
       <img src="./images/honor.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Individual Awards
     </h2>
