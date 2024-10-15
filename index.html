@@ -544,31 +544,7 @@
       <img src="./images/honor.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
       Individual Awards
     </h2>
-    <script>
-        const imageCount = 5; // 设置图片数量
-        const carousel = document.getElementById('carousel');
-
-        for (let i = 0; i < imageCount; i++) {
-            const img = document.createElement('img');
-            img.src = `https://via.placeholder.com/300x300?text=Image+${i + 1}`; // 图片源
-            img.alt = `Image ${i + 1}`;
-            carousel.appendChild(img);
-        }
-
-        let currentIndex = 0;
-
-        function rotateCarousel() {
-            // 计算旋转角度
-            const angle = (360 / imageCount) * currentIndex;
-            carousel.style.transform = `rotateY(-${angle}deg)`;
-        }
-
-        // 每隔2秒旋转到下一张
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % imageCount; // 更新当前索引
-            rotateCarousel();
-        }, 2000);
-    </script>
+  
     <div class="table_background">
       <p>2024.6 Outstanding graduates of China University of Mining and Technology.</p>
       <p>2022-2023 National Scholarship for Chinese Undergraduate Students.</p>
