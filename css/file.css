@@ -39,7 +39,7 @@
 
 @font-face {
         font-family: 'Times New Roman';
-        src: url('font/TIMES.TTF') format('truetype'); /* 根据实际文件名调整 */
+        src: url('../fonts/TIMES.TTF') format('truetype'); /* 根据实际文件名调整 */
     }
 
 .italic {
