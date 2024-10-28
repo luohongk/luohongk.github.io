@@ -34,7 +34,7 @@ body {
 }
 
 .body-shadow-box {
-	background-color: rgba(185, 203, 206, 0.397); /* 背景颜色 */
+	background-color: rgba(241, 245, 246, 0.918); /* 背景颜色 */
 	padding: 5px; /* 内边距 */
 	border-radius: 20px; /* 圆角 */
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 阴影效果 */
@@ -69,7 +69,7 @@ body {
 	padding-left: 1.0em;
 	padding-right: 1.0em;
     border: none;
-    background: white;
+    background: rgba(241, 245, 246, 0.918);
     text-align: left;
     vertical-align: top;
 }
