@@ -44,7 +44,8 @@
               </div>
               <div>
                 <!-- <span><img src="./images/name.png" alt="chinese name" width="75"></span> -->
-                <span style="font-size: 16.5px;"><strong>Hongkun Luo:Down-to-earth, light but not shiny, still waters
+                <span style="font-size: 16.5px;" class="italic"><strong>Hongkun Luo:Down-to-earth, light but not shiny,
+                    still waters
                     run
                     deep</strong></span>
               </div>
@@ -297,56 +298,33 @@
           <p></p>
         </tbody>
 
+        <!-- # mark 论文预备1 -->
         <!--########################-->
         <!-- 第三篇文章 -->
         <!-- <tbody>
-        <td width="300">
-          <img src="./materials/SuperVINS.png" width="220px" style="box-shadow: 4px 4px 8px #ffffff">
-        </td>
-        <td>
-          <p><b>SuperVINS: A visual-inertial SLAM framework integrated deep learning features</b></p>
-          <p><strong>Hongkun Luo<sup>*</sup></strong>, Chi Guo<sup>&#8224</sup>, Yang Liu,Zengke Li</p>
-          <p><b>Release time</b>:2024.7.31(<b>Preprints</b>)</p>
-          <p><a href="./papers/2309.14660.pdf">[PDF]</a><a href="https://github.com/luohongk/SuperVINS">[Code]</a></p>
-        </td>
-        <p></p>
-      </tbody> -->
+          <td width="300">
+            <div class="pub_container">
+              <img src="https://s2.loli.net/2024/10/15/VxI9USNLGoBsaEO.png" class="pub_image">
+              <div class="pub_text-overlay">CPIPC</div>
+            </div>
+          </td>
+          <td>
+            <p class="italic" style="color: rgb(37, 131, 208);"><b>Modeling and simulation of X-ray pulsar photon
+                arrival
+                times(written in Chinese)</b></p>
+            <p><strong>Hongkun Luo<sup>*</sup></strong>, Kaichun Yang , Dan Zheng</p>
+            <p><b>Release time</b>:2024.10.3(<b>submitted</b>)</p>
+            <p>
+              <a href="./papers/huaweibei2024.pdf" class="styled-link">[PDF]</a>
+              <a href="https://github.com/luohongk/luohongk.github.io/releases/download/HuaWei2024F/F.zip"
+                class="styled-link">[Problem]</a>
+            </p>
+          </td>
+          <p></p>
+        </tbody> -->
 
-        <!--########################-->
-        <!-- 第二篇文章 -->
-
-
-        <!-- <tbody>
-        <td width="300">
-          <img src="./materials/pub1.png" width="220px" style="box-shadow: 4px 4px 8px #ffffff">
-        </td>
-        <td>
-          <p><b>Design and implementation of vSLAM algorithm integrating deep visual features</b></p>
-          <p><strong>Hongkun Luo<sup>*</sup></strong>, Chi Guo<sup>&#8224</sup>, Yang Liu</p>
-          <p><b>Release time</b>:2024.2.15(<b>Preprints</b>)</p>
-          <p><a href="./papers/2309.14660.pdf">[PDF]</a><a href="https://github.com/luohongk">[Code]</a></p>
-        </td>
-        <p></p>
-      </tbody> -->
-
-        <!--########################-->
-        <!-- 第二篇文章 -->
-
-
-        <!-- <tbody>
-        <td width="300">
-          <img src="./materials/pub1.png" width="220px" style="box-shadow: 4px 4px 8px #ffffff">
-        </td>
-        <td>
-          <p><b>Design and implementation of vSLAM algorithm integrating deep visual features</b></p>
-          <p><strong>Hongkun Luo<sup>*</sup></strong>, Chi Guo<sup>&#8224</sup>, Yang Liu</p>
-          <p><b>Release time</b>:2024.2.15(<b>Preprints</b>)</p>
-          <p><a href="./papers/2309.14660.pdf">[PDF]</a><a href="https://github.com/luohongk">[Code]</a></p>
-        </td>
-        <p></p>
-      </tbody> -->
-
-
+        
+        
       </table>
 
 
@@ -444,11 +422,18 @@
         </div>
       </div>
 
-      <div id="footer">
-        <div id="footer-text"></div>
+      <div class="gray-line">
+        <span class="star">★</span> <!-- 星星 -->
       </div>
-      © Hongkun Luo
-
+      <br>
+      <div style="display:inline-block;width:350px;">
+        Copyright @ <span id="current-year"></span> Hongkun Luo. All rights reserved.
+      </div>
+      <script>
+        // 获取当前年份并显示在页面上
+        const currentYear = new Date().getFullYear();
+        document.getElementById('current-year').textContent = currentYear;
+      </script>
       <div class="container" style="text-align: center;">
         <div style="display:inline-block;width:350px;">
           <script type="text/javascript"
@@ -462,6 +447,9 @@
             async="async">
             </script>
         </div>
+      </div>
+      <div class="gray-line">
+        <span class="star">💕</span> <!-- 星星 -->
       </div>
 
     </div>
