@@ -19,7 +19,7 @@ html {
 body { 
   font-family: Georgia, serif;
   color: #000;
-  background-color: #b9ccb855; 
+  /* background-color: #b9ccb855;  */
   text-align:left; /* for IE */
   margin-top: 30px; 
   margin-bottom: 30px;
@@ -35,9 +35,9 @@ body {
 
 .body-shadow-box {
 	background-color: rgba(241, 245, 246, 0.918); /* 背景颜色 */
-	padding: 5px; /* 内边距 */
-	border-radius: 20px; /* 圆角 */
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    padding: 10px 20px 40px; /* 内边距 */
+    border-radius: 40px; /* 圆角 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 统一的阴影 */
 	max-width: 1000px; /* 最大宽度 */
 	margin: auto; /* 居中对齐 */
 	padding-left:  20px;
