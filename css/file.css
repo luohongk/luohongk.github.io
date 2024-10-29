@@ -66,6 +66,15 @@
   background-color: rgba(19, 160, 207, 0.1);
 }
 
+.table_background_x {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(19, 160, 207, 0.1);
+  /* height: 120px; */
+  overflow-x: auto; /* 允许水平滚动 */
+  white-space: nowrap; /* 防止换行，保持内容在一行 */
+}
+
 .h2_background {
   width: 100%;
   border-collapse: collapse;
