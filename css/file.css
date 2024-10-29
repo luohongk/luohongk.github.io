@@ -41,7 +41,7 @@
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
-  font-size: 23px; /* 加大字号，调整为你需要的大小 */
+  font-size: 20px; /* 加大字号，调整为你需要的大小 */
 }
 
 .italic_school {
@@ -203,3 +203,11 @@
 .spacer {
     margin-top: 10px; /* 设置空行的高度 */
 }
+/* 期刊样式 */
+.pub{
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold; /* 加粗 */
+  font-size: 18px; /* 加大字号，调整为你需要的大小 */
+}
+
