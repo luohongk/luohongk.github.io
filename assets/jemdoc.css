@@ -36,14 +36,15 @@ body {
 .body-shadow-box {
 	background-color: rgba(241, 245, 246, 0.918); /* 背景颜色 */
     padding: 10px 20px 40px; /* 内边距 */
-    border-radius: 40px; /* 圆角 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 统一的阴影 */
+    border-radius: 60px; /* 圆角 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.851); /* 统一的阴影 */
 	max-width: 1000px; /* 最大宽度 */
 	margin: auto; /* 居中对齐 */
 	padding-left:  20px;
 	padding-right: 20px;
 	padding-top: 10px;
 	padding-bottom: 40px;
+	border: 3px dashed #2755B4; /* 虚线边框 */
 }
 
 #layout-menu {

@@ -92,36 +92,68 @@
   height: 100%;
 }
 .button {
-  background-color: rgba(253, 249, 245, 0.913); /* 使用单一的背景色 */
+  /* background-color: rgba(249, 253, 245, 0.913);
   padding: 0px;
-  color: #527bbd; /* 设置文本颜色为黑色 */
+  color: #527bbd; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
-  font-weight: bold; /* 加粗 */
-  font-size: 18px; /* 设置文本字号，您可以根据需要调整 */
-  transition: box-shadow 0.3s, transform 0.2s; /* 添加过渡效果 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加边界阴影 */
+  font-weight: bold; 
+  font-size: 18px; 
+  transition: box-shadow 0.3s, transform 0.2s; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   z-index: 3;
-  height: 100%;
+  height: 100%; */
+  display: inline-block;
+  /* padding: 15px 25px; */
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color:#fff;
+  background-color: rgba(11, 62, 171, 0.865);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  z-index: 3;
+  height: 80%;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold; 
+  font-size: 18px; 
+  transition: box-shadow 0.3s, transform 0.2s; 
 }
 
 .button:focus {
   outline: none; /* 去掉焦点样式 */
 }
 .clicked {
-  transform: scale(0.95); /* 点击时缩小 */
-  background-color: #0056b3; /* 点击时变色 */
-  transition: transform 0.1s, background-color 0.3s; /* 添加过渡效果 */
+  transform: scale(0.95);
+  background-color: #0056b3; 
+  transition: transform 0.1s, background-color 0.3s;
 }
 .button:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 鼠标悬停时加深阴影 */
-  transform: scale(1.1); /* 鼠标悬停时放大 */
-  box-shadow: 0 0 20px rgba(76, 91, 206, 0.5); /* 鼠标悬停时的光晕效果 */
+  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(76, 91, 206, 0.5);  */
+  background-color: rgba(229, 236, 235, 0.939);
+  color: #280802b8; /* 鼠标悬停时文本变为金色 */
+  transform: scale(1.02);
+  /* box-shadow: 0 0 20px rgba(76, 91, 206, 0.5); */
 }
+
+.button:active{
+  background-color: #2755B4;
+  box-shadow: 0 5px #666;
+  transform:translateY(4px);
+}
+
+
 .body_awards {
   display: flex;
   justify-content: center;
@@ -224,7 +256,7 @@
   top: 0;
   left: 0;
   width: 100%; /* 横栏宽度 */
-  height: 50px; /* 设置横栏高度 */
+  height: 65px; /* 设置横栏高度 */
   background-color: #DAECF2; /* 背景颜色 */
   padding: 0px; /* 内边距 */
   text-align: center; /* 文本居中 */
@@ -233,7 +265,7 @@
   padding-top: 0px;
   padding-bottom: 0px;
   /* 添加下边框 */
-  border-bottom: 4px solid #B8BABB; /* 边框宽度和颜色 */
+  border-bottom: 6px double #2755B4; /* 边框宽度和颜色 */
 }
 .content {
   padding-top: 0px; /* 为了让内容不被横栏遮挡，增加上边距 */
