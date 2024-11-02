@@ -1,3 +1,3 @@
-# luohongk.github.io
+# luohongk.github.io(luohongkun.com)
 
-Here is my own website，[我的个人主页](http://luohongkun.com/ "我的个人主页")
+Here is my Homepage，[My Homepage](http://luohongkun.com/ "My Homepage")
