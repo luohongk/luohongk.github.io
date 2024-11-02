@@ -85,9 +85,13 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 创建 5 列 */
   gap: 10px; /* 列之间的间距 */
+  width: 65%;
+  /* 居中 */
+  margin: 0 auto;
+  z-index: 2; /* 确保在 navbar 上层 */
 }
 .button {
-  background-color: rgba(76, 91, 206, 0.15); /* 使用单一的背景色 */
+  background-color: rgba(253, 249, 245, 0.913); /* 使用单一的背景色 */
   padding: 10px;
   color: #527bbd; /* 设置文本颜色为黑色 */
   border: none;
@@ -100,6 +104,7 @@
   font-size: 18px; /* 设置文本字号，您可以根据需要调整 */
   transition: box-shadow 0.3s, transform 0.2s; /* 添加过渡效果 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加边界阴影 */
+  z-index: 3;
 }
 
 .button:focus {
@@ -218,11 +223,10 @@
   left: 0;
   width: 100%; /* 横栏宽度 */
   height: 50px; /* 设置横栏高度 */
-  background-color: #F1F5F6; /* 背景颜色 */
-  color: white; /* 字体颜色 */
+  background-color: #DAECF2; /* 背景颜色 */
   padding: 0px; /* 内边距 */
   text-align: center; /* 文本居中 */
-  z-index: 1000; /* 确保横栏在最顶部 */
+  z-index: 1; /* 确保横栏在最顶部 */
   align-items: center; /* 垂直居中 */
   padding-top: 10px;
   padding-bottom: 10px;
