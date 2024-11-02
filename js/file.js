@@ -1,3 +1,11 @@
+/*
+ * @Author: Hongkun Luo
+ * @Date: 2024-10-17 15:26:05
+ * @LastEditors: Hongkun Luo
+ * @Description: 
+ * 
+ * Hongkun Luo
+ */
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
       (i[r].q = i[r].q || []).push(arguments)
@@ -10,8 +18,9 @@
 
 
 function smoothScroll(target) {
+    offset = 70; // 偏移量，可根据需要调整
     const targetElement = document.querySelector(target);
-    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY-offset;
     const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
     const duration = 800; // 滚动持续时间（毫秒）

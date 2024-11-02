@@ -211,3 +211,24 @@
   font-size: 18px; /* 加大字号，调整为你需要的大小 */
 }
 
+.navbar {
+  position: fixed; /* 使横栏固定在页面顶部 */
+  top: 0;
+  left: 0;
+  width: 100%; /* 横栏宽度 */
+  height: 50px; /* 设置横栏高度 */
+  background-color: #F1F5F6; /* 背景颜色 */
+  color: white; /* 字体颜色 */
+  padding: 0px; /* 内边距 */
+  text-align: center; /* 文本居中 */
+  z-index: 1000; /* 确保横栏在最顶部 */
+  align-items: center; /* 垂直居中 */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* 添加下边框 */
+  border-bottom: 4px solid #B8BABB; /* 边框宽度和颜色 */
+}
+.content {
+  padding-top: 0px; /* 为了让内容不被横栏遮挡，增加上边距 */
+}
+
