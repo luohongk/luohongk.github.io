@@ -67,6 +67,12 @@
   background-color: rgba(19, 160, 207, 0.1);
 }
 
+.note_background {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(218, 210, 53, 0.1);
+}
+
 .table_background_x {
   width: 100%;
   border-collapse: collapse;
