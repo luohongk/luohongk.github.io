@@ -117,32 +117,22 @@
                 <img src="./images/notes.png" height="31px" style="margin-bottom:-4px">
             </a>&nbsp;
             <script>
-              const original ="1101001101@khL-057fb2d531d1c5243dc5af5d771aedc57d9daef1395114d44302e34f65eb2d4f"; // 原始密
+              const original ="057fb2d531d1c5243dc5af5d771aedc57d9daef1395114d44302e34f65eb2d4f";
               document.getElementById('accessLink').onclick = function(event) {
-                  event.preventDefault(); // 阻止默认链接行为
+                  event.preventDefault();
                   const password = prompt('请输入密码:');
-
                   const encryptedInput1 = generateFixedString(password);
                   console.log(encryptedInput1);
                   console.log(original);
-      
-                  // 比较输入的加密结果与原始加密结果
                   if (original == encryptedInput1) {
-                      window.open('mynote.html', '_blank'); // 密码正确，打开mynote.html
+                      window.open('mynote.html', '_blank');
                   } else {
                       alert('密码错误，请重试。');
                   }
               };
-
               function generateFixedString(password) {
-            // 示例运算：倒置字符串
-            const reversed = password.split('').reverse().join('');
-            
-            // 示例运算：使用 SHA-256 哈希
             const hashed = CryptoJS.SHA256(password).toString();
-            
-            // 组合上述结果
-            return `${reversed}-${hashed}`;
+            return `${hashed}`;
         }
           </script>
  
