@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="./css/jemdoc.css" type="text/css">
   <link rel="stylesheet" href="./css/file.css" type="text/css">
   <script src="./js/file.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
   <meta name="google-site-verification" content="F0Q0t5oLq1pGwXGMf_38oA2MxW_zfiMRsQTYD4_GJoQ" />
   <title>Hongkun Luo (Ternence Luo)</title>
 </head>
@@ -111,8 +112,40 @@
                 </a>
                 <span class="tooltiptext">email:luohongkun@whu.edu.cn</span>
               </div>
-              <a href="./mynote.html"
-              target="_blank"><img src="./images/notes.png" height="31px" style="margin-bottom:-4px"></a>&nbsp;
+
+              <a href="#" id="accessLink">
+                <img src="./images/notes.png" height="31px" style="margin-bottom:-4px">
+            </a>&nbsp;
+            <script>
+              const original ="1101001101@khL-057fb2d531d1c5243dc5af5d771aedc57d9daef1395114d44302e34f65eb2d4f"; // 原始密
+              document.getElementById('accessLink').onclick = function(event) {
+                  event.preventDefault(); // 阻止默认链接行为
+                  const password = prompt('请输入密码:');
+
+                  const encryptedInput1 = generateFixedString(password);
+                  console.log(encryptedInput1);
+                  console.log(original);
+      
+                  // 比较输入的加密结果与原始加密结果
+                  if (original == encryptedInput1) {
+                      window.open('mynote.html', '_blank'); // 密码正确，打开mynote.html
+                  } else {
+                      alert('密码错误，请重试。');
+                  }
+              };
+
+              function generateFixedString(password) {
+            // 示例运算：倒置字符串
+            const reversed = password.split('').reverse().join('');
+            
+            // 示例运算：使用 SHA-256 哈希
+            const hashed = CryptoJS.SHA256(password).toString();
+            
+            // 组合上述结果
+            return `${reversed}-${hashed}`;
+        }
+          </script>
+ 
 
             </td>
             <td>
