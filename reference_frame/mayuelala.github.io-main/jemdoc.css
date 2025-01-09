@@ -58,6 +58,7 @@ body {
     background: white;
     text-align: left;
     vertical-align: top;
+	margin-top: 10px;
 }
 
 #layout-menu a {

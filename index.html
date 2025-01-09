@@ -27,6 +27,7 @@
   <div class="body-shadow-box">
     <div class="navbar">
       <div class="button_container">
+        <button class="button" onclick="buttonClick(this); smoothScroll('#biography')">Biography</button>
         <button class="button" onclick="buttonClick(this); smoothScroll('#news')">News</button>
         <button class="button" onclick="buttonClick(this); smoothScroll('#edu')">Education & Visiting</button>
         <button class="button" onclick="buttonClick(this); smoothScroll('#pub')">Selected Publications</button>
@@ -38,6 +39,10 @@
     <div id="layout-content" style="margin-top:5px">
       <table class="table_background">
         <tbody>
+          <h2 class="h2_background" id="biography">
+            <img src="./images/resume.png" style="height: 25px; vertical-align: middle; margin-right: 1px;margin-top: 1px;">
+            Biography
+          </h2>
           <tr>
             <td width="60%">
               <div id="toptitle">

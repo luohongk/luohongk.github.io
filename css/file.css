@@ -86,10 +86,11 @@
   width: 100%;
   border-collapse: collapse;
   background-color: rgba(76, 91, 206, 0.15);
+  padding-top: 8px;
 }
 .button_container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 创建 5 列 */
+  grid-template-columns: repeat(6, 1fr); /* 创建 5 列 */
   gap: 10px; /* 列之间的间距 */
   width: 65%;
   /* 居中 */
@@ -157,6 +158,16 @@
   background-color: #2755B4;
   box-shadow: 0 5px #666;
   transform:translateY(4px);
+}
+
+ul {
+  list-style-type: none; /* 去掉默认样式 */
+  padding: 0; /* 去掉内边距 */
+}
+li::before {
+  content: '➔'; /* 使用箭头符号 */
+  color: black; /* 箭头颜色 */
+  margin-right: 5px; /* 箭头与文本之间的间距 */
 }
 
 
