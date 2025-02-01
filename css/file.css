@@ -58,6 +58,14 @@
   font-size: medium;
 }
 
+.introduction_connect {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold; /* 加粗 */
+  font-size: medium;
+  color: #E93839;
+}
+
 .introduction_highlight {
   color: rgba(179, 29, 216, 0.895);
 }
