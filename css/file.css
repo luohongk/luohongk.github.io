@@ -56,6 +56,9 @@
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 16.5px;
+  /* border-bottom: 3px dashed #d72f2f;
+  color: #333;
+  display: inline-block; */
 }
 
 .introduction_connect {
