@@ -35,7 +35,13 @@
 .styled-link {
   color: rgba(179, 29, 216, 0.895);
   font-weight: bold;
+  margin-right: 20px; /* 添加右边距 */
 }
+
+    /* 去掉最后一个链接的右边距 */
+.styled-link:last-child {
+      margin-right: 0;
+  }
 
 .italic {
   font-family: "Times New Roman", Times, serif;
