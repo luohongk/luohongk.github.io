@@ -40,13 +40,14 @@
       <table class="table_background">
         <tbody>
           <h2 class="h2_background" id="biography">
-            <img src="./images/resume.png" style="height: 25px; vertical-align: middle; margin-right: 1px;margin-top: 1px;">
+            <img src="./images/resume.png"
+              style="height: 25px; vertical-align: middle; margin-right: 1px;margin-top: 1px;">
             Biography
           </h2>
           <tr>
             <td width="58%">
               <div id="toptitle">
-                <h1 class="italic">Hongkun Luo (Ternence Luo) - 罗宏昆 - Homepage &nbsp;</h1> 
+                <h1 class="italic">Hongkun Luo (Ternence Luo) - 罗宏昆 - Homepage &nbsp;</h1>
               </div>
               <div>
                 <!-- <span><img src="./images/name.png" alt="chinese name" width="75"></span> -->
@@ -82,14 +83,16 @@
               <p class="introduction_connect">
                 <img src="./images/notice.png" alt="notice"
                   style="height: 20px; vertical-align: middle; margin-right: 5px;">
-                <strong>I'm always open to new ideas and collaborations! You can reach me through email or any of my social media accounts ⬇️⬇️⬇️.</strong>
+                <strong>I'm always open to new ideas and collaborations! You can reach me through email or any of my
+                  social media accounts ⬇️⬇️⬇️.</strong>
               </p>
               <!-- # mark 联系方式 -->
               <!-- <h3 style="padding-top:-5px"></h3> -->
               <a href="https://github.com/luohongk" target="_blank"><img src="./images/github.png" height="30px"
                   style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://scholar.google.com/citations?user=YGJnL3AAAAAJ&hl=zh-CN" target="_blank"><img
-                  src="./images/google_scholar.png" height="30px" style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <!-- <a href="https://scholar.google.com/citations?user=YGJnL3AAAAAJ&hl=zh-CN" target="_blank"><img
+                  src="./images/google_scholar.png" height="30px"
+                  style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp; -->
               <div class="tooltip">
                 <a href="./images/qq_num.png" target="_blank"><img src="./images/QQ.png" height="30px"
                     style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -118,26 +121,26 @@
               </div>&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="#" id="accessLink">
                 <img src="./images/notes.png" height="31px" style="margin-bottom:-4px">
-            </a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <script>
-              const original ="057fb2d531d1c5243dc5af5d771aedc57d9daef1395114d44302e34f65eb2d4f";
-              document.getElementById('accessLink').onclick = function(event) {
+              </a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <script>
+                const original = "057fb2d531d1c5243dc5af5d771aedc57d9daef1395114d44302e34f65eb2d4f";
+                document.getElementById('accessLink').onclick = function (event) {
                   event.preventDefault();
                   const password = prompt('请输入密码:');
                   const encryptedInput1 = generateFixedString(password);
                   console.log(encryptedInput1);
                   console.log(original);
                   if (original == encryptedInput1) {
-                      window.open('mynote.html', '_blank');
+                    window.open('mynote.html', '_blank');
                   } else {
-                      alert('密码错误，请重试。');
+                    alert('密码错误，请重试。');
                   }
-              };
-              function generateFixedString(password) {
-            const hashed = CryptoJS.SHA256(password).toString();
-            return `${hashed}`;
-        }
-          </script>
+                };
+                function generateFixedString(password) {
+                  const hashed = CryptoJS.SHA256(password).toString();
+                  return `${hashed}`;
+                }
+              </script>
 
             </td>
             <td>
@@ -157,20 +160,22 @@
         <img src="./images/news.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
         News
       </h2>
-      <div style="height: 120px; overflow: auto;" class="table_background_x">
+      <div style="height: 160px; overflow: auto;" class="table_background_x">
         <!-- 这里写具体的消息 -->
         <ul>
           <!-- # mark 最新消息 -->
           <li>
             [12/2024]
             <img src="./images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
-            I won the first-class scholarship for freshmen masters at Wuhan University (<a href="./materials/NewStudentPrize.pdf">certificate</a>) .
+            I won the first-class scholarship for freshmen masters at Wuhan University (<a
+              href="./materials/NewStudentPrize.pdf">certificate</a>) .
           </li>
 
           <li>
             [11/2024]
             <img src="./images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
-            I have taken on the role of student editor for the SCI (<a href="https://satellite-navigation.springeropen.com/">Satellite Navigation</a>) .
+            I have taken on the role of student editor for the SCI (<a
+              href="https://satellite-navigation.springeropen.com/">Satellite Navigation</a>) .
           </li>
           <li>
             [10/2024]
@@ -218,8 +223,11 @@
             <img src="https://s2.loli.net/2024/03/26/xjbfV2r8nkoJW1d.png" width="180px">
           </td>
           <td>
-            <p class="italic_school">WuHan University,WuHan,China, <a href="https://www.zhiyuteam.com/" class="styled-link">[BRAIN Lab]</a></p>
-            <p>Master of Geodesy and Surveying Engineering. <strong>Supv.</strong>: Prof. <a href="https://jszy.whu.edu.cn/guochi/zh_CN/index.htm">Chi Guo</a>,Prof.<a href="https://gnsscenter.whu.edu.cn/info/1301/1081.htm">Weiwei Song</a></p>
+            <p class="italic_school">WuHan University,WuHan,China, <a href="https://www.zhiyuteam.com/"
+                class="styled-link">[BRAIN Lab]</a></p>
+            <p>Master of Geodesy and Surveying Engineering. <strong>Supv.</strong>: Prof. <a
+                href="https://jszy.whu.edu.cn/guochi/zh_CN/index.htm">Chi Guo</a>,Prof.<a
+                href="https://gnsscenter.whu.edu.cn/info/1301/1081.htm">Weiwei Song</a></p>
             <!-- <p>Advisor: <a href="https://cqf.io/">Prof. Qifeng Chen</a> </p> -->
             <p>Sep. 2024 - Jun. 2027
             <p>
@@ -238,7 +246,9 @@
 
             <td>
               <p class="italic_school"><b>NanJing University,NanJing,China</b></p>
-              <p>Participate as a summer school member. <a href="https://www.nju.edu.cn/info/3341/335841.htm">[News]</a><a href="./materials/NJU_summer.jpg">[Certificate]</a></p>
+              <p>Participate as a summer school member. <a
+                  href="https://www.nju.edu.cn/info/3341/335841.htm">[News]</a><a
+                  href="./materials/NJU_summer.jpg">[Certificate]</a></p>
               <!-- <p>Advisor: <a href="https://scholar.google.com/citations?user=Xrh1OIUAAAAJ&hl=zh-CN">Prof.Xiu Li</a></p> -->
               <p>Aug. 2023
               <p>
@@ -256,7 +266,9 @@
 
             <td>
               <p class="italic_school"><b>China University of Mining and Technology,XuZhou,China</b></p>
-              <p>Bachelor of Surveying and Mapping Engineering.<a href="./materials/score.pdf">[Score]</a> <a href="./materials/chinese_score.pdf">[Transcript]</a>. <strong>Supv.</strong>: Prof. <a href="https://cesi.cumt.edu.cn/info/1101/8625.htm">Zengke Li</a></p>
+              <p>Bachelor of Surveying and Mapping Engineering.<a href="./materials/score.pdf">[Score]</a> <a
+                  href="./materials/chinese_score.pdf">[Transcript]</a>. <strong>Supv.</strong>: Prof. <a
+                  href="https://cesi.cumt.edu.cn/info/1101/8625.htm">Zengke Li</a></p>
               <!-- <p>Advisor: <a href="https://scholar.google.com/citations?user=Xrh1OIUAAAAJ&hl=zh-CN">Prof.Xiu Li</a></p> -->
               <p>Sep. 2020 - Jun. 2024
               <p>
@@ -295,8 +307,12 @@
             </div>
           </td>
           <td>
-            <p class="italic" style="color: #224B8D;"><b>SuperVINS: A Real-Time Visual-Inertial SLAM Framework for Challenging Imaging Conditions</b></p>
-            <p><strong>Hongkun Luo<sup>*</sup></strong> , Yang Liu , <a href="https://jszy.whu.edu.cn/guochi/zh_CN/index.htm">Chi Guo</a><sup>&#8224</sup>, <a href="https://cesi.cumt.edu.cn/info/1101/8625.htm"> Zengke Li </a>, <a href="http://gpscenter.whu.edu.cn/ryDetail.shtml?id=20180705091739904omo4VDDYG4ccA">Weiwei Song</a> </p>
+            <p class="italic" style="color: #224B8D;"><b>SuperVINS: A Real-Time Visual-Inertial SLAM Framework for
+                Challenging Imaging Conditions</b></p>
+            <p><strong>Hongkun Luo<sup>*</sup></strong> , Yang Liu , <a
+                href="https://jszy.whu.edu.cn/guochi/zh_CN/index.htm">Chi Guo</a><sup>&#8224</sup>, <a
+                href="https://cesi.cumt.edu.cn/info/1101/8625.htm"> Zengke Li </a>, <a
+                href="http://gpscenter.whu.edu.cn/ryDetail.shtml?id=20180705091739904omo4VDDYG4ccA">Weiwei Song</a> </p>
             <p>
               <b>Released time</b>:2024.7.31(Preprints)
               <a><b></b>--</b></a>
@@ -314,9 +330,12 @@
             </p> -->
 
             <p>
-             <a href="https://arxiv.org/abs/2407.21348" class="styled-link"> <img src="./images/pdf1.png" height="30px"></a>
-            <a href="https://github.com/luohongk/SuperVINS" class="styled-link"><img src="./images/code1.png" height="30px"></a>
-             <a href="http://luohongkun.com/SuperVINS/" class="styled-link"> <img src="./images/page1.png" height="30px"></a>
+              <a href="https://arxiv.org/abs/2407.21348" class="styled-link"> <img src="./images/pdf1.png"
+                  height="30px"></a>
+              <a href="https://github.com/luohongk/SuperVINS" class="styled-link"><img src="./images/code1.png"
+                  height="30px"></a>
+              <a href="http://luohongkun.com/SuperVINS/" class="styled-link"> <img src="./images/page1.png"
+                  height="30px"></a>
             </p>
 
           </td>
@@ -348,12 +367,13 @@
               <b>Award time</b>:2023.5
             </p>
             <p class="pub">
-              <a href="https://www.comap.com/">MCM/ICM</a>(<b>Meritorious Winner,7%</b>). <span style="color: rgba(236, 13, 13, 0.805);">International Competition</span>
+              <a href="https://www.comap.com/">MCM/ICM</a>(<b>Meritorious Winner,7%</b>). <span
+                style="color: rgba(236, 13, 13, 0.805);">International Competition</span>
             </p>
             <p>
               <a href="./papers/MCM_ICM2023.pdf" class="styled-link"> <img src="./images/pdf1.png" height="30px"></a>
-              <a href="./materials/2023_MCM_Problem_C.pdf"
-                class="styled-link"><img src="./images/pb.png" height="30px"></a>
+              <a href="./materials/2023_MCM_Problem_C.pdf" class="styled-link"><img src="./images/pb.png"
+                  height="30px"></a>
             </p>
           </td>
           <p></p>
@@ -396,7 +416,8 @@
       </h2>
       <table id="tbPublications" width="100%" class="table_background">
         <tbody>
-          <p class="table_background">I currently do not have formal industrial experience, but I am actively seeking research or project-based internships in private enterprises.</p>
+          <p class="table_background">I currently do not have formal industrial experience, but I am actively seeking
+            research or project-based internships in private enterprises.</p>
 
           <!-- 第一段经历 -->
           <!--########################-->
@@ -456,8 +477,9 @@
 
       <div class="table_background_x">
         <p>2024.12 The first-class scholarship for freshmen masters at Wuhan University</p>
-        <p>2024.10 The first prize of the Jiangsu Province Surveying and Mapping Geographic Information Undergraduate Excellent Graduation Thesis Award.</p>
-        <p>2022-2023 National Scholarship for Chinese Undergraduate Students.</p>
+        <p>2024.10 The first prize of the Jiangsu Province Surveying and Mapping Geographic Information Undergraduate
+          Excellent Graduation Thesis Award.</p>
+        <p >2022-2023  <span style="color: rgba(236, 13, 13, 0.805);"><strong>National Scholarship for Chinese Undergraduate Students.</strong></span></p>
         <p>2023 Surveying and Mapping Skills Competition-National Second Prize in Surveying and Mapping Programming
           Group.
         </p>
@@ -495,8 +517,9 @@
         document.getElementById('current-year').textContent = currentYear;
       </script>
       <div class="container" style="text-align: center;">
-          <div style="display:inline-block;width:500px; background-color:#F1F5F6;">
-            <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=81c3d7&w=a&t=tt&d=tjJ3FzKgxh3wSIKpnvDrCjF_LsczkU5wBqYjxyYZFyM&co=f1f5f6&ct=000033&cmn=33658a&cmo=e26d5c"></script>
+        <div style="display:inline-block;width:500px; background-color:#F1F5F6;">
+          <script type="text/javascript" id="clustrmaps"
+            src="//cdn.clustrmaps.com/map_v2.js?cl=81c3d7&w=a&t=tt&d=tjJ3FzKgxh3wSIKpnvDrCjF_LsczkU5wBqYjxyYZFyM&co=f1f5f6&ct=000033&cmn=33658a&cmo=e26d5c"></script>
         </div>
         <!-- <div style="display:inline-block;width:350px; background-color:#F1F5F6;">
           <script type="text/javascript"
