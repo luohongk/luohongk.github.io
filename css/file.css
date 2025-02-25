@@ -199,18 +199,18 @@ li::before {
 }
 .carousel-container {
   overflow: hidden; /* 隐藏溢出部分 */
-  width: 80%; /* 设置容器宽度 */
+  width: 100%; /* 设置容器宽度 */
   position: relative;
 }
 .carousel {
   display: flex; /* 使用弹性布局 */
-  animation: scroll 10s linear infinite; /* 启动滚动动画 */
+  animation: scroll 20s linear infinite; /* 启动滚动动画 */
 }
 .carousel img {
   width: 150px; /* 设置图片宽度 */
   height: 150px; /* 设置图片高度 */
   margin: 0 5px; /* 添加一些外边距 */
-  border-radius: 8px; /* 可选：添加圆角 */
+  border-radius: 15px; /* 可选：添加圆角 */
 }
 @keyframes scroll {
   0% {
