@@ -33,7 +33,7 @@
   transition: opacity 0.5s;
 }
 .styled-link {
-  color: rgba(179, 29, 216, 0.895);
+  color: #00A6ED;
   font-weight: bold;
   margin-right: 20px; /* 添加右边距 */
 }
@@ -76,7 +76,7 @@
 }
 
 .introduction_highlight {
-  color: rgba(179, 29, 216, 0.895);
+  color: #00A6ED;
 }
 .table_background {
   width: 100%;
@@ -102,7 +102,7 @@
 .h2_background {
   width: 100%;
   border-collapse: collapse;
-  background-color: rgba(76, 91, 206, 0.15);
+  background-color: rgba(0, 166, 237, 0.2); /* Adjust the last value for transparency */
   padding-top: 8px;
 }
 .button_container {
