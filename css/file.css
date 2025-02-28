@@ -77,6 +77,8 @@
 
 .introduction_highlight {
   color: #00A6ED;
+  /* 加入下划线，红色虚线 */
+  border-bottom: 3px dashed #E93839;
 }
 .table_background {
   width: 100%;
