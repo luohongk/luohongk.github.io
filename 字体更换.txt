@@ -1,0 +1,6 @@
+"Georgia", "Times New Roman", Times, serif;
+"Georgia", "Times New Roman", Times, serif;
+"Helvetica", "Arial", sans-serif;
+"Garamond", "Times New Roman", Times, serif;
+"Baskerville", "Times New Roman", Times, serif;
+"Arial", sans-serif;

@@ -44,21 +44,21 @@
   }
 
 .italic {
-  font-family: "Times New Roman", Times, serif;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 20px; /* 加大字号，调整为你需要的大小 */
 }
 
 .italic_school {
-  font-family: "Times New Roman", Times, serif;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 20px; /* 加大字号，调整为你需要的大小 */
 }
 
 .introduction {
-  font-family: "Times New Roman", Times, serif;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 16.5px;
@@ -68,7 +68,7 @@
 }
 
 .introduction_connect {
-  font-family: "Times New Roman", Times, serif;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 16.5px;
@@ -125,7 +125,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; 
   font-size: 18px; 
@@ -148,7 +148,7 @@
   z-index: 3;
   height: 80%;
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; 
   font-size: 18px; 
@@ -242,7 +242,7 @@ li::before {
   padding: 5px;
   border-radius: 3px;
   font-size: 12px;
-  font-family: "Times New Roman", Times, serif;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
 }
@@ -279,9 +279,13 @@ li::before {
 .spacer {
     margin-top: 10px; /* 设置空行的高度 */
 }
+
+/*  "Georgia", "Times New Roman", Times, serif;
+ "Georgia", "Times New Roman", Times, serif;
+"Helvetica", "Georgia", "Times New Roman", Times, serif; */
 /* 期刊样式 */
 .pub{
-  font-family: "Times New Roman", Times, serif;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 18px; /* 加大字号，调整为你需要的大小 */
