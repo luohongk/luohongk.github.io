@@ -99,6 +99,10 @@
   /* height: 120px; */
   overflow-x: auto; /* 允许水平滚动 */
   white-space: nowrap; /* 防止换行，保持内容在一行 */
+  /* 设置字体 */
+  font-family:  "Times New Roman", Times, serif;
+  /* 设置为倾斜 */
+  font-style: italic;
 }
 
 .h2_background {
@@ -309,5 +313,14 @@ li::before {
 }
 .content {
   padding-top: 0px; /* 为了让内容不被横栏遮挡，增加上边距 */
+}
+
+p{
+  /* 设置字体为"Times New Roman" */
+  font-family: "Times New Roman", Times, serif;
+  /* 设置字体样式为斜体 */
+  font-style: italic;
+  /* 设置字号 */
+  font-size: 16px;
 }
 
