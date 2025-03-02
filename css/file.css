@@ -47,21 +47,21 @@
   font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
-  font-size: 20px; /* 加大字号，调整为你需要的大小 */
+  font-size: 18px; /* 加大字号，调整为你需要的大小 */
 }
 
 .italic_school {
   font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
-  font-size: 20px; /* 加大字号，调整为你需要的大小 */
+  font-size: 18px; /* 加大字号，调整为你需要的大小 */
 }
 
 .introduction {
   font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
-  font-size: 16.5px;
+  font-size: 16px;
   /* border-bottom: 3px dashed #d72f2f;
   color: #333;
   display: inline-block; */
@@ -71,7 +71,7 @@
   font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
-  font-size: 16.5px;
+  font-size: 16px;
   color: #E93839;
 }
 
@@ -292,7 +292,7 @@ li::before {
   font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
-  font-size: 18px; /* 加大字号，调整为你需要的大小 */
+  font-size: 16px; /* 加大字号，调整为你需要的大小 */
 }
 
 .navbar {
