@@ -60,8 +60,8 @@
 .introduction {
   font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
-  font-weight: bold; /* 加粗 */
   font-size: 16px;
+  line-height: 1.5;
   /* border-bottom: 3px dashed #d72f2f;
   color: #333;
   display: inline-block; */
@@ -70,9 +70,10 @@
 .introduction_connect {
   font-family:   "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
-  font-weight: bold; /* 加粗 */
   font-size: 16px;
   color: #E93839;
+  /* 行间距 */
+  line-height: 1.5;
 }
 
 .introduction_highlight {
