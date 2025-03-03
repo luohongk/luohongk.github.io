@@ -80,6 +80,8 @@
   color: #00A6ED;
   /* 加入下划线，红色虚线 */
   border-bottom: 3px dashed #E93839;
+  /* 加粗 */
+  font-weight: bold;
 }
 .table_background {
   width: 100%;
@@ -292,7 +294,7 @@ li::before {
 .spacer {
     margin-top: 10px; /* 设置空行的高度 */
 }
-
+introduction_highlight
 /*  "Georgia", "Times New Roman", Times, serif;
  "Georgia", "Times New Roman", Times, serif;
 "Helvetica", "Georgia", "Times New Roman", Times, serif; */
@@ -330,6 +332,6 @@ p{
   /* 设置字体样式为斜体 */
   font-style: italic;
   /* 设置字号 */
-  font-size: 16px;
+  font-size: 14px;
 }
 
