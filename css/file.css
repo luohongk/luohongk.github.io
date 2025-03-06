@@ -118,7 +118,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr) auto; /* 前 5 列为相等宽度，第 6 列自动 */
   gap: 10px; /* 列之间的间距 */
-  width: 95%; /* 宽度 */
+  width: 70%; /* 宽度 */
   margin: auto; /* 居中 */
   height: 100%; /* 高度 */
   position: relative; /* 或使用 absolute，根据需要 */
