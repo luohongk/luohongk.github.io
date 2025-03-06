@@ -17,7 +17,9 @@
   left: 50%;
   margin-left: -60px;
   opacity: 0;
-  transition: visibility 0s 0.5s, opacity 0.5s;
+  transition:
+    visibility 0s 0.5s,
+    opacity 0.5s;
 }
 
 .tooltip:hover .tooltiptext {
@@ -33,32 +35,32 @@
   transition: opacity 0.5s;
 }
 .styled-link {
-  color: #00A6ED;
+  color: #00a6ed;
   font-weight: bold;
   margin-right: 20px; /* 添加右边距 */
 }
 
-    /* 去掉最后一个链接的右边距 */
+/* 去掉最后一个链接的右边距 */
 .styled-link:last-child {
-      margin-right: 0;
-  }
+  margin-right: 0;
+}
 
 .italic {
-  font-family:   "Georgia", "Times New Roman", Times, serif;
+  font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 16px; /* 加大字号，调整为你需要的大小 */
 }
 
 .italic_school {
-  font-family:   "Georgia", "Times New Roman", Times, serif;
+  font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 16px; /* 加大字号，调整为你需要的大小 */
 }
 
 .introduction {
-  font-family:   "Georgia", "Times New Roman", Times, serif;
+  font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-size: 16px;
   line-height: 1.5;
@@ -68,18 +70,18 @@
 }
 
 .introduction_connect {
-  font-family:   "Georgia", "Times New Roman", Times, serif;
+  font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-size: 16px;
-  color: #E93839;
+  color: #e93839;
   /* 行间距 */
   line-height: 1.5;
 }
 
 .introduction_highlight {
-  color: #00A6ED;
+  color: #00a6ed;
   /* 加入下划线，红色虚线 */
-  border-bottom: 3px dashed #E93839;
+  border-bottom: 3px dashed #e93839;
   /* 加粗 */
   font-weight: bold;
 }
@@ -103,7 +105,7 @@
   overflow-x: auto; /* 允许水平滚动 */
   white-space: nowrap; /* 防止换行，保持内容在一行 */
   /* 设置字体 */
-  font-family:  "Times New Roman", Times, serif;
+  font-family: "Times New Roman", Times, serif;
   /* 设置为倾斜 */
   font-style: italic;
 }
@@ -129,6 +131,37 @@
   margin-right: 0; /* 取消最右边按钮的右边距 */
 }
 
+/* 指定的 tbody */
+tbody.special {
+  position: relative; /* 使子元素绝对定位 */
+}
+        /* 下边框样式 */
+.border-line {
+          position: relative; /* 使子元素绝对定位 */
+          width: 28%; /* 设置宽度为 28% */
+          height: 6px; /* 线条高度 */
+          background: linear-gradient(to right, 
+              transparent 0%, /* 左侧透明 */
+              gray 20%, /* 左侧细 */
+              gray 50%, /* 中间粗 */
+              gray 80%, /* 右侧细 */
+              transparent 100%); /* 右侧透明 */
+          margin-left: 0; /* 靠左 */
+          margin-top: 5px; /* 上方间距 */
+          border-radius: 3px; /* 圆角效果 */
+      }
+
+
+      .line-text {
+        text-align: left; /* 文字靠左 */
+        margin-top: 5px; /* 与线段的间距 */
+        font-weight: bold; /* 加粗文字 */
+        /* 倾斜 */
+        font-style: italic;
+        /* 设置字体 */
+        font-family: "Georgia", "Times New Roman", Times, serif;
+        font-size: 70%
+    }
 
 .button {
   /* background-color: rgba(249, 253, 245, 0.913);
@@ -153,7 +186,7 @@
   text-align: center;
   text-decoration: none;
   outline: none;
-  color:#fff;
+  color: #fff;
   background-color: rgba(11, 62, 171, 0.865);
   border: none;
   border-radius: 15px;
@@ -162,11 +195,13 @@
   z-index: 100;
   height: 80%;
   text-align: center;
-  font-family:   "Georgia", "Times New Roman", Times, serif;
+  font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
-  font-weight: bold; 
-  font-size: 16px; 
-  transition: box-shadow 0.3s, transform 0.2s; 
+  font-weight: bold;
+  font-size: 16px;
+  transition:
+    box-shadow 0.3s,
+    transform 0.2s;
 }
 
 .button:focus {
@@ -174,8 +209,10 @@
 }
 .clicked {
   transform: scale(0.95);
-  background-color: #0056b3; 
-  transition: transform 0.1s, background-color 0.3s;
+  background-color: #0056b3;
+  transition:
+    transform 0.1s,
+    background-color 0.3s;
 }
 .button:hover {
   /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -187,10 +224,10 @@
   /* box-shadow: 0 0 20px rgba(76, 91, 206, 0.5); */
 }
 
-.button:active{
-  background-color: #2755B4;
+.button:active {
+  background-color: #2755b4;
   box-shadow: 0 5px #666;
-  transform:translateY(4px);
+  transform: translateY(4px);
 }
 
 ul {
@@ -198,11 +235,10 @@ ul {
   padding: 0; /* 去掉内边距 */
 }
 li::before {
-  content: '➔'; /* 使用箭头符号 */
+  content: "➔"; /* 使用箭头符号 */
   color: black; /* 箭头颜色 */
   margin-right: 5px; /* 箭头与文本之间的间距 */
 }
-
 
 .body_awards {
   display: flex;
@@ -257,7 +293,7 @@ li::before {
   padding: 5px;
   border-radius: 3px;
   font-size: 12px;
-  font-family:   "Georgia", "Times New Roman", Times, serif;
+  font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
 }
@@ -292,15 +328,15 @@ li::before {
 }
 
 .spacer {
-    margin-top: 10px; /* 设置空行的高度 */
+  margin-top: 10px; /* 设置空行的高度 */
 }
 introduction_highlight
 /*  "Georgia", "Times New Roman", Times, serif;
  "Georgia", "Times New Roman", Times, serif;
 "Helvetica", "Georgia", "Times New Roman", Times, serif; */
 /* 期刊样式 */
-.pub{
-  font-family:   "Georgia", "Times New Roman", Times, serif;
+.pub {
+  font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: bold; /* 加粗 */
   font-size: 16px; /* 加大字号，调整为你需要的大小 */
@@ -312,7 +348,7 @@ introduction_highlight
   left: 0;
   width: 100%; /* 横栏宽度 */
   height: 65px; /* 设置横栏高度 */
-  background-color: #DAECF2; /* 背景颜色 */
+  background-color: #daecf2; /* 背景颜色 */
   padding: 0px; /* 内边距 */
   text-align: center; /* 文本居中 */
   z-index: 10;
@@ -320,13 +356,13 @@ introduction_highlight
   padding-top: 0px;
   padding-bottom: 0px;
   /* 添加下边框 */
-  border-bottom: 6px double #2755B4; /* 边框宽度和颜色 */
+  border-bottom: 6px double #2755b4; /* 边框宽度和颜色 */
 }
 .content {
   padding-top: 0px; /* 为了让内容不被横栏遮挡，增加上边距 */
 }
 
-p{
+p {
   /* 设置字体为"Times New Roman" */
   font-family: "Times New Roman", Times, serif;
   /* 设置字体样式为斜体 */
@@ -334,4 +370,3 @@ p{
   /* 设置字号 */
   font-size: 14px;
 }
-
