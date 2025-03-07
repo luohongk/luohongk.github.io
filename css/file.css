@@ -238,6 +238,8 @@ li::before {
   content: "➔"; /* 使用箭头符号 */
   color: black; /* 箭头颜色 */
   margin-right: 5px; /* 箭头与文本之间的间距 */
+  /* 字体大小 */
+  font-size: 14px;
 }
 
 .body_awards {
