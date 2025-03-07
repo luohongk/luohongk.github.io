@@ -1,0 +1,675 @@
+<!--
+ * @Author: Hongkun Luo
+ * @Date: 2024-10-15 13:56:42
+ * @LastEditors: luohongk luohongkun@whu.edu.cn
+ * @Description: 
+ * 
+ * Hongkun Luo
+-->
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Hongkun Luo&#39; home page">
+  <link rel="shortcut icon" href="./images/logo.jpg">
+  <link
+    href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./css/jemdoc.css" type="text/css">
+  <link rel="stylesheet" href="./css/file.css" type="text/css">
+  <script src="./js/file.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <meta name="google-site-verification" content="F0Q0t5oLq1pGwXGMf_38oA2MxW_zfiMRsQTYD4_GJoQ" />
+  <title>Hongkun Luo (Ternence Luo)</title>
+</head>
+
+<body>
+  <div class="body-shadow-box">
+    <div class="navbar">
+      <div class="button_container">
+        <button class="button" onclick="buttonClick(this); smoothScroll('#biography')">Biography</button>
+        <button class="button" onclick="buttonClick(this); smoothScroll('#news')">News</button>
+        <button class="button" onclick="buttonClick(this); smoothScroll('#edu')">Education & Visiting</button>
+        <button class="button" onclick="buttonClick(this); smoothScroll('#pub')">Selected Publications</button>
+        <button class="button" onclick="buttonClick(this); smoothScroll('#exp')">Industrial Experience</button>
+        <button class="button" onclick="buttonClick(this); smoothScroll('#Awards')">Individual Awards</button>
+      </div>
+    </div>
+
+    <div id="layout-content" style="margin-top:5px">
+      <table class="table_background">
+        <tbody>
+          <h2 class="h2_background" id="biography">
+            <img src="./images/resume.png"
+              style="height: 25px; vertical-align: middle; margin-right: 1px;margin-top: 1px;">
+            Biography
+          </h2>
+          <tr>
+            <td width="61.8%">
+              <div id="toptitle">
+                <h1 class="italic">Hongkun Luo (Ternence Luo) - 罗宏昆 - Homepage &nbsp;</h1>
+              </div>
+              <!-- <div>
+                <span style="font-size: 16px;" class="italic"><strong>Hongkun Luo:Down-to-earth, light but not shiny,
+                    still waters
+                    run
+                    deep</strong></span>
+              </div> -->
+              <p></p>
+              <!-- # mark 自我介绍 -->
+              <div class="introduction">
+                <img src="./images/brief_introduction.png" alt="brief_introduction"
+                  style="height: 20px; vertical-align: middle; margin-right: 5px;">
+                I am a first year master candidate from <a href="https://luojia.whu.edu.cn/"> Luojia Laboratory</a> , <a
+                  href="https://www.sgg.whu.edu.cn/">School of Geodesy and Geomatics(SGG)</a>,<a
+                  href="https://gnsscenter.whu.edu.cn/"> GNSS Research Center</a> of Wuhan University. In June 2024, I
+                graduated from <a href="https://cesi.cumt.edu.cn/">China University of Mining and Technology</a> with a
+                bachelor's degree. Now, I am interested in <span class="introduction_highlight">Localization</span>,
+                <span class="introduction_highlight">Perception</span>, <span class="introduction_highlight">3D
+                  Vision</span>, <span class="introduction_highlight">Embodied AI</span> in the direction.
+
+
+                <!-- I am a graduate student at the <a href="http://www.lmars.whu.edu.cn/en">State Key Laboratory of information Engineering in Surveying, Mapping and Remote Sensing</a> (LIESMARS), <a href="https://en.whu.edu.cn/">Wuhan University</a>.
+                Before that, I received my B.S. degree from <a href="https://en.whu.edu.cn/">Wuhan University</a> in 2023.
+                My research interests include robotics learning, semantic SLAM and multi-modality location. -->
+
+                <!-- <br><br>
+                <font color="red">I am looking for motivated PhD students (co-supervised with <a href="https://personal.ntu.edu.sg/exdjiang/">Prof. Xudong Jiang</a> at NTU) and interns to work on image, video, and point cloud recognition problems. 
+                Scholarships are available [<a href="https://www.a-star.edu.sg/Scholarships/for-graduate-studies/singapore-international-graduate-award-singa">link</a>].
+                Drop me an email if you are interested.</font> -->
+              </div>
+              <p></p>
+              <p class="introduction_connect">
+                <img src="./images/notice.png" alt="notice"
+                  style="height: 20px; vertical-align: middle; margin-right: 5px;">
+                I'm always open to new ideas and collaborations! You can reach me through email or any of my
+                social media accounts.⬇️⬇️⬇️
+              </p>
+              <!-- # mark 联系方式 -->
+              <!-- <h3 style="padding-top:-5px"></h3> -->
+              <a href="https://github.com/luohongk" target="_blank"><img src="./images/github.png" height="30px"
+                  style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <!-- <a href="https://scholar.google.com/citations?user=YGJnL3AAAAAJ&hl=zh-CN" target="_blank"><img
+                  src="./images/google_scholar.png" height="30px"
+                  style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp; -->
+              <div class="tooltip">
+                <a href="./images/qq_num.png" target="_blank"><img src="./images/QQ.png" height="30px"
+                    style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="tooltiptext">QQ:2638923243</span>
+              </div>
+              <!-- <a href="https://x.com/LuoHongKun2002" target="_blank"><img src="./images/X_icon.png" height="30px"
+                  style="margin-bottom:-3px"></a>&nbsp; -->
+              <a href="https://space.bilibili.com/688837845?spm_id_from=333.1007.0.0" target="_blank"><img
+                  src="./images/bilibili.png" height="30px" style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <!-- <a href="https://www.zhihu.com/people/xiu-xue-chu-neng-ing" target="_blank"><img src="./images/zhihu.png"
+                  height="30px" style="margin-bottom:-3px"></a>&nbsp; -->
+              <!-- <a href="https://www.douyin.com/user/MS4wLjABAAAAiSUCGNubSJ6NEUFOgcjELRd9nTJOwPSDQAdO6-8hS_g"
+                target="_blank"><img src="./images/douyin.png" height="31px" style="margin-bottom:-4px"></a>&nbsp; -->
+              <a href="https://www.xiaohongshu.com/user/profile/65955d5e00000000220065a9" target="_blank"><img
+                  src="./images/xiaohongshu.png" height="31px" style="margin-bottom:-4px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="tooltip">
+                <a href="mailto:luohongkun0715@gmail.com" target="_blank"><img src="./images/gmail.png" height="31px"
+                    style="margin-bottom:-4px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="tooltiptext">gmail:luohongkun0715@gmail.com</span>
+              </div>
+              <div class="tooltip">
+                <a href="mailto:luohongkun@whu.edu.cn" target="_blank">
+                  <img src="./images/email.png" height="30px" style="margin-bottom:-4px">
+                </a>
+                <span class="tooltiptext">email:luohongkun@whu.edu.cn</span>
+              </div>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#" id="accessLink">
+                <img src="./images/notes.png" height="31px" style="margin-bottom:-4px">
+              </a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <script>
+                const original = "057fb2d531d1c5243dc5af5d771aedc57d9daef1395114d44302e34f65eb2d4f";
+                document.getElementById('accessLink').onclick = function (event) {
+                  event.preventDefault();
+                  const password = prompt('请输入密码:');
+                  const encryptedInput1 = generateFixedString(password);
+                  console.log(encryptedInput1);
+                  console.log(original);
+                  if (original == encryptedInput1) {
+                    window.open('mynote.html', '_blank');
+                  } else {
+                    alert('密码错误，请重试。');
+                  }
+                };
+                function generateFixedString(password) {
+                  const hashed = CryptoJS.SHA256(password).toString();
+                  return `${hashed}`;
+                }
+              </script>
+
+            </td>
+            <td>
+              <img src="https://s2.loli.net/2024/03/26/4fB1PIngoJ2ZrOa.png" border="0" width="100%">
+            </td>
+            <!-- <td>
+            <img src="https://s2.loli.net/2024/03/26/sF5MAfbgV2hPo7Y.jpg" border="0" width="150">
+          </td> -->
+            <td>
+              <img src="https://s2.loli.net/2024/05/29/nexbMdZo7hyAkp9.jpg" border="0" width="100%">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="h2_background" id="news">
+        <img src="./images/news.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
+        News
+      </h2>
+      <div style="height: 160px; overflow: auto;" class="table_background_x">
+        <!-- 这里写具体的消息 -->
+        <ul>
+          <!-- # mark 最新消息 -->
+          <li>
+            [12/2024]
+            <img src="./images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            I won the first-class scholarship for freshmen masters at Wuhan University (<a
+              href="./materials/NewStudentPrize.pdf">certificate</a>) .
+          </li>
+
+          <li>
+            [11/2024]
+            <img src="./images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            I have taken on the role of student editor for the SCI (<a
+              href="https://satellite-navigation.springeropen.com/">Satellite Navigation</a>) .
+          </li>
+          <li>
+            [10/2024]
+            <img src="./images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            Congratulations! I won the first prize of the Jiangsu Province Surveying and Mapping Geographic Information
+            Undergraduate Excellent Graduation Thesis Award.
+          </li>
+          <li>
+            [06/2024]
+            <img src="./images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            Won the title of outstanding graduate of China University of Mining and Technology.
+          </li>
+          <li>
+            [06/2024]
+            <img src="./images/biye.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            Graduated from <a href="https://www.cumt.edu.cn/">China University of Mining and Technology </a>.
+          </li>
+          <li>
+            [09/2023]
+            <img src="./images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            Received Chinese National Scholarship.Only 0.2% of Chinese undergraduates can receive this award.
+          </li>
+          <li>
+            [08/2023]
+            <img src="./images/news.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            Participated in the <a href="https://www.nju.edu.cn/">NanJing University</a> International Summer.
+            School with the theme “From the Center of the Earth to the
+            Deepest Point of the Universe”.
+          </li>
+        </ul>
+      </div>
+
+
+
+
+
+      <!-- # mark 教育经历 -->
+      <h2 class="h2_background" id="edu">
+        <img src="./images/school.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
+        Education & Visiting
+      </h2>
+      <table id="tbPublications" width="100%" align="center" class="table_background">
+        <tbody>
+          <td width="320">
+            <img src="https://s2.loli.net/2024/03/26/xjbfV2r8nkoJW1d.png" width="180px">
+          </td>
+          <td>
+            <p class="italic_school"> <a
+                href="https://www.google.com/maps/place/%E6%AD%A6%E6%B1%89%E5%A4%A7%E5%AD%A6/@30.5360485,114.3617416,17z/data=!3m1!4b1!4m6!3m5!1s0x342ea56c78f673d3:0x3a7b780f979236!8m2!3d30.5360485!4d114.3643219!16zL20vMDQxOXJm?hl=zh-cn&entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D">
+                <img src="./images/map.png" alt="Wuhan" height="16px"></a>WuHan University
+              👉<a href="https://www.zhiyuteam.com/" class="styled-link">🔗[BRAIN Lab]</a>
+            </p>
+            <p>Master of Geodesy and Surveying Engineering.</p>
+            <!-- <p>Advisor: <a href="https://cqf.io/">Prof. Qifeng Chen</a> </p> -->
+            <p>Sep. 2024 - Jun. 2027, <strong>Supv.</strong>: Prof. <a
+                href="https://jszy.whu.edu.cn/guochi/zh_CN/index.htm">Chi Guo</a>,Prof.<a
+                href="https://gnsscenter.whu.edu.cn/info/1301/1081.htm">Weiwei Song</a>
+            <p>
+            </p>
+          </td>
+          <!-- </tr> -->
+          <!--########################-->
+          <p></p>
+          <!-- </td> -->
+          <!-- <tr> -->
+          <tr>
+
+            <td width="320" width="100%">
+              <img src="https://s2.loli.net/2024/10/15/zkWyMKrSuqJdl7I.png" width="190px">
+            </td>
+
+            <td>
+              <p class="italic_school"><a
+                  href="https://www.google.com/maps/place/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6%E4%BB%99%E6%9E%97%E6%A0%A1%E5%8C%BA/@32.1153546,118.9570082,16.65z/data=!4m6!3m5!1s0x35b5e95673c6722b:0x2e5663eafb44b003!8m2!3d32.11579!4d118.95918!16s%2Fg%2F11p5v3xsx9?hl=zh-cn&entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D">
+                  <img src="./images/map.png" alt="Wuhan" height="16px"></a><b>NanJing University </b></p>
+              <p>Participate as a summer school member.</p>
+              <!-- <p>Advisor: <a href="https://scholar.google.com/citations?user=Xrh1OIUAAAAJ&hl=zh-CN">Prof.Xiu Li</a></p> -->
+              <p>Aug. 2023, <a href="https://www.nju.edu.cn/info/3341/335841.htm">[News]</a><a
+                  href="./materials/NJU_summer.jpg">[Certificate]</a>
+              <p>
+              </p>
+            </td>
+          </tr>
+          <!--########################-->
+          <p></p>
+          </td>
+          <tr>
+          <tr>
+            <td width="320" width="100%">
+              <img src="https://s2.loli.net/2024/03/26/276hpPHIFrbatLX.png" width="210px">
+            </td>
+
+            <td>
+              <p class="italic_school"><a
+                  href="https://www.google.com/maps/place/%E4%B8%AD%E5%9B%BD%E7%9F%BF%E4%B8%9A%E5%A4%A7%E5%AD%A6%E5%8D%97%E6%B9%96%E6%A0%A1%E5%8C%BA/@34.215828,117.1279366,15z/data=!4m10!1m2!2m1!1z5Lit5Zu955-_5Lia5aSn5a2m5Y2X5rmW5qCh5Yy6!3m6!1s0x35c5fe6fa0beee07:0xf570f103643f5296!8m2!3d34.215828!4d117.146991!15sCh7kuK3lm73nn7_kuJrlpKflrabljZfmuZbmoKHljLoiA4gBAZIBB2NvbGxlZ2XgAQA!16s%2Fg%2F1tg4ty3g?hl=zh-cn&entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D">
+                  <img src="./images/map.png" alt="Wuhan" height="16px"></a><b>China University of Mining and Technology
+                </b></p>
+              <p>Bachelor of Surveying and Mapping Engineering.</p>
+              <!-- <p>Advisor: <a href="https://scholar.google.com/citations?user=Xrh1OIUAAAAJ&hl=zh-CN">Prof.Xiu Li</a></p> -->
+              <p>Sep. 2020 - Jun. 2024, <strong>Supv.</strong>: Prof. <a
+                  href="https://cesi.cumt.edu.cn/info/1101/8625.htm">Zengke Li</a>, <a
+                  href="./materials/score.pdf">[Score]</a> <a href="./materials/chinese_score.pdf">[Transcript]</a>
+              <p>
+              </p>
+            </td>
+          </tr>
+
+          <!--########################-->
+
+          <!--########################-->
+
+        </tbody>
+      </table>
+
+
+
+
+      <h2 class="h2_background" id="pub">
+        <img src="./images/paper.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
+        Selected Publications
+      </h2>
+      <div class="line-text">
+        <a> <strong>Notes:</strong>First author or joint first authors are indicated using * . Corresponding
+          authors are indicated
+          using <sup>&#8224</sup>. My name is in bold.</a>
+      </div>
+      <table id="tbPublications" width="100%" align="center" class="table_background">
+
+
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <div class="border-line"></div> <!-- 自定义下边框 -->
+              <!-- 空行 -->
+              <p></p>
+              <div class="line-text">
+                <a> <strong>Notes:</strong>My preprint papers.</a>
+              </div>
+            </td>
+          </tr>
+          <td width="320">
+            <div class="pub_container">
+              <img src="https://s2.loli.net/2025/02/20/aAT4wNv56RO3CqL.png" class="pub_image">
+              <div class="pub_text-overlay">ArXiv</div>
+            </div>
+          </td>
+          <td>
+            <p class="italic" style="color: #224B8D;"><b>SuperVINS: A Real-Time Visual-Inertial SLAM Framework for
+                Challenging Imaging Conditions</b></p>
+            <p><strong>Hongkun Luo<sup>*</sup></strong> , Yang Liu , <a
+                href="https://jszy.whu.edu.cn/guochi/zh_CN/index.htm">Chi Guo</a><sup>&#8224</sup>, <a
+                href="https://cesi.cumt.edu.cn/info/1101/8625.htm"> Zengke Li </a>, <a
+                href="http://gpscenter.whu.edu.cn/ryDetail.shtml?id=20180705091739904omo4VDDYG4ccA">Weiwei Song</a> </p>
+            <p>
+              Released time:2024.7.31
+              <a>➡️</a>
+              Received time:Under Review😴
+            </p>
+            <!-- 期刊分区与影响因子 -->
+            <p class="pub">
+              IEEE Journal(submitted). <span style="color: rgba(236, 13, 13, 0.805);  font-weight: bold;">SCI,
+                Q2(IF=4.3)</span>
+            </p>
+
+            <!-- <p>
+              <img src="./images/pdf.png" height="15px"><a href="https://arxiv.org/abs/2407.21348" class="styled-link">[PDF]</a>
+              <img src="./images/github1.png" height="15px"><a href="https://github.com/luohongk/SuperVINS" class="styled-link">[Code]</a>
+              <img src="./images/web.png" height="15px"><a href="http://luohongkun.com/SuperVINS/" class="styled-link">[Pages]</a>
+            </p> -->
+
+            <p>
+              <a href="https://arxiv.org/abs/2407.21348" class="styled-link"> <img src="./images/pdf.png"
+                  height="30px"></a>
+              <a href="https://github.com/luohongk/SuperVINS" class="styled-link"><img src="./images/code.png"
+                  height="30px"></a>
+              <a href="http://luohongkun.com/SuperVINS/" class="styled-link"> <img src="./images/projectpage.png"
+                  height="30px"></a>
+            </p>
+
+          </td>
+          <p></p>
+        </tbody>
+
+
+
+        <!--########################-->
+        <!-- 第一篇文章 -->
+
+        <!-- # mark 论文 -->
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <div class="border-line"></div> <!-- 自定义下边框 -->
+              <!-- 空行 -->
+              <p></p>
+              <div class="line-text">
+                <a> <strong>Notes:</strong>My first author papers.</a>
+              </div>
+            </td>
+          </tr>
+          <td width="320">
+            <div class="pub_container">
+              <img src="https://s2.loli.net/2025/02/20/aAT4wNv56RO3CqL.png" class="pub_image">
+              <div class="pub_text-overlay">IEEE Journal(submitted)</div>
+            </div>
+          </td>
+          <td>
+            <p class="italic" style="color: #224B8D;"><b>SuperVINS: A Real-Time Visual-Inertial SLAM Framework for
+                Challenging Imaging Conditions</b></p>
+            <p><strong>Hongkun Luo<sup>*</sup></strong> , Yang Liu , <a
+                href="https://jszy.whu.edu.cn/guochi/zh_CN/index.htm">Chi Guo</a><sup>&#8224</sup>, <a
+                href="https://cesi.cumt.edu.cn/info/1101/8625.htm"> Zengke Li </a>, <a
+                href="http://gpscenter.whu.edu.cn/ryDetail.shtml?id=20180705091739904omo4VDDYG4ccA">Weiwei Song</a> </p>
+            <p>
+              Released time:2024.7.31
+              <a>➡️</a>
+              Received time:Under Review😴
+            </p>
+            <!-- 期刊分区与影响因子 -->
+            <p class="pub">
+              IEEE Journal(submitted). <span style="color: rgba(236, 13, 13, 0.805);  font-weight: bold;">SCI,
+                Q2(IF=4.3)</span>
+            </p>
+
+            <!-- <p>
+              <img src="./images/pdf.png" height="15px"><a href="https://arxiv.org/abs/2407.21348" class="styled-link">[PDF]</a>
+              <img src="./images/github1.png" height="15px"><a href="https://github.com/luohongk/SuperVINS" class="styled-link">[Code]</a>
+              <img src="./images/web.png" height="15px"><a href="http://luohongkun.com/SuperVINS/" class="styled-link">[Pages]</a>
+            </p> -->
+
+            <p>
+              <a href="https://arxiv.org/abs/2407.21348" class="styled-link"> <img src="./images/pdf.png"
+                  height="30px"></a>
+              <a href="https://github.com/luohongk/SuperVINS" class="styled-link"><img src="./images/code.png"
+                  height="30px"></a>
+              <a href="http://luohongkun.com/SuperVINS/" class="styled-link"> <img src="./images/projectpage.png"
+                  height="30px"></a>
+            </p>
+
+          </td>
+          <p></p>
+        </tbody>
+
+
+        <!--########################-->
+        <!-- 第二篇文章 -->
+        <!--########################-->
+        <!-- 第三篇文章 -->
+        <tbody class="special">
+          <td width="320">
+            <div class="pub_container">
+              <img src="https://s2.loli.net/2024/10/29/8tFUTEmZRgYNhJi.png" class="pub_image">
+              <div class="pub_text-overlay">MCM/ICM(<b>Meritorious Winner,7%</b>)</div>
+            </div>
+          </td>
+          <td>
+            <p class="italic" style="color: #224B8D;">
+              <b>
+                The Wordle Game Analysis Model
+              </b>
+            </p>
+            <p><strong>Hongkun Luo<sup>*</sup></strong>, Yuzhu Zhang , Jiale Chen</p>
+            <p>
+              Released time:2024.10.29
+              <a>➡️</a>
+              Award time:2023.5
+            </p>
+            <p class="pub">
+              <a href="https://www.comap.com/">MCM/ICM</a>, <span
+                style="color: rgba(236, 13, 13, 0.805);font-weight: bold;">International Competition</span>
+            </p>
+            <p>
+              <a href="./papers/MCM_ICM2023.pdf" class="styled-link"> <img src="./images/pdf.png" height="30px"></a>
+              <a href="./materials/2023_MCM_Problem_C.pdf" class="styled-link"><img src="./images/problem.png"
+                  height="30px"></a>
+            </p>
+          </td>
+        </tbody>
+        <!-- 空行 -->
+        <p></p>
+        <!-- 非一作的合作文章 -->
+
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <div class="border-line"></div> <!-- 自定义下边框 -->
+              <!-- 空行 -->
+              <p></p>
+              <div class="line-text">
+                <a> <strong>Notes:</strong>My co-authored papers.</a>
+              </div>
+            </td>
+          </tr>
+          <td width="320">
+            <div class="pub_container">
+              <img src="https://s2.loli.net/2024/10/29/8tFUTEmZRgYNhJi.png" class="pub_image">
+              <div class="pub_text-overlay">MCM/ICM(<b>Meritorious Winner,7%</b>)</div>
+            </div>
+          </td>
+          <td>
+            <p class="italic" style="color: #224B8D;">
+              <b>
+                The Wordle Game Analysis Model
+              </b>
+            </p>
+            <p>,Yuzhu Zhang<sup>*</sup> , <strong>Hongkun Luo</strong>, Jiale Chen</p>
+            <p>
+              Released time:2024.10.29
+              <a>➡️</a>
+              Award time:2023.5
+            </p>
+            <p class="pub">
+              <a href="https://www.comap.com/">MCM/ICM</a>, <span
+                style="color: rgba(236, 13, 13, 0.805);font-weight: bold;">International Competition</span>
+            </p>
+            <p>
+              <a href="./papers/MCM_ICM2023.pdf" class="styled-link"> <img src="./images/pdf.png" height="30px"></a>
+              <a href="./materials/2023_MCM_Problem_C.pdf" class="styled-link"><img src="./images/problem.png"
+                  height="30px"></a>
+            </p>
+          </td>
+          <p></p>
+        </tbody>
+
+        <!-- # mark 论文预备1 -->
+        <!--########################-->
+        <!-- 第三篇文章 -->
+        <!-- <tbody>
+          <td width="300">
+            <div class="pub_container">
+              <img src="https://s2.loli.net/2024/10/15/VxI9USNLGoBsaEO.png" class="pub_image">
+              <div class="pub_text-overlay">CPIPC</div>
+            </div>
+          </td>
+          <td>
+            <p class="italic" style="color: rgb(37, 131, 208);"><b>Modeling and simulation of X-ray pulsar photon
+                arrival
+                times(written in Chinese)</b></p>
+            <p><strong>Hongkun Luo<sup>*</sup></strong>, Kaichun Yang , Dan Zheng</p>
+            <p><b>Release time</b>:2024.10.3(<b>submitted</b>)</p>
+            <p>
+              <a href="./papers/huaweibei2024.pdf" class="styled-link">[PDF]</a>
+              <a href="https://github.com/luohongk/luohongk.github.io/releases/download/HuaWei2024F/F.zip"
+                class="styled-link">[Problem]</a>
+            </p>
+          </td>
+          <p></p>
+        </tbody> -->
+
+
+
+      </table>
+
+
+      <!-- # mark 实习经历 -->
+      <h2 class="h2_background" id="exp">
+        <img src="./images/company.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
+        Industrial Experience
+      </h2>
+      <table id="tbPublications" width="100%" class="table_background">
+        <tbody>
+          <p class="table_background">I currently do not have formal industrial experience, but I am actively seeking
+            research or project-based internships in private enterprises. If you have relevant suitable opportunities,
+            please send them to my gmail (luohongkun0715@gmail.com)</p>
+
+          <!-- 第一段经历 -->
+          <!--########################-->
+          <!-- </td>
+        <tr>
+        <tr>
+          <td width="306">
+            <img src="./industrial/tencent.png" width="255x" style="box-shadow: 4px 4px 8px #ffffff">
+          </td>
+          <td>
+            <p><b> Tencent AI Lab</b></p>
+            <p>May. 2022 - July. 2023, Tencent AI Lab, Visual Center, ShenZhen, China </p>
+            <p>worked with <a href="https://tianyu-yang.com/" target="_blank">Dr. Tianyu Yang</a>, <a
+                href="https://vinthony.github.io/" target="_blank">Dr. Xiaodong Cun</a> and <a
+                href="https://xinntao.github.io/" target="_blank">Dr. Xintao Wang</a> </p>
+            <em>Topic: Video Generation and Video Editing</em>
+          </td>
+        </tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr> -->
+          <!-- 第二段经历 -->
+          <!--########################-->
+          <!-- </td>
+        <tr>
+        <tr>
+        <tr>
+        <tr>
+        <tr>
+        <tr>
+          <td width="306">
+            <img src="./industrial/baidu.png" width="255px" style="box-shadow: 4px 4px 8px #ffffff">
+          </td>
+          <td>
+            <p><b> Baidu VIS</b></p>
+            <p>Jan. 2021 - July. 2021, Baidu, Visual group, ShenZhen, China </p>
+            <p>worked with Zhikang Zou </p>
+            <em>Topic: 3D Object Detection, 3D Image Understanding</em>
+          </td>
+        </tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr> -->
+          <!--########################-->
+        </tbody>
+      </table>
+
+      <!-- # mark 个人获奖 -->
+      <h2 class="h2_background" id="Awards">
+        <img src="./images/honor.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
+        Individual Awards
+      </h2>
+
+      <div class="table_background_x">
+        <p>2024.12 <strong>The First Class scholarship</strong> for Freshmen Masters at Wuhan University</p>
+        <p>2024.10 <strong>The First Prize</strong> of The Jiangsu Province Surveying and Mapping Geographic Information
+          Undergraduate
+          Excellent Graduation Thesis Award.</p>
+        <p>2022-2023 <span style="color: rgba(236, 13, 13, 0.805);"><strong>National Scholarship for Chinese
+              Undergraduate Students.</strong></span></p>
+        <p>2023 <strong>National Second Prize</strong> in Surveying and Mapping
+          Programming Group-Surveying and Mapping Skills Competition.
+        </p>
+        <p>2023 <strong>The First Prize</strong> of The National Electrotechnical Mathematical Modeling Competition for
+          College Students</p>
+        <p>2023 <strong>The First Prize</strong> of MathorCup Big Data Challenge (5%)</p>
+        <p>2023 <strong>Meritorious Winner</strong>-Mathematical Contest in Modeling/Interdisciplinary Contest in
+          Modeling</p>
+        <p>2021-2022 <strong>First Class</strong> Academic Scholarship in China University of Mining and Technology</p>
+        <p>2020-2021 <strong>First Class</strong> Academic Scholarship in China University of Mining and Technology</p>
+      </div>
+      <div class="body_awards">
+        <div class="carousel-container">
+          <div class="carousel" id="carousel">
+            <img src="./AwardsImages/nation.jpg" alt="国家奖学金">
+            <img src="./AwardsImages/ICM.png" alt="国际大学生数学建模竞赛">
+            <img src="./AwardsImages/cehui.png" alt="测绘程序设计竞赛">
+            <img src="./AwardsImages/diangong.png" alt="“电工杯”全国大学生数学建模大赛">
+            <img src="./AwardsImages/mathorcup.jpg" alt="mathorcup大数据挑战赛">
+            <img src="./AwardsImages/WHU_fresh_man_prize.png" alt="武汉大学硕士新生一等奖学金">
+            <!-- 重复部分以实现无缝滚动 -->
+            <img src="./AwardsImages/nation.jpg" alt="国家奖学金">
+            <img src="./AwardsImages/ICM.png" alt="国际大学生数学建模竞赛">
+            <img src="./AwardsImages/cehui.png" alt="测绘程序设计竞赛">
+            <img src="./AwardsImages/diangong.png" alt="“电工杯”全国大学生数学建模大赛">
+            <img src="./AwardsImages/mathorcup.jpg" alt="mathorcup大数据挑战赛">
+            <img src="./AwardsImages/WHU_fresh_man_prize.png" alt="武汉大学硕士新生一等奖学金">
+          </div>
+        </div>
+      </div>
+
+      <div class="gray-line">
+        <span class="star">★</span> <!-- 星星 -->
+      </div>
+      <br>
+      <div style="display:inline-block;width:350px;color:gray;">
+        Copyright @ <span id="current-year"></span> Hongkun Luo. All rights reserved.
+      </div>
+      <script>
+        // 获取当前年份并显示在页面上
+        const currentYear = new Date().getFullYear();
+        document.getElementById('current-year').textContent = currentYear;
+      </script>
+      <div class="container" style="text-align: center;">
+        <div style="display:inline-block;width:500px; background-color:#F1F5F6;">
+          <script type="text/javascript" id="clustrmaps"
+            src="//cdn.clustrmaps.com/map_v2.js?cl=2755B4&w=a&t=tt&d=tjJ3FzKgxh3wSIKpnvDrCjF_LsczkU5wBqYjxyYZFyM&co=f1f5f6&ct=000033&cmn=E93839&cmo=00C5BE"></script>
+        </div>
+        <!-- <div style="display:inline-block;width:350px; background-color:#F1F5F6;">
+          <script type="text/javascript"
+            src="//rf.revolvermaps.com/0/0/1.js?i=55ov3aajk6c&amp;s=220&amp;m=0&amp;v=true&amp;r=false&amp;b=F1F5F6&amp;n=false&amp;c=ff0000"
+            async="async">
+            </script>
+        </div> -->
+        <!-- <div>
+          <script type="text/javascript"
+            src="//rf.revolvermaps.com/0/0/0.js?i=5twggxfwagg&amp;d=3&amp;p=0&amp;b=0&amp;w=293&amp;g=2&amp;f=times_new_roman&amp;fs=14&amp;r=0&amp;c0=362b05&amp;c1=375363&amp;c2=000000&amp;ic0=0&amp;ic1=0"
+            async="async">
+            </script>
+        </div> -->
+      </div>
+      <div class="gray-line">
+        <span class="star">💗</span> <!-- 星星 -->
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

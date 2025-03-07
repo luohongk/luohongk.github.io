@@ -1,0 +1,372 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 0;
+  bottom: 125%; /* Position above the tooltip */
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition:
+    visibility 0s 0.5s,
+    opacity 0.5s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s; /* Reset delay on hover */
+}
+
+/* 延迟显示 */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.styled-link {
+  color: #00a6ed;
+  font-weight: bold;
+  margin-right: 20px; /* 添加右边距 */
+}
+
+/* 去掉最后一个链接的右边距 */
+.styled-link:last-child {
+  margin-right: 0;
+}
+
+.italic {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold; /* 加粗 */
+  font-size: 16px; /* 加大字号，调整为你需要的大小 */
+}
+
+.italic_school {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold; /* 加粗 */
+  font-size: 16px; /* 加大字号，调整为你需要的大小 */
+}
+
+.introduction {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.5;
+  /* border-bottom: 3px dashed #d72f2f;
+  color: #333;
+  display: inline-block; */
+}
+
+.introduction_connect {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #e93839;
+  /* 行间距 */
+  line-height: 1.5;
+}
+
+.introduction_highlight {
+  color: #00a6ed;
+  /* 加入下划线，红色虚线 */
+  border-bottom: 3px dashed #e93839;
+  /* 加粗 */
+  font-weight: bold;
+}
+.table_background {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(19, 160, 207, 0.1);
+}
+
+.note_background {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(218, 210, 53, 0.1);
+}
+
+.table_background_x {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(19, 160, 207, 0.1);
+  /* height: 120px; */
+  overflow-x: auto; /* 允许水平滚动 */
+  white-space: nowrap; /* 防止换行，保持内容在一行 */
+  /* 设置字体 */
+  font-family: "Times New Roman", Times, serif;
+  /* 设置为倾斜 */
+  font-style: italic;
+}
+
+.h2_background {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(0, 166, 237, 0.2); /* Adjust the last value for transparency */
+  padding-top: 8px;
+}
+.button_container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr) auto; /* 前 5 列为相等宽度，第 6 列自动 */
+  gap: 10px; /* 列之间的间距 */
+  width: 90%; /* 宽度 */
+  margin: auto; /* 居中 */
+  height: 100%; /* 高度 */
+  position: relative; /* 或使用 absolute，根据需要 */
+  z-index: 4; /* 确保按钮在最顶层 */
+}
+
+.button_container .button:last-child {
+  margin-right: 0; /* 取消最右边按钮的右边距 */
+}
+
+/* 指定的 tbody */
+tbody.special {
+  position: relative; /* 使子元素绝对定位 */
+}
+        /* 下边框样式 */
+.border-line {
+          position: relative; /* 使子元素绝对定位 */
+          width: 28%; /* 设置宽度为 28% */
+          height: 3px; /* 线条高度 */
+          background: linear-gradient(to right, 
+              transparent 0%, /* 左侧透明 */
+              gray 20%, /* 左侧细 */
+              gray 50%, /* 中间粗 */
+              gray 80%, /* 右侧细 */
+              transparent 100%); /* 右侧透明 */
+          margin-left: 0; /* 靠左 */
+          margin-top: 5px; /* 上方间距 */
+          border-radius: 3px; /* 圆角效果 */
+      }
+
+
+      .line-text {
+        text-align: left; /* 文字靠左 */
+        margin-top: 5px; /* 与线段的间距 */
+        font-weight: bold; /* 加粗文字 */
+        /* 倾斜 */
+        font-style: italic;
+        /* 设置字体 */
+        font-family: "Georgia", "Times New Roman", Times, serif;
+        font-size: 70%
+    }
+
+.button {
+  /* background-color: rgba(249, 253, 245, 0.913);
+  padding: 0px;
+  color: #527bbd; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-family:   "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold; 
+  font-size: 18px; 
+  transition: box-shadow 0.3s, transform 0.2s; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  z-index: 3;
+  height: 100%; */
+  display: inline-block;
+  /* padding: 15px 25px; */
+  /* font-size: 24px; */
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgba(11, 62, 171, 0.865);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  position: relative; /* 或 absolute */
+  z-index: 100;
+  height: 80%;
+  text-align: center;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+  transition:
+    box-shadow 0.3s,
+    transform 0.2s;
+}
+
+.button:focus {
+  outline: none; /* 去掉焦点样式 */
+}
+.clicked {
+  transform: scale(0.95);
+  background-color: #0056b3;
+  transition:
+    transform 0.1s,
+    background-color 0.3s;
+}
+.button:hover {
+  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(76, 91, 206, 0.5);  */
+  background-color: rgba(229, 236, 235, 0.939);
+  color: #280802b8; /* 鼠标悬停时文本变为金色 */
+  transform: scale(1.02);
+  /* box-shadow: 0 0 20px rgba(76, 91, 206, 0.5); */
+}
+
+.button:active {
+  background-color: #2755b4;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+ul {
+  list-style-type: none; /* 去掉默认样式 */
+  padding: 0; /* 去掉内边距 */
+}
+li::before {
+  content: "➔"; /* 使用箭头符号 */
+  color: black; /* 箭头颜色 */
+  margin-right: 5px; /* 箭头与文本之间的间距 */
+}
+
+.body_awards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  overflow: hidden; /* 隐藏溢出内容 */
+}
+.carousel-container {
+  overflow: hidden; /* 隐藏溢出部分 */
+  width: 100%; /* 设置容器宽度 */
+  position: relative;
+}
+.carousel {
+  display: flex; /* 使用弹性布局 */
+  animation: scroll 20s linear infinite; /* 启动滚动动画 */
+}
+.carousel img {
+  width: 150px; /* 设置图片宽度 */
+  height: 150px; /* 设置图片高度 */
+  margin: 0 5px; /* 添加一些外边距 */
+  border-radius: 15px; /* 可选：添加圆角 */
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.pub_container {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+.pub_image {
+  width: 250px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  border: 5px solid transparent;
+  border-radius: 5px;
+}
+.pub_text-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  background-color: #00369f;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold; /* 加粗 */
+}
+
+.gray-line {
+  position: relative;
+  margin: 50px 0; /* 设置上下的间距 */
+}
+.gray-line::before,
+.gray-line::after {
+  content: "";
+  display: inline-block;
+  width: 48%; /* 左右线段的宽度 */
+  height: 2px; /* 横线的粗细 */
+  background-color: rgba(128, 128, 128, 0.5); /* 设置透明的灰色 */
+  position: absolute;
+  top: 50%; /* 横线垂直居中 */
+}
+.gray-line::before {
+  left: 0; /* 左侧线段 */
+}
+.gray-line::after {
+  right: 0; /* 右侧线段 */
+}
+.star {
+  position: absolute;
+  top: 50%; /* 星星垂直居中 */
+  left: 50%; /* 星星水平居中 */
+  transform: translate(-50%, -50%); /* 精确居中 */
+  font-size: 24px; /* 星星大小 */
+  color: gray; /* 星星颜色 */
+}
+
+.spacer {
+  margin-top: 10px; /* 设置空行的高度 */
+}
+introduction_highlight
+/*  "Georgia", "Times New Roman", Times, serif;
+ "Georgia", "Times New Roman", Times, serif;
+"Helvetica", "Georgia", "Times New Roman", Times, serif; */
+/* 期刊样式 */
+.pub {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold; /* 加粗 */
+  font-size: 16px; /* 加大字号，调整为你需要的大小 */
+}
+
+.navbar {
+  position: fixed; /* 使横栏固定在页面顶部 */
+  top: 0;
+  left: 0;
+  width: 100%; /* 横栏宽度 */
+  height: 65px; /* 设置横栏高度 */
+  background-color: #daecf2; /* 背景颜色 */
+  padding: 0px; /* 内边距 */
+  text-align: center; /* 文本居中 */
+  z-index: 10;
+  align-items: center; /* 垂直居中 */
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* 添加下边框 */
+  border-bottom: 6px double #2755b4; /* 边框宽度和颜色 */
+}
+.content {
+  padding-top: 0px; /* 为了让内容不被横栏遮挡，增加上边距 */
+}
+
+p {
+  /* 设置字体为"Times New Roman" */
+  font-family: "Times New Roman", Times, serif;
+  /* 设置字体样式为斜体 */
+  font-style: italic;
+  /* 设置字号 */
+  font-size: 14px;
+}
