@@ -139,7 +139,7 @@ tbody.special {
 .border-line {
           position: relative; /* 使子元素绝对定位 */
           width: 28%; /* 设置宽度为 28% */
-          height: 6px; /* 线条高度 */
+          height: 3px; /* 线条高度 */
           background: linear-gradient(to right, 
               transparent 0%, /* 左侧透明 */
               gray 20%, /* 左侧细 */
