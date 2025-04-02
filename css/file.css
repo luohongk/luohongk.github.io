@@ -85,6 +85,14 @@
   /* 加粗 */
   font-weight: bold;
 }
+
+/* 没有下划线 */
+.introduction_highlight_no_underline {
+  color: #00a6ed;
+  /* 加粗 */
+  font-weight: bold;
+}
+
 .table_background {
   width: 100%;
   border-collapse: collapse;
