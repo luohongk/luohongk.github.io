@@ -58,6 +58,9 @@
   font-weight: bold; /* 加粗 */
   font-size: 16px; /* 加大字号，调整为你需要的大小 */
 }
+.italic_school img {
+  vertical-align: middle; /* 使图像垂直居中 */
+}
 
 .introduction {
   font-family: "Georgia", "Times New Roman", Times, serif;
