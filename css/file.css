@@ -72,6 +72,10 @@
   display: inline-block; */
 }
 
+.introduction img {
+  vertical-align: middle; /* 使图像垂直居中 */
+}
+
 .introduction_connect {
   font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
