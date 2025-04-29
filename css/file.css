@@ -133,7 +133,7 @@
 }
 .button_container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr) auto; /* 前 5 列为相等宽度，第 6 列自动 */
+  grid-template-columns: repeat(7, 1fr) auto; /* 前 5 列为相等宽度，第 6 列自动 */
   gap: 10px; /* 列之间的间距 */
   width: 90%; /* 宽度 */
   margin: auto; /* 居中 */
