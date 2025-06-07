@@ -166,6 +166,7 @@
       overflow-y: auto;
       padding: 10px;
       text-align: center;
+      counter-reset: note-counter;
     }
 
     .column-content img {
@@ -181,6 +182,25 @@
       /* 悬停放大 */
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       /* 添加阴影 */
+    }
+
+    .column-content p {
+      counter-increment: note-counter;
+      position: relative;
+      padding-left: 2em;
+      /* 控制数字与内容之间的距离 */
+      margin: 0.5em 0;
+    }
+
+    .column-content p::before {
+      content: counter(note-counter) ".";
+      position: absolute;
+      left: 0;
+      width: 0em;
+      /* <-- 修改为2em，给数字留足空间 */
+      text-align: right;
+      display: inline-block;
+      font-weight: bold;
     }
 
     .life-grid {
@@ -284,6 +304,7 @@
       /* 控制在容器宽度范围内 */
       margin: 10px 0;
       padding: 6px;
+      padding-left: 12px;
       background: #fff;
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -351,18 +372,15 @@
           <h4>Notes (个人笔记)</h4>
         </div>
         <div class="column-content vertical-scroll">
-          <p><a href="docs/kalman.pdf" target="_blank">1. Kalman Filter 原理复习</a></p>
-          <p><a href="docs/sensor_fusion.pdf" target="_blank">2. 多传感器融合在跟踪系统中的应用</a></p>
-          <p><a href="docs/pyramid.pdf" target="_blank">3. 图像金字塔在目标检测中的使用</a></p>
-          <p><a href="docs/deep_sort.pdf" target="_blank">4. 论文阅读：《Deep SORT》</a></p>
-          <p><a href="docs/kalman.pdf" target="_blank">1. Kalman Filter 原理复习</a></p>
-          <p><a href="docs/sensor_fusion.pdf" target="_blank">2. 多传感器融合在跟踪系统中的应用</a></p>
-          <p><a href="docs/pyramid.pdf" target="_blank">3. 图像金字塔在目标检测中的使用</a></p>
-          <p><a href="docs/deep_sort.pdf" target="_blank">4. 论文阅读：《Deep SORT》</a></p>
-          <p><a href="docs/kalman.pdf" target="_blank">1. Kalman Filter 原理复习</a></p>
-          <p><a href="docs/sensor_fusion.pdf" target="_blank">2. 多传感器融合在跟踪系统中的应用</a></p>
-          <p><a href="docs/pyramid.pdf" target="_blank">3. 图像金字塔在目标检测中的使用</a></p>
-          <p><a href="docs/deep_sort.pdf" target="_blank">4. 论文阅读：《Deep SORT》</a></p>
+          <p><img src="images/xiaohongshu.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://www.xiaohongshu.com/explore/683c4829000000002300ead1?xsec_token=ABxholb0MV8Ws2kKM1sNgaVlWOQwvB3UB_7vwthfh-E18=&xsec_source=pc_user" target="_blank">2025测绘程序设计竞赛解读(下)</a></p>
+          <p><img src="images/xiaohongshu.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://www.xiaohongshu.com/explore/6809cc24000000001c02df2d?xsec_token=ABG5rV8VGJCyDJTCgLU9GIk-A_8bEJZ4Mk4ur5G7WbAZQ=&xsec_source=pc_user" target="_blank">2025测绘程序设计竞赛解读(上)</a></p>
+          <p><img src="images/xiaohongshu.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://www.xiaohongshu.com/explore/680b989b000000001c033319?xsec_token=ABZgjfqoF-AhEIxLMY2AP6H_K378tu13k9eb7C4UrcfgM=&xsec_source=pc_user" target="_blank">CVPR 2025 NVM简易解读(导航世界模型)</a></p>
+          <p><img src="images/xiaohongshu.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://www.xiaohongshu.com/explore/66f58717000000001902e2c2?xsec_token=ABP9IpeOzl4KoB4GkD8-nioBcbMRysM7KcN-igUFRBNWg=&xsec_source=pc_user" target="_blank">数模美赛一等奖(M奖)经验分享</a></p>
+          <p><img src="images/csdn.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://blog.csdn.net/qq_56883085/article/details/138142422?spm=1001.2014.3001.5501" target="_blank">卡尔曼滤波器的python小案例实现</a></p>
+          <p><img src="images/csdn.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://blog.csdn.net/qq_56883085/article/details/138348856?spm=1001.2014.3001.5501" target="_blank">VINS-Fusion中测量线程分析</a></p>
+          <p><img src="images/csdn.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://blog.csdn.net/qq_56883085/article/details/138228432?spm=1001.2014.3001.5501" target="_blank">VINS-Fusion的sync_process线程分析</a></p>
+          <p><img src="images/csdn.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://blog.csdn.net/qq_56883085/article/details/138421536?spm=1001.2014.3001.5501" target="_blank">机器学习之逻辑回归</a></p>
+          <p><img src="images/pdf1.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="note/高斯牛顿法实现曲线拟合.pdf" target="_blank">高斯牛顿法实现曲线拟合</a></p>
         </div>
       </div>
 
@@ -382,13 +400,6 @@
           <img src="life/wugong_me1.png" />
           <img src="life/biye.png" />
           <img src="life/rongyu.png" />
-          <!-- <img src="assets/life8.png" />
-    <img src="assets/life9.png" />
-    <img src="assets/life10.png" />
-    <img src="assets/life11.png" />
-    <img src="assets/life12.png" /> -->
-          <!-- 共12张图，4行，每行4张 -->
-          <!-- 可以继续添加更多图像 -->
         </div>
       </div>
 
