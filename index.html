@@ -17,7 +17,7 @@
         url('fonts/fontin_sans_r_45b-webfont.svg') format('svg');
     }
 
-    body {
+    body,html{
       background-image: url("background/WHU.png");
       background-repeat: no-repeat;
       background-size: cover;
@@ -29,6 +29,26 @@
       overflow: auto;
       height: 100%;
     }
+
+    @media (max-width: 600px) {
+  #bcard {
+    width: 95vw;
+    margin: 20px auto;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .bottom-row {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
 
     /* 设置标题字体为更好看的 serif 字体 */
     h1,
@@ -59,44 +79,31 @@
     }
 
     #bcard {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -450px;
-      margin-top: -250px;
-      width: 900px;
-      height: 500px;
-      background-image: url("background/bcard.jpg");
-      background-size: cover;
-      opacity: 0.90;
-      display: flex;
-      flex-direction: column;
-      border-radius: 12px;
-
-      /* 立体感：多层阴影模拟厚度 */
-      box-shadow:
-        0 10px 0 rgba(0, 0, 0, 0.1),
-        /* 模拟底边 */
-        0 8px 10px rgba(0, 0, 0, 0.3),
-        /* 主投影 */
-        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-        /* 上边高光 */
-        inset 0 -2px 4px rgba(0, 0, 0, 0.1);
-      /* 内阴影底边 */
-
+    position: relative; /* 去掉 absolute */
+  max-width: 900px;
+  width: 90vw; /* 宽度根据视口宽度缩放，最大不超过900px */
+  height: auto; /* 高度自适应内容 */
+  margin: 40px auto; /* 上下留点距离，左右自动居中 */
+  background-image: url("background/bcard.jpg");
+  background-size: cover;
+  opacity: 0.90;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 0 rgba(0, 0, 0, 0.1),
+    0 8px 10px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(4px);
     }
 
     #bcard::after {
-      content: "";
-      position: absolute;
-      top: 8px;
-      /* 垂直偏移模拟厚度 */
-      left: 8px;
-      /* 横向偏移模拟厚度 */
-      width: 100%;
-      height: 100%;
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
       background-color: rgba(0, 0, 0, 0.05);
       /* 暗色模拟底部 */
       border-radius: 12px;
