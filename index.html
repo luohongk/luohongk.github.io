@@ -7,6 +7,14 @@
   <title>⭐Hongkun Luo (罗宏昆)⭐</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400&display=swap"
     rel="stylesheet">
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const yearSpan = document.getElementById("current-year");
+    yearSpan.textContent = new Date().getFullYear();
+  });
+</script>
+
   <style type="text/css">
     @font-face {
       font-family: 'FontinSans';
@@ -123,7 +131,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
+      padding: 14px;
     }
 
     .top-content {
@@ -334,24 +342,44 @@
       line-height: 1.5;
       text-align: left;
     }
+
+    .top-left-note {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  font-size: 14px;
+  color: gray;
+  font-style: italic;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+}
+
   </style>
 </head>
 
 <body>
   <div id="bcard">
-    <div class="top-row">
-      <div class="top-content">
-        <div class="top-header-flex">
-          <h1>⭐Hongkun Luo(罗宏昆)⭐</h1>
-          <a href="https://www.cumt.edu.cn/" target="_blank">
-            <img src="education/CUMT.png" class="header-icon" />
-          </a>
-          <a href="https://www.whu.edu.cn/" target="_blank">
-            <img src="education/WHU.png" class="header-icon" />
-          </a>
-        </div>
-      </div>
+<div class="top-row" style="position: relative;">
+  <div class="top-content">
+    <div class="top-header-flex">
+      <h1>⭐Hongkun Luo(罗宏昆)⭐</h1>
+      <a href="https://www.cumt.edu.cn/" target="_blank">
+        <img src="education/CUMT.png" class="header-icon" />
+      </a>
+      <a href="https://www.whu.edu.cn/" target="_blank">
+        <img src="education/WHU.png" class="header-icon" />
+      </a>
+       <a href="https://www.whu.edu.cn/" target="_blank">
+        <img src="images/github.png" class="header-icon" />
+      </a>
     </div>
+  </div>
+
+  <!-- 灰色小字，年份动态生成 -->
+  <div class="top-left-note">
+    Copyright © <span id="current-year"></span> Hongkun Luo. All rights reserved.
+  </div>
+</div>
+
 
     <div class="bottom-row">
       <div class="column">
