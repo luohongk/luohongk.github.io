@@ -3,7 +3,7 @@
 
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpg" />
-  <meta name="viewport" content="width=1200, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>⭐Hongkun Luo (罗宏昆)⭐</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400&display=swap"
     rel="stylesheet">
@@ -39,26 +39,6 @@
       height: 100%;
     }
 
-    @media (max-width: 600px) {
-      #bcard {
-        width: 95vw;
-        margin: 20px auto;
-        height: auto;
-        flex-direction: column;
-      }
-
-      .bottom-row {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .column {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-    }
-
-
     /* 设置标题字体为更好看的 serif 字体 */
     h1,
     h2,
@@ -89,14 +69,10 @@
 
     #bcard {
       position: relative;
-      /* 去掉 absolute */
       max-width: 1200px;
-      width: 120vw;
-      /* 宽度根据视口宽度缩放，最大不超过900px */
+      width: 90vw;
       height: auto;
-      /* 高度自适应内容 */
-      margin: 200px auto;
-      /* 上下留点距离，左右自动居中 */
+      margin: 20px auto;
       background-image: url("background/bcard.jpg");
       background-size: cover;
       opacity: 0.80;
@@ -127,7 +103,7 @@
 
     /* 顶部占20% */
     .top-row {
-      height: 20%;
+      height: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -139,11 +115,10 @@
     }
 
     .bottom-row {
-      height: 80%;
+      height: auto;
       display: flex;
       justify-content: space-around;
       align-items: stretch;
-      /* 让所有列高度一致 */
       padding: 10px;
     }
 
@@ -156,6 +131,7 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      margin-bottom: 15px;
     }
 
     /* 固定头部，高度不变 */
@@ -280,6 +256,7 @@
       /* 垂直居中 h1 和图片 */
       gap: 12px;
       /* 控制间距 */
+      flex-wrap: wrap;
     }
 
     .header-icon {
@@ -344,15 +321,60 @@
     }
 
     .top-left-note {
-  position: absolute;
-  top: 0px;
-  left: 10px;
-  font-size: 14px;
-  color: gray;
-  font-style: italic;
-  font-family: "Georgia", "Times New Roman", Times, serif;
-}
+      position: absolute;
+      top: 0px;
+      left: 10px;
+      font-size: 14px;
+      color: gray;
+      font-style: italic;
+      font-family: "Georgia", "Times New Roman", Times, serif;
+    }
 
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      body, html {
+        font-size: 16px;
+      }
+      
+      #bcard {
+        width: 95%;
+        margin: 10px auto;
+      }
+      
+      .top-header-flex {
+        justify-content: center;
+      }
+      
+      h1 {
+        font-size: 28px;
+        text-align: center;
+      }
+      
+      .bottom-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .column {
+        width: 95%;
+        margin-bottom: 20px;
+      }
+      
+      .vertical-scroll {
+        max-height: 300px;
+      }
+      
+      .life-grid img {
+        width: 45%;
+      }
+      
+      .top-left-note {
+        position: relative;
+        text-align: center;
+        left: 0;
+        margin-top: 10px;
+      }
+    }
   </style>
 </head>
 
