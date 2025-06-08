@@ -9,11 +9,11 @@
     rel="stylesheet">
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const yearSpan = document.getElementById("current-year");
-    yearSpan.textContent = new Date().getFullYear();
-  });
-</script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const yearSpan = document.getElementById("current-year");
+      yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
 
   <style type="text/css">
     @font-face {
@@ -206,8 +206,7 @@
     h1 {
       margin-top: 0px;
       margin-bottom: 0;
-      font-weight: lighter;
-      font-size: 39px;
+      font-size: 20px;
       letter-spacing: -1.4px;
       font-style: italic;
     }
@@ -217,7 +216,8 @@
     h4 {
       margin: 0;
       font-style: italic;
-      font-weight: bold; /* 添加加粗效果 */
+      font-weight: bold;
+      /* 添加加粗效果 */
     }
 
     h2 {
@@ -320,59 +320,54 @@
       text-align: left;
     }
 
-    .top-left-note {
-      position: absolute;
-      top: 0px;
-      left: 10px;
-      font-size: 14px;
-      color: gray;
-      font-style: italic;
-      font-family: "Georgia", "Times New Roman", Times, serif;
-    }
-
     /* 移动端适配 */
     @media (max-width: 768px) {
-      body, html {
+
+      body,
+      html {
         font-size: 16px;
       }
-      
+
       #bcard {
         width: 95%;
         margin: 10px auto;
       }
-      
+
       .top-header-flex {
         justify-content: center;
       }
-      
+
       h1 {
         font-size: 28px;
         text-align: center;
       }
-      
+
       .bottom-row {
         flex-direction: column;
         align-items: center;
       }
-      
+
       .column {
         width: 95%;
         margin-bottom: 20px;
       }
-      
+
       .vertical-scroll {
         max-height: 300px;
       }
-      
+
       .life-grid img {
         width: 45%;
       }
-      
-      .top-left-note {
-        position: relative;
-        text-align: center;
-        left: 0;
-        margin-top: 10px;
+
+      .map-row {
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+      }
+
+      .map-row .column-header h4 {
+        margin-bottom: 10px;
       }
     }
   </style>
@@ -380,30 +375,70 @@
 
 <body>
   <div id="bcard">
-<div class="top-row" style="position: relative;">
-  <div class="top-content">
-    <div class="top-header-flex">
-      <h1>⭐Hongkun Luo(罗宏昆)⭐</h1>
-      <a href="https://www.cumt.edu.cn/" target="_blank">
-        <img src="education/CUMT.png" class="header-icon" />
-      </a>
-      <a href="https://www.whu.edu.cn/" target="_blank">
-        <img src="education/WHU.png" class="header-icon" />
-      </a>
-       <a href="https://github.com/luohongk" target="_blank">
-        <img src="images/github.png" class="header-icon" />
-      </a>
-    </div>
-  </div>
+    <div class="top-row" style="position: relative;">
+      <div class="top-content">
+        <div class="top-header-flex">
+          <h1>⭐Hongkun Luo(罗宏昆)⭐</h1>
+          <a href="https://www.cumt.edu.cn/" target="_blank">
+            <img src="education/CUMT.png" class="header-icon" />
+          </a>
+          <a href="https://www.whu.edu.cn/" target="_blank">
+            <img src="education/WHU.png" class="header-icon" />
+          </a>
+          <a href="https://github.com/luohongk" target="_blank">
+            <img src="images/github.png" class="header-icon" />
+          </a>
+        </div>
+      </div>
 
-  <!-- 灰色小字，年份动态生成 -->
-  <div class="top-left-note">
-    Copyright © <span id="current-year"></span> Hongkun Luo. All rights reserved.
-  </div>
-</div>
+    </div>
 
 
     <div class="bottom-row">
+
+      <div class="column">
+        <div class="column-header">
+          <h4>📓Notes (个人笔记)</h4>
+        </div>
+        <div class="column-content vertical-scroll">
+          <p><img src="images/xiaohongshu.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="https://www.xiaohongshu.com/explore/683c4829000000002300ead1?xsec_token=ABxholb0MV8Ws2kKM1sNgaVlWOQwvB3UB_7vwthfh-E18=&xsec_source=pc_user"
+              target="_blank">2025测绘程序设计竞赛解读(下)</a></p>
+          <p><img src="images/xiaohongshu.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="https://www.xiaohongshu.com/explore/6809cc24000000001c02df2d?xsec_token=ABG5rV8VGJCyDJTCgLU9GIk-A_8bEJZ4Mk4ur5G7WbAZQ=&xsec_source=pc_user"
+              target="_blank">2025测绘程序设计竞赛解读(上)</a></p>
+          <p><img src="images/xiaohongshu.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="https://www.xiaohongshu.com/explore/680b989b000000001c033319?xsec_token=ABZgjfqoF-AhEIxLMY2AP6H_K378tu13k9eb7C4UrcfgM=&xsec_source=pc_user"
+              target="_blank">CVPR 2025 NVM简易解读(导航世界模型)</a></p>
+          <p><img src="images/xiaohongshu.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="https://www.xiaohongshu.com/explore/66f58717000000001902e2c2?xsec_token=ABP9IpeOzl4KoB4GkD8-nioBcbMRysM7KcN-igUFRBNWg=&xsec_source=pc_user"
+              target="_blank">数模美赛一等奖(M奖)经验分享</a></p>
+          <p><img src="images/csdn.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="https://blog.csdn.net/qq_56883085/article/details/138142422?spm=1001.2014.3001.5501"
+              target="_blank">卡尔曼滤波器的python小案例实现</a></p>
+          <p><img src="images/csdn.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="https://blog.csdn.net/qq_56883085/article/details/138348856?spm=1001.2014.3001.5501"
+              target="_blank">VINS-Fusion中测量线程分析</a></p>
+          <p><img src="images/csdn.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="https://blog.csdn.net/qq_56883085/article/details/138228432?spm=1001.2014.3001.5501"
+              target="_blank">VINS-Fusion的sync_process线程分析</a></p>
+          <p><img src="images/csdn.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="https://blog.csdn.net/qq_56883085/article/details/138421536?spm=1001.2014.3001.5501"
+              target="_blank">机器学习之逻辑回归</a></p>
+          <p><img src="images/pdf1.png" alt="icon"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
+              href="note/高斯牛顿法实现曲线拟合.pdf" target="_blank">高斯牛顿法实现曲线拟合</a></p>
+        </div>
+      </div>
+
       <div class="column">
         <div class="column-header">
           <a href="/lhk" target="_blank">
@@ -418,22 +453,7 @@
       </div>
 
 
-      <div class="column">
-        <div class="column-header">
-          <h4>📓Notes (个人笔记)</h4>
-        </div>
-        <div class="column-content vertical-scroll">
-          <p><img src="images/xiaohongshu.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://www.xiaohongshu.com/explore/683c4829000000002300ead1?xsec_token=ABxholb0MV8Ws2kKM1sNgaVlWOQwvB3UB_7vwthfh-E18=&xsec_source=pc_user" target="_blank">2025测绘程序设计竞赛解读(下)</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://www.xiaohongshu.com/explore/6809cc24000000001c02df2d?xsec_token=ABG5rV8VGJCyDJTCgLU9GIk-A_8bEJZ4Mk4ur5G7WbAZQ=&xsec_source=pc_user" target="_blank">2025测绘程序设计竞赛解读(上)</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://www.xiaohongshu.com/explore/680b989b000000001c033319?xsec_token=ABZgjfqoF-AhEIxLMY2AP6H_K378tu13k9eb7C4UrcfgM=&xsec_source=pc_user" target="_blank">CVPR 2025 NVM简易解读(导航世界模型)</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://www.xiaohongshu.com/explore/66f58717000000001902e2c2?xsec_token=ABP9IpeOzl4KoB4GkD8-nioBcbMRysM7KcN-igUFRBNWg=&xsec_source=pc_user" target="_blank">数模美赛一等奖(M奖)经验分享</a></p>
-          <p><img src="images/csdn.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://blog.csdn.net/qq_56883085/article/details/138142422?spm=1001.2014.3001.5501" target="_blank">卡尔曼滤波器的python小案例实现</a></p>
-          <p><img src="images/csdn.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://blog.csdn.net/qq_56883085/article/details/138348856?spm=1001.2014.3001.5501" target="_blank">VINS-Fusion中测量线程分析</a></p>
-          <p><img src="images/csdn.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://blog.csdn.net/qq_56883085/article/details/138228432?spm=1001.2014.3001.5501" target="_blank">VINS-Fusion的sync_process线程分析</a></p>
-          <p><img src="images/csdn.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="https://blog.csdn.net/qq_56883085/article/details/138421536?spm=1001.2014.3001.5501" target="_blank">机器学习之逻辑回归</a></p>
-          <p><img src="images/pdf1.png" alt="icon"style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;" ><a href="note/高斯牛顿法实现曲线拟合.pdf" target="_blank">高斯牛顿法实现曲线拟合</a></p>
-        </div>
-      </div>
+
 
 
       <!-- 第三列：生活照片 -->
@@ -456,6 +476,41 @@
 
     </div>
 
+    <!-- 地图插入在这里 -->
+    <div class="map-row" style="margin-top: 10px;">
+      <div class="column-header">
+        <h4>🗺️Visitor Map (访客地图)</h4>
+      </div>
+      <div class="column-content" style="text-align: center; position: relative;">
+
+        <!-- ✅ 相对于 .column-content 左上角定位 -->
+        <div style="
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 12px;
+    color: gray;
+    font-style: italic;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;">
+          Copyright © <span id="current-year"></span> Hongkun Luo. All rights reserved.
+        </div>
+
+        <div style="
+    display: inline-block;
+    width: 300px;
+    background-color: #F1F5F6;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;">
+
+          <script type="text/javascript" id="clustrmaps"
+            src="//clustrmaps.com/map_v2.js?d=oEhAn4y-Du0QKgIzDN4N9xO-uh1PCEigkroDd6pf5TI&cl=2755B4&t=tt&w=a&co=f1f5f6&ct=000033&cmn=E93839&cmo=00C5BE">
+            </script>
+        </div>
+
+      </div>
+    </div>
 
   </div>
   </div>
