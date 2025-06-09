@@ -26,7 +26,7 @@
     h2,
     h3,
     h4 {
-      font-family: 'Playfair Display', serif;
+      font-family:"Times New Roman", Times, serif;
       font-weight: 600;
     }
 
@@ -57,7 +57,7 @@
       margin: 20px auto;
       background-image: url("../background/bcard.jpg");
       background-size: cover;
-      opacity: 0.80;
+      opacity: 0.8;
       display: flex;
       flex-direction: column;
       border-radius: 12px;
@@ -86,12 +86,12 @@
       color: red;
       margin-top: 2px;
       margin-bottom: 2px;
-      /* 添加上边距以实现换行效果 */
-      font-family: 'Roboto', sans-serif;
       font-size: 16px;
       text-align: center;
       font-weight: bold;
-      font-family: 'Playfair Display', serif;
+      font-family:  "Times New Roman", Times, serif;
+      /* 倾斜 */
+      font-style: italic;
     }
 
     /* 顶部占20% */
@@ -216,7 +216,7 @@
     h3,
     h4 {
       margin: 0;
-      font-style: italic;
+      /* font-style: italic; */
       font-weight: bold;
       /* 添加加粗效果 */
     }
@@ -235,7 +235,7 @@
       font-size: 18px;
       letter-spacing: -0.4px;
       line-height: 120%;
-      font-style: italic;
+      /* font-style: italic; */
     }
 
     a:link,
