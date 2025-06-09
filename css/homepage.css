@@ -56,7 +56,7 @@ h4 {
   margin: 20px auto;
   background-image: url("../background/bcard.jpg");
   background-size: cover;
-  opacity: 0.8;
+  opacity: 0.9;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
