@@ -10,30 +10,20 @@
   <title>⭐Hongkun Luo (罗宏昆)⭐</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400&display=swap"
     rel="stylesheet">
-
   <link rel="stylesheet" href="css/homepage.css" type="text/css">
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const yearSpan = document.getElementById("current-year");
-      yearSpan.textContent = new Date().getFullYear();
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("current-year").textContent = new Date().getFullYear();
-      const loader = document.getElementById("loading-screen");
-      if (loader) loader.style.display = "none";
-    });
-  </script>
-
+  <!-- 链接js -->
+  <script src="js/homepage.js" defer></script>
 </head>
 
 <body>
+  <!-- done 窗口缓存 -->
   <div id="loading-screen">
     <div class="spinner"></div>
   </div>
-
+  <!-- done 纸片 -->
   <div id="bcard">
+
+    <!-- done 头部行 -->
     <div class="top-row" style="position: relative;">
       <div class="top-content">
         <div class="top-header-flex">
@@ -58,52 +48,23 @@
 
     </div>
 
-
+    <!-- done 第二行，分三列 -->
     <div class="bottom-row">
 
+
+      <!-- done 笔记 -->
       <div class="column">
         <div class="column-header">
           <h4>📓Notes (个人笔记)</h4>
         </div>
-        <div class="column-content vertical-scroll">
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/683c4829000000002300ead1?xsec_token=ABxholb0MV8Ws2kKM1sNgaVlWOQwvB3UB_7vwthfh-E18=&xsec_source=pc_user"
-              target="_blank">2025测绘程序设计竞赛解读(下)</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/6809cc24000000001c02df2d?xsec_token=ABG5rV8VGJCyDJTCgLU9GIk-A_8bEJZ4Mk4ur5G7WbAZQ=&xsec_source=pc_user"
-              target="_blank">2025测绘程序设计竞赛解读(上)</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/680b989b000000001c033319?xsec_token=ABZgjfqoF-AhEIxLMY2AP6H_K378tu13k9eb7C4UrcfgM=&xsec_source=pc_user"
-              target="_blank">CVPR 2025 NVM简易解读(导航世界模型)</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/66f58717000000001902e2c2?xsec_token=ABP9IpeOzl4KoB4GkD8-nioBcbMRysM7KcN-igUFRBNWg=&xsec_source=pc_user"
-              target="_blank">数模美赛一等奖(M奖)经验分享</a></p>
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138142422?spm=1001.2014.3001.5501"
-              target="_blank">卡尔曼滤波器的python小案例实现</a></p>
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138348856?spm=1001.2014.3001.5501"
-              target="_blank">VINS-Fusion中测量线程分析</a></p>
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138228432?spm=1001.2014.3001.5501"
-              target="_blank">VINS-Fusion的sync_process线程分析</a></p>
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138421536?spm=1001.2014.3001.5501"
-              target="_blank">机器学习之逻辑回归</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;margin-bottom: 0px;"><a
-              href="note/高斯牛顿法实现曲线拟合.pdf" target="_blank">高斯牛顿法实现曲线拟合</a></p>
+        <div class="column-content vertical-scroll" id="notes-container">
+          <!-- 内容将由JS插入 -->
+          <!-- 如果要增加笔记需要在notes.txt中增加，每个笔记分别为[图标，链接，描述] -->
         </div>
       </div>
 
+
+      <!-- done 基本信息 -->
       <div class="column">
         <div class="column-header">
           <a href="/lhk" target="_blank">
@@ -122,6 +83,7 @@
 
 
       <!-- 第三列：生活照片 -->
+      <!-- done 生活照片 -->
       <div class="column">
         <div class="column-header">
           <h4>📷My Life (生活记录)</h4>
@@ -139,40 +101,28 @@
         </div>
       </div>
 
+
     </div>
 
-    <!-- 地图插入在这里 -->
+    <!-- done地图 -->
     <div class="map-row" style="margin-top: 2px;">
       <div class="column-header">
         <h4>🌏Visitor Map (访客地图)</h4>
       </div>
-      <div class="column-content" style="text-align: center; position: relative;">
-
-        <!-- ✅ 相对于 .column-content 左上角定位 -->
-        <div style="
-    position: absolute;
-    top: 8px;
-    left: 12px;
-    font-size: 12px;
-    color: gray;
-    font-style: italic;
-    font-family: 'Georgia', 'Times New Roman', Times, serif;">
+      <div class="column-content text-center">
+        <!-- done左上角版权信息 -->
+        <div class="copyright-info">
           Copyright @ <span id="current-year"></span> Hongkun Luo. All rights reserved.
         </div>
 
-        <div style="
-    display: inline-block;
-    width: 300px;
-    background-color: #F1F5F6;
-    padding: 20px;
-    position: relative;">
-
+        <!-- done地图统计模块 -->
+        <div class="map-wrapper">
           <script type="text/javascript" id="clustrmaps"
             src="//clustrmaps.com/map_v2.js?d=oEhAn4y-Du0QKgIzDN4N9xO-uh1PCEigkroDd6pf5TI&cl=2755B4&t=tt&w=a&co=f1f5f6&ct=000033&cmn=E93839&cmo=00C5BE">
             </script>
         </div>
-
       </div>
+
     </div>
 
   </div>
