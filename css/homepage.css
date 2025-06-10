@@ -419,3 +419,47 @@ a:active {
     }
   }
 }
+
+/* CSS 样式 */
+.column-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.column-header h4 {
+  margin: 0;
+}
+.search-toggle {
+  background: #D3C89F;
+  color: #12477E;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+  /* 设置文字颜色 */
+  font-family: "FontinSans", sans-serif;
+  font-weight: bold;
+}
+
+.search-toggle:hover {
+  background: #D4CAA2;
+}
+
+#searchBox:focus {
+  outline: none;
+  border-color: #D4CAA2;
+}
+
+/* 高亮匹配的文本 */
+.column-content p {
+  transition: opacity 0.2s ease;
+}
+
+.column-content p[style*="display: none"] {
+  opacity: 0;
+}

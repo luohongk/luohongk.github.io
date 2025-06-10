@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人笔记 - 实时搜索</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2a4d69, #4b86b4);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin: 30px 0;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .column {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .column-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .column-header h4 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-container {
+            position: relative;
+            flex: 1;
+            max-width: 500px;
+            min-width: 250px;
+        }
+        
+        #searchInput {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        #searchInput:focus {
+            outline: none;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+        
+        .search-stats {
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .column-content {
+            padding: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .note-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .note-item:hover {
+            background-color: #f9f9f9;
+            transform: translateX(5px);
+        }
+        
+        .note-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        
+        .note-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+            flex-grow: 1;
+        }
+        
+        .note-link:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+        
+        .source-tag {
+            background: #e0e7ff;
+            color: #4f46e5;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7f8c8d;
+        }
+        
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+        
+        .no-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .highlight {
+            background-color: #fff9c4;
+            padding: 0 3px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .column-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-container {
+                max-width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        /* 滚动条样式 */
+        .column-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .column-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .column-content::-webkit-scrollbar-thumb {
+            background: #bdc3c7;
+            border-radius: 4px;
+        }
+        
+        .column-content::-webkit-scrollbar-thumb:hover {
+            background: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-open"></i> 个人知识库</h1>
+            <p>实时搜索您的学习笔记和资源</p>
+        </header>
+        
+        <div class="column">
+            <div class="column-header">
+                <h4><i class="fas fa-book"></i> 个人笔记</h4>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="输入关键词搜索笔记...">
+                </div>
+                <div class="search-stats">
+                    <i class="fas fa-file-alt"></i>
+                    <span id="resultCount">15</span> 条笔记
+                </div>
+            </div>
+            <div class="column-content" id="notesContainer">
+                <!-- 笔记内容将由JavaScript动态生成 -->
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 个人知识库 | 输入即搜索，快速定位您需要的资源</p>
+        </footer>
+    </div>
+
+    <script>
+        // 笔记数据
+        const notesData = [
+            { icon: 'pdf1.png', title: '神经网络与深度学习', url: 'note/神经网络与深度学习.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '计算机视觉中的多视图几何', url: 'note/计算机视觉中的多视图几何.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '旋量代数与李群、李代数 (戴建生)', url: 'note/旋量代数与李群、李代数 (戴建生).pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '矩阵速查书', url: 'note/矩阵速查书.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '四元数解读', url: 'note/四元数解读.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '惯性导航原理与算法设计完整讲义', url: 'note/惯性导航原理与算法设计完整讲义.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '最优化-建模、算法与理论', url: 'note/最优化-建模、算法与理论.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '机器人学', url: 'note/机器人学.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '自动驾驶与机器人中的 SLAM 技术', url: 'note/自动驾驶与机器人中的 SLAM 技术.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '视觉SLAM十四讲从理论到实践', url: 'note/视觉SLAM十四讲从理论到实践.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '视觉惯性SLAM理论与源码解析', url: 'note/视觉惯性SLAM理论与源码解析.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: 'SLAM掌握手册', url: 'note/SLAM掌握手册.pdf', type: 'pdf' },
+            { icon: 'pdf1.png', title: '开心学习LLM', url: 'note/开心学习LLM.pdf', type: 'pdf' },
+            { icon: 'xiaohongshu.png', title: '2025测绘程序设计竞赛解读(下)', url: 'https://www.xiaohongshu.com/explore/683c4829000000002300ead1?xsec_token=ABxholb0MV8Ws2kKM1sNgaVlWOQwvB3UB_7vwthfh-E18=&xsec_source=pc_user', type: '小红书' },
+            { icon: 'xiaohongshu.png', title: '2025测绘程序设计竞赛解读(上)', url: 'https://www.xiaohongshu.com/explore/6809cc24000000001c02df2d?xsec_token=ABG5rV8VGJCyDJTCgLU9GIk-A_8bEJZ4Mk4ur5G7WbAZQ=&xsec_source=pc_user', type: '小红书' },
+            { icon: 'xiaohongshu.png', title: 'CVPR 2025 导航世界模型简易解读', url: 'https://www.xiaohongshu.com/explore/680b989b000000001c033319?xsec_token=ABZgjfqoF-AhEIxLMY2AP6H_K378tu13k9eb7C4UrcfgM=&xsec_source=pc_user', type: '小红书' },
+            { icon: 'xiaohongshu.png', title: '数模美赛一等奖(M奖)经验分享', url: 'https://www.xiaohongshu.com/explore/66f58717000000001902e2c2?xsec_token=ABP9IpeOzl4KoB4GkD8-nioBcbMRysM7KcN-igUFRBNWg=&xsec_source=pc_user', type: '小红书' },
+            { icon: 'csdn.png', title: '卡尔曼滤波器的python小案例实现', url: 'https://blog.csdn.net/qq_56883085/article/details/138142422?spm=1001.2014.3001.5501', type: 'CSDN' },
+            { icon: 'csdn.png', title: 'VINS-Fusion中测量线程分析', url: 'https://blog.csdn.net/qq_56883085/article/details/138348856?spm=1001.2014.3001.5501', type: 'CSDN' },
+            { icon: 'csdn.png', title: 'VINS-Fusion的sync_process线程分析', url: 'https://blog.csdn.net/qq_56883085/article/details/138228432?spm=1001.2014.3001.5501', type: 'CSDN' },
+            { icon: 'csdn.png', title: '机器学习之逻辑回归', url: 'https://blog.csdn.net/qq_56883085/article/details/138421536?spm=1001.2014.3001.5501', type: 'CSDN' },
+            { icon: 'pdf1.png', title: '高斯牛顿法实现曲线拟合', url: 'note/高斯牛顿法实现曲线拟合.pdf', type: 'pdf' }
+        ];
+
+        // 获取DOM元素
+        const notesContainer = document.getElementById('notesContainer');
+        const searchInput = document.getElementById('searchInput');
+        const resultCount = document.getElementById('resultCount');
+        
+        // 初始化笔记列表
+        function renderNotes(notes) {
+            notesContainer.innerHTML = '';
+            
+            if (notes.length === 0) {
+                notesContainer.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <h3>未找到匹配的笔记</h3>
+                        <p>请尝试不同的关键词</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            notes.forEach(note => {
+                const noteItem = document.createElement('div');
+                noteItem.className = 'note-item';
+                
+                // 根据类型设置不同的图标
+                let iconClass = 'far fa-file-pdf';
+                if (note.type === '小红书') iconClass = 'fab fa-weibo';
+                if (note.type === 'CSDN') iconClass = 'fab fa-blogger';
+                
+                noteItem.innerHTML = `
+                    <i class="${iconClass} note-icon" style="color: ${getIconColor(note.type)}"></i>
+                    <a href="${note.url}" target="_blank" class="note-link">${note.title}</a>
+                    <span class="source-tag">${note.type}</span>
+                `;
+                
+                notesContainer.appendChild(noteItem);
+            });
+            
+            resultCount.textContent = notes.length;
+        }
+        
+        // 获取图标颜色
+        function getIconColor(type) {
+            switch(type) {
+                case 'pdf': return '#e74c3c';
+                case '小红书': return '#ff2442';
+                case 'CSDN': return '#d43c33';
+                default: return '#3498db';
+            }
+        }
+        
+        // 搜索功能
+        function searchNotes(keyword) {
+            if (!keyword.trim()) {
+                return notesData;
+            }
+            
+            const lowerKeyword = keyword.toLowerCase();
+            return notesData.filter(note => 
+                note.title.toLowerCase().includes(lowerKeyword)
+            );
+        }
+        
+        // 高亮匹配文本
+        function highlightText(text, keyword) {
+            if (!keyword) return text;
+            
+            const regex = new RegExp(`(${keyword})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+        
+        // 初始化页面
+        renderNotes(notesData);
+        
+        // 添加搜索事件监听
+        searchInput.addEventListener('input', function() {
+            const keyword = this.value;
+            const results = searchNotes(keyword);
+            
+            // 高亮处理
+            results.forEach(note => {
+                note.displayTitle = highlightText(note.title, keyword);
+            });
+            
+            renderNotes(results);
+        });
+        
+        // 添加聚焦样式
+        searchInput.addEventListener('focus', function() {
+            this.parentElement.style.boxShadow = '0 0 0 3px rgba(52, 152, 219, 0.3)';
+        });
+        
+        searchInput.addEventListener('blur', function() {
+            this.parentElement.style.boxShadow = 'none';
+        });
+    </script>
+</body>
+</html>

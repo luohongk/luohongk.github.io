@@ -54,99 +54,67 @@
 
       <!-- done 笔记 -->
       <div class="column">
-        <div class="column-header">
-          <h4>📓Notes (个人笔记)</h4>
-        </div>
-        <div class="column-content vertical-scroll">
+      <!-- 1. 修改你的 column-header 部分 -->
+<div class="column-header">
+  <h4>📓Notes (个人笔记)</h4>
+  <button class="search-toggle" onclick="toggleSearch()">🔍 搜索</button>
+</div>
 
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/神经网络与深度学习.pdf" target="_blank">神经网络与深度学习</a></p>
+<!-- 2. 在 column-header 下方添加搜索容器 -->
+<div class="search-container" id="searchContainer" style="display: none; padding: 15px 20px; border-bottom: 1px solid #eee;">
+  <input type="text" id="searchBox" placeholder="输入关键词搜索..." 
+         style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 4px; font-size: 16px; box-sizing: border-box;"
+         onkeyup="searchNotes()" oninput="searchNotes()">
+  <div id="searchStats" style="margin-top: 10px; color: #666; font-size: 14px;"></div>
+</div>
 
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/计算机视觉中的多视图几何.pdf" target="_blank">计算机视觉中的多视图几何</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/旋量代数与李群、李代数 (戴建生).pdf" target="_blank">旋量代数与李群、李代数 (戴建生)</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/矩阵速查书.pdf" target="_blank">矩阵速查书</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/四元数解读.pdf" target="_blank">四元数解读</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/惯性导航原理与算法设计完整讲义.pdf" target="_blank">惯性导航原理与算法设计完整讲义</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/最优化-建模、算法与理论.pdf" target="_blank">最优化-建模、算法与理论</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/机器人学.pdf" target="_blank">机器人学</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/自动驾驶与机器人中的 SLAM 技术.pdf" target="_blank">自动驾驶与机器人中的 SLAM 技术</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/视觉SLAM十四讲从理论到实践.pdf" target="_blank">视觉SLAM十四讲从理论到实践</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/视觉惯性SLAM理论与源码解析.pdf" target="_blank">视觉惯性SLAM理论与源码解析</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/SLAM掌握手册.pdf" target="_blank">SLAM掌握手册</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/开心学习LLM.pdf" target="_blank">开心学习LLM</a></p>
-
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/683c4829000000002300ead1?xsec_token=ABxholb0MV8Ws2kKM1sNgaVlWOQwvB3UB_7vwthfh-E18=&xsec_source=pc_user"
-              target="_blank">2025测绘程序设计竞赛解读(下)</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://www.xiaohongshu.com/explore/6809cc24000000001c02df2d?xsec_token=ABG5rV8VGJCyDJTCgLU9GIk-A_8bEJZ4Mk4ur5G7WbAZQ=&xsec_source=pc_user"
-              target="_blank">2025测绘程序设计竞赛解读(上)</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://www.xiaohongshu.com/explore/680b989b000000001c033319?xsec_token=ABZgjfqoF-AhEIxLMY2AP6H_K378tu13k9eb7C4UrcfgM=&xsec_source=pc_user"
-              target="_blank">CVPR 2025 导航世界模型简易解读</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://www.xiaohongshu.com/explore/66f58717000000001902e2c2?xsec_token=ABP9IpeOzl4KoB4GkD8-nioBcbMRysM7KcN-igUFRBNWg=&xsec_source=pc_user"
-              target="_blank">数模美赛一等奖(M奖)经验分享</a></p>
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138142422?spm=1001.2014.3001.5501"
-              target="_blank">卡尔曼滤波器的python小案例实现</a></p>
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138348856?spm=1001.2014.3001.5501"
-              target="_blank">VINS-Fusion中测量线程分析</a></p>
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138228432?spm=1001.2014.3001.5501"
-              target="_blank">VINS-Fusion的sync_process线程分析</a></p>
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138421536?spm=1001.2014.3001.5501"
-              target="_blank">机器学习之逻辑回归</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/高斯牛顿法实现曲线拟合.pdf" target="_blank">高斯牛顿法实现曲线拟合</a></p>
-        </div>
+<!-- 3. 你原有的 column-content 保持不变，只需要添加 id -->
+<div class="column-content vertical-scroll" id="notesContainer">
+  <!-- 你原有的所有 p 标签内容保持不变 -->
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/神经网络与深度学习.pdf" target="_blank">神经网络与深度学习</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/计算机视觉中的多视图几何.pdf" target="_blank">计算机视觉中的多视图几何</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/旋量代数与李群、李代数 (戴建生).pdf" target="_blank">旋量代数与李群、李代数 (戴建生)</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/矩阵速查书.pdf" target="_blank">矩阵速查书</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/四元数解读.pdf" target="_blank">四元数解读</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/惯性导航原理与算法设计完整讲义.pdf" target="_blank">惯性导航原理与算法设计完整讲义</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/最优化-建模、算法与理论.pdf" target="_blank">最优化-建模、算法与理论</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/机器人学.pdf" target="_blank">机器人学</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/自动驾驶与机器人中的 SLAM 技术.pdf" target="_blank">自动驾驶与机器人中的 SLAM 技术</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/视觉SLAM十四讲从理论到实践.pdf" target="_blank">视觉SLAM十四讲从理论到实践</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/视觉惯性SLAM理论与源码解析.pdf" target="_blank">视觉惯性SLAM理论与源码解析</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/SLAM掌握手册.pdf" target="_blank">SLAM掌握手册</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/开心学习LLM.pdf" target="_blank">开心学习LLM</a></p>
+  
+  <p><img src="images/xiaohongshu.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 0px;"><a href="https://www.xiaohongshu.com/explore/683c4829000000002300ead1?xsec_token=ABxholb0MV8Ws2kKM1sNgaVlWOQwvB3UB_7vwthfh-E18=&xsec_source=pc_user" target="_blank">2025测绘程序设计竞赛解读(下)</a></p>
+  
+  <p><img src="images/xiaohongshu.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a href="https://www.xiaohongshu.com/explore/6809cc24000000001c02df2d?xsec_token=ABG5rV8VGJCyDJTCgLU9GIk-A_8bEJZ4Mk4ur5G7WbAZQ=&xsec_source=pc_user" target="_blank">2025测绘程序设计竞赛解读(上)</a></p>
+  
+  <p><img src="images/xiaohongshu.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a href="https://www.xiaohongshu.com/explore/680b989b000000001c033319?xsec_token=ABZgjfqoF-AhEIxLMY2AP6H_K378tu13k9eb7C4UrcfgM=&xsec_source=pc_user" target="_blank">CVPR 2025 导航世界模型简易解读</a></p>
+  
+  <p><img src="images/xiaohongshu.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a href="https://www.xiaohongshu.com/explore/66f58717000000001902e2c2?xsec_token=ABP9IpeOzl4KoB4GkD8-nioBcbMRysM7KcN-igUFRBNWg=&xsec_source=pc_user" target="_blank">数模美赛一等奖(M奖)经验分享</a></p>
+  
+  <p><img src="images/csdn.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a href="https://blog.csdn.net/qq_56883085/article/details/138142422?spm=1001.2014.3001.5501" target="_blank">卡尔曼滤波器的python小案例实现</a></p>
+  
+  <p><img src="images/csdn.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a href="https://blog.csdn.net/qq_56883085/article/details/138348856?spm=1001.2014.3001.5501" target="_blank">VINS-Fusion中测量线程分析</a></p>
+  
+  <p><img src="images/csdn.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a href="https://blog.csdn.net/qq_56883085/article/details/138228432?spm=1001.2014.3001.5501" target="_blank">VINS-Fusion的sync_process线程分析</a></p>
+  
+  <p><img src="images/csdn.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a href="https://blog.csdn.net/qq_56883085/article/details/138421536?spm=1001.2014.3001.5501" target="_blank">机器学习之逻辑回归</a></p>
+  
+  <p><img src="images/pdf1.png" alt="icon" style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a href="note/高斯牛顿法实现曲线拟合.pdf" target="_blank">高斯牛顿法实现曲线拟合</a></p>
+</div>
         <!-- <div class="column-content vertical-scroll" id="notes-container"> -->
         <!-- 内容将由JS插入 -->
         <!-- 如果要增加笔记需要在notes.txt中增加，每个笔记分别为[图标，链接，描述] -->
