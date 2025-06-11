@@ -53,7 +53,7 @@ h4 {
   max-width: 1200px;
   width: 90vw;
   height: auto;
-  margin: 20px auto;
+  margin: 10px auto;
   background-image: url("../background/bcard.jpg");
   background-size: cover;
   opacity: 0.9;
@@ -123,6 +123,7 @@ h4 {
   justify-content: space-around;
   align-items: stretch;
   padding: 10px;
+  padding-bottom: 0px;
 }
 
 .column {
