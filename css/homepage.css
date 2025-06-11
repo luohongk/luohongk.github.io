@@ -336,10 +336,11 @@ a:active {
 
 .map-wrapper {
   display: inline-block;
-  width: 300px;
+  width: 250px;
   background-color: #f1f5f6;
-  padding: 20px;
+  padding: 0px;
   position: relative;
+   margin-top: 20px;
 }
 
 /* 移动端适配 */
@@ -432,19 +433,19 @@ a:active {
 .column-header h4 {
   margin: 0;
 }
-.search-toggle {
+#search-toggle {
   background: #D3C89F;
   color: #12477E;
+  padding: 0; /* 或任何你需要的值 */
+  padding-left: 8px;
   border: none;
-  padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 12px;
-  transition: background-color 0.2s;
-  /* 设置文字颜色 */
+  font-size: 16px;
   font-family: "FontinSans", sans-serif;
   font-weight: bold;
 }
+
 
 .search-toggle:hover {
   background: #D4CAA2;
@@ -462,4 +463,17 @@ a:active {
 
 .column-content p[style*="display: none"] {
   opacity: 0;
+}
+
+#visitor_map {
+  background: #cfc499;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  /* 设置圆角 */
+  border-radius: 8px;
+  /*设置阴影 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

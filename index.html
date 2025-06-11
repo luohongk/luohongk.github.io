@@ -10,6 +10,8 @@
   <title>⭐Hongkun Luo (罗宏昆)⭐</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400&display=swap"
     rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
   <link rel="stylesheet" href="css/homepage.css" type="text/css">
   <!-- 链接js -->
   <script src="js/homepage.js" defer></script>
@@ -56,8 +58,10 @@
       <div class="column">
         <!-- 1. 修改你的 column-header 部分 -->
         <div class="column-header">
-          <h4>📓Notes (个人笔记)</h4>
-          <button class="search-toggle" onclick="toggleSearch()">🔍 搜索</button>
+          <h4>📓Notes (笔记资料)</h4>
+          <button id="search-toggle" onclick="toggleSearch()" style="background: none; border: none;">
+            <img src="images/magnifier.png" alt="搜索" width="16" height="16">
+          </button>
         </div>
 
         <!-- 2. 在 column-header 下方添加搜索容器 -->
@@ -217,7 +221,7 @@
 
     <!-- done地图 -->
     <div class="map-row" style="margin-top: 2px;">
-      <div class="column-header">
+      <div id="visitor_map">
         <h4>🌏Visitor Map (访客地图)</h4>
       </div>
       <div class="column-content text-center">
