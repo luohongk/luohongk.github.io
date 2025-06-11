@@ -27,6 +27,13 @@
 
     <!-- done 头部行 -->
     <div class="top-row" style="position: relative;">
+      <!-- 左上角云雷纹图片 -->
+      <img src="images/yunleiwen_1.png" alt="云雷纹左"
+        style="position: absolute; top: 0; left: 0; width: 60px; height: auto; z-index: 1;">
+
+      <!-- 右上角云雷纹图片 -->
+      <img src="images/yunleiwen_2.png" alt="云雷纹右"
+        style="position: absolute; top: 0; right: 0; width: 60px; height: auto; z-index: 1;">
       <div class="top-content">
         <div class="top-header-flex">
           <h1>⭐Hongkun Luo(罗宏昆)⭐</h1>
@@ -58,10 +65,8 @@
       <div class="column">
         <!-- 1. 修改你的 column-header 部分 -->
         <div class="column-header">
-          <h4>📓Notes (笔记资料)</h4>
-          <button id="search-toggle" onclick="toggleSearch()" style="background: none; border: none;">
-            <img src="images/magnifier.png" alt="搜索" width="16" height="16">
-          </button>
+          <h4> <img src="images/qingwa.png" alt="笔记图标" width="16" height="16"
+              style="vertical-align: middle; margin-right: 4px;">📓Notes (笔记资料)</h4>
         </div>
 
         <!-- 2. 在 column-header 下方添加搜索容器 -->
@@ -75,6 +80,12 @@
 
         <!-- 3. 你原有的 column-content 保持不变，只需要添加 id -->
         <div class="column-content vertical-scroll" id="notesContainer">
+          <div id="button-container" style="text-align: center;">
+            <!-- 添加按钮 -->
+            <button id="search-toggle" onclick="toggleSearch()" style="background: none; border: none;">
+              <img src="images/magnifier.png" alt="搜索" width="16" height="16">
+            </button>
+          </div>
           <!-- 你原有的所有 p 标签内容保持不变 -->
           <p><img src="images/pdf1.png" alt="icon"
               style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
@@ -183,7 +194,8 @@
       <div class="column">
         <div class="column-header">
           <a href="/lhk" target="_blank">
-            <h4>🔗More Info(基本信息)</h4>
+            <h4> <img src="images/qingwa.png" alt="笔记图标" width="16" height="16"
+                style="vertical-align: middle; margin-right: 4px;">🔗More Info(基本信息)</h4>
           </a>
         </div>
         <div class="column-content">
@@ -201,7 +213,8 @@
       <!-- done 生活照片 -->
       <div class="column">
         <div class="column-header">
-          <h4>📷My Life (生活记录)</h4>
+          <h4> <img src="images/qingwa.png" alt="笔记图标" width="16" height="16"
+              style="vertical-align: middle; margin-right: 4px;">📷My Life (生活记录)</h4>
         </div>
         <div class="column-content life-grid">
           <img src="life/cumt_me.png" />
@@ -221,6 +234,15 @@
 
     <!-- done地图 -->
     <div class="map-row" style="margin-top: 2px;">
+
+      <!-- 左下角云雷纹 -->
+      <img src="images/yunleiwen_3.png" alt="云雷纹左下"
+        style="position: absolute; bottom: 0; left: 0; width: 60px; height: auto; z-index: 1;">
+
+      <img src="images/yunleiwen_4.png" alt="云雷纹右下"
+        style="position: absolute; bottom: 0; right: 0; width: 60px; height: auto; z-index: 1;">
+
+
       <div id="visitor_map">
         <h4>🌏Visitor Map (访客地图)</h4>
       </div>
@@ -233,7 +255,7 @@
         <!-- done地图统计模块 -->
         <div class="map-wrapper">
           <script type="text/javascript" id="clustrmaps"
-            src="//clustrmaps.com/map_v2.js?d=oEhAn4y-Du0QKgIzDN4N9xO-uh1PCEigkroDd6pf5TI&cl=2755B4&t=tt&w=a&co=f1f5f6&ct=000033&cmn=E93839&cmo=00C5BE">
+            src="//clustrmaps.com/map_v2.js?d=oEhAn4y-Du0QKgIzDN4N9xO-uh1PCEigkroDd6pf5TI&cl=AC7253&t=tt&w=a&co=f1f5f6&ct=000033&cmn=E93839&cmo=00C5BE">
             </script>
         </div>
       </div>
