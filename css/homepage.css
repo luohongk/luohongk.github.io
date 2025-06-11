@@ -504,7 +504,7 @@ a:active {
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   filter: brightness(96%) contrast(104%);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(0, 123, 255, 0.8); /* 加粗的蓝色虚线边框 */
   cursor: pointer;
 }
 
