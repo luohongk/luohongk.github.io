@@ -483,3 +483,34 @@ a:active {
   /*设置阴影 */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+#mylifeContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 固定4列 */
+  gap: 5px;
+  padding: 5px;
+  backdrop-filter: blur(10px);
+}
+
+
+#mylifeContainer img {
+  width: 100%;
+  aspect-ratio: 9 / 16; /* 保持 4:3 比例 */
+  object-fit: cover;   /* 图片裁剪填充 */
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  filter: brightness(96%) contrast(104%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+
+
+#mylifeContainer img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(0, 255, 255, 0.3);
+  filter: brightness(110%) saturate(120%);
+  z-index: 2;
+}
