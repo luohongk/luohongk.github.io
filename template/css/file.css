@@ -137,19 +137,20 @@ tbody.special {
 }
         /* 下边框样式 */
 .border-line {
-          position: relative; /* 使子元素绝对定位 */
-          width: 28%; /* 设置宽度为 28% */
-          height: 3px; /* 线条高度 */
-          background: linear-gradient(to right, 
-              transparent 0%, /* 左侧透明 */
-              gray 20%, /* 左侧细 */
-              gray 50%, /* 中间粗 */
-              gray 80%, /* 右侧细 */
-              transparent 100%); /* 右侧透明 */
-          margin-left: 0; /* 靠左 */
-          margin-top: 5px; /* 上方间距 */
-          border-radius: 3px; /* 圆角效果 */
-      }
+    position: relative; /* 使子元素绝对定位 */
+    width: 28%; /* 设置宽度为 28% */
+    height: 3px; /* 线条高度 */
+    margin-left: 0; /* 靠左 */
+    margin-top: 5px; /* 上方间距 */
+    border-radius: 3px; /* 圆角效果 */
+    border-top: 3px dashed red; /* 红色虚线 */
+    background: linear-gradient(to right, 
+        transparent 0%, /* 左侧透明 */
+        rgba(255, 0, 0, 0.5) 20%, /* 左侧细 */
+        rgba(255, 0, 0, 1) 50%, /* 中间粗 */
+        rgba(255, 0, 0, 0.5) 80%, /* 右侧细 */
+        transparent 100%); /* 右侧透明 */
+}
 
 
       .line-text {
