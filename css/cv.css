@@ -131,6 +131,38 @@
   background-color: rgba(0, 166, 237, 0.2); /* Adjust the last value for transparency */
   padding-top: 8px;
 }
+
+.research_interest {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #DAECF2; /* Adjust the last value for transparency */
+  padding-top: 10px;
+    font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.5;
+
+  margin: 0;
+}
+
+.research_interest p {
+  font-size: 16px; /* 比 li 略小 */
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.research_interest ul {
+  margin-top: 5px;
+  padding-left: 30px;
+  list-style-type: none; /* 不显示点 */
+}
+
+.research_interest li {
+  margin-bottom: 5px;
+  list-style-type: none; /* 不显示点 */
+}
+
+
 .button_container {
   display: grid;
   grid-template-columns: repeat(7, 1fr) auto; /* 前 5 列为相等宽度，第 6 列自动 */
