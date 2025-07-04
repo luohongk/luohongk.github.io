@@ -139,16 +139,17 @@
   padding-top: 10px;
     font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
 
   margin: 0;
 }
 
 .research_interest p {
-  font-size: 16px; /* 比 li 略小 */
+  font-size: 14px; /* 比 li 略小 */
   line-height: 1.5;
   margin-bottom: 5px;
+  font-family:Georgia, "Times New Roman", Times, serif
 }
 
 .research_interest ul {
