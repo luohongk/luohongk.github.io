@@ -139,14 +139,16 @@
   padding-top: 10px;
     font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 
   margin: 0;
+    overflow-x: auto;     /* 横向滚动条 */
+  white-space: nowrap;  /* 不换行，超出自动滚动 */
 }
 
 .research_interest p {
-  font-size: 12px; /* 比 li 略小 */
+  font-size: 14px; /* 比 li 略小 */
   line-height: 1.5;
   margin-bottom: 5px;
   font-family:Georgia, "Times New Roman", Times, serif
