@@ -195,15 +195,15 @@ tbody.special {
     background:
         linear-gradient(to right,
             transparent 0%,
-            rgba(255, 0, 0, 0.5) 20%,
+            #9CB5CF 20%,
             transparent 30%,
             transparent 70%,
-            rgba(255, 0, 0, 0.5) 80%,
+            #9CB5CF 80%,
             transparent 100%),
         repeating-linear-gradient(
             to right,
-            red 0px,
-            red 6px,
+            #224B8D 0px,
+            #224B8D 6px,
             transparent 6px,
             transparent 12px
         );
@@ -212,6 +212,7 @@ tbody.special {
     background-repeat: no-repeat;
     animation: pulseLine 2s infinite ease-in-out;
 }
+
 
 @keyframes pulseLine {
     0%, 100% {
@@ -446,3 +447,46 @@ p {
   /* 设置字号 */
   font-size: 14px;
 }
+
+   .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      color: #0077cc;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 300px;
+      background-color: #224B8D;
+      color: #ecf2f2;
+      text-align: left;
+      border-radius: 6px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* 放在上面 */
+      left: 72%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 14px;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%; /* 箭头指向下方 */
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    

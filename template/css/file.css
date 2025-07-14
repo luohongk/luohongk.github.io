@@ -146,9 +146,9 @@ tbody.special {
     border-top: 3px dashed red; /* 红色虚线 */
     background: linear-gradient(to right, 
         transparent 0%, /* 左侧透明 */
-        rgba(255, 0, 0, 0.5) 20%, /* 左侧细 */
-        rgba(255, 0, 0, 1) 50%, /* 中间粗 */
-        rgba(255, 0, 0, 0.5) 80%, /* 右侧细 */
+        #9CB5CF 20%, /* 左侧细 */
+        #224B8D 50%, /* 中间粗 */
+        #9CB5CF 80%, /* 右侧细 */
         transparent 100%); /* 右侧透明 */
 }
 
