@@ -511,3 +511,13 @@ p {
   font-size: 14px; /* 字体大小 */
 }
 
+
+.vertical-line {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  height: 90%;
+  width: 6px;
+  background-color: #224B8D;
+  border-radius: 3px;
+}
