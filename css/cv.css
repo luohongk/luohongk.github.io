@@ -125,6 +125,19 @@
   font-style: italic;
 }
 
+.table_interest {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #DAECF2;
+  /* height: 120px; */
+  overflow-x: auto; /* 允许水平滚动 */
+  white-space: nowrap; /* 防止换行，保持内容在一行 */
+  /* 设置字体 */
+  font-family: "Times New Roman", Times, serif;
+  /* 设置为倾斜 */
+  font-style: italic;
+}
+
 .h2_background {
   width: 100%;
   border-collapse: collapse;
