@@ -489,4 +489,10 @@ p {
       opacity: 1;
     }
 
-    
+    .star-list {
+  list-style: none;
+  padding-left: 0;
+    margin-bottom: 10px; /* 每个项目之间的间距 */
+  line-height: 1.4;     /* 行内文字的高度，提升可读性 */
+}
+
