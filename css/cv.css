@@ -67,7 +67,7 @@
 .table_background {
   width: 100%;
   border-collapse: collapse;
-  background-color: rgba(19, 160, 207, 0.1);
+  background-color: rgba(19, 160, 207, 0.075);
 }
 
 .note_background {
@@ -79,7 +79,7 @@
 .table_background_x {
   width: 100%;
   border-collapse: collapse;
-  background-color: rgba(19, 160, 207, 0.1);
+  background-color: rgba(19, 160, 207, 0.075);
   /* height: 120px; */
   overflow-x: auto; /* 允许水平滚动 */
   white-space: nowrap; /* 防止换行，保持内容在一行 */
@@ -105,7 +105,7 @@
 .h2_background {
   width: 100%;
   border-collapse: collapse;
-  background-color: rgba(0, 166, 237, 0.2); /* Adjust the last value for transparency */
+  background-color: rgba(0, 166, 237, 0.15); /* Adjust the last value for transparency */
   padding-top: 8px;
 }
 
