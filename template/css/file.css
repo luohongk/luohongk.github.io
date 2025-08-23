@@ -5,17 +5,17 @@
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 250px;
   background-color: black;
   color: #fff;
   text-align: center;
   border-radius: 5px;
-  padding: 5px;
-  position: absolute;
-  z-index: 0;
-  bottom: 125%; /* Position above the tooltip */
+  padding: 5px 8px; /* 给点左右 padding */
+  position: absolute; /* 改成 absolute */
+  z-index: 1;
+  bottom: 125%; /* 在上方 */
   left: 50%;
-  margin-left: -60px;
+  transform: translateX(-50%); /* 居中 */
+  white-space: nowrap; /* 保证一行显示 */
   opacity: 0;
   transition:
     visibility 0s 0.5s,
@@ -25,15 +25,9 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-  transition-delay: 0s; /* Reset delay on hover */
+  transition-delay: 0s;
 }
 
-/* 延迟显示 */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.5s;
-}
 .styled-link {
   color: #00a6ed;
   font-weight: bold;
