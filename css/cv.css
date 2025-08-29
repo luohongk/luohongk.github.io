@@ -92,7 +92,7 @@
 .table_interest {
   width: 100%;
   border-collapse: collapse;
-  background-color: #DAECF2;
+  background-color: rgba(19, 160, 207, 0.075);
   /* height: 120px; */
   overflow-x: auto; /* 允许水平滚动 */
   white-space: nowrap; /* 防止换行，保持内容在一行 */
@@ -112,7 +112,7 @@
 .research_interest {
   width: 100%;
   border-collapse: collapse;
-  background-color: #DAECF2; /* Adjust the last value for transparency */
+  background-color: rgba(19, 160, 207, 0.075); /* Adjust the last value for transparency */
   padding-top: 10px;
     font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
