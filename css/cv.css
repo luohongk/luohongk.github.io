@@ -279,7 +279,7 @@ tbody.special {
   position: relative;
   /* 或 absolute */
   z-index: 100;
-  height: 80%;
+  height: 90%;
   text-align: center;
   font-family: "Georgia", "Times New Roman", Times, serif;
   font-style: italic;
@@ -485,7 +485,7 @@ introduction_highlight
   left: 0;
   width: 100%;
   /* 横栏宽度 */
-  height: 65px;
+  height: 75px;
   /* 设置横栏高度 */
   background-color: #daecf2;
   /* 背景颜色 */
