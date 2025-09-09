@@ -18,7 +18,7 @@
 
 
 function smoothScroll(target) {
-    offset = 70; // 偏移量，可根据需要调整
+    offset = 82; // 偏移量，可根据需要调整
     const targetElement = document.querySelector(target);
     const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY-offset;
     const startPosition = window.scrollY;
