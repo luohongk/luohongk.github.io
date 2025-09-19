@@ -587,3 +587,13 @@ p {
   background-color: #224B8D;
   border-radius: 3px;
 }
+
+.vertical-line-industry {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  height: 90%;
+  width: 6px;
+  background-color: #527BBD;
+  border-radius: 3px;
+}
