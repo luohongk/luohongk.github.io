@@ -490,7 +490,6 @@ li::before {
 
 /* 鼠标悬停在链接上的样式 */
 .friend-item strong a:hover {
-  text-decoration: underline; /* 鼠标悬停时显示下划线 */
   color: #ca3707; /* 改变链接颜色 */
 }
 
