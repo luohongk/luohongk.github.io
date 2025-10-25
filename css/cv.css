@@ -501,7 +501,7 @@ li::before {
 }
 
 .email-link {
-  color: #d97706;
+  color: #234B8D;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -513,14 +513,14 @@ li::before {
 }
 
 .coffee-chat {
-  color: #d97706;
+  color: #234B8D;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .coffee-chat:hover {
-  color: #b45309;
+  color: #234B8D;
   text-decoration: underline;
 }
 
