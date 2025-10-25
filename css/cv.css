@@ -425,9 +425,9 @@ li::before {
   display: inline-block;
   width: 48%;
   /* 左右线段的宽度 */
-  height: 2px;
+  height: 1px;
   /* 横线的粗细 */
-  background-color: rgba(128, 128, 128, 0.5);
+  border-top: 1.5px dashed rgba(128, 128, 128, 0.5);
   /* 设置透明的灰色 */
   position: absolute;
   top: 50%;
