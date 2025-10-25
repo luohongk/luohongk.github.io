@@ -470,20 +470,21 @@ li::before {
   font-family: 'Arial', sans-serif; /* 字体设置为 Arial，如果没有 Arial 会使用 sans-serif */
   font-size: 16px; /* 字体大小 */
   color: #333; /* 字体颜色 */
-  line-height: 1.5; /* 行间距 */
+  line-height: 1; /* 行间距 */
 }
 
 /* 设置每一项朋友的字体 */
 .friend-item {
-  margin-bottom: 15px; /* 每一项之间的间距 */
+  margin-bottom: 0px; /* 每一项之间的间距 */
   font-family: 'Verdana', sans-serif; /* 设置 friend-item 字体为 Verdana */
   font-size: 14px; /* 设置字体大小 */
+  line-height: 0.5;
 }
 
 /* 设置加粗的名字链接的字体 */
 .friend-item strong a {
   font-weight: bold; /* 字体加粗 */
-  color: #007BFF; /* 链接的字体颜色 */
+  color: #0960bd; /* 链接的字体颜色 */
   text-decoration: none; /* 去除链接下划线 */
 }
 
