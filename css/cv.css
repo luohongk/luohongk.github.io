@@ -456,6 +456,7 @@ li::before {
   background: #E2EFF3;
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* 调整行间距 */
 }
 
 .friends-section h3 {
@@ -468,7 +469,7 @@ li::before {
 /* 设置整个列表的字体 */
 .friends-list {
   font-family: 'Arial', sans-serif; /* 字体设置为 Arial，如果没有 Arial 会使用 sans-serif */
-  font-size: 16px; /* 字体大小 */
+  font-size: 12px; /* 字体大小 */
   color: #333; /* 字体颜色 */
   line-height: 1; /* 行间距 */
 }
@@ -477,7 +478,7 @@ li::before {
 .friend-item {
   margin-bottom: 0px; /* 每一项之间的间距 */
   font-family: 'Verdana', sans-serif; /* 设置 friend-item 字体为 Verdana */
-  font-size: 14px; /* 设置字体大小 */
+  font-size: 12px; /* 设置字体大小 */
   line-height: 0.5;
 }
 
@@ -496,7 +497,7 @@ li::before {
 
 .friends-intro {
   font-size: 0.9rem;
-  line-height: 1.7;
+  line-height: 1.5;
   color: #1277d0ce;
 }
 
