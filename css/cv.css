@@ -445,8 +445,10 @@ li::before {
 }
 
 .friends-gray-line {
-  border-top: 1px dashed rgba(128, 128, 128, 0.5); /* 灰色虚线 */
-  margin: 0px 0; /* 上下留白 */
+  border-top: 1px dashed rgba(128, 128, 128, 0.5);
+  /* 灰色虚线 */
+  margin: 0px 0;
+  /* 上下留白 */
 }
 
 .friends-section {
@@ -460,38 +462,113 @@ li::before {
 }
 
 .friends-section h3 {
-  font-size: 1rem; /* ✅ 调小字号 */
+  font-size: 1rem;
+  /* ✅ 调小字号 */
   margin-bottom: 10px;
   color: #527BBD;
   font-weight: 600;
 }
 
-/* 设置整个列表的字体 */
 .friends-list {
-  font-family: 'Arial', sans-serif; /* 字体设置为 Arial，如果没有 Arial 会使用 sans-serif */
-  font-size: 12px; /* 字体大小 */
-  color: #333; /* 字体颜色 */
-  line-height: 1; /* 行间距 */
+  display: grid;
+  /* 每行6列：最小宽度110px，紧凑布局 */
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  /* 缩小卡片间距 */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.friend-card {
+  background: #E2EFF3;
+  border-radius: 4px;
+  /* 缩小圆角，更紧凑 */
+  padding: 8px;
+  /* 减少内边距 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  border: 1px dashed #3d86e6;
+  text-align: center;
+}
+
+.friend-card:hover {
+  background: #dbeafe;
+  transform: translateY(-1px);
+  /* 减小hover上浮距离 */
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.12);
+  /* 缩小阴影 */
+}
+
+.friend-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  /* 缩小内部元素间距 */
+  text-decoration: none;
+  color: #1e40af;
+  font-size: 12px;
+  /* 缩小姓名字体 */
+  font-weight: 600;
+  line-height: 1.2;
+  /* 紧凑行高 */
+}
+
+.friend-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.friend-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  /* 缩小徽章内部间距 */
+  font-size: 9px;
+  /* 缩小徽章字体 */
+  font-weight: normal;
+  color: #3b82f6;
+  margin-top: 1px;
+}
+
+.friend-meta {
+  margin-top: 4px;
+  /* 缩小备注间距 */
+  font-size: 8px;
+  /* 缩小备注字体 */
+  color: #2563eb;
+  font-style: italic;
+  line-height: 1.2;
+  /* 紧凑行高 */
+  margin-bottom: 0;
+  /* 清除底部默认间距 */
 }
 
 /* 设置每一项朋友的字体 */
 .friend-item {
-  margin-bottom: 0px; /* 每一项之间的间距 */
-  font-family: 'Verdana', sans-serif; /* 设置 friend-item 字体为 Verdana */
-  font-size: 12px; /* 设置字体大小 */
+  margin-bottom: 0px;
+  /* 每一项之间的间距 */
+  font-family: 'Verdana', sans-serif;
+  /* 设置 friend-item 字体为 Verdana */
+  font-size: 12px;
+  /* 设置字体大小 */
   line-height: 0.5;
 }
 
 /* 设置加粗的名字链接的字体 */
 .friend-item strong a {
-  font-weight: bold; /* 字体加粗 */
-  color: #0960bd; /* 链接的字体颜色 */
-  text-decoration: none; /* 去除链接下划线 */
+  font-weight: bold;
+  /* 字体加粗 */
+  color: #0960bd;
+  /* 链接的字体颜色 */
+  text-decoration: none;
+  /* 去除链接下划线 */
 }
 
 /* 鼠标悬停在链接上的样式 */
 .friend-item strong a:hover {
-  color: #ca3707; /* 改变链接颜色 */
+  color: #ca3707;
+  /* 改变链接颜色 */
 }
 
 
