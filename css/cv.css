@@ -936,45 +936,72 @@ p {
 
 
 
-
 /* -------------------------- 邮箱弹窗专属样式 -------------------------- */
-/* Gmail弹窗专属配色（谷歌红） */
+/* 1. 基础布局：加宽+高度控制（核心新增） */
+#gmailModal .wechat-modal-content,
+#schoolMailModal .wechat-modal-content {
+  max-width: 750px; /* 加宽弹窗宽度（可按需调整为700/800px） */
+  width: 95%; /* 手机端占比，避免溢出 */
+  max-height: 85vh; /* 最大高度占屏幕85%，适配不同设备 */
+  height: auto; /* 高度自适应内容 */
+  overflow: hidden; /* 隐藏容器溢出，让正文单独滚动 */
+}
+
+/* 2. 正文区域：内容过多时滚动（核心新增） */
+#gmailModal .wechat-modal-body,
+#schoolMailModal .wechat-modal-body {
+  max-height: calc(85vh - 120px); /* 减去标题+按钮栏高度，可微调120px */
+  overflow-y: auto; /* 垂直滚动 */
+  padding-right: 8px; /* 预留滚动条空间 */
+  box-sizing: border-box; /* 避免padding导致宽度溢出 */
+}
+
+/* 3. 优化滚动条样式（可选，提升美观度） */
+#gmailModal .wechat-modal-body::-webkit-scrollbar,
+#schoolMailModal .wechat-modal-body::-webkit-scrollbar {
+  width: 6px; /* 滚动条宽度 */
+}
+#gmailModal .wechat-modal-body::-webkit-scrollbar-thumb,
+#schoolMailModal .wechat-modal-body::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* 滚动条颜色 */
+  border-radius: 3px; /* 圆角 */
+}
+#gmailModal .wechat-modal-body::-webkit-scrollbar-track,
+#schoolMailModal .wechat-modal-body::-webkit-scrollbar-track {
+  background: #f8f9fa; /* 滚动条背景 */
+}
+
+/* 4. Gmail弹窗专属配色（保留原有） */
 #gmailModal .wechat-modal-content::before {
   background: linear-gradient(90deg, #EA4335, #DB4437);
 }
-
 #gmailModal .cn-section h4,
 #gmailModal .en-section h4 {
   color: #EA4335;
 }
-
 #gmailModal .wechat-modal-confirm {
   background: linear-gradient(135deg, #EA4335, #DB4437);
 }
-
 #gmailModal .wechat-modal-confirm:hover {
   box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3);
 }
 
-/* 学校邮箱弹窗专属配色（武大蓝） */
+/* 5. 学校邮箱弹窗专属配色（保留原有） */
 #schoolMailModal .wechat-modal-content::before {
   background: linear-gradient(90deg, #165DFF, #0088CC);
 }
-
 #schoolMailModal .cn-section h4,
 #schoolMailModal .en-section h4 {
   color: #165DFF;
 }
-
 #schoolMailModal .wechat-modal-confirm {
   background: linear-gradient(135deg, #165DFF, #0088CC);
 }
-
 #schoolMailModal .wechat-modal-confirm:hover {
   box-shadow: 0 4px 12px rgba(22, 93, 255, 0.3);
 }
 
-/* 邮箱复制按钮样式 */
+/* 6. 邮箱复制按钮样式（保留原有） */
 .copy-email-btn {
   padding: 6px 12px !important;
   border-radius: 6px !important;
@@ -984,23 +1011,20 @@ p {
   transition: all 0.2s ease !important;
   border: none !important;
 }
-
 .copy-email-btn:hover {
   transform: translateY(-1px) !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
-
 .gmail-copy-btn {
   background: #EA4335 !important;
   color: #fff !important;
 }
-
 .school-copy-btn {
   background: #165DFF !important;
   color: #fff !important;
 }
 
-/* 邮箱文本展示样式 */
+/* 7. 邮箱文本展示样式（保留原有） */
 .email-display-box {
   margin-top: 15px !important;
   padding: 12px 16px !important;
@@ -1010,12 +1034,13 @@ p {
   align-items: center !important;
   gap: 12px !important;
   border: 1px solid #E5E6EB !important;
+  flex-wrap: wrap; /* 新增：小屏幕下复制按钮换行，避免挤压 */
 }
-
 .email-text {
   font-weight: 600 !important;
   color: #1D2129 !important;
   font-size: 15px !important;
   flex: 1 !important;
   word-break: break-all !important;
+  min-width: 200px; /* 新增：文本最小宽度，避免挤压 */
 }
