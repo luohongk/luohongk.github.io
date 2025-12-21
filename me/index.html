@@ -78,14 +78,14 @@
               <!-- <h3 style="padding-top:-5px"></h3> -->
               <div class="tooltip">
                 <a href="https://luohongkun.top/" target="_blank">
-                  <img src="../images/house.png" height="30px" style="margin-bottom:-3px">
+                  <img src="../images/house.png" height="25px" style="margin-bottom:-3px">
                 </a>
                 <span class="tooltiptext">https://luohongkun.top/</span>
               </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
               <div class="tooltip">
                 <a href="https://notes.luohongkun.top/" target="_blank">
-                  <img src="../images/blog.png" height="30px" style="margin-bottom:-3px">
+                  <img src="../images/blog.png" height="25px" style="margin-bottom:-3px">
                 </a>
                 <span class="tooltiptext">https://notes.luohongkun.top/</span>
               </div>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -99,41 +99,57 @@
 
               <div class="tooltip">
                 <a href="https://github.com/luohongk" target="_blank">
-                  <img src="../images/github.png" height="30px" style="margin-bottom:-3px">
+                  <img src="../images/github.png" height="25px" style="margin-bottom:-3px">
                 </a>
                 <span class="tooltiptext">https://github.com/luohongk</span>
               </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
+              <!-- 原QQ图标代码 -->
               <div class="tooltip">
-                <a href="../images/qq_num.png" target="_blank">
-                  <img src="../images/QQ.png" height="30px" style="margin-bottom:-3px">
+                <a id="qqLink" href="../images/qq_num.png"> <!-- 新增id=qqLink，移除target="_blank" -->
+                  <img src="../images/QQ.png" height="25px" style="margin-bottom:-3px">
                 </a>
                 <span class="tooltiptext">QQ:2638923243</span>
               </div>&nbsp;&nbsp;&nbsp;&nbsp;
 
-              <div class="tooltip">
+              <!-- <div class="tooltip">
                 <a href="../images/wechat_code.png" target="_blank"><img src="../images/wechat.png" height="30px"
                     style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="tooltiptext">wechat:luohongkun-0715</span>
-              </div>
-              <a href="https://space.bilibili.com/688837845?spm_id_from=333.1007.0.0" target="_blank"><img
-                  src="../images/bilibili.png" height="30px" style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://www.xiaohongshu.com/user/profile/65955d5e00000000220065a9" target="_blank"><img
-                  src="../images/xiaohongshu.png" height="31px" style="margin-bottom:-4px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+              </div> -->
+
+
+              <!-- 原代码中微信图标部分 -->
               <div class="tooltip">
-                <a href="mailto:luohongkun0715@gmail.com" target="_blank"><img src="../images/gmail.png" height="31px"
-                    style="margin-bottom:-4px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="wechatLink" href="../images/wechat_code.png" target="_blank">
+                  <img src="../images/wechat.png" height="25px" style="margin-bottom:-3px">
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="tooltiptext">wechat:luohongkun-0715</span>
+              </div>
+
+              <a href="https://space.bilibili.com/688837845?spm_id_from=333.1007.0.0" target="_blank"><img
+                  src="../images/bilibili.png" height="25px" style="margin-bottom:-3px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.xiaohongshu.com/user/profile/65955d5e00000000220065a9" target="_blank"><img
+                  src="../images/xiaohongshu.png" height="25px" style="margin-bottom:-4px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <!-- 第一个邮箱（Gmail） -->
+              <div class="tooltip">
+                <a id="gmailLink" href="javascript:;"> <!-- 新增id=gmailLink，href改为javascript:; -->
+                  <img src="../images/gmail.png" height="25px" style="margin-bottom:-4px">
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="tooltiptext">Gmail:luohongkun0715@gmail.com</span>
               </div>
+
+              <!-- 第二个邮箱（学校邮箱） -->
               <div class="tooltip">
-                <a href="mailto:luohongkun@whu.edu.cn" target="_blank">
-                  <img src="../images/email.png" height="30px" style="margin-bottom:-4px">
+                <a id="schoolMailLink" href="javascript:;"> <!-- 新增id=schoolMailLink，href改为javascript:; -->
+                  <img src="../images/email.png" height="25px" style="margin-bottom:-4px">
                 </a>
                 <span class="tooltiptext">Email:luohongkun@whu.edu.cn</span>
               </div>&nbsp;&nbsp;&nbsp;&nbsp;
+
               <div class="tooltip">
                 <a href="https://x.com/luohongkun0715" target="_blank">
-                  <img src="../images/X.png" height="31px" style="margin-bottom:-4px">
+                  <img src="../images/X.png" height="25px" style="margin-bottom:-4px">
                 </a>
                 <span class="tooltiptext">X: luohongkun0715</span>
               </div>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1191,6 +1207,312 @@
       <div class="gray-line">
         <span class="star">🌎</span>
       </div>
+
+
+      <div class="wechat-modal-mask" id="wechatModal">
+        <div class="wechat-modal-content">
+          <div class="wechat-modal-title">WeChat Contact Notice / 微信联系须知</div>
+          <div class="wechat-modal-body">
+            <div class="cn-section">
+              <h4>中文:</h4>
+              <p>感谢您的关注！请在验证消息中包含：</p>
+              <ul>
+                <li>真实姓名</li>
+                <li>所在机构</li>
+                <li>来意</li>
+              </ul>
+            </div>
+            <div class="en-section">
+              <h4>English:</h4>
+              <p>Thank you for your interest! Please include in your friend request:</p>
+              <ul>
+                <li>Real name(真实姓名)</li>
+                <li>Institution (所在机构)</li>
+                <li>Purpose (来意)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="wechat-modal-footer">
+            <button class="wechat-modal-btn wechat-modal-confirm" id="modalConfirm">OK / 确定</button>
+            <button class="wechat-modal-btn wechat-modal-cancel" id="modalCancel">Cancel / 取消</button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- QQ弹窗 -->
+      <div class="wechat-modal-mask" id="qqModal">
+        <div class="wechat-modal-content">
+          <div class="wechat-modal-title">QQ Contact Notice / QQ联系须知</div>
+          <div class="wechat-modal-body">
+            <div class="cn-section">
+              <h4>中文:</h4>
+              <p>感谢您的关注！添加QQ时请备注：</p>
+              <ul>
+                <li>真实姓名</li>
+                <li>所在机构</li>
+                <li>来意（如：学术交流/项目合作/咨询）</li>
+              </ul>
+              <p style="margin-top:10px; color:#E93739; font-weight:500;">QQ号：2638923243</p>
+            </div>
+            <div class="en-section">
+              <h4>English:</h4>
+              <p>Thank you for your interest! Please note when adding QQ:</p>
+              <ul>
+                <li>Real name (真实姓名)</li>
+                <li>Institution (所在机构)</li>
+                <li>Purpose (e.g.: Academic exchange/Project cooperation/Consultation)</li>
+              </ul>
+              <p style="margin-top:10px; color:#E93739; font-weight:500;">QQ Number: 2638923243</p>
+            </div>
+          </div>
+          <div class="wechat-modal-footer">
+            <button class="wechat-modal-btn wechat-modal-confirm" id="qqModalConfirm">OK / 确定</button>
+            <button class="wechat-modal-btn wechat-modal-cancel" id="qqModalCancel">Cancel / 取消</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gmail弹窗 -->
+      <div class="wechat-modal-mask" id="gmailModal">
+        <div class="wechat-modal-content">
+          <div class="wechat-modal-title">Gmail Contact Notice / Gmail联系须知</div>
+          <div class="wechat-modal-body">
+            <div class="cn-section">
+              <h4>中文:</h4>
+              <p><strong>邮件主题格式（必填）：</strong>姓名+机构+联系来意</p>
+              <p><strong>示例主题：</strong>张三+清华大学+科研合作</p>
+              <p><strong>邮件正文模板参考：</strong></p>
+              <div
+                style="margin: 10px 0; padding: 12px; background: #F5F7FA; border-radius: 6px; border-left: 4px solid #EA4335; font-family: monospace; font-size: 13px; line-height: 1.5;">
+                罗宏昆同学：<br>
+                您好！<br>
+                我是【你的姓名】，目前就读/任职于【你的机构】，本次联系主要是想【说明具体来意，如：探讨学术合作/申请项目合作等】。<br>
+                【可补充个人背景/相关经历/具体问题等】<br>
+                期待您的回复，谢谢！<br>
+                此致<br>
+                敬礼<br>
+                【你的姓名】<br>
+                【联系方式（可选）】
+              </div>
+              <!-- 邮箱展示+复制框 -->
+              <div class="email-display-box">
+                <span class="email-text" id="gmailText">luohongkun0715@gmail.com</span>
+                <button class="copy-email-btn gmail-copy-btn" id="copyGmail">复制邮箱</button>
+              </div>
+            </div>
+            <div class="en-section">
+              <h4>English:</h4>
+              <p><strong>Email Subject Format (Required)：</strong>Name + Institution + Purpose</p>
+              <p><strong>Example Subject：</strong>Zhang San + Tsinghua University + Research Cooperation</p>
+              <p><strong>Email Body Template Reference：</strong></p>
+              <div
+                style="margin: 10px 0; padding: 12px; background: #F5F7FA; border-radius: 6px; border-left: 4px solid #EA4335; font-family: monospace; font-size: 13px; line-height: 1.5;">
+                Dear Hongkun Luo,<br>
+                Hello!<br>
+                My name is [Your Name], currently studying/working at [Your Institution]. I am contacting you mainly to
+                [specify your purpose, e.g.: discuss academic cooperation/apply for project cooperation, etc.].<br>
+                [You can supplement your background/ relevant experience/ specific questions, etc.]<br>
+                Looking forward to your reply, thank you!<br>
+                Best regards,<br>
+                [Your Name]<br>
+                [Contact Information (Optional)]
+              </div>
+              <div class="email-display-box">
+                <span class="email-text" id="gmailTextEn">luohongkun0715@gmail.com</span>
+                <button class="copy-email-btn gmail-copy-btn" id="copyGmailEn">Copy Email</button>
+              </div>
+            </div>
+          </div>
+          <div class="wechat-modal-footer">
+            <button class="wechat-modal-btn wechat-modal-cancel" id="gmailModalCancel">Cancel / 取消</button>
+            <button class="wechat-modal-btn wechat-modal-confirm" id="gmailModalConfirm">OK / 确定</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 学校邮箱弹窗 -->
+      <div class="wechat-modal-mask" id="schoolMailModal">
+        <div class="wechat-modal-content">
+          <div class="wechat-modal-title">School Email Contact Notice / 学校邮箱联系须知</div>
+          <div class="wechat-modal-body">
+            <div class="cn-section">
+              <h4>中文:</h4>
+              <p><strong>邮件主题格式（必填）：</strong>姓名+机构+联系来意</p>
+              <p><strong>示例主题：</strong>张三+清华大学+科研合作</p>
+              <p><strong>邮件正文模板参考：</strong></p>
+              <div
+                style="margin: 10px 0; padding: 12px; background: #F5F7FA; border-radius: 6px; border-left: 4px solid #165DFF; font-family: monospace; font-size: 13px; line-height: 1.5;">
+                罗宏昆同学：<br>
+                您好！<br>
+                我是【你的姓名】，目前就读/任职于【你的机构】，本次联系主要是想【说明具体来意，如：探讨学术合作/申请项目合作等】。<br>
+                【可补充个人背景/相关经历/具体问题等】<br>
+                期待您的回复，谢谢！<br>
+                此致<br>
+                敬礼<br>
+                【你的姓名】<br>
+                【联系方式（可选）】
+              </div>
+              <!-- 邮箱展示+复制框 -->
+              <div class="email-display-box">
+                <span class="email-text" id="schoolMailText">luohongkun@whu.edu.cn</span>
+                <button class="copy-email-btn school-copy-btn" id="copySchoolMail">复制邮箱</button>
+              </div>
+            </div>
+            <div class="en-section">
+              <h4>English:</h4>
+              <p><strong>Email Subject Format (Required)：</strong>Name + Institution + Purpose</p>
+              <p><strong>Example Subject：</strong>Zhang San + Tsinghua University + Research Cooperation</p>
+              <p><strong>Email Body Template Reference：</strong></p>
+              <div
+                style="margin: 10px 0; padding: 12px; background: #F5F7FA; border-radius: 6px; border-left: 4px solid #165DFF; font-family: monospace; font-size: 13px; line-height: 1.5;">
+                Dear Hongkun Luo,<br>
+                Hello!<br>
+                My name is [Your Name], currently studying/working at [Your Institution]. I am contacting you mainly to
+                [specify your purpose, e.g.: discuss academic cooperation/apply for project cooperation, etc.].<br>
+                [You can supplement your background/ relevant experience/ specific questions, etc.]<br>
+                Looking forward to your reply, thank you!<br>
+                Best regards,<br>
+                [Your Name]<br>
+                [Contact Information (Optional)]
+              </div>
+              <div class="email-display-box">
+                <span class="email-text" id="schoolMailTextEn">luohongkun@whu.edu.cn</span>
+                <button class="copy-email-btn school-copy-btn" id="copySchoolMailEn">Copy Email</button>
+              </div>
+            </div>
+          </div>
+          <div class="wechat-modal-footer">
+            <button class="wechat-modal-btn wechat-modal-cancel" id="schoolMailModalCancel">Cancel / 取消</button>
+            <button class="wechat-modal-btn wechat-modal-confirm" id="schoolMailModalConfirm">OK / 确定</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <script>
+        // 初始化所有联系弹窗（微信+QQ+两个邮箱）
+        function initContactModals() {
+          // ========== 通用元素与方法 ==========
+          // 通用弹窗显示方法
+          function showModal(modal) {
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('show'), 10);
+          }
+
+          // 通用弹窗关闭方法
+          function closeModal(modal) {
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 300);
+          }
+
+          // 复制文本通用方法（带提示）
+          function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+              const originalText = btn.textContent;
+              btn.textContent = '复制成功！';
+              btn.style.opacity = '0.9';
+              setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.opacity = '1';
+              }, 1500);
+            }).catch(err => {
+              alert('复制失败，请手动复制：' + text);
+              console.error('复制错误:', err);
+            });
+          }
+
+          // ========== 微信弹窗逻辑（保留图片跳转） ==========
+          const wechatLink = document.getElementById('wechatLink');
+          const wechatModal = document.getElementById('wechatModal');
+          const wechatConfirmBtn = document.getElementById('modalConfirm');
+          const wechatCancelBtn = document.getElementById('modalCancel');
+
+          if (wechatLink && wechatModal) {
+            wechatLink.addEventListener('click', (e) => {
+              e.preventDefault();
+              showModal(wechatModal);
+            });
+            wechatCancelBtn.addEventListener('click', () => closeModal(wechatModal));
+            wechatConfirmBtn.addEventListener('click', () => {
+              closeModal(wechatModal);
+              window.open('../images/wechat_code.png', '_blank');
+            });
+            wechatModal.addEventListener('click', (e) => e.target === wechatModal && closeModal(wechatModal));
+          }
+
+          // ========== QQ弹窗逻辑（保留图片跳转） ==========
+          const qqLink = document.getElementById('qqLink');
+          const qqModal = document.getElementById('qqModal');
+          const qqConfirmBtn = document.getElementById('qqModalConfirm');
+          const qqCancelBtn = document.getElementById('qqModalCancel');
+
+          if (qqLink && qqModal) {
+            qqLink.addEventListener('click', (e) => {
+              e.preventDefault();
+              showModal(qqModal);
+            });
+            qqCancelBtn.addEventListener('click', () => closeModal(qqModal));
+            qqConfirmBtn.addEventListener('click', () => {
+              closeModal(qqModal);
+              window.open('../images/qq_num.png', '_blank');
+            });
+            qqModal.addEventListener('click', (e) => e.target === qqModal && closeModal(qqModal));
+          }
+
+          // ========== Gmail弹窗逻辑（无图片跳转，仅复制+关闭） ==========
+          const gmailLink = document.getElementById('gmailLink');
+          const gmailModal = document.getElementById('gmailModal');
+          const gmailConfirmBtn = document.getElementById('gmailModalConfirm');
+          const gmailCancelBtn = document.getElementById('gmailModalCancel');
+          const copyGmailBtn = document.getElementById('copyGmail');
+          const copyGmailEnBtn = document.getElementById('copyGmailEn');
+          const gmailText = document.getElementById('gmailText').textContent;
+
+          if (gmailLink && gmailModal) {
+            gmailLink.addEventListener('click', () => showModal(gmailModal));
+            gmailCancelBtn.addEventListener('click', () => closeModal(gmailModal));
+            // 确定按钮仅关闭弹窗，无跳转
+            gmailConfirmBtn.addEventListener('click', () => closeModal(gmailModal));
+            gmailModal.addEventListener('click', (e) => e.target === gmailModal && closeModal(gmailModal));
+            // 复制功能
+            copyGmailBtn.addEventListener('click', () => copyText(gmailText, copyGmailBtn));
+            copyGmailEnBtn.addEventListener('click', () => copyText(gmailText, copyGmailEnBtn));
+          }
+
+          // ========== 学校邮箱弹窗逻辑（无图片跳转，仅复制+关闭） ==========
+          const schoolMailLink = document.getElementById('schoolMailLink');
+          const schoolMailModal = document.getElementById('schoolMailModal');
+          const schoolMailConfirmBtn = document.getElementById('schoolMailModalConfirm');
+          const schoolMailCancelBtn = document.getElementById('schoolMailModalCancel');
+          const copySchoolMailBtn = document.getElementById('copySchoolMail');
+          const copySchoolMailEnBtn = document.getElementById('copySchoolMailEn');
+          const schoolMailText = document.getElementById('schoolMailText').textContent;
+
+          if (schoolMailLink && schoolMailModal) {
+            schoolMailLink.addEventListener('click', () => showModal(schoolMailModal));
+            schoolMailCancelBtn.addEventListener('click', () => closeModal(schoolMailModal));
+            // 确定按钮仅关闭弹窗，无跳转
+            schoolMailConfirmBtn.addEventListener('click', () => closeModal(schoolMailModal));
+            schoolMailModal.addEventListener('click', (e) => e.target === schoolMailModal && closeModal(schoolMailModal));
+            // 复制功能
+            copySchoolMailBtn.addEventListener('click', () => copyText(schoolMailText, copySchoolMailBtn));
+            copySchoolMailEnBtn.addEventListener('click', () => copyText(schoolMailText, copySchoolMailEnBtn));
+          }
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function () {
+          initContactModals();
+
+          // 原有日期逻辑
+          const date = new Date();
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          document.getElementById('current-date').textContent = date.toLocaleDateString('en-US', options);
+        });
+      </script>
+
 
     </div>
   </div>

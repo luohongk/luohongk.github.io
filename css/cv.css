@@ -756,3 +756,266 @@ p {
   background-color: #527BBD;
   border-radius: 3px;
 }
+
+/* 微信弹窗遮罩层 - 带渐入动效 */
+.wechat-modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* 适配视口宽度，避免滚动条 */
+  height: 100vh;
+  /* 适配视口高度 */
+  background: rgba(0, 0, 0, 0.65);
+  /* 更深遮罩，突出弹窗 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  display: none;
+  /* 默认隐藏 */
+  backdrop-filter: blur(4px);
+  /* 背景模糊，增强层次感 */
+  transition: background 0.3s ease;
+  /* 遮罩渐入动效 */
+}
+
+/* 弹窗内容容器 - 卡片化+圆角+立体阴影+入场动效 */
+.wechat-modal-content {
+  background: #fff;
+  width: 50%;
+  /* 基础宽度（占屏幕比例），可适当调大如95% */
+  padding: 30px;
+  border-radius: 16px;
+  /* 大圆角更现代 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  /* 多层阴影增强立体感 */
+  position: relative;
+  z-index: 100000;
+  overflow: hidden;
+  transform: scale(0.95);
+  /* 入场前缩放 */
+  opacity: 0;
+  /* 入场前透明 */
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* 弹性动效 */
+}
+
+/* 弹窗显示时的动效 */
+.wechat-modal-mask.show .wechat-modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* 弹窗顶部装饰条（点睛设计） */
+.wechat-modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #07C160, #165DFF);
+  /* 微信绿+科技蓝渐变 */
+}
+
+/* 弹窗标题 - 加粗+间距+图标 */
+.wechat-modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1D2129;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #F2F3F5;
+  position: relative;
+}
+
+/* 标题前小图标 */
+.wechat-modal-title::before {
+  content: "📱";
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* 弹窗内容区 - 排版优化+行高 */
+.wechat-modal-body {
+  line-height: 1.8;
+  color: #4E5969;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.wechat-modal-body .cn-section {
+  margin-bottom: 20px;
+}
+
+.wechat-modal-body h4 {
+  margin: 0 0 10px 0;
+  color: #1D2129;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 中文标题加微信绿 */
+.cn-section h4 {
+  color: #07C160;
+}
+
+/* 英文标题加科技蓝 */
+.en-section h4 {
+  color: #165DFF;
+}
+
+.wechat-modal-body ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.wechat-modal-body li {
+  margin-bottom: 6px;
+  position: relative;
+}
+
+/* 自定义列表项图标 */
+.wechat-modal-body li::before {
+  content: "✓";
+  position: absolute;
+  left: -18px;
+  color: #07C160;
+  font-size: 12px;
+}
+
+/* 弹窗按钮区 - 间距+对齐优化 */
+.wechat-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.wechat-modal-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* 确定按钮 - 渐变背景+hover动效 */
+.wechat-modal-confirm {
+  background: linear-gradient(135deg, #07C160, #06B058);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(7, 193, 96, 0.25);
+}
+
+.wechat-modal-confirm:hover {
+  background: linear-gradient(135deg, #06B058, #05A050);
+  transform: translateY(-2px);
+  /* 轻微上移 */
+  box-shadow: 0 6px 16px rgba(7, 193, 96, 0.3);
+}
+
+/* 取消按钮 - 浅灰+hover高亮 */
+.wechat-modal-cancel {
+  background: #F2F3F5;
+  color: #4E5969;
+}
+
+.wechat-modal-cancel:hover {
+  background: #E5E6EB;
+  color: #1D2129;
+  transform: translateY(-2px);
+}
+
+/* 按钮点击反馈 */
+.wechat-modal-btn:active {
+  transform: translateY(0);
+}
+
+
+
+
+
+/* -------------------------- 邮箱弹窗专属样式 -------------------------- */
+/* Gmail弹窗专属配色（谷歌红） */
+#gmailModal .wechat-modal-content::before {
+  background: linear-gradient(90deg, #EA4335, #DB4437);
+}
+
+#gmailModal .cn-section h4,
+#gmailModal .en-section h4 {
+  color: #EA4335;
+}
+
+#gmailModal .wechat-modal-confirm {
+  background: linear-gradient(135deg, #EA4335, #DB4437);
+}
+
+#gmailModal .wechat-modal-confirm:hover {
+  box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3);
+}
+
+/* 学校邮箱弹窗专属配色（武大蓝） */
+#schoolMailModal .wechat-modal-content::before {
+  background: linear-gradient(90deg, #165DFF, #0088CC);
+}
+
+#schoolMailModal .cn-section h4,
+#schoolMailModal .en-section h4 {
+  color: #165DFF;
+}
+
+#schoolMailModal .wechat-modal-confirm {
+  background: linear-gradient(135deg, #165DFF, #0088CC);
+}
+
+#schoolMailModal .wechat-modal-confirm:hover {
+  box-shadow: 0 4px 12px rgba(22, 93, 255, 0.3);
+}
+
+/* 邮箱复制按钮样式 */
+.copy-email-btn {
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+}
+
+.copy-email-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.gmail-copy-btn {
+  background: #EA4335 !important;
+  color: #fff !important;
+}
+
+.school-copy-btn {
+  background: #165DFF !important;
+  color: #fff !important;
+}
+
+/* 邮箱文本展示样式 */
+.email-display-box {
+  margin-top: 15px !important;
+  padding: 12px 16px !important;
+  background: #F8F9FA !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border: 1px solid #E5E6EB !important;
+}
+
+.email-text {
+  font-weight: 600 !important;
+  color: #1D2129 !important;
+  font-size: 15px !important;
+  flex: 1 !important;
+  word-break: break-all !important;
+}
