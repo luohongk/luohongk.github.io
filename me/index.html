@@ -1424,6 +1424,22 @@
             });
           }
 
+                    // 复制文本通用方法（带提示）
+          function copyEnglishText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+              const originalText = btn.textContent;
+              btn.textContent = 'Copy Success！';
+              btn.style.opacity = '0.9';
+              setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.opacity = '1';
+              }, 1500);
+            }).catch(err => {
+              alert('Copy Failed, Please Manually Copy: ' + text);
+              console.error('Copy Error:', err);
+            });
+          }
+
           // ========== 微信弹窗逻辑（保留图片跳转） ==========
           const wechatLink = document.getElementById('wechatLink');
           const wechatModal = document.getElementById('wechatModal');
@@ -1479,7 +1495,7 @@
             gmailModal.addEventListener('click', (e) => e.target === gmailModal && closeModal(gmailModal));
             // 复制功能
             copyGmailBtn.addEventListener('click', () => copyText(gmailText, copyGmailBtn));
-            copyGmailEnBtn.addEventListener('click', () => copyText(gmailText, copyGmailEnBtn));
+            copyGmailEnBtn.addEventListener('click', () => copyEnglishText(gmailText, copyGmailEnBtn));
           }
 
           // ========== 学校邮箱弹窗逻辑（无图片跳转，仅复制+关闭） ==========
@@ -1499,11 +1515,11 @@
             schoolMailModal.addEventListener('click', (e) => e.target === schoolMailModal && closeModal(schoolMailModal));
             // 复制功能
             copySchoolMailBtn.addEventListener('click', () => copyText(schoolMailText, copySchoolMailBtn));
-            copySchoolMailEnBtn.addEventListener('click', () => copyText(schoolMailText, copySchoolMailEnBtn));
+            copySchoolMailEnBtn.addEventListener('click', () => copyEnglishText(schoolMailText, copySchoolMailEnBtn));
           }
         }
 
-        // 页面加载完成后执行
+        // 页面加载完成后执行 
         document.addEventListener('DOMContentLoaded', function () {
           initContactModals();
 
