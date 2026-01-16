@@ -521,8 +521,8 @@ li::before {
 .friend-badge {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-size: 9px;
+  gap: 2px;
+  font-size: 8px;
   font-weight: 700;
   color: #3b82f6;
   margin-top: 1px;
