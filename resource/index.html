@@ -21,7 +21,13 @@
             <p><a href="https://www.luohongkun.top" target="_blank" class="header-link">www.luohongkun.top</a></p>
         </header>
 
-        <!-- 顶部横排导航栏 -->
+        <!-- 手机端汉堡按钮 -->
+        <div class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- 原有top-nav导航栏保留，无需修改 -->
         <nav class="top-nav">
             <ul class="nav-list">
                 <li class="nav-item active" data-target="bilibili-video">📹 我的B站视频</li>
@@ -303,6 +309,36 @@
                 });
             });
         });
+
+
+        // 原有导航切换代码保持不变，新增以下代码
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const topNav = document.querySelector('.top-nav');
+
+        // 点击汉堡按钮，切换菜单显示/隐藏
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            topNav.classList.toggle('show');
+        });
+
+        // 点击导航项后，自动关闭菜单（优化体验）
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                topNav.classList.remove('show');
+            });
+        });
+
+        // 点击页面空白处，关闭菜单（可选，增强体验）
+        document.addEventListener('click', (e) => {
+            if (!hamburgerBtn.contains(e.target) && !topNav.contains(e.target)) {
+                hamburgerBtn.classList.remove('active');
+                topNav.classList.remove('show');
+            }
+        });
+
+
+
     </script>
 </body>
 
