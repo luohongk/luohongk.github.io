@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>我的个人资源导航站</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
+        /* 页面背景与整体布局 - 纯背景图片 */
+        body {
+            background: url('https://s2.loli.net/2022/11/20/EhYpRxBUrQHV9Jm.png') center/cover fixed;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* 背景装饰层 - 移除蓝色 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 主容器包装 */
+        .page-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 顶部横排导航栏样式 - 玻璃态效果 */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 0 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .nav-list {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            white-space: nowrap;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 0;
+            list-style: none;
+        }
+        .nav-list::-webkit-scrollbar {
+            height: 4px;
+        }
+        .nav-list::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
+        }
+        .nav-list::-webkit-scrollbar-thumb {
+            background: rgba(33, 150, 243, 0.3);
+            border-radius: 2px;
+        }
+        .nav-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(33, 150, 243, 0.5);
+        }
+        .nav-item {
+            flex-shrink: 0;
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            background: rgba(33, 150, 243, 0.08);
+            border: 1px solid rgba(33, 150, 243, 0.2);
+        }
+        .nav-item a {
+            text-decoration: none;
+            color: #1976d2;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: block;
+            pointer-events: none;
+        }
+        .nav-item:hover {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+        .nav-item:hover a {
+            color: #ffffff;
+        }
+        .nav-item.active {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+        }
+        .nav-item.active a {
+            color: #ffffff;
+        }
+
+        /* 头部样式 - 优雅设计 */
+        header {
+            text-align: center;
+            padding: 40px 20px 30px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(33, 150, 243, 0.2);
+        }
+        header p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 主内容容器 */
+        .main-content {
+            padding: 0 12px 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 板块通用样式 - 卡片设计优化 */
+        .section {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 24px 20px;
+            margin-bottom: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: none;
+        }
+        .section.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .section:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+        .section h2 {
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(33, 150, 243, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        /* 链接列表样式 - 紧凑卡片 */
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .link-item {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.05), rgba(21, 101, 192, 0.05));
+            border-radius: 10px;
+            padding: 10px 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            flex: 1 1 calc(50% - 4px);
+            min-width: 100px;
+            text-align: center;
+            border: 1px solid rgba(33, 150, 243, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        .link-item:hover::before {
+            left: 100%;
+        }
+        .link-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            display: block;
+            font-size: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+        .link-item:hover {
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            transform: translateY(-2px);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+        .link-item:hover a {
+            color: #ffffff;
+        }
+
+        /* B站视频板块样式 - 紧凑卡片，每行8个 */
+        .bilibili-video-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .video-item {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+            border-radius: 12px;
+            padding: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(33, 150, 243, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        .video-cover {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            position: relative;
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            overflow: hidden;
+        }
+        .video-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .video-item:hover .video-cover img {
+            transform: scale(1.08);
+        }
+        .video-content {
+            padding: 10px;
+        }
+        .video-item h3 {
+            font-size: 0.6rem;
+            color: #2c3e50;
+            margin-bottom: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        .video-item p {
+            font-size: 0.5rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+            min-height: 2.1em;
+        }
+        .video-item a {
+            display: inline-block;
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: 0.7rem;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+        .video-item a:hover {
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+        .video-item:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+
+        /* 自媒体思考板块 - 优化为四栏表格式布局，紧凑字体 */
+        .self-media-content {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        .thought-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+        .thought-row {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.03), rgba(21, 101, 192, 0.03));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .thought-row:hover {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.08), rgba(21, 101, 192, 0.08));
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+            transform: translateX(4px);
+        }
+        .thought-row td {
+            padding: 12px 14px;
+            vertical-align: middle;
+        }
+        .thought-summary {
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 220px;
+            font-size: 0.8rem;
+        }
+        .thought-platform {
+            min-width: 90px;
+            text-align: center;
+        }
+        .thought-platform-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            color: white;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+        .thought-content-link {
+            text-align: center;
+            min-width: 110px;
+        }
+        .thought-content-link a {
+            display: inline-block;
+            color: #2196f3;
+            text-decoration: none;
+            padding: 5px 12px;
+            border: 2px solid #2196f3;
+            border-radius: 18px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        .thought-content-link a:hover {
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+        .thought-note-link {
+            text-align: center;
+            min-width: 100px;
+        }
+        .thought-note-link a {
+            display: inline-block;
+            color: #1565c0;
+            text-decoration: none;
+            padding: 5px 12px;
+            border: 2px solid #1565c0;
+            border-radius: 18px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        .thought-note-link a:hover {
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+        }
+
+        /* 阅读笔记板块样式 - 紧凑版本 */
+        .reading-notes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .note-item {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.03), rgba(21, 101, 192, 0.03));
+            border-radius: 12px;
+            padding: 14px 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(33, 150, 243, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .note-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        .note-item:hover::before {
+            transform: scaleY(1);
+        }
+        .note-item:hover {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.08), rgba(21, 101, 192, 0.08));
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.15);
+            transform: translateX(6px);
+        }
+        .note-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .note-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #2c3e50;
+            flex: 1;
+            min-width: 200px;
+        }
+        .note-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .note-category {
+            padding: 3px 10px;
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            color: white;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .note-date {
+            color: #95a5a6;
+            font-size: 0.72rem;
+        }
+        .note-description {
+            color: #555;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .note-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .note-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 14px;
+            border-radius: 18px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid;
+        }
+        .note-btn-primary {
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 3px 10px rgba(33, 150, 243, 0.25);
+        }
+        .note-btn-primary:hover {
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.35);
+        }
+        .note-btn-secondary {
+            background: transparent;
+            color: #2196f3;
+            border-color: #2196f3;
+        }
+        .note-btn-secondary:hover {
+            background: rgba(33, 150, 243, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            .section h2 {
+                font-size: 1.2rem;
+            }
+            .section {
+                padding: 18px 14px;
+                margin-bottom: 15px;
+                border-radius: 16px;
+            }
+            .link-item {
+                flex: 1 1 100%;
+                padding: 12px 14px;
+            }
+            .video-content {
+                padding: 14px;
+            }
+            .nav-item {
+                padding: 6px 14px;
+            }
+            .nav-item a {
+                font-size: 0.85rem;
+            }
+            .thought-table {
+                display: block;
+            }
+            .thought-row {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 12px;
+            }
+            .thought-row td {
+                display: block;
+                padding: 10px 14px;
+                text-align: left !important;
+            }
+            .thought-summary {
+                font-size: 0.9rem;
+                border-bottom: 1px solid rgba(33, 150, 243, 0.1);
+            }
+            .thought-platform {
+                border-bottom: 1px solid rgba(33, 150, 243, 0.1);
+            }
+            .thought-content-link {
+                border-bottom: 1px solid rgba(33, 150, 243, 0.1);
+            }
+            .thought-note-link {
+                border-bottom: none;
+            }
+            .note-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .note-title {
+                min-width: 100%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .top-nav {
+                padding: 0 30px;
+            }
+            .main-content {
+                padding: 0 30px 40px;
+            }
+            .nav-list {
+                justify-content: center;
+                gap: 8px;
+            }
+            .nav-item {
+                padding: 10px 22px;
+            }
+            .nav-item a {
+                font-size: 0.95rem;
+            }
+            .link-item {
+                flex: 1 1 calc(20% - 6.4px);
+                max-width: calc(20% - 6.4px);
+            }
+            .video-item {
+                max-width: calc(25% - 7.5px);
+            }
+            .video-cover {
+                padding-bottom: 56.25%;
+            }
+            .section {
+                margin-bottom: 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .link-item {
+                flex: 1 1 calc(10% - 7.2px);
+                max-width: calc(10% - 7.2px);
+            }
+            .video-item {
+                max-width: calc(20% - 8.75px);
+            }
+            header {
+                padding: 50px 20px 35px;
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1400px;
+            margin: 0 auto;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- 头部标题 -->
+        <header>
+            <h1>✨ 我的个人资源导航站</h1>
+            <p>汇聚优质内容，提升个人效率，记录成长轨迹</p>
+        </header>
+
+        <!-- 顶部横排导航栏 -->
+        <nav class="top-nav">
+            <ul class="nav-list">
+                <li class="nav-item active" data-target="bilibili-video">📹 我的B站视频</li>
+                <li class="nav-item" data-target="reading-notes">📖 阅读笔记</li>
+                <li class="nav-item" data-target="self-media-think">💭 自媒体思考</li>
+                <li class="nav-item" data-target="common-links">🔗 常用网址</li>
+                <li class="nav-item" data-target="study-resources">📚 学习资源</li>
+                <li class="nav-item" data-target="friend-links">🤝 友情链接</li>
+            </ul>
+        </nav>
+
+        <!-- 主内容容器 -->
+        <div class="main-content">
+            <!-- 1. B站视频板块 - 默认激活显示 -->
+            <section class="section active" id="bilibili-video">
+                <h2>📹 我的B站视频</h2>
+                <div class="bilibili-video-list">
+                    <div class="video-item">
+                        <div class="video-cover">
+                            <img src="https://s2.loli.net/2022/11/20/EhYpRxBUrQHV9Jm.png" alt="编程小白入门指南封面">
+                        </div>
+                        <div class="video-content">
+                            <h3>【入门指南】编程小白的第一个月该学什么</h3>
+                            <p>本期内容分享编程新手入门的避坑指南，推荐核心学习工具和路线规划，让你少走弯路。</p>
+                            <a href="https://www.bilibili.com/video/BV1xx411c7mz/" target="_blank">前往B站观看</a>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-cover">
+                            <img src="https://s2.loli.net/2022/11/20/EhYpRxBUrQHV9Jm.png" alt="免费学习网站大盘点封面">
+                        </div>
+                        <div class="video-content">
+                            <h3>【资源分享】那些免费又优质的学习网站大盘点</h3>
+                            <p>本期内容整理了10个免费学习网站，覆盖编程、设计、外语等多个领域，干货满满。</p>
+                            <a href="https://www.bilibili.com/video/BV1ys411d7yh/" target="_blank">前往B站观看</a>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-cover">
+                            <img src="https://s2.loli.net/2022/11/20/EhYpRxBUrQHV9Jm.png" alt="编程小白入门指南封面">
+                        </div>
+                        <div class="video-content">
+                            <h3>【实战教程】从零搭建个人博客网站</h3>
+                            <p>手把手教你使用Hugo+GitHub Pages搭建完全免费的个人博客，适合小白上手。</p>
+                            <a href="https://www.bilibili.com/video/BV1ys411d7yh/" target="_blank">前往B站观看</a>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-cover">
+                            <img src="https://s2.loli.net/2022/11/20/EhYpRxBUrQHV9Jm.png" alt="免费学习网站大盘点封面">
+                        </div>
+                        <div class="video-content">
+                            <h3>【效率工具】程序员必备的10款Chrome插件</h3>
+                            <p>推荐提升开发效率的Chrome扩展，涵盖代码调试、页面设计、数据分析等场景。</p>
+                            <a href="https://www.bilibili.com/video/BV1xx411c7mz/" target="_blank">前往B站观看</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 阅读笔记专栏 - 新增板块 -->
+            <section class="section" id="reading-notes">
+                <h2>📖 阅读笔记</h2>
+                <div class="reading-notes-list">
+                    <div class="note-item">
+                        <div class="note-header">
+                            <div class="note-title">《刻意练习》- 如何成为某个领域的专家</div>
+                            <div class="note-meta">
+                                <span class="note-category">个人成长</span>
+                                <span class="note-date">2026-01-15</span>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            探讨了刻意练习的核心原则：走出舒适区、明确目标、即时反馈、专注投入。结合编程学习的实际案例，总结了技术提升的可行路径。
+                        </div>
+                        <div class="note-actions">
+                            <a href="notes/deliberate-practice.pdf" class="note-btn note-btn-primary" target="_blank">📄 查看PDF笔记</a>
+                            <a href="https://www.bilibili.com/video/BV1234567890" class="note-btn note-btn-secondary" target="_blank">🎬 观看视频解读</a>
+                        </div>
+                    </div>
+
+                    <div class="note-item">
+                        <div class="note-header">
+                            <div class="note-title">《深度工作》- 在碎片化时代保持专注力</div>
+                            <div class="note-meta">
+                                <span class="note-category">效率提升</span>
+                                <span class="note-date">2026-01-08</span>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            分析了深度工作的价值和实践方法，包括时间块规划、仪式化工作流程、环境优化等技巧。特别适合需要长时间集中注意力的开发者和创作者。
+                        </div>
+                        <div class="note-actions">
+                            <a href="notes/deep-work.pdf" class="note-btn note-btn-primary" target="_blank">📄 查看PDF笔记</a>
+                            <a href="#" class="note-btn note-btn-secondary" target="_blank">✍️ 阅读文章</a>
+                        </div>
+                    </div>
+
+                    <div class="note-item">
+                        <div class="note-header">
+                            <div class="note-title">《代码大全》- 软件构建的艺术与科学</div>
+                            <div class="note-meta">
+                                <span class="note-category">技术学习</span>
+                                <span class="note-date">2025-12-20</span>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            整理了代码质量、命名规范、函数设计、注释原则等核心要点。这本书是每个程序员的必读经典，笔记中包含大量实用的代码示例和最佳实践。
+                        </div>
+                        <div class="note-actions">
+                            <a href="notes/code-complete.pdf" class="note-btn note-btn-primary" target="_blank">📄 查看PDF笔记</a>
+                            <a href="https://github.com/yourusername/code-examples" class="note-btn note-btn-secondary" target="_blank">💻 查看代码示例</a>
+                        </div>
+                    </div>
+
+                    <div class="note-item">
+                        <div class="note-header">
+                            <div class="note-title">《精益创业》- 快速迭代与用户验证</div>
+                            <div class="note-meta">
+                                <span class="note-category">创业思维</span>
+                                <span class="note-date">2025-12-05</span>
+                            </div>
+                        </div>
+                        <div class="note-description">
+                            总结了最小可行产品(MVP)、开发-测量-认知循环、转型或坚持的决策框架。对想做自媒体或个人项目的朋友有很大启发。
+                        </div>
+                        <div class="note-actions">
+                            <a href="notes/lean-startup.pdf" class="note-btn note-btn-primary" target="_blank">📄 查看PDF笔记</a>
+                            <a href="https://zhuanlan.zhihu.com/p/123456789" class="note-btn note-btn-secondary" target="_blank">📝 知乎文章</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 自媒体相关的思考板块 - 四栏布局 -->
+            <section class="section" id="self-media-think">
+                <h2>💭 自媒体相关的思考</h2>
+                <div class="self-media-content">
+                    <table class="thought-table">
+                        <tr class="thought-row">
+                            <td class="thought-summary">价值输出与长期主义：自媒体的核心不是跟风更新，而是持续提供有价值的内容</td>
+                            <td class="thought-platform"><span class="thought-platform-badge">B站</span></td>
+                            <td class="thought-content-link"><a href="https://www.bilibili.com/video/BV1234567890" target="_blank">🎬 观看视频</a></td>
+                            <td class="thought-note-link"><a href="notes/value-output.pdf" target="_blank">📄 我的笔记</a></td>
+                        </tr>
+                        <tr class="thought-row">
+                            <td class="thought-summary">技术类自媒体的内容定位：聚焦细分领域，避免大而全的内容策略</td>
+                            <td class="thought-platform"><span class="thought-platform-badge">小红书</span></td>
+                            <td class="thought-content-link"><a href="https://www.xiaohongshu.com/explore/..." target="_blank">📖 阅读笔记</a></td>
+                            <td class="thought-note-link"><a href="notes/content-positioning.pdf" target="_blank">📄 我的笔记</a></td>
+                        </tr>
+                        <tr class="thought-row">
+                            <td class="thought-summary">多平台分发策略：如何高效地在B站、知乎、掘金等平台同步内容</td>
+                            <td class="thought-platform"><span class="thought-platform-badge">B站</span></td>
+                            <td class="thought-content-link"><a href="https://www.bilibili.com/video/BV9876543210" target="_blank">🎬 观看视频</a></td>
+                            <td class="thought-note-link"><a href="notes/multi-platform.pdf" target="_blank">📄 我的笔记</a></td>
+                        </tr>
+                        <tr class="thought-row">
+                            <td class="thought-summary">涨粉与留存的核心逻辑：优质内容+正向反馈+算法推荐的良性循环</td>
+                            <td class="thought-platform"><span class="thought-platform-badge">知乎</span></td>
+                            <td class="thought-content-link"><a href="https://zhuanlan.zhihu.com/p/123456789" target="_blank">📝 阅读文章</a></td>
+                            <td class="thought-note-link"><a href="notes/follower-growth.pdf" target="_blank">📄 我的笔记</a></td>
+                        </tr>
+                        <tr class="thought-row">
+                            <td class="thought-summary">避坑指南：低质量内容、盲目模仿大V、搬运内容等常见错误</td>
+                            <td class="thought-platform"><span class="thought-platform-badge">公众号</span></td>
+                            <td class="thought-content-link"><a href="https://mp.weixin.qq.com/s/..." target="_blank">📱 公众号</a></td>
+                            <td class="thought-note-link"><a href="notes/common-mistakes.pdf" target="_blank">📄 我的笔记</a></td>
+                        </tr>
+                        <tr class="thought-row">
+                            <td class="thought-summary">原创内容的长期价值：成为粉丝学习路上的靠谱伙伴，建立信任关系</td>
+                            <td class="thought-platform"><span class="thought-platform-badge">B站</span></td>
+                            <td class="thought-content-link"><a href="https://www.bilibili.com/video/BV5555555555" target="_blank">🎬 观看视频</a></td>
+                            <td class="thought-note-link"><a href="notes/original-value.pdf" target="_blank">📄 我的笔记</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 4. 常用网址板块 -->
+            <section class="section" id="common-links">
+                <h2>🔗 常用网址</h2>
+                <div class="link-list">
+                    <div class="link-item"><a href="https://www.baidu.com" target="_blank">百度 - 搜索引擎</a></div>
+                    <div class="link-item"><a href="https://mail.qq.com" target="_blank">QQ邮箱 - 办公通讯</a></div>
+                    <div class="link-item"><a href="https://www.github.com" target="_blank">GitHub - 代码托管</a></div>
+                    <div class="link-item"><a href="https://www.zhihu.com" target="_blank">知乎 - 知识问答</a></div>
+                    <div class="link-item"><a href="https://mail.google.com" target="_blank">Gmail - 海外邮箱</a></div>
+                    <div class="link-item"><a href="https://www.bilibili.com" target="_blank">哔哩哔哩 - 视频学习</a></div>
+                    <div class="link-item"><a href="https://www.notion.so" target="_blank">Notion - 笔记工具</a></div>
+                    <div class="link-item"><a href="https://www.figma.com" target="_blank">Figma - 设计协作</a></div>
+                </div>
+            </section>
+
+            <!-- 5. 优质学习资源板块 -->
+            <section class="section" id="study-resources">
+                <h2>📚 优质学习资源</h2>
+                <div class="link-list">
+                    <div class="link-item"><a href="https://leetcode.cn" target="_blank">力扣 - 算法练习</a></div>
+                    <div class="link-item"><a href="https://www.runoob.com" target="_blank">菜鸟教程 - 编程入门</a></div>
+                    <div class="link-item"><a href="https://ocw.mit.edu" target="_blank">MIT公开课 - 名校课程</a></div>
+                    <div class="link-item"><a href="https://www.coursera.org" target="_blank">Coursera - 在线教育</a></div>
+                    <div class="link-item"><a href="https://developer.mozilla.org" target="_blank">MDN - Web开发</a></div>
+                    <div class="link-item"><a href="https://www.edx.org" target="_blank">edX - 免费课程</a></div>
+                    <div class="link-item"><a href="https://stackoverflow.com" target="_blank">Stack Overflow - 技术问答</a></div>
+                    <div class="link-item"><a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp - 免费编程</a></div>
+                </div>
+            </section>
+
+            <!-- 6. 友情链接板块 -->
+            <section class="section" id="friend-links">
+                <h2>🤝 友情链接</h2>
+                <div class="link-list">
+                    <div class="link-item"><a href="#" target="_blank">某某的个人博客</a></div>
+                    <div class="link-item"><a href="#" target="_blank">某某技术社区</a></div>
+                    <div class="link-item"><a href="#" target="_blank">优质资源导航站</a></div>
+                    <div class="link-item"><a href="#" target="_blank">编程爱好者联盟</a></div>
+                    <div class="link-item"><a href="#" target="_blank">设计师资源库</a></div>
+                    <div class="link-item"><a href="#" target="_blank">自媒体交流圈</a></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2026 我的个人资源导航站 - 持续更新，记录成长</p>
+        </footer>
+    </div>
+
+    <!-- 核心JS：实现导航点击→单板块显示，隐藏其他内容 -->
+    <script>
+        // 获取所有导航项和板块
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('.section');
+
+        // 导航点击核心逻辑
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetSectionId = item.getAttribute('data-target');
+                
+                // 移除所有激活状态
+                navItems.forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+                
+                // 切换板块显示
+                sections.forEach(section => {
+                    if (section.id === targetSectionId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+                
+                // 平滑滚动到顶部
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
