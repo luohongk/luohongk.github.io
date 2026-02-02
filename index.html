@@ -65,218 +65,70 @@
 
 
       <!-- done 笔记 -->
-      <div class="column">
-        <!-- 1. 修改你的 column-header 部分 -->
-        <div class="column-header">
-          <h4>📓Notes (笔记资料)</h4>
+
+<div class="column" style="background: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+    <!-- 栏目头部：与基本信息卡样式完全一致 -->
+    <div class="column-header">
+        <h4>📚 (Resource Site)资源站点</h4>
+    </div>
+    <!-- 内容区：复刻基本信息卡内边距、配色、分隔样式，无图片优化布局 -->
+    <div class="column-content" style="padding: 15px; box-sizing: border-box;">
+        <!-- 顶部核心信息区：无图片版，复刻联系信息卡样式+虚线分隔 -->
+        <div style="margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #e0e0e0;">
+            <div style="background: #e0f2f1; padding: 12px 10px; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; max-width: 100%; overflow: hidden;">
+                <p style="margin: 0 0 6px 0; font-size: 14px; color: #00796b; font-weight: 600; text-align: left; word-wrap: break-word; word-break: break-all;">
+                    官网：
+                </p>
+                <p style="margin: 0 0 10px 0; font-size: 12px; font-weight: 600; text-align: left; word-wrap: break-word; word-break: break-all;">
+                    <a href="https://luohongkun.top/resource/" target="_blank" style="color: #d32f2f; text-decoration: none; display: inline-block; max-width: 100%;">
+                        🔗 www.luohongkun.top/resource
+                    </a>
+                </p>
+                <p style="margin: 0; font-size: 14px; color: #00796b; font-weight: 600; text-align: left; word-wrap: break-word; word-break: break-all;">
+                    核心定位：
+                </p>
+                <p style="margin: 0; font-size: 12px; color: #333; font-weight: 500; text-align: left; word-wrap: break-word; word-break: break-all;">
+                    汇聚自媒体与阅读的深度思考，优质的学习资源等
+                </p>
+            </div>
         </div>
 
-        <!-- 2. 在 column-header 下方添加搜索容器 -->
-        <div class="search-container" id="searchContainer"
-          style="display: none; padding: 15px 20px; border-bottom: 1px solid #eee;">
-          <input type="text" id="searchBox" placeholder="输入关键词搜索..."
-            style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 4px; font-size: 16px; box-sizing: border-box;"
-            onkeyup="searchNotes()" oninput="searchNotes()">
-          <div id="searchStats" style="margin-top: 10px; color: #666; font-size: 14px;"></div>
+        <!-- 下方信息区块：1:1复刻基本信息卡的色块/图标/标题样式，无图片更简洁 -->
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+            <!-- 核心板块 -->
+            <div style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
+                <span style="font-size: 18px; color: #f57c00; margin-top: 2px;">📋</span>
+                <div style="text-align: left; width: 100%;">
+                    <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">核心板块</h5>
+                    <p style="margin: 0; color: #333; text-align: left; line-height: 1.5;">
+                        B站视频记录｜播客｜自媒体思考<br>工具网址｜阅读笔记｜友情链接互推
+                    </p>
+                </div>
+            </div>
+            <!-- 资源特色 -->
+            <div style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
+                <span style="font-size: 18px; color: #388e3c; margin-top: 2px;">🎯</span>
+                <div style="text-align: left; width: 100%;">
+                    <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">资源特色</h5>
+                    <p style="margin: 0; color: #333; text-align: left; line-height: 1.5;">
+                        垂直聚机器人感知/学习｜优质自媒体内容深度思索｜持续更新迭代
+                    </p>
+                </div>
+            </div>
+
+            <!-- 适用人群 & 更新计划 -->
+            <div style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
+                <span style="font-size: 18px; color: #9c27b0; margin-top: 2px;">📈</span>
+                <div style="text-align: left; width: 100%;">
+                    <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">更新计划</h5>
+                    <p style="margin: 0; color: #333; text-align: left; line-height: 1.5;">
+                        随缘更新，力求每月1-2次，内容涵盖资源推荐与个人思考
+                    </p>
+                </div>
+            </div>
         </div>
-
-        <!-- 3. 你原有的 column-content 保持不变，只需要添加 id -->
-        <div class="column-content vertical-scroll" id="notesContainer">
-          <div id="button-container" style="text-align: center;">
-            <!-- 添加按钮 -->
-            <button id="search-toggle" onclick="toggleSearch()" style="background: none; border: none;">
-              <img src="images/magnifier.png" alt="搜索" width="16" height="16">
-            </button>
-          </div>
-          <!-- 你原有的所有 p 标签内容保持不变 -->
-
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/68ea5a9a000000000700eba9?xsec_token=ABcUcq06ETuLFMLwlltQVxnUQLl4ZUOmLgk0MJoqLPBAQ=&xsec_source=pc_user"
-              target="_blank">JanusVLN双重隐式记忆助力导航</a></p>
-
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/68af1fbe000000001d014315?xsec_token=ABG_eIkJxzg0gsH47gaS96tlPd9KFKUOnDJ760wZCUgRY=&xsec_source=pc_user"
-              target="_blank">LIV-Eye与ApexNav优质开源项目推荐</a></p>
-
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/687f0d8e000000001002643c?xsec_token=ABxP_l4-G5UPaW9Z81sYLSj4_9u-cbci8AsksfysnSZlo=&xsec_source=pc_user"
-              target="_blank">Pi3:号称比VGGT还强的3D重建新方法</a></p>
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/684e74890000000023002399?xsec_token=ABka6BDq3VmN0dd8c6GIdWmJLmPaVEpVHpZ_JXsGJ45Zw=&xsec_source=pc_user"
-              target="_blank">VGGT-SLAM简要解读</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/大模型基础.pdf" target="_blank">大模型基础</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/字母异位词分组.pdf" target="_blank">字母异位词分组</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/有效的括号.pdf" target="_blank">有效的括号</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/移动零.pdf" target="_blank">移动零</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/验证二叉搜索树.pdf" target="_blank">验证二叉搜索树</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/寻找二叉搜索树中第k小的元素.pdf" target="_blank">寻找二叉搜索树中第k小的元素</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/相交链表.pdf" target="_blank">相交链表</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/无重复字符的最长子串.pdf" target="_blank">无重复字符的最长子串</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/搜索插入位置.pdf" target="_blank">搜索插入位置</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/删除链表中倒数第N个节点.pdf" target="_blank">删除链表中倒数第N个节点</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/三数之和.pdf" target="_blank">三数之和</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/螺旋矩阵.pdf" target="_blank">螺旋矩阵</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/两数之和.pdf" target="_blank">两数之和</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/两两交换链表中的节点.pdf" target="_blank">两两交换链表中的节点</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/链表的反转.pdf" target="_blank">链表的反转</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/矩阵置零.pdf" target="_blank">矩阵置零</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/接雨水.pdf" target="_blank">接雨水</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/环形链表2.pdf" target="_blank">环形链表2</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/环形链表1.pdf" target="_blank">环形链表1</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/二分查找搜索二维矩阵.pdf" target="_blank">二分查找搜索二维矩阵</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/二叉树层序遍历.pdf" target="_blank">二叉树层序遍历</a></p>
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/最高温.pdf" target="_blank">最高温</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/神经网络与深度学习.pdf" target="_blank">神经网络与深度学习</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/计算机视觉中的多视图几何.pdf" target="_blank">计算机视觉中的多视图几何</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/旋量代数与李群、李代数 (戴建生).pdf" target="_blank">旋量代数与李群、李代数 (戴建生)</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/矩阵速查书.pdf" target="_blank">矩阵速查书</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/四元数解读.pdf" target="_blank">四元数解读</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/惯性导航原理与算法设计完整讲义.pdf" target="_blank">惯性导航原理与算法设计完整讲义</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/最优化-建模、算法与理论.pdf" target="_blank">最优化-建模、算法与理论</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/机器人学.pdf" target="_blank">机器人学</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/自动驾驶与机器人中的 SLAM 技术.pdf" target="_blank">自动驾驶与机器人中的 SLAM 技术</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/视觉SLAM十四讲从理论到实践.pdf" target="_blank">视觉SLAM十四讲从理论到实践</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/视觉惯性SLAM理论与源码解析.pdf" target="_blank">视觉惯性SLAM理论与源码解析</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/SLAM掌握手册.pdf" target="_blank">SLAM掌握手册</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/开心学习LLM.pdf" target="_blank">开心学习LLM</a></p>
-
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 0px;"><a
-              href="https://www.xiaohongshu.com/explore/683c4829000000002300ead1?xsec_token=ABxholb0MV8Ws2kKM1sNgaVlWOQwvB3UB_7vwthfh-E18=&xsec_source=pc_user"
-              target="_blank">2025测绘程序设计竞赛解读(下)</a></p>
-
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://www.xiaohongshu.com/explore/6809cc24000000001c02df2d?xsec_token=ABG5rV8VGJCyDJTCgLU9GIk-A_8bEJZ4Mk4ur5G7WbAZQ=&xsec_source=pc_user"
-              target="_blank">2025测绘程序设计竞赛解读(上)</a></p>
-
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://www.xiaohongshu.com/explore/680b989b000000001c033319?xsec_token=ABZgjfqoF-AhEIxLMY2AP6H_K378tu13k9eb7C4UrcfgM=&xsec_source=pc_user"
-              target="_blank">CVPR 2025 导航世界模型简易解读</a></p>
-
-          <p><img src="images/xiaohongshu.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://www.xiaohongshu.com/explore/66f58717000000001902e2c2?xsec_token=ABP9IpeOzl4KoB4GkD8-nioBcbMRysM7KcN-igUFRBNWg=&xsec_source=pc_user"
-              target="_blank">数模美赛一等奖(M奖)经验分享</a></p>
-
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138142422?spm=1001.2014.3001.5501"
-              target="_blank">卡尔曼滤波器的python小案例实现</a></p>
-
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138348856?spm=1001.2014.3001.5501"
-              target="_blank">VINS-Fusion中测量线程分析</a></p>
-
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138228432?spm=1001.2014.3001.5501"
-              target="_blank">VINS-Fusion的sync_process线程分析</a></p>
-
-          <p><img src="images/csdn.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle; margin-left: 10px;margin-bottom: 4px;"><a
-              href="https://blog.csdn.net/qq_56883085/article/details/138421536?spm=1001.2014.3001.5501"
-              target="_blank">机器学习之逻辑回归</a></p>
-
-          <p><img src="images/pdf1.png" alt="icon"
-              style="width: 16px; height: 16px; vertical-align: middle;margin-left: 10px;margin-bottom: 4px;"><a
-              href="note/高斯牛顿法实现曲线拟合.pdf" target="_blank">高斯牛顿法实现曲线拟合</a></p>
-        </div>
-        <!-- <div class="column-content vertical-scroll" id="notes-container"> -->
-        <!-- 内容将由JS插入 -->
-        <!-- 如果要增加笔记需要在notes.txt中增加，每个笔记分别为[图标，链接，描述] -->
-        <!-- </div> -->
-      </div>
-
+    </div>
+</div>
 
 
 
@@ -307,7 +159,7 @@
             word-break: break-all; /* 核心：长链接/无空格文本强制换行 */">
                 学术主页：
               </p>
-              <p style="margin: 0; font-size: 14px; font-weight: 600; text-align: left;
+              <p style="margin: 0; font-size: 12px; font-weight: 600; text-align: left;
             word-wrap: break-word; /* 核心：长文本自动换行 */
             word-break: break-all; /* 核心：长链接/无空格文本强制换行 */">
                 <a href="https://luohongkun.top/scholar/" target="_blank"
@@ -321,7 +173,7 @@
             word-break: break-all; /* 核心：长链接/无空格文本强制换行 */">
                 联系邮箱：
               </p>
-              <p style="margin: 0; font-size: 14px; color: #d32f2f; font-weight: 600; text-align: left;
+              <p style="margin: 0; font-size: 12px; color: #d32f2f; font-weight: 600; text-align: left;
             word-wrap: break-word; /* 核心：长文本自动换行 */
             word-break: break-all; /* 核心：长链接/无空格文本强制换行 */">
                 luohongkun0715@gmail.com
