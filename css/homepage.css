@@ -122,7 +122,6 @@ h4 {
   position: relative;
   padding: 15px 30px 12px;
   background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(227,239,244,0.9) 100%);
-  border-bottom: 2px dashed #003E8B;
   border-radius: 12px 12px 0 0;
   box-shadow: 0 4px 15px rgba(0, 62, 139, 0.08), 0 1px 3px rgba(0, 62, 139, 0.05);
 }
@@ -131,8 +130,8 @@ h4 {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 10%;
+  right: 10%;
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
@@ -144,12 +143,65 @@ h4 {
   animation: shimmer 3s ease-in-out infinite;
 }
 
+.main-header .star-left {
+  position: absolute;
+  bottom: -6px;
+  left: 8%;
+  font-size: 10px;
+  color: #00A7ED;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.main-header .star-right {
+  position: absolute;
+  bottom: -6px;
+  right: 8%;
+  font-size: 10px;
+  color: #00A7ED;
+  animation: twinkle 2s ease-in-out infinite 1s;
+}
+
+.main-header .decoration-dot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #00A7ED;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 167, 237, 0.6), 0 0 20px rgba(0, 167, 237, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
 @keyframes shimmer {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.3;
   }
   50% {
     opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 0 10px rgba(0, 167, 237, 0.6), 0 0 20px rgba(0, 167, 237, 0.3);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 15px rgba(0, 167, 237, 0.8), 0 0 30px rgba(0, 167, 237, 0.5);
   }
 }
 
