@@ -120,7 +120,7 @@ h4 {
 /* ============ 新头部设计 ============ */
 .main-header {
   position: relative;
-  padding: 20px 30px 15px;
+  padding: 15px 30px 12px;
   background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,253,250,0.9) 100%);
   border-bottom: 2px solid #00797C;
   border-radius: 12px 12px 0 0;
@@ -152,14 +152,17 @@ h4 {
   z-index: 1;
   max-width: 900px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* 名字和社交图标行 */
 .header-title-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -221,8 +224,8 @@ h4 {
 
 /* 求职信息 */
 .seeking-info {
-  background: linear-gradient(135deg, rgba(255, 248, 225, 0.9) 0%, rgba(253, 224, 71, 0.1) 100%);
-  border: 2px solid rgba(197, 40, 40, 0.2);
+  background: linear-gradient(135deg, rgba(240, 253, 250, 0.95) 0%, rgba(0, 160, 163, 0.08) 100%);
+  border: 2px solid rgba(0, 121, 124, 0.25);
   border-radius: 12px;
   padding: 14px 18px;
 }
@@ -230,7 +233,7 @@ h4 {
 .seeking-text-cn {
   margin: 0 0 6px 0;
   font-size: 14px;
-  color: #c62828;
+  color: #00797C;
   font-weight: 600;
   font-family: "FontinSans", sans-serif;
   line-height: 1.4;
@@ -247,12 +250,12 @@ h4 {
 
 .email-badge {
   display: inline-block;
-  padding: 5px 14px;
+  padding: 6px 16px;
   background: linear-gradient(135deg, #00797C 0%, #00a0a3 100%);
   color: white;
   border-radius: 18px;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   font-family: "FontinSans", sans-serif;
 }
 
@@ -530,15 +533,27 @@ a:active {
   color: gray;
   font-style: italic;
   font-family: "Georgia", "Times New Roman", Times, serif;
+  z-index: 2;
 }
 
 .map-wrapper {
-  display: inline-block;
-  width: 250px;
-  background-color: #f1f5f6;
-  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(240,253,250,0.5) 100%);
+  padding: 6px 0 8px;
   position: relative;
-   margin-top: 20px;
+  margin: 12px auto 0;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 121, 124, 0.1);
+}
+
+.map-wrapper img,
+.map-wrapper iframe,
+.map-wrapper div[id*="clustrmaps"] {
+  transform: scale(0.25);
+  transform-origin: center;
 }
 
 /* 移动端适配 */
@@ -581,13 +596,15 @@ a:active {
   }
 
   .map-row {
-    padding: 30px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
+    padding: 20px 30px 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,253,250,0.9) 100%);
+    border-radius: 0 0 12px 12px;
+    border-top: 1px solid rgba(0, 121, 124, 0.15);
+    position: relative;
   }
 
   .map-row .column-header h4 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   #loading-screen {
@@ -664,16 +681,23 @@ a:active {
 }
 
 #visitor_map {
-  background: #cfc499;
-  padding: 20px;
+  background: linear-gradient(135deg, #00797C 0%, #006669 100%);
+  padding: 16px 28px;
   text-align: center;
-  font-weight: bold;
-  font-size: 16px;
-  border-bottom: 1px solid #ddd;
-  /* 设置圆角 */
-  border-radius: 8px;
-  /*设置阴影 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: 15px;
+  border-bottom: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 121, 124, 0.2);
+  color: white;
+  letter-spacing: 0.5px;
+  font-family: "FontinSans", sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#visitor_map:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 121, 124, 0.3);
 }
 
 #mylifeContainer {
@@ -734,7 +758,7 @@ a:active {
 
 /* 渐变头部 - 统一青绿色系 */
 .resource-header {
-  background: linear-gradient(135deg, #00797C 0%, #006669 50%, #004d50 100%);
+  background: linear-gradient(135deg, #00797C 0%, #006669 100%);
   padding: 14px 18px;
   display: flex;
   align-items: center;
@@ -810,9 +834,17 @@ a:active {
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 12px;
-  color: #495057;
-  font-weight: 500;
+  color: #00797C;
+  font-weight: 600;
   font-family: "FontinSans", sans-serif;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.browser-url:hover {
+  color: #00a0a3;
+  text-decoration: none;
 }
 
 .resource-badge-container {
@@ -912,17 +944,17 @@ a:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   width: 100%;
-  padding: 10px 16px;
+  padding: 14px 16px;
   background: linear-gradient(135deg, #00797C 0%, #004d50 100%);
   color: white;
   text-decoration: none;
   border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   font-family: "FontinSans", sans-serif;
-  box-shadow: 0 4px 15px rgba(0, 121, 124, 0.4);
+  box-shadow: none;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -948,7 +980,8 @@ a:active {
 
 .resource-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 121, 124, 0.5);
+  box-shadow: none;
+  filter: brightness(1.1);
 }
 
 .resource-btn svg {
@@ -957,6 +990,12 @@ a:active {
 
 .resource-btn:hover svg {
   transform: translate(3px, -3px);
+}
+
+.resource-btn span {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
 }
 
 /* 移动端适配 */
