@@ -348,6 +348,19 @@
        }
 
        /* 链接列表样式 - 紧凑卡片 */
+       .link-category {
+           margin-bottom: 24px;
+       }
+
+       .category-title {
+           font-size: 1rem;
+           font-weight: 600;
+           color: #2c3e50;
+           margin-bottom: 12px;
+           padding-bottom: 8px;
+           border-bottom: 2px solid rgba(33, 150, 243, 0.15);
+       }
+
        .link-list {
            display: flex;
            flex-wrap: wrap;
@@ -357,14 +370,16 @@
        .link-item {
            background: linear-gradient(135deg, rgba(33, 150, 243, 0.05), rgba(21, 101, 192, 0.05));
            border-radius: 10px;
-           padding: 10px 12px;
+           padding: 8px 10px;
            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
            flex: 1 1 calc(50% - 4px);
            min-width: 100px;
-           text-align: center;
            border: 1px solid rgba(33, 150, 243, 0.15);
            position: relative;
            overflow: hidden;
+           display: flex;
+           align-items: center;
+           gap: 6px;
        }
 
        .link-item::before {
@@ -382,14 +397,25 @@
            left: 100%;
        }
 
+       .link-icon {
+           width: 12px;
+           height: 12px;
+           vertical-align: middle;
+           flex-shrink: 0;
+       }
+
        .link-item a {
            text-decoration: none;
            color: #2c3e50;
            font-weight: 600;
            display: block;
-           font-size: 0.75rem;
+           font-size: 0.7rem;
            position: relative;
            z-index: 1;
+           flex: 1;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           white-space: nowrap;
        }
 
        .link-item:hover {
