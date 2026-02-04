@@ -869,11 +869,11 @@
            }
        }
 
-       @media (min-width: 1024px) {
-           .link-item {
-               flex: 1 1 calc(10% - 7.2px);
-               max-width: calc(10% - 7.2px);
-           }
+      @media (min-width: 1024px) {
+          .link-item {
+              flex: 1 1 calc(20% - 6.4px);
+              max-width: calc(20% - 6.4px);
+          }
 
            .video-item {
                max-width: calc(20% - 8.75px);
