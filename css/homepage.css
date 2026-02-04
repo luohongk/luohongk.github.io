@@ -247,7 +247,7 @@ h4 {
 }
 
 .seeking-text-cn {
-  margin: 0 0 6px 0;
+  margin: 0 0 12px 0;
   font-size: 14px;
   color: #003E8B;
   font-weight: 600;
@@ -256,7 +256,7 @@ h4 {
 }
 
 .seeking-text-en {
-  margin: 0 0 10px 0;
+  margin: 0 0 2px 0;
   font-size: 13px;
   color: #003E8B;
   font-weight: 700;
@@ -276,6 +276,7 @@ h4 {
   font-size: 13px;
   font-weight: 700;
   font-family: "FontinSans", sans-serif;
+  margin-bottom: 12px;
 }
 
 /* 移动端适配 */
@@ -1204,8 +1205,6 @@ a:active {
   font-weight: 600;
   text-decoration: none;
   word-break: break-all;
-  /* 倾斜 */
-  font-style: italic;
 }
 
 .contact-link:hover {
@@ -1222,9 +1221,9 @@ a:active {
 /* 邮箱高亮样式 */
 .email-highlight {
   color: #003E8B !important;
-  font-weight: 600 !important;
+  /* font-weight: 600 !important; */
     /* 倾斜 */
-  font-style: italic;
+  /* font-style: italic; */
   text-shadow: 0 1px 2px rgba(1, 167, 237, 0.3);
   border-bottom: 2px solid #01A7ED;
   padding-bottom: 2px;
