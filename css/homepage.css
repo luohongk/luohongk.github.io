@@ -1361,13 +1361,42 @@ a:active {
   font-family: "FontinSans", sans-serif;
 }
 
-/* 照片网格 */
-.lifephoto-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* 照片轮播容器 */
+.lifephoto-row {
+  overflow: hidden;
+  margin-bottom: 8px;
+  position: relative;
+  width: 100%;
+}
+
+.lifephoto-row:last-child {
+  margin-bottom: 0;
+}
+
+.lifephoto-track-wrapper {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.lifephoto-track {
+  display: flex;
   gap: 8px;
-  padding: 12px 18px 12px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(227,239,244,0.5) 100%);
+  width: max-content;
+  animation: scrollRow 20s linear infinite;
+}
+
+.lifephoto-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollRow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .photo-item {
@@ -1379,6 +1408,10 @@ a:active {
   box-shadow: 0 4px 12px rgba(0, 62, 139, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   border: 1.5px solid rgba(0, 62, 139, 0.2);
+  flex-shrink: 0;
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
 }
 
 .photo-item:hover {

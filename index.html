@@ -198,63 +198,131 @@
         <div class="lifephoto-header">
           <div class="lifephoto-icon">📷</div>
           <h4>My Life (生活记录)</h4>
-          <div class="lifephoto-count">9 篇</div>
+          <div class="lifephoto-count" id="mylifeCount">0 张</div>
         </div>
 
-        <!-- 照片网格 -->
-        <div class="lifephoto-grid" id="mylifeContainer">
-          <div class="photo-item">
-            <img src="life/huiyu_me.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
+        <!-- 照片轮播容器 - 第1行 -->
+        <div class="lifephoto-row">
+          <div class="lifephoto-track-wrapper">
+            <div class="lifephoto-track lifephoto-row-1">
+              <!-- 原始图片 -->
+              <div class="photo-item">
+                <img src="life/huiyu_me.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/jiangtan.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/sea_me.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/wugong_me1.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <!-- 重复部分以实现无缝滚动 -->
+              <div class="photo-item">
+                <img src="life/huiyu_me.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/jiangtan.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/sea_me.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/wugong_me1.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
             </div>
           </div>
-          <div class="photo-item">
-            <img src="life/jiangtan.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
+        </div>
+
+        <!-- 第2行 -->
+        <div class="lifephoto-row">
+          <div class="lifephoto-track-wrapper">
+            <div class="lifephoto-track lifephoto-row-2">
+              <!-- 原始图片 -->
+              <div class="photo-item">
+                <img src="life/biye.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/rongyu.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/cumt_me.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/wugong_me.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <!-- 重复部分以实现无缝滚动 -->
+              <div class="photo-item">
+                <img src="life/biye.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/rongyu.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/cumt_me.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/wugong_me.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
             </div>
           </div>
-          <div class="photo-item">
-            <img src="life/sea_me.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
-            </div>
-          </div>
-          <div class="photo-item">
-            <img src="life/wugong_me1.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
-            </div>
-          </div>
-          <div class="photo-item">
-            <img src="life/biye.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
-            </div>
-          </div>
-          <div class="photo-item">
-            <img src="life/rongyu.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
-            </div>
-          </div>
-          <div class="photo-item">
-            <img src="life/cumt_me.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
-            </div>
-          </div>
-          <div class="photo-item">
-            <img src="life/wugong_me.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
-            </div>
-          </div>
-          <div class="photo-item">
-            <img src="life/lingbomen.png" alt="生活照片" />
-            <div class="photo-overlay">
-              <span>📸</span>
+        </div>
+
+        <!-- 第3行 -->
+        <div class="lifephoto-row">
+          <div class="lifephoto-track-wrapper">
+            <div class="lifephoto-track lifephoto-row-3">
+              <!-- 原始图片 -->
+              <div class="photo-item">
+                <img src="life/lingbomen.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/donghu.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/jiao5.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/yinghua.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <!-- 重复部分以实现无缝滚动 -->
+              <div class="photo-item">
+                <img src="life/lingbomen.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/donghu.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/jiao5.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
+              <div class="photo-item">
+                <img src="life/yinghua.png" alt="生活照片" />
+                <div class="photo-overlay"><span>📸</span></div>
+              </div>
             </div>
           </div>
         </div>

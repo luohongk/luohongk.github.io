@@ -107,4 +107,12 @@ function showAllNotes() {
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
   showAllNotes();
+  initMyLifeCarousel();
 });
+
+// My Life 轮播功能
+function initMyLifeCarousel() {
+  const countElement = document.getElementById('mylifeCount');
+  // 只计算原始图片的数量（每行4张，共3行）
+  countElement.textContent = `12 张`;
+}
