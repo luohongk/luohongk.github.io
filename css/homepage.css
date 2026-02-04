@@ -122,8 +122,35 @@ h4 {
   position: relative;
   padding: 15px 30px 12px;
   background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(227,239,244,0.9) 100%);
-  border-bottom: 2px solid #003E8B;
+  border-bottom: 2px dashed #003E8B;
   border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 15px rgba(0, 62, 139, 0.08), 0 1px 3px rgba(0, 62, 139, 0.05);
+}
+
+.main-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0, 167, 237, 0.3) 15%,
+    rgba(0, 167, 237, 0.6) 50%,
+    rgba(0, 167, 237, 0.3) 85%,
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* 云雷纹 - 最顶层 */
