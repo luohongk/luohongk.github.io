@@ -61,76 +61,123 @@
     <div class="bottom-row">
 
 
-      <!-- done 笔记 -->
-
-      <div class="column" style="background: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-        <!-- 栏目头部：与基本信息卡样式完全一致 -->
-        <div class="column-header">
-          <h4>📚 Resource Site(资源站点)</h4>
+      <!-- 资源站点卡片 - 独特渐变设计 -->
+      <div class="resource-card">
+        <!-- 渐变头部 -->
+        <div class="resource-header">
+          <div class="resource-icon">📚</div>
+          <h4>Resource Site(资源站点)</h4>
         </div>
-        <!-- 内容区：复刻基本信息卡内边距、配色、分隔样式，无图片优化布局 -->
-        <div class="column-content" style="padding: 15px; box-sizing: border-box;">
-          <!-- 顶部核心信息区：无图片版，复刻联系信息卡样式+虚线分隔 -->
-          <div style="margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #e0e0e0;">
-            <div
-              style="background: #e0f2f1; padding: 12px 10px; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; max-width: 100%; overflow: hidden;">
-              <p
-                style="margin: 0 0 6px 0; font-size: 14px; color: #00796b; font-weight: 600; text-align: left; word-wrap: break-word; word-break: break-all;">
-                资源网址：
-              </p>
-              <p
-                style="margin: 0 0 10px 0; font-size: 12px; font-weight: 600; text-align: left; word-wrap: break-word; word-break: break-all;">
-                <a href="https://luohongkun.top/resource/" target="_blank"
-                  style="color: #d32f2f; text-decoration: none; display: inline-block; max-width: 100%;">
-                  🔗 www.luohongkun.top/resource
-                </a>
-              </p>
-              <p
-                style="margin: 0; font-size: 14px; color: #00796b; font-weight: 600; text-align: left; word-wrap: break-word; word-break: break-all;">
-                核心定位：
-              </p>
-              <p
-                style="margin: 0; font-size: 12px; color: #333; font-weight: 500; text-align: left; word-wrap: break-word; word-break: break-all;">
-                汇聚自媒体与阅读的深度思考，优质的学习资源等
-              </p>
+
+        <!-- 网站预览区 -->
+        <div class="resource-preview">
+          <div class="resource-browser">
+            <div class="browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="browser-url">🔗 luohongkun.top/resource</div>
+          </div>
+          <div class="resource-badge-container">
+            <span class="resource-badge primary">深度资源</span>
+            <span class="resource-badge secondary">持续更新</span>
+          </div>
+        </div>
+
+        <!-- 特色板块 -->
+        <div class="resource-features">
+          <div class="feature-item">
+            <div class="feature-icon">📋</div>
+            <div class="feature-content">
+              <h5>核心板块</h5>
+              <p>B站视频 | 播客 | 自媒体思考<br>工具网址 | 阅读笔记 | 友情链接</p>
             </div>
           </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-content">
+              <h5>资源特色</h5>
+              <p>机器人感知/学习 | 优质自媒体内容深度思索</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📈</div>
+            <div class="feature-content">
+              <h5>更新计划</h5>
+              <p>每月1-2次 | 资源推荐与个人思考</p>
+            </div>
+          </div>
+        </div>
 
-          <!-- 下方信息区块：1:1复刻基本信息卡的色块/图标/标题样式，无图片更简洁 -->
-          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
-            <!-- 核心板块 -->
-            <div
-              style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
-              <span style="font-size: 18px; color: #f57c00; margin-top: 2px;">📋</span>
-              <div style="text-align: left; width: 100%;">
-                <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">核心板块</h5>
-                <p style="margin: 0; color: #333; text-align: left; line-height: 1.5;">
-                  B站视频记录｜播客｜自媒体思考<br>工具网址｜阅读笔记｜友情链接互推
-                </p>
+        <!-- 访问按钮 -->
+        <div class="resource-action">
+          <a href="https://luohongkun.top/resource/" target="_blank" class="resource-btn">
+            <span>立即访问</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+
+
+
+      <!-- 基本信息卡片 - 独特设计 -->
+      <div class="basicinfo-card">
+        <!-- 头部 -->
+        <div class="basicinfo-header">
+          <div class="basicinfo-icon">🔍</div>
+          <h4>Basic Info(基本信息)</h4>
+        </div>
+
+        <!-- 个人展示区 -->
+        <div class="basicinfo-profile">
+          <!-- 证件照 -->
+          <div class="profile-photo">
+            <img src="./images/luohongkun.png" alt="个人证件照" />
+            <div class="photo-frame"></div>
+          </div>
+
+          <!-- 联系信息 -->
+          <div class="profile-contact">
+            <div class="contact-item">
+              <div class="contact-icon">🌐</div>
+              <div class="contact-content">
+                <span class="contact-label">学术主页</span>
+                <a href="https://luohongkun.top/scholar/" target="_blank" class="contact-link">luohongkun.top/scholar</a>
               </div>
             </div>
-            <!-- 资源特色 -->
-            <div
-              style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
-              <span style="font-size: 18px; color: #388e3c; margin-top: 2px;">🎯</span>
-              <div style="text-align: left; width: 100%;">
-                <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">资源特色</h5>
-                <p style="margin: 0; color: #333; text-align: left; line-height: 1.5;">
-                  垂直聚机器人感知/学习｜优质自媒体内容深度思索｜持续更新迭代
-                </p>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-content">
+                <span class="contact-label">联系邮箱</span>
+                <span class="contact-text">luohongkun0715@gmail.com</span>
               </div>
             </div>
+          </div>
+        </div>
 
-            <!-- 适用人群 & 更新计划 -->
-            <div
-              style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
-              <span style="font-size: 18px; color: #9c27b0; margin-top: 2px;">📈</span>
-              <div style="text-align: left; width: 100%;">
-                <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">更新计划</h5>
-                <p style="margin: 0; color: #333; text-align: left; line-height: 1.5;">
-                  随缘更新，力求每月1-2次，内容涵盖资源推荐与个人思考
-                </p>
-              </div>
+        <!-- 信息区块 -->
+        <div class="basicinfo-info">
+          <div class="info-card">
+            <div class="info-icon">🎓</div>
+            <div class="info-content">
+              <h5>教育背景</h5>
+              <p>武汉大学测绘科学硕士（2024-2027）<br>中国矿业大学测绘本科（2020-2024）</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🔬</div>
+            <div class="info-content">
+              <h5>研究方向</h5>
+              <p>视觉-语言导航 | 3D重建<br>多传感器融合定位 | 端到端自主学习</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🏅</div>
+            <div class="info-content">
+              <h5>代表性成果</h5>
+              <p>武汉大学优秀硕士生 | IEEE JSEN 一作论文<br>华为杯数模国二 | 美赛M</p>
             </div>
           </div>
         </div>
@@ -139,108 +186,71 @@
 
 
 
-      <!-- 中间列：保留基本信息高度+删除专业服务+紧凑化其他模块 -->
-      <div class="column" style="background: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-        <div class="column-header">
-          <h4> 🔍 Basic Info(基本信息)</h4>
+      <!-- 生活记录卡片 - 独特设计 -->
+      <div class="lifephoto-card">
+        <!-- 头部 -->
+        <div class="lifephoto-header">
+          <div class="lifephoto-icon">📷</div>
+          <h4>My Life (生活记录)</h4>
+          <div class="lifephoto-count">9 篇</div>
         </div>
-        <div class="column-content" style="padding: 15px; box-sizing: border-box;">
-          <!-- 头部：证件照 + 联系信息（高度不变+无序号+超链接+加粗红色） -->
-          <div
-            style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #e0e0e0;">
-            <!-- 证件照：恢复原有尺寸，高度不变 -->
-            <div style="flex-shrink: 0;">
-              <img src="./images/luohongkun.png" alt="个人证件照" style="width: 90px; height: 125px; object-fit: cover; border-radius: 6px; 
-                    border: 2px solid #003496; box-shadow: 0 3px 8px rgba(0,0,0,0.1);" />
-            </div>
-            <!-- 联系信息卡片：恢复原有高度，不做压缩 -->
-            <!-- 联系信息卡片：修复超界，保留原有高度和样式 -->
-            <div style="flex-grow: 1; background: #e0f2f1; padding: 0px 10px; border-radius: 6px; min-height: 100px; display: flex; flex-direction: column; justify-content: center;
-            box-sizing: border-box; /* 核心：内边距/边框不撑大宽度 */
-            max-width: 100%; /* 核心：不超过父容器宽度 */
-            overflow: hidden; /* 核心：隐藏超出容器的内容（防止极端情况） */">
-              <!-- 学术主页：分两行、原有行间距，添加文本换行约束 -->
-              <p style="margin: 0; font-size: 14px; color: #00796b; font-weight: 600; text-align: left;
-            word-wrap: break-word; /* 核心：长文本自动换行 */
-            word-break: break-all; /* 核心：长链接/无空格文本强制换行 */">
-                学术主页：
-              </p>
-              <p style="margin: 0; font-size: 12px; font-weight: 600; text-align: left;
-            word-wrap: break-word; /* 核心：长文本自动换行 */
-            word-break: break-all; /* 核心：长链接/无空格文本强制换行 */">
-                <a href="https://luohongkun.top/scholar/" target="_blank"
-                  style="color: #d32f2f; text-decoration: none; display: inline-block; max-width: 100%;">
-                  www.luohongkun.top/scholar/
-                </a>
-              </p>
-              <!-- 联系邮箱：分两行、原有行间距，添加文本换行约束 -->
-              <p style="margin: 0 0 0 0; font-size: 14px; color: #00796b; font-weight: 600; text-align: left;
-            word-wrap: break-word; /* 核心：长文本自动换行 */
-            word-break: break-all; /* 核心：长链接/无空格文本强制换行 */">
-                联系邮箱：
-              </p>
-              <p style="margin: 0; font-size: 12px; color: #d32f2f; font-weight: 600; text-align: left;
-            word-wrap: break-word; /* 核心：长文本自动换行 */
-            word-break: break-all; /* 核心：长链接/无空格文本强制换行 */">
-                luohongkun0715@gmail.com
-              </p>
+
+        <!-- 照片网格 -->
+        <div class="lifephoto-grid" id="mylifeContainer">
+          <div class="photo-item">
+            <img src="life/huiyu_me.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
             </div>
           </div>
-
-          <!-- 信息区块：删除专业服务+保留其他核心模块+紧凑化间距 -->
-          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
-            <!-- 1. 教育背景（保留，紧凑化内边距） -->
-            <div
-              style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
-              <span style="font-size: 18px; color: #388e3c; margin-top: 2px;">🎓</span>
-              <div style="text-align: left; width: 100%;">
-                <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">教育背景</h5>
-                <p style="margin: 0; color: #333; text-align: left;">武汉大学测绘科学硕士（2024-2027）<br>中国矿业大学测绘本科（2020-2024）</p>
-              </div>
-            </div>
-
-            <!-- 2. 研究方向（保留，紧凑化内边距） -->
-            <div
-              style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
-              <span style="font-size: 18px; color: #f57c00; margin-top: 2px;">🔍</span>
-              <div style="text-align: left; width: 100%;">
-                <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">研究方向</h5>
-                <p style="margin: 0; color: #333; text-align: left;">视觉-语言导航 | 3D重建 | 多传感器融合定位 | 端到端自主学习</p>
-              </div>
-            </div>
-
-            <!-- 3. 代表性成果（保留，紧凑化内边距） -->
-            <div
-              style="display: flex; align-items: flex-start; gap: 8px; background: #e8ecf5; padding: 8px; border-radius: 6px;">
-              <span style="font-size: 18px; color: #5c6bc0; margin-top: 2px;">🏅</span>
-              <div style="text-align: left; width: 100%;">
-                <h5 style="margin: 0 0 5px 0; color: #2e5d7d; font-size: 14px;">代表性成果</h5>
-                <p style="margin: 0; color: #333; text-align: left;">武汉大学优秀硕士生 | IEEE JSEN 一作论文 | 华为杯数模国二 | 美赛M |</p>
-              </div>
+          <div class="photo-item">
+            <img src="life/jiangtan.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
             </div>
           </div>
-        </div>
-      </div>
-
-
-
-
-      <!-- 第三列：生活照片 -->
-      <!-- done 生活照片 -->
-      <div class="column">
-        <div class="column-header">
-          <h4> 📷My Life (生活记录)</h4>
-        </div>
-        <div class="column-content life-grid" id="mylifeContainer">
-          <img src="life/huiyu_me.png" />
-          <img src="life/jiangtan.png" />
-          <img src="life/sea_me.png" />
-          <img src="life/wugong_me1.png" />
-          <img src="life/biye.png" />
-          <img src="life/rongyu.png" />
-          <img src="life/cumt_me.png" />
-          <img src="life/wugong_me.png" />
-          <img src="life/lingbomen.png" />
+          <div class="photo-item">
+            <img src="life/sea_me.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
+            </div>
+          </div>
+          <div class="photo-item">
+            <img src="life/wugong_me1.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
+            </div>
+          </div>
+          <div class="photo-item">
+            <img src="life/biye.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
+            </div>
+          </div>
+          <div class="photo-item">
+            <img src="life/rongyu.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
+            </div>
+          </div>
+          <div class="photo-item">
+            <img src="life/cumt_me.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
+            </div>
+          </div>
+          <div class="photo-item">
+            <img src="life/wugong_me.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
+            </div>
+          </div>
+          <div class="photo-item">
+            <img src="life/lingbomen.png" alt="生活照片" />
+            <div class="photo-overlay">
+              <span>📸</span>
+            </div>
+          </div>
         </div>
       </div>
 
