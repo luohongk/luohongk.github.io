@@ -1169,6 +1169,8 @@ a:active {
   border-radius: 8px;
   border: 1px solid rgba(0, 62, 139, 0.15);
   transition: all 0.3s ease;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .contact-item:hover {
@@ -1213,9 +1215,11 @@ a:active {
 
 .contact-text {
   font-size: 12px;
-  color: #333;
+  color: #013D74;
   font-weight: 500;
   word-break: break-all;
+  /* 加粗 */
+  font-weight: 550;
 }
 
 /* 邮箱高亮样式 */
