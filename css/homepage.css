@@ -102,7 +102,7 @@ h4 {
   padding-top: 25px;
   padding-left: 14px;
   padding-right: 14px;
-  
+
 }
 
 .top-content {
@@ -116,6 +116,178 @@ h4 {
   justify-content: center;
   /* 子元素垂直居中（可选） */
 }
+
+/* ============ 新头部设计 ============ */
+.main-header {
+  position: relative;
+  padding: 20px 30px 15px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,253,250,0.9) 100%);
+  border-bottom: 2px solid #00797C;
+  border-radius: 12px 12px 0 0;
+}
+
+/* 云雷纹 - 最顶层 */
+.yunleiwen {
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.yunleiwen-left {
+  left: 0;
+  width: 100px;
+  height: auto;
+}
+
+.yunleiwen-right {
+  right: 0;
+  width: 100px;
+  height: auto;
+}
+
+/* 头部内容 */
+.header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 名字和社交图标行 */
+.header-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.name-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.main-title {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  font-style: italic;
+  background: linear-gradient(135deg, #00797C 0%, #00a0a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #4a5568;
+  font-weight: 500;
+  font-family: "FontinSans", sans-serif;
+  opacity: 0.8;
+}
+
+/* 社交链接 */
+.social-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(0, 121, 124, 0.08) 0%, rgba(0, 160, 163, 0.08) 100%);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1.5px solid rgba(0, 121, 124, 0.15);
+}
+
+.social-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  border-color: #00797C;
+  background: linear-gradient(135deg, rgba(0, 121, 124, 0.12) 0%, rgba(0, 160, 163, 0.12) 100%);
+}
+
+.social-icon img {
+  width: 28px;
+  height: auto;
+}
+
+/* 求职信息 */
+.seeking-info {
+  background: linear-gradient(135deg, rgba(255, 248, 225, 0.9) 0%, rgba(253, 224, 71, 0.1) 100%);
+  border: 2px solid rgba(197, 40, 40, 0.2);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.seeking-text-cn {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: #c62828;
+  font-weight: 600;
+  font-family: "FontinSans", sans-serif;
+  line-height: 1.4;
+}
+
+.seeking-text-en {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  color: #4a5568;
+  font-weight: 500;
+  font-family: "FontinSans", sans-serif;
+  line-height: 1.3;
+}
+
+.email-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  background: linear-gradient(135deg, #00797C 0%, #00a0a3 100%);
+  color: white;
+  border-radius: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "FontinSans", sans-serif;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 15px 18px 12px;
+  }
+
+  .header-title-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .name-section {
+    flex-direction: column;
+  }
+
+  .main-title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .seeking-text-cn {
+    font-size: 13px;
+  }
+
+  .seeking-text-en {
+    font-size: 12px;
+  }
+}
+
 
 .bottom-row {
   height: auto;
