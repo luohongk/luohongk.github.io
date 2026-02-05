@@ -21,6 +21,116 @@ html {
   height: 100%;
 }
 
+/* 页面加载前隐藏内容，等待资源加载完成 */
+body.loading-complete {
+  opacity: 1;
+}
+
+body:not(.loading-complete) #bcard,
+body:not(.loading-complete) .main-header,
+body:not(.loading-complete) .resource-card,
+body:not(.loading-complete) .basicinfo-card,
+body:not(.loading-complete) .lifephoto-card,
+body:not(.loading-complete) .map-row {
+  opacity: 0 !important;
+}
+
+/* 页面加载完成后渐入动画 */
+body.loading-complete {
+  animation: pageFadeIn 0.6s ease-out;
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 卡片渐入动画 */
+body.loading-complete #bcard {
+  animation: cardSlideIn 1s ease-out 0.3s both;
+}
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+/* 头部渐入动画 */
+body.loading-complete .main-header {
+  animation: headerFadeIn 0.8s ease-out 0.5s both;
+}
+
+@keyframes headerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 底部三列卡片依次渐入动画 */
+body.loading-complete .resource-card,
+body.loading-complete .basicinfo-card,
+body.loading-complete .lifephoto-card {
+  opacity: 0;
+  animation: cardFadeUp 0.8s ease-out both;
+}
+
+body.loading-complete .resource-card {
+  animation-delay: 0.7s;
+}
+
+body.loading-complete .basicinfo-card {
+  animation-delay: 0.9s;
+}
+
+body.loading-complete .lifephoto-card {
+  animation-delay: 1.1s;
+}
+
+@keyframes cardFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 地图区域渐入动画 */
+body.loading-complete .map-row {
+  opacity: 0;
+  animation: mapFadeIn 0.8s ease-out 1.3s both;
+}
+
+@keyframes mapFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 设置标题字体为更好看的 serif 字体 */
 h1,
 h2,
