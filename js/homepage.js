@@ -4,9 +4,6 @@
 
       // HTML 解析完成后立即触发动画
       document.body.classList.add('loading-complete');
-
-      const loader = document.getElementById("loading-screen");
-      if (loader) loader.style.display = "none";
     });
 
     fetch("notes.txt")
