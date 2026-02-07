@@ -574,7 +574,7 @@
       <!-- Tab 按钮 -->
       <div class="tab-container">
         <button class="tab-btn active" onclick="switchTab('all')">✨ All</button>
-        <button class="tab-btn" onclick="switchTab('by-time')">📅 Order by Time</button>
+        <button class="tab-btn" onclick="switchTab('by-time')">✨ Order by Time</button>
         <button class="tab-btn" onclick="switchTab('first-author')">✨ First Author</button>
         <button class="tab-btn" onclick="switchTab('co-authored')">✨ Co-authored</button>
         <button class="tab-btn" onclick="switchTab('projects')">✨ Projects</button>
@@ -1834,19 +1834,14 @@
             // 生成按时间排序的内容
             let byTimeContent = '';
 
-            // 添加 section 标题
-            let sections = {
-              'first-author': '<tbody><tr><td colspan="2"><div class="border-line"></div></td></tr><tr><td colspan="2"><p></p><div class="line-text"><a>✨/* My first author papers */</a></div></td></tr></tbody>',
-              'co-authored': '<tbody><tr><td colspan="2"><div class="border-line"></div></td></tr><tr><td colspan="2"><p></p><div class="line-text"><a>✨/* My co-authored papers */</a></div></td></tr></tbody>',
-              'projects': '<tbody><tr><td colspan="2"><div class="border-line"></div></td></tr><tr><td colspan="2"><p></p><div class="line-text"><a>✨/* My selected projects */</a></div></td></tr></tbody>'
-            };
-
-            // 按时间分组显示
-            let currentSectionForTime = null;
+            // 按年份分组显示
+            let currentYear = null;
             allPapers.forEach(paper => {
-              if (paper.section !== currentSectionForTime) {
-                currentSectionForTime = paper.section;
-                byTimeContent += sections[paper.section];
+              // 添加年份标题
+              if (paper.year !== 0 && paper.year !== currentYear) {
+                currentYear = paper.year;
+                byTimeContent += '<tbody><tr><td colspan="2"><div class="border-line"></div></td></tr></tbody>';
+                byTimeContent += `<tbody><tr><td colspan="2" style="padding: 15px 0 5px 0;"><h3 style="color: #224B8D; font-size: 14px; font-weight: bold; margin: 0;">⭐️ ${currentYear}</h3></td></tr></tbody>`;
               }
               byTimeContent += paper.html;
             });
