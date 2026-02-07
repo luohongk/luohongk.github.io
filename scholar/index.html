@@ -574,9 +574,11 @@
       <!-- Tab 按钮 -->
       <div class="tab-container">
         <button class="tab-btn active" onclick="switchTab('all')">✨ All</button>
+        <button class="tab-btn" onclick="switchTab('by-time')">📅 Order by Time</button>
         <button class="tab-btn" onclick="switchTab('first-author')">✨ First Author</button>
         <button class="tab-btn" onclick="switchTab('co-authored')">✨ Co-authored</button>
         <button class="tab-btn" onclick="switchTab('projects')">✨ Projects</button>
+
       </div>
 
       <!-- Tab 内容区域 -->
@@ -587,6 +589,8 @@
       <div id="co-authored" class="tab-content">
       </div>
       <div id="projects" class="tab-content">
+      </div>
+      <div id="by-time" class="tab-content">
       </div>
 
       <table id="pubTable" width="100%" align="center" class="table_background">
@@ -638,8 +642,9 @@
             </p>
 
 
-            <p>📅 <span style=" font-size: 14px;">2025.03</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
-                onclick="showAbstract(this)"data-title="SuperVINS: A Real-Time Visual-Inertial SLAM Framework for Challenging Imaging Conditions"
+            <p>📅 Time:<span style=" font-size: 14px;">2025.03</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
+                onclick="showAbstract(this)"
+                data-title="SuperVINS: A Real-Time Visual-Inertial SLAM Framework for Challenging Imaging Conditions"
                 data-abstract="This paper proposes SuperVINS, a real-time visual-inertial SLAM framework specifically designed to handle challenging imaging conditions such as low-light, dynamic environments, and texture-poor scenes. By integrating advanced feature tracking algorithms with robust optimization techniques, SuperVINS achieves state-of-the-art performance while maintaining computational efficiency suitable for real-time applications on embedded platforms."
                 style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
                   Preview</strong> </a></p>
@@ -691,7 +696,7 @@
 
 
 
-            <p>📅 <span style=" font-size: 14px;">2025.11</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
+            <p>📅 Time:<span style=" font-size: 14px;">2025.11</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
                 onclick="showAbstract(this)" data-title="围岩裂隙精准识别与三维模型重构"
                 data-abstract="“双碳” 背景下煤炭仍是我国能源压舱石，钻孔成像技术可获取含裂隙关键参数的亚毫米级柱面展开图，但受噪声等因素制约，需构建一体化模型支撑深部安全开采。针对相关问题，研究依次建立 “颜色 - 纹理 - 形态” 多级耦合模型实现裂隙像素级识别，通过物理尺度换算、RANSAC 聚类及非线性最小二乘完成裂隙参数反演，借助高斯混合模型、能量函数驱动的活动轮廓模型提取剖面线并计算 JRC 值，最后利用前述裂隙特征，经核心子相似度计算、谱聚类、断面拟合等得到裂隙连通性与 5 个断面，通过空白区域识别等确定最佳新增钻孔位置。"
                 style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
@@ -739,7 +744,7 @@
                 style="color: rgba(236, 13, 13, 0.805);font-weight: bold;">International Competition</span>
             </p>
 
-            <p>📅 <span style=" font-size: 14px;">2023.05</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
+            <p>📅 Time:<span style=" font-size: 14px;">2023.05</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
                 onclick="showAbstract(this)" data-title="The Wordle GameAnalysis Model" data-abstract="This study analyzes the result distribution of the daily Wordle game (provided by the New York Times) using Twitter report data. First, a Gaussian Mixture Model (GMM) with 95% confidence interval parameter estimation is established to characterize changes in reported result quantities (e.g., 2001–37156 for March 1, 2023). Four word attributes are examined for their impact on hard-mode result percentage distribution: prefix/suffix presence (little effect) and word information content, word probability, letter probability (significant effects). Next, daily reported results are found to follow a normal distribution, modeled via Gaussian functions where coefficients and variances exhibit a double exponential relationship. A Game Outcome Prediction Model (GOPM) is built using the three impactful attributes as independent variables, Gaussian mean/variance as dependent variables, and Simulated Annealing-based Particle Swarm Optimization (SAPSO). To address game uncertainty, a Corrected GOPM (CGOPM) integrated with LSTM is developed, improving accuracy from 52.24% to 54.49% (e.g., predicting EERIE’s results as [6,17,28,29,16,5,1] for 1–6 tries/X). A Word Difficulty Classification Model (WDCM) is constructed using K-means with Gaussian mean/variance as classification criteria, validated via silhouette coefficients; canonical correlation analysis identifies word information content as the top influencing factor, classifying EERIE as easy. Finally, dataset properties are summarized (e.g., minimal time impact, pronunciation distribution differences, repeated letters affecting guesses), and findings are presented to New York Times puzzle editors. Keywords include Text Mining, GMM, Simulated Annealing, LSTM, and K-Means.
 " style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract Preview</strong>
               </a></p>
@@ -803,9 +808,9 @@
 
 
 
-            <p>📅 <span style=" font-size: 14px;">2023.05</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
-                onclick="showAbstract(this)" data-title="ReThinkNav: Zero-Shot Vision-and-Language Navigation with
-Open-Source LLMs via Contextual Reasoning and Loop Recovery"
+            <p>📅 Time:<span style=" font-size: 14px;">2026.01</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
+                onclick="showAbstract(this)"
+                data-title="ReThinkNav: Zero-Shot Vision-and-Language Navigation with Open-Source LLMs via Contextual Reasoning and Loop Recovery"
                 data-abstract="Zero-shot Vision-and-Language Navigation in Continuous Environments (VLN-CE) requires agents to follow natural language instructions and navigate without task-specific training. Prior works have demonstrated the potential of open-source LLMs in zero-shot VLN-CE, yet two major limitations remain. First, they struggle with accurate instruction following. Second, agents easily fall into loops in spatially confined or semantically similar regions. In this work, we present ReThinkNav, a framework to further explore open-source LLMs in zero-shot VLN-CE. ReThinkNav integrates contextual reasoning for enhanced instruction comprehension and progress estimation, enabling the LLM to accurately infer what action to take and why. Additionally, a Loop Detection and Recovery (LDR) module detects loops and adjusts navigation decisions. Experiments on R2R-CE benchmark demonstrate excellent zero-shot performance. Real-world validation using a Unitree G1 humanoid robot confirms its practical applicability."
                 style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
                   Preview</strong> </a></p>
@@ -887,6 +892,18 @@ Open-Source LLMs via Contextual Reasoning and Loop Recovery"
                 Successfully Deployed on Humanoid Robots
               </span>
             </p>
+
+
+
+
+            <p>📅 Time:<span style=" font-size: 14px;">2025.10</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
+                onclick="showAbstract(this)" data-title="Deployment of VLA-Based VLN"
+                data-abstract="我成功把一套基于VLA的VLN系统部署到了 humanoid 机器人上。通过多线程与RO2通信机制实现三端联合通讯"
+                style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
+                  Preview</strong> </a></p>
+
+
+
             <p>
 
               <a
@@ -1746,6 +1763,9 @@ Open-Source LLMs via Contextual Reasoning and Loop Recovery"
             let coAuthoredContent = '';
             let projectsContent = '';
 
+            // 存储所有论文/项目用于按时间排序
+            let allPapers = [];
+
             let currentSection = 'first-author';
 
             tbodies.forEach(tbody => {
@@ -1764,6 +1784,28 @@ Open-Source LLMs via Contextual Reasoning and Loop Recovery"
                 projectsContent += tbody.outerHTML;
                 allContent += tbody.outerHTML;
               } else {
+                // 提取时间（格式：2025.03）
+                const dateMatch = text.match(/(\d{4}\.\d{2})/);
+                let dateValue = '';
+                let yearValue = 0;
+                let monthValue = 0;
+
+                if (dateMatch) {
+                  const [year, month] = dateMatch[1].split('.');
+                  yearValue = parseInt(year);
+                  monthValue = parseInt(month);
+                  dateValue = dateMatch[1];
+                }
+
+                // 存储论文/项目信息
+                allPapers.push({
+                  html: tbody.outerHTML,
+                  section: currentSection,
+                  year: yearValue,
+                  month: monthValue,
+                  date: dateValue
+                });
+
                 if (currentSection === 'first-author') {
                   firstAuthorContent += tbody.outerHTML;
                 } else if (currentSection === 'co-authored') {
@@ -1780,6 +1822,36 @@ Open-Source LLMs via Contextual Reasoning and Loop Recovery"
             document.getElementById('first-author').innerHTML = '<table width="100%" align="center" class="table_background">' + firstAuthorContent + '</table>';
             document.getElementById('co-authored').innerHTML = '<table width="100%" align="center" class="table_background">' + coAuthoredContent + '</table>';
             document.getElementById('projects').innerHTML = '<table width="100%" align="center" class="table_background">' + projectsContent + '</table>';
+
+            // 按时间排序（降序：时间越晚越在上面）
+            allPapers.sort((a, b) => {
+              if (a.year !== b.year) {
+                return b.year - a.year; // 年份降序
+              }
+              return b.month - a.month; // 月份降序
+            });
+
+            // 生成按时间排序的内容
+            let byTimeContent = '';
+
+            // 添加 section 标题
+            let sections = {
+              'first-author': '<tbody><tr><td colspan="2"><div class="border-line"></div></td></tr><tr><td colspan="2"><p></p><div class="line-text"><a>✨/* My first author papers */</a></div></td></tr></tbody>',
+              'co-authored': '<tbody><tr><td colspan="2"><div class="border-line"></div></td></tr><tr><td colspan="2"><p></p><div class="line-text"><a>✨/* My co-authored papers */</a></div></td></tr></tbody>',
+              'projects': '<tbody><tr><td colspan="2"><div class="border-line"></div></td></tr><tr><td colspan="2"><p></p><div class="line-text"><a>✨/* My selected projects */</a></div></td></tr></tbody>'
+            };
+
+            // 按时间分组显示
+            let currentSectionForTime = null;
+            allPapers.forEach(paper => {
+              if (paper.section !== currentSectionForTime) {
+                currentSectionForTime = paper.section;
+                byTimeContent += sections[paper.section];
+              }
+              byTimeContent += paper.html;
+            });
+
+            document.getElementById('by-time').innerHTML = '<table width="100%" align="center" class="table_background">' + byTimeContent + '</table>';
 
             // 移除原始表格
             table.remove();
