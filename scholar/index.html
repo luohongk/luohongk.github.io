@@ -638,6 +638,7 @@
             </p>
 
 
+            <p>📅 <span style="color: #666; font-size: 14px;">2025.03</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;" onclick="showAbstract(this)" data-title="SuperVINS: A Real-Time Visual-Inertial SLAM Framework for Challenging Imaging Conditions" data-abstract="This paper proposes SuperVINS, a real-time visual-inertial SLAM framework specifically designed to handle challenging imaging conditions such as low-light, dynamic environments, and texture-poor scenes. By integrating advanced feature tracking algorithms with robust optimization techniques, SuperVINS achieves state-of-the-art performance while maintaining computational efficiency suitable for real-time applications on embedded platforms." style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;">📄 Abstract Preview</a></p>
 
             <p>
 
@@ -1297,7 +1298,18 @@
         </div>
       </div>
 
-
+      <!-- 摘要预览弹窗 -->
+      <div class="wechat-modal-mask" id="abstractModal">
+        <div class="wechat-modal-content">
+          <div class="wechat-modal-title">📄 Abstract Preview / 摘要预览</div>
+          <div class="wechat-modal-body" id="abstractModalBody">
+            <p style="line-height: 1.8; color: #4E5969;">Loading...</p>
+          </div>
+          <div class="wechat-modal-footer">
+            <button class="wechat-modal-btn wechat-modal-confirm" id="abstractModalConfirm">OK / 确定</button>
+          </div>
+        </div>
+      </div>
 
       <div class="wechat-modal-mask" id="wechatModal">
         <div class="wechat-modal-content">
@@ -1630,6 +1642,31 @@
             chatCancelBtn.addEventListener('click', () => closeModal(chatModal));
             chatConfirmBtn.addEventListener('click', () => closeModal(chatModal));
             chatModal.addEventListener('click', (e) => e.target === chatModal && closeModal(chatModal));
+          }
+
+          // 摘要预览弹窗逻辑
+          const abstractModal = document.getElementById('abstractModal');
+          const abstractModalBody = document.getElementById('abstractModalBody');
+          const abstractModalConfirmBtn = document.getElementById('abstractModalConfirm');
+
+          // 显示摘要函数 - 从 HTML 元素的 data 属性读取数据
+          window.showAbstract = function(element) {
+            const title = element.getAttribute('data-title');
+            const abstract = element.getAttribute('data-abstract');
+            if (title && abstract) {
+              abstractModalBody.innerHTML = `
+                <h3 style="color: #224B8D; margin-bottom: 15px; font-size: 16px;">${title}</h3>
+                <p style="line-height: 1.8; color: #4E5969; font-size: 14px;">${abstract}</p>
+              `;
+              showModal(abstractModal);
+            }
+          };
+
+          if (abstractModalConfirmBtn) {
+            abstractModalConfirmBtn.addEventListener('click', () => closeModal(abstractModal));
+          }
+          if (abstractModal) {
+            abstractModal.addEventListener('click', (e) => e.target === abstractModal && closeModal(abstractModal));
           }
 
 
