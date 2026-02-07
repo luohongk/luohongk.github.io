@@ -223,10 +223,11 @@ tbody.special {
 .line-text {
   text-align: left;
   margin-top: 5px;
+  margin-bottom: 5px;
   font-weight: bold;
   font-style: italic;
   font-family: "Georgia", "Times New Roman", Times, serif;
-  font-size: 85%;
+  font-size: 75%;
 }
 .button {
   display: inline-block;
