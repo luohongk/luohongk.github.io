@@ -848,7 +848,7 @@ p {
   min-width: 200px;
   padding: 10px 16px;
   background: #E2EFF3;
-  border: 1px dashed #3d86e6;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -862,10 +862,11 @@ p {
   font-style: italic;
   /* 文字居中 */
   justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 54, 159, 0.1);
 }
 .friends-trigger-card:hover {
   background: #dbeafe;
-  border-color: #00a6ed;
+  border: none;
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(0, 166, 237, 0.15);
 }
