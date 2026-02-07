@@ -1,16 +1,10 @@
-    // 页面加载完成后初始化动画
-    window.addEventListener('load', function() {
-      // 等待所有资源加载完成后，添加类名触发渐入动画
-      document.body.classList.add('loading-complete');
-    });
-
   document.addEventListener("DOMContentLoaded", function () {
       const yearSpan = document.getElementById("current-year");
       yearSpan.textContent = new Date().getFullYear();
-    });
 
-    document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("current-year").textContent = new Date().getFullYear();
+      // HTML 解析完成后立即触发动画
+      document.body.classList.add('loading-complete');
+
       const loader = document.getElementById("loading-screen");
       if (loader) loader.style.display = "none";
     });
