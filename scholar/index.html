@@ -570,7 +570,26 @@
           authors are indicated
           using <sup>&#8224</sup>. My name is in bold.</a>
       </div>
-      <table id="tbPublications" width="100%" align="center" class="table_background">
+
+      <!-- Tab 按钮 -->
+      <div class="tab-container">
+        <button class="tab-btn active" onclick="switchTab('all')">✨ All</button>
+        <button class="tab-btn" onclick="switchTab('first-author')">✨ First Author</button>
+        <button class="tab-btn" onclick="switchTab('co-authored')">✨ Co-authored</button>
+        <button class="tab-btn" onclick="switchTab('projects')">✨ Projects</button>
+      </div>
+
+      <!-- Tab 内容区域 -->
+      <div id="all" class="tab-content active">
+      </div>
+      <div id="first-author" class="tab-content">
+      </div>
+      <div id="co-authored" class="tab-content">
+      </div>
+      <div id="projects" class="tab-content">
+      </div>
+
+      <table id="pubTable" width="100%" align="center" class="table_background">
 
 
 
@@ -1628,6 +1647,79 @@
           const date = new Date();
           const options = { year: 'numeric', month: 'long', day: 'numeric' };
           document.getElementById('current-date').textContent = date.toLocaleDateString('en-US', options);
+        });
+      </script>
+
+      <script>
+        function switchTab(tabName) {
+          // 隐藏所有 tab 内容
+          document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+          });
+
+          // 移除所有 tab 按钮的 active 状态
+          document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
+
+          // 显示选中的 tab 内容
+          const selectedTab = document.getElementById(tabName);
+          if (selectedTab) {
+            selectedTab.classList.add('active');
+          }
+
+          // 激活对应的 tab 按钮
+          event.target.classList.add('active');
+        }
+
+        // 页面加载后，将论文部分分别移到对应的 tab
+        document.addEventListener('DOMContentLoaded', function() {
+          const table = document.getElementById('pubTable');
+          if (table) {
+            const tbodies = table.querySelectorAll('tbody');
+            let allContent = '';
+            let firstAuthorContent = '';
+            let coAuthoredContent = '';
+            let projectsContent = '';
+
+            let currentSection = 'first-author';
+
+            tbodies.forEach(tbody => {
+              const text = tbody.textContent;
+
+              if (text.includes('My first author papers')) {
+                currentSection = 'first-author';
+                firstAuthorContent += tbody.outerHTML;
+                allContent += tbody.outerHTML;
+              } else if (text.includes('My co-authored papers')) {
+                currentSection = 'co-authored';
+                coAuthoredContent += tbody.outerHTML;
+                allContent += tbody.outerHTML;
+              } else if (text.includes('My selected projects')) {
+                currentSection = 'projects';
+                projectsContent += tbody.outerHTML;
+                allContent += tbody.outerHTML;
+              } else {
+                if (currentSection === 'first-author') {
+                  firstAuthorContent += tbody.outerHTML;
+                } else if (currentSection === 'co-authored') {
+                  coAuthoredContent += tbody.outerHTML;
+                } else if (currentSection === 'projects') {
+                  projectsContent += tbody.outerHTML;
+                }
+                allContent += tbody.outerHTML;
+              }
+            });
+
+            // 将内容分别放入对应的 tab
+            document.getElementById('all').innerHTML = '<table width="100%" align="center" class="table_background">' + allContent + '</table>';
+            document.getElementById('first-author').innerHTML = '<table width="100%" align="center" class="table_background">' + firstAuthorContent + '</table>';
+            document.getElementById('co-authored').innerHTML = '<table width="100%" align="center" class="table_background">' + coAuthoredContent + '</table>';
+            document.getElementById('projects').innerHTML = '<table width="100%" align="center" class="table_background">' + projectsContent + '</table>';
+
+            // 移除原始表格
+            table.remove();
+          }
         });
       </script>
 

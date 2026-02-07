@@ -1,3 +1,62 @@
+/* Tab 切换样式 */
+.tab-container {
+  display: flex;
+  gap: 6px;
+  margin: 2px 0;
+  margin-bottom: 0;
+  padding: 0 10px;
+  background-color: #E2EFF3;
+  border-radius: 8px;
+}
+
+.tab-btn {
+  padding: 10px 0px;
+  background: #E2EFF3;
+  border: none;
+  border-radius: 5px;
+  color: #003974;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 54, 159, 0.15);
+}
+
+.tab-btn:hover {
+  background: rgba(0, 166, 237, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 166, 237, 0.2);
+}
+
+.tab-btn.active {
+  background: #00369F;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 54, 159, 0.3);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 原有所有自定义样式（完整保留，未做任何修改） */
 .styled-link {
   color: #00a6ed;
