@@ -20,29 +20,10 @@
 function smoothScroll(target) {
     offset = 76; // 偏移量，可根据需要调整
     const targetElement = document.querySelector(target);
-    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY-offset;
-    const startPosition = window.scrollY;
-    const distance = targetPosition - startPosition;
-    const duration = 800; // 滚动持续时间（毫秒）
-    let startTime = null;
-
-    function animation(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1); // 确保进度不会超过 1
-
-        window.scrollTo(0, startPosition + distance * easeInOutQuad(progress));
-
-        if (timeElapsed < duration) {
-            requestAnimationFrame(animation);
-        }
+    if (targetElement) {
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo(0, targetPosition);
     }
-
-    function easeInOutQuad(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    }
-
-    requestAnimationFrame(animation);
 }
 
 function buttonClick(button) {
