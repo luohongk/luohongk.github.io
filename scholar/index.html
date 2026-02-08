@@ -16,6 +16,22 @@
   <link rel="stylesheet" href="../css/cv.css" type="text/css">
   <script src="../js/file.js" type="text/javascript"></script>
   <title>🤖Hongkun Luo (罗宏昆)🤖</title>
+  <style>
+    u {
+      text-decoration: underline !important;
+      text-decoration-color: #2f94d3 !important;
+      text-decoration-thickness: 2px !important;
+      text-underline-offset: 4px !important;
+    }
+
+    .tab-divider {
+      width: 1px;
+      height: 20px;
+      border-left: 2px dashed rgba(0, 54, 159, 0.3);
+      margin: 0 2px;
+      align-self: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -574,9 +590,13 @@
       <!-- Tab 按钮 -->
       <div class="tab-container">
         <button class="tab-btn active" onclick="switchTab('all')">✨ All</button>
+        <span class="tab-divider"></span>
         <button class="tab-btn" onclick="switchTab('by-time')">✨ Order by Time</button>
+        <span class="tab-divider"></span>
         <button class="tab-btn" onclick="switchTab('first-author')">✨ First Author</button>
+        <span class="tab-divider"></span>
         <button class="tab-btn" onclick="switchTab('co-authored')">✨ Co-authored</button>
+        <span class="tab-divider"></span>
         <button class="tab-btn" onclick="switchTab('projects')">✨ Projects</button>
 
       </div>
@@ -627,7 +647,7 @@
           <td>
             <p class="italic" style="color: #224B8D;"><b>📑SuperVINS: A Real-Time Visual-Inertial SLAM Framework for
                 Challenging Imaging Conditions</b></p>
-            <p>👨🏻‍🎓<strong>Hongkun Luo<sup>*</sup></strong> , Yang Liu , <a
+            <p>👨🏻‍🎓<strong><u>Hongkun Luo</u><sup>*</sup></strong> , Yang Liu , <a
                 href="https://gnsscenter.whu.edu.cn/info/1301/1211.htm">Chi Guo</a><sup>&#8224</sup>, <a
                 href="https://cesi.cumt.edu.cn/info/1101/8625.htm"> Zengke Li </a>, <a
                 href="https://gnsscenter.whu.edu.cn/info/1301/1081.htm">Weiwei Song</a> </p>
@@ -646,7 +666,7 @@
                 onclick="showAbstract(this)"
                 data-title="SuperVINS: A Real-Time Visual-Inertial SLAM Framework for Challenging Imaging Conditions"
                 data-abstract="This paper proposes SuperVINS, a real-time visual-inertial SLAM framework specifically designed to handle challenging imaging conditions such as low-light, dynamic environments, and texture-poor scenes. By integrating advanced feature tracking algorithms with robust optimization techniques, SuperVINS achieves state-of-the-art performance while maintaining computational efficiency suitable for real-time applications on embedded platforms."
-                style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
+                style="color: #000000; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
                   Preview</strong> </a></p>
 
             <p>
@@ -687,7 +707,7 @@
                 📑Accurate Identification and 3D Reconstruction of Surrounding Rock Fractures
               </b>
             </p>
-            <p>👨🏻‍🎓<strong>Hongkun Luo<sup>*</sup></strong>, Xiangyu Zhang , Xiang He</p>
+            <p>👨🏻‍🎓<strong><u>Hongkun Luo</u><sup>*</sup></strong>, Xiangyu Zhang , Xiang He</p>
 
             <p class="pub">
               🚀<a href="https://cpipc.acge.org.cn/cw/hp/4">HUAWEI CUP 2025</a>&nbsp;&nbsp;&nbsp; <span
@@ -699,7 +719,7 @@
             <p>📅 Time:<span style=" font-size: 14px;">2025.11</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
                 onclick="showAbstract(this)" data-title="围岩裂隙精准识别与三维模型重构"
                 data-abstract="“双碳” 背景下煤炭仍是我国能源压舱石，钻孔成像技术可获取含裂隙关键参数的亚毫米级柱面展开图，但受噪声等因素制约，需构建一体化模型支撑深部安全开采。针对相关问题，研究依次建立 “颜色 - 纹理 - 形态” 多级耦合模型实现裂隙像素级识别，通过物理尺度换算、RANSAC 聚类及非线性最小二乘完成裂隙参数反演，借助高斯混合模型、能量函数驱动的活动轮廓模型提取剖面线并计算 JRC 值，最后利用前述裂隙特征，经核心子相似度计算、谱聚类、断面拟合等得到裂隙连通性与 5 个断面，通过空白区域识别等确定最佳新增钻孔位置。"
-                style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
+                style="color: #000000; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
                   Preview</strong> </a></p>
 
 
@@ -737,7 +757,7 @@
                 📑The Wordle Game Analysis Model
               </b>
             </p>
-            <p>👨🏻‍🎓<strong>Hongkun Luo<sup>*</sup></strong>, Yuzhu Zhang , Jiale Chen</p>
+            <p>👨🏻‍🎓<strong><u>Hongkun Luo</u><sup>*</sup></strong>, Yuzhu Zhang , Jiale Chen</p>
 
             <p class="pub">
               🚀<a href="https://www.comap.com/">MCM/ICM</a>&nbsp;&nbsp;&nbsp; <span
@@ -746,7 +766,7 @@
 
             <p>📅 Time:<span style=" font-size: 14px;">2023.05</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
                 onclick="showAbstract(this)" data-title="The Wordle GameAnalysis Model" data-abstract="This study analyzes the result distribution of the daily Wordle game (provided by the New York Times) using Twitter report data. First, a Gaussian Mixture Model (GMM) with 95% confidence interval parameter estimation is established to characterize changes in reported result quantities (e.g., 2001–37156 for March 1, 2023). Four word attributes are examined for their impact on hard-mode result percentage distribution: prefix/suffix presence (little effect) and word information content, word probability, letter probability (significant effects). Next, daily reported results are found to follow a normal distribution, modeled via Gaussian functions where coefficients and variances exhibit a double exponential relationship. A Game Outcome Prediction Model (GOPM) is built using the three impactful attributes as independent variables, Gaussian mean/variance as dependent variables, and Simulated Annealing-based Particle Swarm Optimization (SAPSO). To address game uncertainty, a Corrected GOPM (CGOPM) integrated with LSTM is developed, improving accuracy from 52.24% to 54.49% (e.g., predicting EERIE’s results as [6,17,28,29,16,5,1] for 1–6 tries/X). A Word Difficulty Classification Model (WDCM) is constructed using K-means with Gaussian mean/variance as classification criteria, validated via silhouette coefficients; canonical correlation analysis identifies word information content as the top influencing factor, classifying EERIE as easy. Finally, dataset properties are summarized (e.g., minimal time impact, pronunciation distribution differences, repeated letters affecting guesses), and findings are presented to New York Times puzzle editors. Keywords include Text Mining, GMM, Simulated Annealing, LSTM, and K-Means.
-" style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract Preview</strong>
+" style="color: #000000; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract Preview</strong>
               </a></p>
 
             <p>
@@ -798,7 +818,7 @@
                 Recovery
               </b>
             </p>
-            <p>👨🏻‍🎓Aolin Li<sup>*</sup> ,Yixian Yan, <strong>Hongkun Luo</strong>, Jiao Zhan ,Chi
+            <p>👨🏻‍🎓Aolin Li<sup>*</sup> ,Yixian Yan, <strong><u>Hongkun Luo</u></strong>, Jiao Zhan ,Chi
               Guo<sup>&#8224</sup></p>
 
             <p class="pub">
@@ -812,7 +832,7 @@
                 onclick="showAbstract(this)"
                 data-title="ReThinkNav: Zero-Shot Vision-and-Language Navigation with Open-Source LLMs via Contextual Reasoning and Loop Recovery"
                 data-abstract="Zero-shot Vision-and-Language Navigation in Continuous Environments (VLN-CE) requires agents to follow natural language instructions and navigate without task-specific training. Prior works have demonstrated the potential of open-source LLMs in zero-shot VLN-CE, yet two major limitations remain. First, they struggle with accurate instruction following. Second, agents easily fall into loops in spatially confined or semantically similar regions. In this work, we present ReThinkNav, a framework to further explore open-source LLMs in zero-shot VLN-CE. ReThinkNav integrates contextual reasoning for enhanced instruction comprehension and progress estimation, enabling the LLM to accurately infer what action to take and why. Additionally, a Loop Detection and Recovery (LDR) module detects loops and adjusts navigation decisions. Experiments on R2R-CE benchmark demonstrate excellent zero-shot performance. Real-world validation using a Unitree G1 humanoid robot confirms its practical applicability."
-                style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
+                style="color: #000000; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
                   Preview</strong> </a></p>
 
 
@@ -884,7 +904,7 @@
                 🛠️Deployment of VLA-Based VLN (NaVILA)
               </b>
             </p>
-            <p>👨🏻‍🎓<strong>Hongkun Luo</strong><sup>*</sup>, Wenjie Jiang, Yuanyuan Zhu</p>
+            <p>👨🏻‍🎓<strong><u>Hongkun Luo</u></strong><sup>*</sup>, Wenjie Jiang, Yuanyuan Zhu</p>
 
             <p class="pub">
               🚀 <a href="https://navila-bot.github.io/">RSS 2025</a>&nbsp;&nbsp;&nbsp;
@@ -899,7 +919,7 @@
             <p>📅 Time:<span style=" font-size: 14px;">2025.10</span>&nbsp;&nbsp;&nbsp;<a href="javascript:;"
                 onclick="showAbstract(this)" data-title="Deployment of VLA-Based VLN"
                 data-abstract="我成功把一套基于VLA的VLN系统部署到了 humanoid 机器人上。通过多线程与RO2通信机制实现三端联合通讯"
-                style="color: #00A6ED; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
+                style="color: #000000; font-size: 14px; text-decoration: none; cursor: pointer;"><strong>📄 Abstract
                   Preview</strong> </a></p>
 
 
