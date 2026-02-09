@@ -78,26 +78,39 @@
     }
 
     /* 背景音乐控制按钮 */
+    .music-hint {
+      position: absolute;
+      right: 38px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      font-family: "Times New Roman", Times, serif;
+      color: #E94B4A;
+      white-space: nowrap;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
     .music-control {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #ff7eb9, #ff5e9a);
-      border-radius: 50%;
-      display: flex;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
       align-items: center;
       justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: #9CC9F2;
+      border-radius: 50%;
       cursor: pointer;
-      z-index: 10000;
-      box-shadow: 0 4px 15px rgba(255, 94, 154, 0.4);
+      box-shadow: 0 2px 8px rgba(156, 201, 242, 0.4);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .music-control:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(255, 94, 154, 0.6);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 3px 12px rgba(156, 201, 242, 0.6);
     }
 
     .music-control.playing {
@@ -106,22 +119,33 @@
 
     @keyframes musicPulse {
       0%, 100% {
-        box-shadow: 0 4px 15px rgba(255, 94, 154, 0.4);
+        box-shadow: 0 2px 8px rgba(156, 201, 242, 0.4);
       }
       50% {
-        box-shadow: 0 4px 25px rgba(255, 94, 154, 0.8);
+        box-shadow: 0 3px 15px rgba(156, 201, 242, 0.8);
       }
     }
 
     .music-icon {
-      font-size: 24px;
-      color: white;
+      font-size: 16px;
+      color: #01A7ED;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 2px rgba(1, 167, 237, 0.5));
+    }
+
+    .music-icon svg {
+      width: 16px;
+      height: 16px;
     }
 
     .music-note {
       position: absolute;
-      font-size: 16px;
-      color: #ff7eb9;
+      font-size: 12px;
+      color: #01A7ED;
+      font-family: "Segoe UI Symbol", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+      filter: drop-shadow(0 0 1px rgba(1, 167, 237, 0.5));
       animation: float 3s ease-in-out infinite;
       opacity: 0;
     }
@@ -155,17 +179,9 @@
   <div class="sakura-container" id="sakura-container"></div>
 
   <!-- 背景音乐 -->
-  <audio id="bg-music" loop autoplay>
-    <source src="../music/background_music.mp3" type="audio/mp3">
+  <audio id="bg-music" loop>
+    <source src="./music/bgmu.mp3" type="audio/mp3">
   </audio>
-
-  <!-- 音乐控制按钮 -->
-  <div class="music-control" id="music-control" onclick="toggleMusic()">
-    <span class="music-note">🎵</span>
-    <span class="music-note">🎶</span>
-    <span class="music-note">🎵</span>
-    <span class="music-icon" id="music-icon">🎵</span>
-  </div>
 
   <div class="body-shadow-box">
     <div class="navbar">
@@ -183,10 +199,21 @@
     <div id="layout-content" style="margin-top:5px">
       <table class="table_background">
         <tbody>
-          <h2 class="h2_background" id="biography">
+          <h2 class="h2_background" id="biography" style="position: relative;">
             <img src="../images/portfolio.png"
               style="height: 25px; vertical-align: middle; margin-right: 1px;margin-top: 1px;">
             Brief Introduction
+            <!-- 音乐控制按钮 -->
+            <div class="music-control" id="music-control" onclick="toggleMusic()">
+              <span class="music-note">🎵</span>
+              <span class="music-note">🎶</span>
+              <span class="music-note">🎵</span>
+              <span class="music-icon" id="music-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+              </span>
+            </div>
           </h2>
           <tr>
             <td width="58%">
@@ -198,7 +225,9 @@
                 Last Update Time: <strong style="color: #d82b0d;">2026.02.02</strong> | Updated bimonthly
               </p>
               <div id="toptitle">
-                <h1 class="italic">My name is Hongkun Luo 🤖 罗宏昆 🤖 &nbsp;</h1>
+                <h1 class="italic">
+                  My name is Hongkun Luo 🤖 罗宏昆 🤖 &nbsp;
+                </h1>
               </div>
 
               <!-- # mark 自我介绍 -->
@@ -2052,7 +2081,7 @@
         const bgMusic = document.getElementById('bg-music');
         const musicControl = document.getElementById('music-control');
         const musicIcon = document.getElementById('music-icon');
-        let isPlaying = true; // 默认为播放状态
+        let isPlaying = false; // 初始状态为暂停，等待自动播放
 
         window.toggleMusic = function() {
           if (isPlaying) {
@@ -2060,8 +2089,12 @@
             musicIcon.textContent = '🎵';
             musicControl.classList.remove('playing');
           } else {
-            // 如果音频源为空，提示用户
-            if (!bgMusic.src || bgMusic.src === window.location.href) {
+            // 检查是否有有效的音频源
+            const source = bgMusic.querySelector('source');
+            const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
+                                   (source && source.src && source.src !== window.location.href);
+
+            if (!hasValidSource) {
               alert('请先在 audio 标签中设置背景音乐的文件路径！');
               return;
             }
@@ -2072,18 +2105,32 @@
           isPlaying = !isPlaying;
         };
 
-        // 页面加载完成后尝试自动播放（需要用户交互）
-        document.addEventListener('click', function() {
-          if (!isPlaying && bgMusic.src && bgMusic.src !== window.location.href) {
+        // 页面加载完成后尝试自动播放
+        function attemptAutoplay() {
+          const source = bgMusic.querySelector('source');
+          const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
+                                 (source && source.src && source.src !== window.location.href);
+          if (hasValidSource && !isPlaying) {
             bgMusic.play().then(() => {
               isPlaying = true;
               musicIcon.textContent = '⏸️';
               musicControl.classList.add('playing');
+              console.log('背景音乐自动播放成功');
             }).catch(err => {
-              console.log('自动播放失败，需要用户交互');
+              console.log('自动播放失败，等待用户交互:', err);
+              // 等待用户第一次点击时再播放
+              document.addEventListener('click', function onFirstClick() {
+                if (!isPlaying) {
+                  attemptAutoplay();
+                }
+                document.removeEventListener('click', onFirstClick);
+              }, { once: true });
             });
           }
-        }, { once: true });
+        }
+
+        // 尝试自动播放
+        attemptAutoplay();
 
         // 初始化：如果音乐正在播放，更新UI状态
         bgMusic.addEventListener('play', function() {
