@@ -76,11 +76,97 @@
         opacity: 0;
       }
     }
+
+    /* 背景音乐控制按钮 */
+    .music-control {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ff7eb9, #ff5e9a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10000;
+      box-shadow: 0 4px 15px rgba(255, 94, 154, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .music-control:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(255, 94, 154, 0.6);
+    }
+
+    .music-control.playing {
+      animation: musicPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes musicPulse {
+      0%, 100% {
+        box-shadow: 0 4px 15px rgba(255, 94, 154, 0.4);
+      }
+      50% {
+        box-shadow: 0 4px 25px rgba(255, 94, 154, 0.8);
+      }
+    }
+
+    .music-icon {
+      font-size: 24px;
+      color: white;
+    }
+
+    .music-note {
+      position: absolute;
+      font-size: 16px;
+      color: #ff7eb9;
+      animation: float 3s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    .music-note:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .music-note:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .music-note:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-40px) rotate(360deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="sakura-container" id="sakura-container"></div>
+
+  <!-- 背景音乐 -->
+  <audio id="bg-music" loop autoplay>
+    <source src="../music/background_music.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- 音乐控制按钮 -->
+  <div class="music-control" id="music-control" onclick="toggleMusic()">
+    <span class="music-note">🎵</span>
+    <span class="music-note">🎶</span>
+    <span class="music-note">🎵</span>
+    <span class="music-icon" id="music-icon">🎵</span>
+  </div>
+
   <div class="body-shadow-box">
     <div class="navbar">
       <div class="button_container">
@@ -1932,7 +2018,7 @@
       // 樱花动画脚本
       (function() {
         const container = document.getElementById('sakura-container');
-        const sakuraCount = 50; // 樱花数量
+        const sakuraCount = 70; // 樱花数量
 
         function createSakura() {
           const sakura = document.createElement('div');
@@ -1941,11 +2027,9 @@
           // 随机位置
           const startX = Math.random() * window.innerWidth;
           const animationDuration = Math.random() * 5 + 8; // 8-13秒
-          const animationDelay = Math.random() * 5;
 
           sakura.style.left = startX + 'px';
           sakura.style.animationDuration = animationDuration + 's';
-          sakura.style.animationDelay = animationDelay + 's';
           sakura.style.fontSize = Math.random() * 10 + 10 + 'px';
 
           container.appendChild(sakura);
@@ -1957,10 +2041,62 @@
           });
         }
 
-        // 初始化创建樱花
+        // 初始化创建樱花，错开时间让它们陆续出现
         for (let i = 0; i < sakuraCount; i++) {
-          setTimeout(createSakura, Math.random() * 5000);
+          setTimeout(createSakura, i * 150 + Math.random() * 100);
         }
+      })();
+
+      // 背景音乐控制
+      (function() {
+        const bgMusic = document.getElementById('bg-music');
+        const musicControl = document.getElementById('music-control');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = true; // 默认为播放状态
+
+        window.toggleMusic = function() {
+          if (isPlaying) {
+            bgMusic.pause();
+            musicIcon.textContent = '🎵';
+            musicControl.classList.remove('playing');
+          } else {
+            // 如果音频源为空，提示用户
+            if (!bgMusic.src || bgMusic.src === window.location.href) {
+              alert('请先在 audio 标签中设置背景音乐的文件路径！');
+              return;
+            }
+            bgMusic.play();
+            musicIcon.textContent = '⏸️';
+            musicControl.classList.add('playing');
+          }
+          isPlaying = !isPlaying;
+        };
+
+        // 页面加载完成后尝试自动播放（需要用户交互）
+        document.addEventListener('click', function() {
+          if (!isPlaying && bgMusic.src && bgMusic.src !== window.location.href) {
+            bgMusic.play().then(() => {
+              isPlaying = true;
+              musicIcon.textContent = '⏸️';
+              musicControl.classList.add('playing');
+            }).catch(err => {
+              console.log('自动播放失败，需要用户交互');
+            });
+          }
+        }, { once: true });
+
+        // 初始化：如果音乐正在播放，更新UI状态
+        bgMusic.addEventListener('play', function() {
+          isPlaying = true;
+          musicIcon.textContent = '⏸️';
+          musicControl.classList.add('playing');
+        });
+
+        bgMusic.addEventListener('pause', function() {
+          isPlaying = false;
+          musicIcon.textContent = '🎵';
+          musicControl.classList.remove('playing');
+        });
       })();
     </script>
 </html>
