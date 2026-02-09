@@ -2082,6 +2082,7 @@
         const musicControl = document.getElementById('music-control');
         const musicIcon = document.getElementById('music-icon');
         let isPlaying = false; // 初始状态为暂停，等待自动播放
+        let autoPlayAttempted = false; // 标记是否已经尝试过自动播放
 
         window.toggleMusic = function() {
           if (isPlaying) {
@@ -2105,12 +2106,13 @@
           isPlaying = !isPlaying;
         };
 
-        // 页面加载完成后尝试自动播放
+        // 自动播放函数
         function attemptAutoplay() {
           const source = bgMusic.querySelector('source');
           const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
                                  (source && source.src && source.src !== window.location.href);
-          if (hasValidSource && !isPlaying) {
+          if (hasValidSource && !isPlaying && !autoPlayAttempted) {
+            autoPlayAttempted = true;
             bgMusic.play().then(() => {
               isPlaying = true;
               musicIcon.textContent = '⏸️';
@@ -2118,12 +2120,27 @@
               console.log('背景音乐自动播放成功');
             }).catch(err => {
               console.log('自动播放失败，等待用户交互:', err);
-              // 等待用户第一次点击时再播放
-              document.addEventListener('click', function onFirstClick() {
-                if (!isPlaying) {
-                  attemptAutoplay();
+              // 监听页面任意点击事件，第一次点击时自动播放
+              document.addEventListener('click', function onFirstClick(e) {
+                // 排除音乐控制按钮本身的点击
+                if (e.target.closest('#music-control')) {
+                  return;
                 }
-                document.removeEventListener('click', onFirstClick);
+                if (!isPlaying && !bgMusic.paused) {
+                  // 检查是否已经通过其他方式播放
+                  return;
+                }
+                if (!isPlaying) {
+                  bgMusic.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.textContent = '⏸️';
+                    musicControl.classList.add('playing');
+                    console.log('用户点击后背景音乐开始播放');
+                  }).catch(err => {
+                    console.log('用户点击后播放失败:', err);
+                  });
+                  document.removeEventListener('click', onFirstClick);
+                }
               }, { once: true });
             });
           }
