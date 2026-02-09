@@ -2126,10 +2126,6 @@
                 if (e.target.closest('#music-control')) {
                   return;
                 }
-                if (!isPlaying && !bgMusic.paused) {
-                  // 检查是否已经通过其他方式播放
-                  return;
-                }
                 if (!isPlaying) {
                   bgMusic.play().then(() => {
                     isPlaying = true;
@@ -2145,6 +2141,24 @@
             });
           }
         }
+
+        // 监听页面任意点击事件，切换音乐播放/暂停
+        document.addEventListener('click', function(e) {
+          // 排除音乐控制按钮本身的点击（由 toggleMusic 函数处理）
+          if (e.target.closest('#music-control')) {
+            return;
+          }
+          // 排除可点击元素的点击（链接、按钮等）
+          if (e.target.closest('a') || e.target.closest('button')) {
+            return;
+          }
+          // 排除弹窗内容的点击
+          if (e.target.closest('.wechat-modal-content')) {
+            return;
+          }
+          // 切换音乐状态
+          toggleMusic();
+        });
 
         // 尝试自动播放
         attemptAutoplay();
