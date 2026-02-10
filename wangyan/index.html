@@ -16,7 +16,7 @@
             }
 
             body {
-                  background: #222;
+                  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
                   overflow: hidden;
                   /* 取消选中 */
                   user-select: none;
@@ -24,6 +24,30 @@
                   display: flex;
                   justify-content: center;
                   align-items: center;
+                  font-family: 'Arial', sans-serif;
+            }
+
+            /* 星星背景效果 */
+            .stars {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  pointer-events: none;
+                  z-index: 0;
+            }
+
+            .star {
+                  position: absolute;
+                  background: #fff;
+                  border-radius: 50%;
+                  animation: twinkle 3s infinite;
+            }
+
+            @keyframes twinkle {
+                  0%, 100% { opacity: 0.3; transform: scale(1); }
+                  50% { opacity: 1; transform: scale(1.2); }
             }
 
             /* 密码输入框容器 */
@@ -102,7 +126,7 @@
  
             .perspective {
                   /*子元素透视 场景深度*/
-                  perspective: 600px;
+                  perspective: 800px;
             }
  
             .wrap {
@@ -125,18 +149,26 @@
                   height: 100%;
                   transform: rotateY(0deg) translateZ(0px);
                   background: transparent;
-                  box-shadow: 0 0 4px #fff;
-                  border-radius: 5px;
+                  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.3);
+                  border-radius: 8px;
                   object-fit: cover;
+                  border: 2px solid rgba(255, 255, 255, 0.3);
+                  transition: all 0.3s ease;
 
                   /* webkit */
+            }
+
+            .wrap img:hover, .wrap video:hover {
+                  box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.5);
+                  border-color: rgba(255, 255, 255, 0.8);
+                  z-index: 100;
             }
  
             /* 照片底座 */
             .wrap p {
                   width: 1200px;
                   height: 1200px;
-                  background: -webkit-radial-gradient(center center, 600px 600px, rgba(122, 122, 122, .5), rgba(0, 0, 0, 0));
+                  background: -webkit-radial-gradient(center center, 600px 600px, rgba(100, 200, 255, 0.3), rgba(0, 0, 0, 0));
                   position: absolute;
                   border-radius: 50%;
                   left: 50%;
@@ -145,7 +177,7 @@
                   margin-top: -600px;
                   /* 沿着x轴按倒 */
                   transform: rotateX(90deg);
- 
+
             }
       </style>
 </head>
@@ -161,13 +193,11 @@
             </div>
       </div>
 
-      <!-- 盒子容器 -->
-      <div class="perspective" id="mainContent" style="display: none;">
+      <!-- 星星背景 -->
+      <div class="stars" id="stars"></div>
 
- 
-<body>
       <!-- 盒子容器 -->
-      <div class="perspective">
+      <div class="perspective" id="mainContent" style="display: none; z-index: 10;">
             <div class="wrap" id="imgwrap">
                   <!-- 引入图片值页面 -->
                   <img class="f1" src="images/12.jpg" />
@@ -290,6 +320,26 @@
                         checkPassword();
                   }
             });
+
+            // 创建星星背景
+            function createStars() {
+                  const starsContainer = document.getElementById('stars');
+                  const starCount = 100;
+
+                  for (let i = 0; i < starCount; i++) {
+                        const star = document.createElement('div');
+                        star.className = 'star';
+                        star.style.width = Math.random() * 3 + 1 + 'px';
+                        star.style.height = star.style.width;
+                        star.style.left = Math.random() * 100 + '%';
+                        star.style.top = Math.random() * 100 + '%';
+                        star.style.animationDelay = Math.random() * 3 + 's';
+                        starsContainer.appendChild(star);
+                  }
+            }
+
+            // 页面加载时创建背景
+            createStars();
       </script>
       <!--  src="JS/photo.js" -->
       <script type="text/javascript">
