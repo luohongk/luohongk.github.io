@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="Keywords" content="">
+      <meta name="Description" content="">
+      <title>图册</title>
+      <!-- 小孙的代码分享 -->
+      <!-- 层叠样式表 -->
+      <style type="text/css">
+            /* 去掉默认效果 */
+            * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+            }
+
+            body {
+                  background: #222;
+                  overflow: hidden;
+                  /* 取消选中 */
+                  user-select: none;
+                  min-height: 100vh;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+            }
+
+            /* 密码输入框容器 */
+            .password-overlay {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(0, 0, 0, 0.95);
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  z-index: 9999;
+                  flex-direction: column;
+            }
+
+            .password-box {
+                  text-align: center;
+            }
+
+            .password-box h2 {
+                  color: #fff;
+                  margin-bottom: 30px;
+                  font-size: 24px;
+            }
+
+            .password-box input {
+                  width: 200px;
+                  height: 40px;
+                  padding: 10px;
+                  font-size: 16px;
+                  border: 2px solid #fff;
+                  border-radius: 5px;
+                  background: rgba(255, 255, 255, 0.1);
+                  color: #fff;
+                  text-align: center;
+                  margin-bottom: 20px;
+                  outline: none;
+            }
+
+            .password-box input::placeholder {
+                  color: rgba(255, 255, 255, 0.5);
+            }
+
+            .password-box button {
+                  padding: 10px 30px;
+                  font-size: 16px;
+                  background: #fff;
+                  color: #222;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: all 0.3s;
+            }
+
+            .password-box button:hover {
+                  background: #ccc;
+            }
+
+            .password-error {
+                  color: #ff6b6b;
+                  margin-top: 15px;
+                  font-size: 14px;
+            }
+
+            .hidden {
+                  display: none !important;
+            }
+ 
+            @keyframes rotate {
+                  100% {
+                        transform: rotateY(360deg);
+                  }
+            }
+ 
+            .perspective {
+                  /*子元素透视 场景深度*/
+                  perspective: 600px;
+            }
+ 
+            .wrap {
+                  /* 3d */
+                  width: 135px;
+                  height: 240px;
+                  margin: 100px auto;
+                  position: relative;
+                  /* border: 1px solid red; */
+                  transform: rotateX(-20deg) rotateY(0deg);
+                  transform-style: preserve-3d;
+ 
+            }
+ 
+            .wrap img, .wrap video {
+                  display: block;
+                  /* 绝对定位 */
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  transform: rotateY(0deg) translateZ(0px);
+                  background: transparent;
+                  box-shadow: 0 0 4px #fff;
+                  border-radius: 5px;
+                  object-fit: cover;
+
+                  /* webkit */
+            }
+ 
+            /* 照片底座 */
+            .wrap p {
+                  width: 1200px;
+                  height: 1200px;
+                  background: -webkit-radial-gradient(center center, 600px 600px, rgba(122, 122, 122, .5), rgba(0, 0, 0, 0));
+                  position: absolute;
+                  border-radius: 50%;
+                  left: 50%;
+                  top: 100%;
+                  margin-left: -600px;
+                  margin-top: -600px;
+                  /* 沿着x轴按倒 */
+                  transform: rotateX(90deg);
+ 
+            }
+      </style>
+</head>
+
+<body>
+      <!-- 密码输入层 -->
+      <div class="password-overlay" id="passwordOverlay">
+            <div class="password-box">
+                  <h2>请输入密码</h2>
+                  <input type="password" id="passwordInput" placeholder="输入密码" />
+                  <button onclick="checkPassword()">确认</button>
+                  <div class="password-error" id="passwordError"></div>
+            </div>
+      </div>
+
+      <!-- 盒子容器 -->
+      <div class="perspective" id="mainContent" style="display: none;">
+
+ 
+<body>
+      <!-- 盒子容器 -->
+      <div class="perspective">
+            <div class="wrap" id="imgwrap">
+                  <!-- 引入图片值页面 -->
+                  <img class="f1" src="images/12.jpg" />
+                  <img class="f1" src="images/13.jpg" />
+                  <img class="f1" src="images/14.jpg" />
+                  <img class="f1" src="images/15.jpg" />
+                  <img class="f1" src="images/16.jpg" />
+                  <img class="f1" src="images/17.jpg" />
+                  <img class="f1" src="images/18.jpg" />
+                  <img class="f1" src="images/19.jpg" />
+                  <img class="f1" src="images/20.jpg" />
+                  <img class="f1" src="images/21.jpg" />
+                  <img class="f1" src="images/22.jpg" />
+                  <img class="f1" src="images/1.jpg" />
+                  <img class="f1" src="images/2.jpg" />
+                  <img class="f1" src="images/3.jpg" />
+                  <img class="f1" src="images/4.jpg" />
+                  <img class="f1" src="images/5.jpg" />
+                  <img class="f1" src="images/6.jpg" />
+                  <img class="f1" src="images/7.jpg" />
+                  <img class="f1" src="images/8.jpg" />
+                  <img class="f1" src="images/9.jpg" />
+                  <img class="f1" src="images/10.jpg" />
+                  <img class="f1" src="images/11.jpg" />
+ 
+                  <!-- 引入视频值页面 -->
+                  <video class="f1" src="images/1.mp4" autoplay muted loop></video>
+                  <video class="f1" src="images/2.mp4" autoplay muted loop></video>
+                  <video class="f1" src="images/3.mp4" autoplay muted loop></video>
+                  <video class="f1" src="images/4.mp4" autoplay muted loop></video>
+ 
+                  <!-- 引入图片值页面 -->
+                  <img class="f2" src="images/1.jpg" />
+                  <img class="f2" src="images/2.jpg" />
+                  <img class="f2" src="images/3.jpg" />
+                  <img class="f2" src="images/4.jpg" />
+                  <img class="f2" src="images/5.jpg" />
+ 
+                  <img class="f2" src="images/9.jpg" />
+                  <img class="f2" src="images/10.jpg" />
+                  <img class="f2" src="images/11.jpg" />
+                  <img class="f2" src="images/12.jpg" />
+                  <img class="f2" src="images/13.jpg" />
+                  <img class="f2" src="images/14.jpg" />
+                  <img class="f2" src="images/15.jpg" />
+                  <img class="f2" src="images/16.jpg" />
+                  <img class="f2" src="images/17.jpg" />
+                  <img class="f2" src="images/18.jpg" />
+                  <img class="f2" src="images/19.jpg" />
+                  <img class="f2" src="images/20.jpg" />
+                  <img class="f2" src="images/21.jpg" />
+                  <img class="f2" src="images/22.jpg" />
+                  <video class="f2" src="images/1.mp4" autoplay muted loop></video>
+                  <video class="f2" src="images/2.mp4" autoplay muted loop></video>
+                  <img class="f2" src="images/6.jpg" />
+                  <img class="f2" src="images/7.jpg" />
+                  <img class="f2" src="images/8.jpg" />
+                  <!-- 引入图片值页面 -->
+
+                  <img class="f3" src="images/1.jpg" />
+                  <img class="f3" src="images/2.jpg" />
+                  <img class="f3" src="images/3.jpg" />
+                  <img class="f3" src="images/4.jpg" />
+                  <img class="f3" src="images/5.jpg" />
+                  <img class="f3" src="images/6.jpg" />
+                  <img class="f3" src="images/7.jpg" />
+                  <img class="f3" src="images/8.jpg" />
+                  <img class="f3" src="images/9.jpg" />
+                  <img class="f3" src="images/10.jpg" />
+ 
+ 
+                  <img class="f3" src="images/11.jpg" />
+                  <img class="f3" src="images/12.jpg" />
+                  <img class="f3" src="images/13.jpg" />
+                  <img class="f3" src="images/14.jpg" />
+ 
+                  <img class="f3" src="images/15.jpg" />
+                  <img class="f3" src="images/16.jpg" />
+                  <img class="f3" src="images/17.jpg" />
+                  <img class="f3" src="images/18.jpg" />
+ 
+                  <img class="f3" src="images/19.jpg" />
+                  <img class="f3" src="images/20.jpg" />
+                  <img class="f3" src="images/21.jpg" />
+                  <img class="f3" src="images/22.jpg" />
+                  <video class="f3" src="images/3.mp4" autoplay muted loop></video>
+                  <video class="f3" src="images/4.mp4" autoplay muted loop></video>
+ 
+ 
+                  <p></p>
+            </div>
+      </div>
+      <script type="text/javascript">
+            // 密码验证
+            const CORRECT_PASSWORD = "wangyan";
+
+            function checkPassword() {
+                  const inputPassword = document.getElementById('passwordInput').value;
+                  const errorDiv = document.getElementById('passwordError');
+
+                  if (inputPassword === CORRECT_PASSWORD) {
+                        // 密码正确，隐藏密码层，显示主内容
+                        document.getElementById('passwordOverlay').classList.add('hidden');
+                        document.getElementById('mainContent').style.display = 'block';
+                        // 初始化图片展开效果
+                        initPhotoGallery();
+                        // 启动自动旋转
+                        autoRotate();
+                  } else {
+                        // 密码错误，显示错误信息
+                        errorDiv.textContent = "密码错误，请重试";
+                        document.getElementById('passwordInput').value = '';
+                        document.getElementById('passwordInput').focus();
+                  }
+            }
+
+            // 按回车键确认
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+                  if (e.key === 'Enter') {
+                        checkPassword();
+                  }
+            });
+      </script>
+      <!--  src="JS/photo.js" -->
+      <script type="text/javascript">
+            var oImg, oImg2, oImg3, len, deg, oWrap;
+
+            var oWrap = document.getElementById("imgwrap");
+            // var oWrap=document.querySelector('.wrap');
+
+            //图片展开初始化函数
+            function initPhotoGallery() {
+                  // 获取图片元素
+                  oImg = document.getElementsByClassName('f1')
+                  oImg2 = document.getElementsByClassName('f2')
+                  oImg3 = document.getElementsByClassName('f3')
+                  len = oImg.length;
+                  console.log(len)
+                  deg = 360 / len;
+
+                  // 先强制重置所有图片到初始状态
+                  Array.prototype.forEach.call(oImg, function (ele) {
+                        ele.style.transition = "none";
+                        ele.style.transform = "rotateY(0deg) translateZ(0px)";
+                  });
+                  Array.prototype.forEach.call(oImg2, function (ele) {
+                        ele.style.transition = "none";
+                        ele.style.transform = "rotateY(0deg) translateZ(0px)";
+                  });
+                  Array.prototype.forEach.call(oImg3, function (ele) {
+                        ele.style.transition = "none";
+                        ele.style.transform = "rotateY(0deg) translateZ(0px)";
+                  });
+
+                  // 强制浏览器重排
+                  void oWrap.offsetWidth;
+
+                  // 延迟一小段时间后触发展开动画
+                  setTimeout(function() {
+                        Array.prototype.forEach.call(oImg, function (ele, index, self) {
+                              // 旋转并沿Z轴平移
+                              ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px)";
+                              //过渡时间1s
+                              ele.style.transition = "1s " + (len - index) * 0.1 + "s";
+
+                        });
+                        Array.prototype.forEach.call(oImg2, function (ele, index, self) {
+                              // 旋转并沿Z轴平移
+                              ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px) translateY(240px)";
+                              //过渡时间1s
+                              ele.style.transition = "1s " + (len - index) * 0.1 + "s";
+
+                        });
+                        Array.prototype.forEach.call(oImg3, function (ele, index, self) {
+                              // 旋转并沿Z轴平移
+                              ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px) translateY(480px)";
+                              //过渡时间1s
+                              ele.style.transition = "1s " + (len - index) * 0.1 + "s";
+
+                        });
+                  }, 100);
+                  // Array.prototype.forEach.call(oImg, function (ele, index, self) {
+                  //       // 旋转并沿Z轴平移
+                  //       ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(350px)";
+                  //       //过渡时间1s
+                  //       ele.style.transition = "1s " + (len - index) * 0.1 + "s";
+
+                  // });
+            }
+            //翻动3D相册
+            var newX, newY, lastX, lastY, minusX, minusY, rotX = -20, rotY = 0;
+            var isDragging = false;
+            var autoRotateSpeed = 0.2; // 自动旋转速度
+
+            // 自动旋转函数
+            function autoRotate() {
+                  if (!isDragging) {
+                        rotY += autoRotateSpeed;
+                        oWrap.style.transform = "rotateX(" + rotX + "deg) rotateY(" + rotY + "deg)";
+                  }
+                  requestAnimationFrame(autoRotate);
+            }
+
+            document.onmousedown = function (e) {
+                  isDragging = true;
+                  // 点击设置初值
+                  lastX = e.clientX;
+                  lastY = e.clientY;
+
+                  this.onmousemove = function (e) {
+                        newX = e.clientX;
+                        newY = e.clientY;
+                        minusX = newX - lastX;
+                        minusY = newY - lastY;
+
+                        rotX -= minusY * 0.2;
+                        rotY += minusX * 0.1;
+                        oWrap.style.transform = "rotateX(" + rotX + "deg) rotateY(" + rotY + "deg)";
+                        lastX = newX;
+                        lastY = newY;
+
+                  }
+                  this.onmouseup = function (e) {
+                        //鼠标松开
+                        this.onmousemove = null;//清除鼠标移动
+                        isDragging = false;
+                  }
+            }
+ 
+      </script>
+</body>
+ 
+</html>
