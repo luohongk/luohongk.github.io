@@ -71,6 +71,7 @@
         transform: translateY(-100px) rotate(0deg) scale(1);
         opacity: 1;
       }
+
       100% {
         transform: translateY(100vh) rotate(720deg) scale(0.5);
         opacity: 0;
@@ -118,9 +119,12 @@
     }
 
     @keyframes musicPulse {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 2px 8px rgba(156, 201, 242, 0.4);
       }
+
       50% {
         box-shadow: 0 3px 15px rgba(156, 201, 242, 0.8);
       }
@@ -167,6 +171,7 @@
         transform: translateY(0) rotate(0deg);
         opacity: 1;
       }
+
       100% {
         transform: translateY(-40px) rotate(360deg);
         opacity: 0;
@@ -210,7 +215,7 @@
               <span class="music-note">🎵</span>
               <span class="music-icon" id="music-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
                 </svg>
               </span>
             </div>
@@ -1153,7 +1158,30 @@
           <p></p>
         </tbody> -->
 
+        <tbody>
+          <td width="320" style="position: relative; padding-left: 20px;">
+            <div class="vertical-line-industry"></div>
+            <div class="pub_container">
+              <a href="https://roboticsx.tencent.com/#/" target="_blank">
+                <img src="../industry_img/RoboticsX.png" class="pub_image">
+              </a>
+            </div>
+          </td>
 
+
+          <td>
+            <p class="italic" style="color: #224B8D;">
+              <b>
+                <a href="https://roboticsx.tencent.com/#/">🏠Tencent TEG RoboticsX Lab</a>
+              </b>
+            </p>
+            <p>🕒Apr. 2026 - Now</p>
+            <p>🌱 <a href="https://roboticsx.tencent.com/#/">RoboticsX Lab</a>, ShenZhen, China</p>
+            <p class="pub">👬worked with Team Leader <a href="https://ygling2008.github.io/">Yonggen Ling</a></p>
+            <p>✨Topic: SLAM for UMI, Learning-based Odometry, and Navigation Development</p>
+          </td>
+          <p></p>
+        </tbody>
 
 
         <tbody>
@@ -2043,102 +2071,103 @@
 </body>
 
 
-    <script>
-      // 樱花动画脚本
-      (function() {
-        const container = document.getElementById('sakura-container');
-        const sakuraCount = 70; // 樱花数量
+<script>
+  // 樱花动画脚本
+  (function () {
+    const container = document.getElementById('sakura-container');
+    const sakuraCount = 70; // 樱花数量
 
-        function createSakura() {
-          const sakura = document.createElement('div');
-          sakura.classList.add('sakura');
+    function createSakura() {
+      const sakura = document.createElement('div');
+      sakura.classList.add('sakura');
 
-          // 随机位置
-          const startX = Math.random() * window.innerWidth;
-          const animationDuration = Math.random() * 5 + 8; // 8-13秒
+      // 随机位置
+      const startX = Math.random() * window.innerWidth;
+      const animationDuration = Math.random() * 5 + 8; // 8-13秒
 
-          sakura.style.left = startX + 'px';
-          sakura.style.animationDuration = animationDuration + 's';
-          sakura.style.fontSize = Math.random() * 10 + 10 + 'px';
+      sakura.style.left = startX + 'px';
+      sakura.style.animationDuration = animationDuration + 's';
+      sakura.style.fontSize = Math.random() * 10 + 10 + 'px';
 
-          container.appendChild(sakura);
+      container.appendChild(sakura);
 
-          // 动画结束后移除元素并重新创建
-          sakura.addEventListener('animationend', () => {
-            sakura.remove();
-            createSakura();
-          });
+      // 动画结束后移除元素并重新创建
+      sakura.addEventListener('animationend', () => {
+        sakura.remove();
+        createSakura();
+      });
+    }
+
+    // 初始化创建樱花，错开时间让它们陆续出现
+    for (let i = 0; i < sakuraCount; i++) {
+      setTimeout(createSakura, i * 150 + Math.random() * 100);
+    }
+  })();
+
+  // 背景音乐控制
+  (function () {
+    const bgMusic = document.getElementById('bg-music');
+    const musicControl = document.getElementById('music-control');
+    const musicIcon = document.getElementById('music-icon');
+    let isPlaying = false; // 初始状态为暂停，等待自动播放
+    let autoPlayAttempted = false; // 标记是否已经尝试过自动播放
+
+    window.toggleMusic = function () {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicIcon.textContent = '🎵';
+        musicControl.classList.remove('playing');
+      } else {
+        // 检查是否有有效的音频源
+        const source = bgMusic.querySelector('source');
+        const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
+          (source && source.src && source.src !== window.location.href);
+
+        if (!hasValidSource) {
+          alert('请先在 audio 标签中设置背景音乐的文件路径！');
+          return;
         }
+        bgMusic.play();
+        musicIcon.textContent = '⏸️';
+        musicControl.classList.add('playing');
+      }
+      isPlaying = !isPlaying;
+    };
 
-        // 初始化创建樱花，错开时间让它们陆续出现
-        for (let i = 0; i < sakuraCount; i++) {
-          setTimeout(createSakura, i * 150 + Math.random() * 100);
-        }
-      })();
-
-      // 背景音乐控制
-      (function() {
-        const bgMusic = document.getElementById('bg-music');
-        const musicControl = document.getElementById('music-control');
-        const musicIcon = document.getElementById('music-icon');
-        let isPlaying = false; // 初始状态为暂停，等待自动播放
-        let autoPlayAttempted = false; // 标记是否已经尝试过自动播放
-
-        window.toggleMusic = function() {
-          if (isPlaying) {
-            bgMusic.pause();
-            musicIcon.textContent = '🎵';
-            musicControl.classList.remove('playing');
-          } else {
-            // 检查是否有有效的音频源
-            const source = bgMusic.querySelector('source');
-            const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
-                                   (source && source.src && source.src !== window.location.href);
-
-            if (!hasValidSource) {
-              alert('请先在 audio 标签中设置背景音乐的文件路径！');
-              return;
-            }
-            bgMusic.play();
-            musicIcon.textContent = '⏸️';
-            musicControl.classList.add('playing');
-          }
-          isPlaying = !isPlaying;
-        };
-
-        // 自动播放函数
-        function attemptAutoplay() {
-          const source = bgMusic.querySelector('source');
-          const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
-                                 (source && source.src && source.src !== window.location.href);
-          if (hasValidSource && !isPlaying && !autoPlayAttempted) {
-            autoPlayAttempted = true;
-            bgMusic.play().then(() => {
-              isPlaying = true;
-              musicIcon.textContent = '⏸️';
-              musicControl.classList.add('playing');
-              console.log('背景音乐自动播放成功');
-            }).catch(err => {
-              console.log('自动播放失败，需要用户手动点击音乐按钮:', err);
-            });
-          }
-        }
-
-        // 尝试自动播放
-        attemptAutoplay();
-
-        // 初始化：如果音乐正在播放，更新UI状态
-        bgMusic.addEventListener('play', function() {
+    // 自动播放函数
+    function attemptAutoplay() {
+      const source = bgMusic.querySelector('source');
+      const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
+        (source && source.src && source.src !== window.location.href);
+      if (hasValidSource && !isPlaying && !autoPlayAttempted) {
+        autoPlayAttempted = true;
+        bgMusic.play().then(() => {
           isPlaying = true;
           musicIcon.textContent = '⏸️';
           musicControl.classList.add('playing');
+          console.log('背景音乐自动播放成功');
+        }).catch(err => {
+          console.log('自动播放失败，需要用户手动点击音乐按钮:', err);
         });
+      }
+    }
 
-        bgMusic.addEventListener('pause', function() {
-          isPlaying = false;
-          musicIcon.textContent = '🎵';
-          musicControl.classList.remove('playing');
-        });
-      })();
-    </script>
+    // 尝试自动播放
+    attemptAutoplay();
+
+    // 初始化：如果音乐正在播放，更新UI状态
+    bgMusic.addEventListener('play', function () {
+      isPlaying = true;
+      musicIcon.textContent = '⏸️';
+      musicControl.classList.add('playing');
+    });
+
+    bgMusic.addEventListener('pause', function () {
+      isPlaying = false;
+      musicIcon.textContent = '🎵';
+      musicControl.classList.remove('playing');
+    });
+  })();
+</script>
+
 </html>
