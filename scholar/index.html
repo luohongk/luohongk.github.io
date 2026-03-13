@@ -47,8 +47,8 @@
 
     .sakura {
       position: absolute;
-      width: 15px;
-      height: 15px;
+      width: 8px;
+      height: 8px;
       background: radial-gradient(circle at 30% 30%, #ff7eb9, #ff5e9a);
       border-radius: 50% 0 50% 50%;
       opacity: 0.8;
@@ -2075,7 +2075,7 @@
   // 樱花动画脚本
   (function () {
     const container = document.getElementById('sakura-container');
-    const sakuraCount = 70; // 樱花数量
+    const sakuraCount = 120; // 樱花数量
 
     function createSakura() {
       const sakura = document.createElement('div');
@@ -2152,8 +2152,8 @@
       }
     }
 
-    // 尝试自动播放
-    attemptAutoplay();
+    // 尝试自动播放（已禁用）
+    // attemptAutoplay();
 
     // 初始化：如果音乐正在播放，更新UI状态
     bgMusic.addEventListener('play', function () {
