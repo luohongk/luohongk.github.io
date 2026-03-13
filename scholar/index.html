@@ -131,39 +131,167 @@
     }
 
     .music-icon {
-      font-size: 16px;
-      color: #01A7ED;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 18px;
+      line-height: 1;
       filter: drop-shadow(0 0 2px rgba(1, 167, 237, 0.5));
     }
 
-    .music-icon svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .music-note {
+    /* 音乐控制面板 */
+    .music-panel {
       position: absolute;
-      font-size: 12px;
-      color: #01A7ED;
-      font-family: "Segoe UI Symbol", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
-      filter: drop-shadow(0 0 1px rgba(1, 167, 237, 0.5));
-      animation: float 3s ease-in-out infinite;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(227, 239, 244, 0.95) 100%);
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 8px 24px rgba(0, 62, 139, 0.15), 0 2px 6px rgba(0, 62, 139, 0.1);
+      border: 1px solid rgba(0, 62, 139, 0.2);
+      min-width: 200px;
       opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 10000;
     }
 
-    .music-note:nth-child(1) {
-      animation-delay: 0s;
+    .music-panel.show {
+      opacity: 1;
+      visibility: visible;
     }
 
-    .music-note:nth-child(2) {
-      animation-delay: 1s;
+    .music-panel-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #003E8B;
+      margin-bottom: 12px;
+      font-family: "Times New Roman", Times, serif;
     }
 
-    .music-note:nth-child(3) {
-      animation-delay: 2s;
+    /* 播放/暂停按钮 */
+    .play-pause-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(135deg, #00A7ED, #003E8B);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 167, 237, 0.3);
+    }
+
+    .play-pause-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 167, 237, 0.4);
+    }
+
+    .play-pause-btn:active {
+      transform: translateY(0);
+    }
+
+    .music-current-track {
+      font-size: 12px;
+      color: #4a5568;
+      margin-bottom: 15px;
+      padding: 8px 10px;
+      background: rgba(0, 167, 237, 0.08);
+      border-radius: 8px;
+      border-left: 3px solid #00A7ED;
+      line-height: 1.5;
+    }
+
+    .volume-control {
+      margin-bottom: 15px;
+    }
+
+    .volume-label {
+      font-size: 11px;
+      color: #4a5568;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .volume-slider {
+      width: 100%;
+      height: 4px;
+      -webkit-appearance: none;
+      background: rgba(0, 167, 237, 0.2);
+      border-radius: 2px;
+      outline: none;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, #00A7ED, #003E8B);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 167, 237, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .volume-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .track-list {
+      max-height: 150px;
+      overflow-y: auto;
+      border-top: 1px solid rgba(0, 62, 139, 0.1);
+      padding-top: 10px;
+    }
+
+    .track-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 11px;
+      color: #4a5568;
+    }
+
+    .track-item:hover {
+      background: rgba(0, 167, 237, 0.1);
+      transform: translateX(2px);
+    }
+
+    .track-item.active {
+      background: linear-gradient(135deg, rgba(0, 167, 237, 0.15), rgba(0, 62, 139, 0.1));
+      border: 1px solid rgba(0, 167, 237, 0.3);
+    }
+
+    .track-item .track-icon {
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
+    .track-item.active .track-icon {
+      animation: musicPulse 2s ease-in-out infinite;
+    }
+
+    .music-panel-arrow {
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid rgba(255, 255, 255, 0.95);
+    }
     }
 
     @keyframes float {
@@ -209,15 +337,33 @@
               style="height: 25px; vertical-align: middle; margin-right: 1px;margin-top: 1px;">
             Brief Introduction
             <!-- 音乐控制按钮 -->
-            <div class="music-control" id="music-control" onclick="toggleMusic()">
-              <span class="music-note">🎵</span>
-              <span class="music-note">🎶</span>
-              <span class="music-note">🎵</span>
-              <span class="music-icon" id="music-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
-                </svg>
-              </span>
+            <div class="music-control" id="music-control">
+              <span class="music-icon" id="music-icon">🎵</span>
+            </div>
+
+            <!-- 音乐控制面板 -->
+            <div class="music-panel" id="music-panel">
+              <div class="music-panel-arrow"></div>
+              <div class="music-panel-title">🎵 背景音乐</div>
+
+              <!-- 播放/暂停按钮 -->
+              <div class="play-pause-btn" id="play-pause-btn" onclick="toggleMusic()">
+                <span id="play-pause-icon">▶️ 播放</span>
+              </div>
+
+              <div class="music-current-track" id="current-track">未播放</div>
+
+              <div class="volume-control">
+                <div class="volume-label">
+                  <span>音量</span>
+                  <span id="volume-value">70%</span>
+                </div>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="70">
+              </div>
+
+              <div class="track-list" id="track-list">
+                <!-- 曲目列表将由 JavaScript 生成 -->
+              </div>
             </div>
           </h2>
           <tr>
@@ -2104,69 +2250,146 @@
     }
   })();
 
-  // 背景音乐控制
+  // 背景音乐控制 - 增强版
   (function () {
     const bgMusic = document.getElementById('bg-music');
     const musicControl = document.getElementById('music-control');
     const musicIcon = document.getElementById('music-icon');
-    let isPlaying = false; // 初始状态为暂停，等待自动播放
-    let autoPlayAttempted = false; // 标记是否已经尝试过自动播放
+    const musicPanel = document.getElementById('music-panel');
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeValue = document.getElementById('volume-value');
+    const currentTrackDisplay = document.getElementById('current-track');
+    const trackList = document.getElementById('track-list');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playPauseIcon = document.getElementById('play-pause-icon');
 
+    let isPlaying = false;
+    let isPanelOpen = false;
+
+    // 音乐列表
+    const musicTracks = [
+      { name: 'bgmu.mp3', title: '默认背景音乐', path: './music/bgmu.mp3' },
+      // 可以在这里添加更多音乐
+      // { name: 'bgmu2.mp3', title: '轻柔旋律', path: './music/bgmu2.mp3' },
+      // { name: 'bgmu3.mp3', title: '宁静时光', path: './music/bgmu3.mp3' }
+    ];
+
+    let currentTrackIndex = 0;
+
+    // 初始化音量
+    bgMusic.volume = 0.7;
+
+    // 切换播放/暂停
     window.toggleMusic = function () {
       if (isPlaying) {
         bgMusic.pause();
         musicIcon.textContent = '🎵';
         musicControl.classList.remove('playing');
+        playPauseIcon.textContent = '▶️ 播放';
       } else {
-        // 检查是否有有效的音频源
-        const source = bgMusic.querySelector('source');
-        const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
-          (source && source.src && source.src !== window.location.href);
-
-        if (!hasValidSource) {
-          alert('请先在 audio 标签中设置背景音乐的文件路径！');
+        bgMusic.play().catch(err => {
+          console.log('播放失败:', err);
+          alert('请确保音乐文件存在！');
           return;
-        }
-        bgMusic.play();
-        musicIcon.textContent = '⏸️';
+        });
+        musicIcon.textContent = '🎶';
         musicControl.classList.add('playing');
+        playPauseIcon.textContent = '⏸️ 暂停';
       }
       isPlaying = !isPlaying;
     };
 
-    // 自动播放函数
-    function attemptAutoplay() {
-      const source = bgMusic.querySelector('source');
-      const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
-        (source && source.src && source.src !== window.location.href);
-      if (hasValidSource && !isPlaying && !autoPlayAttempted) {
-        autoPlayAttempted = true;
-        bgMusic.play().then(() => {
-          isPlaying = true;
-          musicIcon.textContent = '⏸️';
-          musicControl.classList.add('playing');
-          console.log('背景音乐自动播放成功');
-        }).catch(err => {
-          console.log('自动播放失败，需要用户手动点击音乐按钮:', err);
-        });
+    // 切换音乐面板显示
+    musicControl.addEventListener('click', function(e) {
+      e.stopPropagation();
+      isPanelOpen = !isPanelOpen;
+      if (isPanelOpen) {
+        musicPanel.classList.add('show');
+      } else {
+        musicPanel.classList.remove('show');
+      }
+    });
+
+    // 点击页面其他地方关闭面板
+    document.addEventListener('click', function(e) {
+      if (isPanelOpen && !musicPanel.contains(e.target) && !musicControl.contains(e.target)) {
+        musicPanel.classList.remove('show');
+        isPanelOpen = false;
+      }
+    });
+
+    // 音量控制
+    volumeSlider.addEventListener('input', function() {
+      const volume = this.value / 100;
+      bgMusic.volume = volume;
+      volumeValue.textContent = this.value + '%';
+    });
+
+    // 切换曲目
+    function switchTrack(index) {
+      if (index === currentTrackIndex) return;
+
+      currentTrackIndex = index;
+      const track = musicTracks[index];
+
+      const wasPlaying = isPlaying;
+      bgMusic.src = track.path;
+      currentTrackDisplay.textContent = track.title;
+
+      // 更新曲目列表UI
+      document.querySelectorAll('.track-item').forEach((item, i) => {
+        if (i === index) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      // 如果之前在播放，切换后继续播放
+      if (wasPlaying) {
+        bgMusic.play();
       }
     }
 
-    // 尝试自动播放（已禁用）
-    // attemptAutoplay();
+    // 初始化曲目列表
+    function initTrackList() {
+      trackList.innerHTML = '';
+      musicTracks.forEach((track, index) => {
+        const item = document.createElement('div');
+        item.className = 'track-item' + (index === currentTrackIndex ? ' active' : '');
+        item.innerHTML = `<span class="track-icon">${index === currentTrackIndex ? '🎵' : '🎶'}</span><span>${track.title}</span>`;
+        item.addEventListener('click', function() {
+          switchTrack(index);
+        });
+        trackList.appendChild(item);
+      });
+      currentTrackDisplay.textContent = musicTracks[currentTrackIndex].title;
+    }
 
-    // 初始化：如果音乐正在播放，更新UI状态
-    bgMusic.addEventListener('play', function () {
-      isPlaying = true;
-      musicIcon.textContent = '⏸️';
-      musicControl.classList.add('playing');
+    // 音乐结束事件
+    bgMusic.addEventListener('ended', function() {
+      // 循环播放当前曲目
+      bgMusic.currentTime = 0;
+      bgMusic.play();
     });
 
-    bgMusic.addEventListener('pause', function () {
+    // 初始化UI状态
+    bgMusic.addEventListener('play', function() {
+      isPlaying = true;
+      musicIcon.textContent = '🎶';
+      musicControl.classList.add('playing');
+      playPauseIcon.textContent = '⏸️ 暂停';
+    });
+
+    bgMusic.addEventListener('pause', function() {
       isPlaying = false;
       musicIcon.textContent = '🎵';
       musicControl.classList.remove('playing');
+      playPauseIcon.textContent = '▶️ 播放';
     });
+
+    // 页面加载完成后初始化
+    initTrackList();
   })();
 </script>
 
