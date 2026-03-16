@@ -365,16 +365,36 @@ li::before {
 .friends-section {
   margin: 10px 0;
   padding: 20px;
-  border-radius: 16px;
+  border-radius: 0;
   background: #E2EFF3;
   backdrop-filter: blur(8px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.friends-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px dashed #999999;
 }
 .friends-section h3 {
   font-size: 1rem;
-  margin-bottom: 10px;
-  color: #527BBD;
-  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1A369F;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+}
+.friends-section h3::after {
+  content: none;
 }
 .friends-list {
   display: grid;
@@ -847,32 +867,48 @@ p {
 .friends-trigger-card {
   flex: 1;
   min-width: 200px;
-  padding: 10px 16px;
-  background: #E2EFF3;
-  border: none;
-  border-radius: 8px;
+  padding: 8px 12px;
+  background: #1A369F;
+  border: 2px solid #1A369F;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-size: 12px;
-  font-weight: 600;
-  color: #234B8D;
-  font-family: "Georgia", "Times New Roman", Times, serif;
-  font-style: italic;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-style: normal;
   /* 文字居中 */
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 54, 159, 0.1);
+  box-shadow: 0 3px 10px rgba(26, 54, 159, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 .friends-trigger-card:hover {
-  background: #dbeafe;
-  border: none;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 166, 237, 0.15);
+  background: #2544BC;
+  border: 2px solid #2544BC;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 54, 159, 0.45);
+}
+.friends-trigger-card:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(26, 54, 159, 0.3);
 }
 .trigger-icon {
-  font-size: 16px;
+  font-size: 14px;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 /* 修复弹窗标题图标：专业咨询/ Coffee Chat替换对应图标，不使用默认📱 */
 #consultModal .wechat-modal-title::before {
