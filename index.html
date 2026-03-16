@@ -28,13 +28,13 @@
 
     .sakura {
       position: absolute;
-      width: 15px;
-      height: 15px;
+      width: 6px;
+      height: 6px;
       background: radial-gradient(circle at 30% 30%, #ff7eb9, #ff5e9a);
       border-radius: 50% 0 50% 50%;
-      opacity: 0.8;
+      opacity: 0.7;
       animation: fall linear infinite;
-      box-shadow: 0 0 10px rgba(255, 126, 185, 0.5);
+      box-shadow: 0 0 6px rgba(255, 126, 185, 0.4);
     }
 
     .sakura::before {
@@ -519,7 +519,7 @@
   // 樱花动画脚本
   (function() {
     const container = document.getElementById('sakura-container');
-    const sakuraCount = 70; // 樱花数量
+    const sakuraCount = 250; // 樱花数量
 
     function createSakura() {
       const sakura = document.createElement('div');
@@ -531,7 +531,7 @@
 
       sakura.style.left = startX + 'px';
       sakura.style.animationDuration = animationDuration + 's';
-      sakura.style.fontSize = Math.random() * 10 + 10 + 'px';
+      sakura.style.fontSize = Math.random() * 4 + 4 + 'px';
 
       container.appendChild(sakura);
 
@@ -544,7 +544,7 @@
 
     // 初始化创建樱花，错开时间让它们陆续出现
     for (let i = 0; i < sakuraCount; i++) {
-      setTimeout(createSakura, i * 150 + Math.random() * 100);
+      setTimeout(createSakura, i * 50 + Math.random() * 30);
     }
   })();
 

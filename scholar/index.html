@@ -47,13 +47,13 @@
 
     .sakura {
       position: absolute;
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       background: radial-gradient(circle at 30% 30%, #ff7eb9, #ff5e9a);
       border-radius: 50% 0 50% 50%;
-      opacity: 0.8;
+      opacity: 0.25;
       animation: fall linear infinite;
-      box-shadow: 0 0 10px rgba(255, 126, 185, 0.5);
+      box-shadow: 0 0 4px rgba(255, 126, 185, 0.15);
     }
 
     .sakura::before {
@@ -73,7 +73,93 @@
       }
 
       100% {
-        transform: translateY(100vh) rotate(720deg) scale(0.5);
+        transform: translateY(100vh) rotate(720deg) scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    /* 雪花动画样式 */
+    .snow-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9998;
+      overflow: hidden;
+    }
+
+    .snow {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      opacity: 0.3;
+      animation: snowfall linear infinite;
+      filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+    }
+
+    .snow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, #ffffff 20%, #ffffff 80%, transparent);
+    }
+
+    .snow::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #ffffff 20%, #ffffff 80%, transparent);
+    }
+
+    /* 雪花分支 */
+    .snowflake-branch {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .snowflake-branch::before,
+    .snowflake-branch::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+    }
+
+    .snowflake-branch::before {
+      transform: rotate(60deg) scale(0.5);
+      transform-origin: 50% 50%;
+    }
+
+    .snowflake-branch::after {
+      transform: rotate(-60deg) scale(0.5);
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes snowfall {
+      0% {
+        transform: translateY(-100px) rotate(0deg) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(720deg) scale(0.8);
         opacity: 0;
       }
     }
@@ -309,6 +395,7 @@
 </head>
 
 <body>
+  <div class="snow-container" id="snow-container"></div>
   <div class="sakura-container" id="sakura-container"></div>
 
   <!-- 背景音乐 -->
@@ -2221,7 +2308,7 @@
   // 樱花动画脚本
   (function () {
     const container = document.getElementById('sakura-container');
-    const sakuraCount = 120; // 樱花数量
+    const sakuraCount = 160; // 樱花数量（减少20%）
 
     function createSakura() {
       const sakura = document.createElement('div');
@@ -2233,7 +2320,7 @@
 
       sakura.style.left = startX + 'px';
       sakura.style.animationDuration = animationDuration + 's';
-      sakura.style.fontSize = Math.random() * 10 + 10 + 'px';
+      sakura.style.fontSize = Math.random() * 4 + 4 + 'px';
 
       container.appendChild(sakura);
 
@@ -2246,7 +2333,46 @@
 
     // 初始化创建樱花，错开时间让它们陆续出现
     for (let i = 0; i < sakuraCount; i++) {
-      setTimeout(createSakura, i * 150 + Math.random() * 100);
+      setTimeout(createSakura, i * 60 + Math.random() * 40);
+    }
+  })();
+
+  // 雪花动画脚本
+  (function () {
+    const container = document.getElementById('snow-container');
+    const snowCount = 100; // 雪花数量
+
+    function createSnow() {
+      const snow = document.createElement('div');
+      snow.classList.add('snow');
+
+      // 随机位置
+      const startX = Math.random() * window.innerWidth;
+      const animationDuration = Math.random() * 6 + 10; // 10-16秒
+      const snowSize = Math.random() * 6 + 8; // 8-14px 随机大小（更小）
+
+      snow.style.left = startX + 'px';
+      snow.style.animationDuration = animationDuration + 's';
+      snow.style.width = snowSize + 'px';
+      snow.style.height = snowSize + 'px';
+
+      // 添加分支元素
+      const branch = document.createElement('div');
+      branch.classList.add('snowflake-branch');
+      snow.appendChild(branch);
+
+      container.appendChild(snow);
+
+      // 动画结束后移除元素并重新创建
+      snow.addEventListener('animationend', () => {
+        snow.remove();
+        createSnow();
+      });
+    }
+
+    // 初始化创建雪花，错开时间让它们陆续出现
+    for (let i = 0; i < snowCount; i++) {
+      setTimeout(createSnow, i * 100 + Math.random() * 60);
     }
   })();
 

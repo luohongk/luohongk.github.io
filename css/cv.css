@@ -868,8 +868,8 @@ p {
   flex: 1;
   min-width: 200px;
   padding: 8px 12px;
-  background: #1A369F;
-  border: 2px solid #1A369F;
+  background: #CDE9F4;
+  border: 2px solid #CDE9F4;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -878,24 +878,25 @@ p {
   gap: 6px;
   font-size: 12px;
   font-weight: 800;
-  color: #ffffff;
+  color: #2754B4;
   font-family: "Arial", "Helvetica", sans-serif;
   font-style: normal;
   /* 文字居中 */
   justify-content: center;
-  box-shadow: 0 3px 10px rgba(26, 54, 159, 0.3);
+  box-shadow: 0 3px 10px rgba(91, 127, 217, 0.3);
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
 .friends-trigger-card:hover {
-  background: #2544BC;
-  border: 2px solid #2544BC;
+  background: #1A369F;
+  border: 2px solid #1A369F;
+  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(26, 54, 159, 0.45);
 }
 .friends-trigger-card:active {
   transform: translateY(-1px) scale(0.98);
-  box-shadow: 0 2px 8px rgba(26, 54, 159, 0.3);
+  box-shadow: 0 2px 8px rgba(91, 127, 217, 0.3);
 }
 .trigger-icon {
   font-size: 14px;
