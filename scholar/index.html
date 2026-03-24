@@ -92,11 +92,13 @@
 
     .snow {
       position: absolute;
-      width: 14px;
-      height: 14px;
+      width: 6px;
+      height: 6px;
       opacity: 0.3;
+      top: 0;
+      left: 0;
       animation: snowfall linear infinite;
-      filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+      filter: drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.15));
     }
 
     .snow::before {
@@ -2384,7 +2386,7 @@
   // 雪花动画脚本
   (function () {
     const container = document.getElementById('snow-container');
-    const snowCount = 100; // 雪花数量
+    const snowCount = 150; // 雪花数量
 
     function createSnow() {
       const snow = document.createElement('div');
