@@ -649,10 +649,17 @@
 
 
           <li>
-    [2026.03]  <!-- 请替换XX为实际月份，例如 02 -->
-    <img src="../images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
-    I successfully served as an academic reviewer for IROS 2026!
-</li>
+            [2026.03]
+            <img src="../images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            I successfully received an internship offer from <a href="https://www.tencent.com/zh-cn/">Tencent Technology</a> and will be heading to Tencent's
+            Shenzhen headquarters for several months of research internship.
+          </li>
+
+          <li>
+            [2026.03] <!-- 请替换XX为实际月份，例如 02 -->
+            <img src="../images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
+            I successfully served as an academic reviewer for IROS 2026!
+          </li>
 
           <li>
             [2026.01]
@@ -1544,7 +1551,8 @@
 
       <div class="table_background_x">
 
-        <p>⚡️2026.03 <strong>An academic reviewer</strong> for <a href="https://2026.ieee-iros.org/"> 🔗IROS 2026 </a>.</p>
+        <p>⚡️2026.03 <strong>An academic reviewer</strong> for <a href="https://2026.ieee-iros.org/"> 🔗IROS 2026 </a>.
+        </p>
 
         <p>⚡️2025.10 <strong>An academic reviewer</strong> for <a href="https://www.iros25.org/WorkshopsTutorials.html">
             🔗IROS 2025 Workshop AIR4S
@@ -2436,7 +2444,7 @@
     };
 
     // 切换音乐面板显示
-    musicControl.addEventListener('click', function(e) {
+    musicControl.addEventListener('click', function (e) {
       e.stopPropagation();
       isPanelOpen = !isPanelOpen;
       if (isPanelOpen) {
@@ -2447,7 +2455,7 @@
     });
 
     // 点击页面其他地方关闭面板
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       if (isPanelOpen && !musicPanel.contains(e.target) && !musicControl.contains(e.target)) {
         musicPanel.classList.remove('show');
         isPanelOpen = false;
@@ -2455,7 +2463,7 @@
     });
 
     // 音量控制
-    volumeSlider.addEventListener('input', function() {
+    volumeSlider.addEventListener('input', function () {
       const volume = this.value / 100;
       bgMusic.volume = volume;
       volumeValue.textContent = this.value + '%';
@@ -2494,7 +2502,7 @@
         const item = document.createElement('div');
         item.className = 'track-item' + (index === currentTrackIndex ? ' active' : '');
         item.innerHTML = `<span class="track-icon">${index === currentTrackIndex ? '🎵' : '🎶'}</span><span>${track.title}</span>`;
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
           switchTrack(index);
         });
         trackList.appendChild(item);
@@ -2503,21 +2511,21 @@
     }
 
     // 音乐结束事件
-    bgMusic.addEventListener('ended', function() {
+    bgMusic.addEventListener('ended', function () {
       // 循环播放当前曲目
       bgMusic.currentTime = 0;
       bgMusic.play();
     });
 
     // 初始化UI状态
-    bgMusic.addEventListener('play', function() {
+    bgMusic.addEventListener('play', function () {
       isPlaying = true;
       musicIcon.textContent = '🎶';
       musicControl.classList.add('playing');
       playPauseIcon.textContent = '⏸️ 暂停';
     });
 
-    bgMusic.addEventListener('pause', function() {
+    bgMusic.addEventListener('pause', function () {
       isPlaying = false;
       musicIcon.textContent = '🎵';
       musicControl.classList.remove('playing');
