@@ -59,6 +59,21 @@
         opacity: 0;
       }
     }
+
+    @keyframes musicPulse {
+      0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(233, 55, 57, 0));
+      }
+      50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 8px rgba(233, 55, 57, 0.6));
+      }
+    }
+
+    .music-playing {
+      animation: musicPulse 1.5s ease-in-out infinite;
+    }
   </style>
 </head>
 
@@ -216,6 +231,19 @@
                 </a>
                 <span class="tooltiptext">LinkedIn: Hongkun Luo</span>
               </div>&nbsp;
+
+
+              <audio id="bgMusic" loop>
+                <source src="music/bgmu.mp3" type="audio/mpeg">
+              </audio>
+
+              <div class="tooltip">
+                <a href="javascript:;" id="musicToggle">
+                  <img src="../images/music.png" height="25px" style="margin-bottom:-3px">
+                </a>
+                <span class="tooltiptext">单击播放背景音乐或者单击暂停背景音乐</span>
+              </div>&nbsp;
+
 
             </td>
             <!-- <td>
@@ -1866,7 +1894,7 @@
 
 
 
-        // 页面加载完成后执行 
+        // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function () {
           initContactModals();
 
@@ -1874,6 +1902,29 @@
           const date = new Date();
           const options = { year: 'numeric', month: 'long', day: 'numeric' };
           document.getElementById('current-date').textContent = date.toLocaleDateString('en-US', options);
+
+          // 背景音乐控制
+          const bgMusic = document.getElementById('bgMusic');
+          const musicToggle = document.getElementById('musicToggle');
+          const musicIcon = musicToggle.querySelector('img');
+          let isPlaying = false;
+
+          if (bgMusic && musicToggle) {
+            // 设置音量
+            bgMusic.volume = 0.5;
+
+            // 点击音乐图标切换播放/暂停
+            musicToggle.addEventListener('click', function() {
+              if (isPlaying) {
+                bgMusic.pause();
+                musicIcon.classList.remove('music-playing');
+              } else {
+                bgMusic.play();
+                musicIcon.classList.add('music-playing');
+              }
+              isPlaying = !isPlaying;
+            });
+          }
         });
       </script>
 
