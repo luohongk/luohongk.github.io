@@ -61,10 +61,13 @@
     }
 
     @keyframes musicPulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1);
         filter: drop-shadow(0 0 0 rgba(233, 55, 57, 0));
       }
+
       50% {
         transform: scale(1.15);
         filter: drop-shadow(0 0 8px rgba(233, 55, 57, 0.6));
@@ -284,6 +287,11 @@
               🌟 My current focus also includes both end-to-end and stage-wise end-to-end learning algorithm.
             </li>
 
+
+            <li>
+              <a class="styled-link">🔬World Model</a>:learning predictive, causal world models for robust perception.
+            </li>
+
             <li>
               <a class="styled-link">🔬3D Visual Reconstruction</a> (Gaussian Splatting,VGGT......): for building
               efficient and accurate scene representations.
@@ -294,11 +302,7 @@
               multi-sensor fusion, map-based reasoning.
             </li>
 
-            <li>
-              <a class="styled-link">🔬Vision-Language Navigation and Action</a>:connecting natural language with
-              spatial
-              behaviors.
-            </li>
+
 
           </ul>
         </div>
@@ -1127,7 +1131,8 @@
               </b>
             </p>
             <p class="pub-unified">🕒Apr. 2026 - Now</p>
-            <p class="pub-unified">🗺️ <a href="https://tairos.tencent.com/">Embodied Intelligence Research Center</a>, ShenZhen, China</p>
+            <p class="pub-unified">🗺️ <a href="https://tairos.tencent.com/">Embodied Intelligence Research Center</a>,
+              ShenZhen, China</p>
             <p class="pub-unified">👬worked with Mentor (Shenghao Zhang) and Leader ( <a
                 href="https://ygling2008.github.io/">Yonggen Ling</a>)
             </p>
@@ -1915,7 +1920,7 @@
             bgMusic.volume = 0.5;
 
             // 点击音乐图标切换播放/暂停
-            musicToggle.addEventListener('click', function() {
+            musicToggle.addEventListener('click', function () {
               if (isPlaying) {
                 bgMusic.pause();
                 musicIcon.classList.remove('music-playing');
