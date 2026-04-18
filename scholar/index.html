@@ -7,77 +7,15 @@
  * Hongkun Luo
 -->
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="description" content="Hongkun Luo&#39; home page">
   <link rel="shortcut icon" href="../images/logo.jpg">
-  <link rel="stylesheet" href="../css/jemdoc.css" type="text/css">
-  <link rel="stylesheet" href="../css/cv.css" type="text/css">
-  <script src="../js/file.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="./scholar.css" type="text/css">
+  <script src="./scholar.js" type="text/javascript"></script>
   <title>🤖Hongkun Luo (罗宏昆)🤖</title>
-  <style>
-    u {
-      text-decoration: underline !important;
-      text-decoration-color: #2f94d3 !important;
-      text-decoration-style: dashed !important;
-      text-decoration-thickness: 2px !important;
-      text-underline-offset: 8px !important;
-    }
-
-    /* 统一论文标题的字体大小 - 针对华为浏览器和其他移动端 */
-    .pub-title {
-      font-family: Georgia, "Times New Roman", Times, serif !important;
-      font-size: 16px !important;
-      line-height: 1.4 !important;
-      font-weight: bold !important;
-    }
-
-    /* 统一论文正文的字体大小 - 针对华为浏览器和其他移动端 */
-    .pub-unified {
-      font-family: Georgia, "Times New Roman", Times, serif !important;
-      font-size: 12px !important;
-      line-height: 1.5 !important;
-    }
-
-    .tab-divider {
-      width: 1px;
-      height: 20px;
-      border-left: 2px dashed rgba(0, 54, 159, 0.3);
-      margin: 0 2px;
-      align-self: center;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(-40px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    @keyframes musicPulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 0 rgba(233, 55, 57, 0));
-      }
-
-      50% {
-        transform: scale(1.15);
-        filter: drop-shadow(0 0 8px rgba(233, 55, 57, 0.6));
-      }
-    }
-
-    .music-playing {
-      animation: musicPulse 1.5s ease-in-out infinite;
-    }
-  </style>
 </head>
 
 <body>
@@ -108,7 +46,7 @@
               <p style="color: #333; font-size: 10px; margin: 6px 0; padding-left: 5px; line-height: 1.4;">
                 <img src="../images/update.png" alt="update"
                   style="height: 14px; vertical-align: middle; margin-right: 5px;">
-                <!-- # mark 更新时间 -->
+                <!-- SECTION: Last Update Time -->
                 Last Update Time: <strong style="color: #d82b0d;">2026.04.02</strong> | Updated bimonthly
               </p>
               <div id="toptitle">
@@ -117,7 +55,7 @@
                 </h1>
               </div>
 
-              <!-- # mark 自我介绍 -->
+              <!-- SECTION: Biography Introduction -->
               <div class="introduction">
                 <img src="../images/brief_introduction.png" alt="brief_introduction"
                   style="height: 20px; vertical-align: middle; margin-right: 5px;">
@@ -140,7 +78,7 @@
                 social media accounts.
               </p>
 
-              <!-- # mark 联系方式 -->
+              <!-- SECTION: Contact Links -->
               <!-- <h3 style="padding-top:-5px"></h3> -->
               <div class="tooltip">
                 <a href="https://luohongkun.top/" target="_blank">
@@ -287,11 +225,6 @@
               🌟 My current focus also includes both end-to-end and stage-wise end-to-end learning algorithm.
             </li>
 
-
-            <li>
-              <a class="styled-link">🔬World Model</a>: learning predictive, causal world models for robust perception.
-            </li>
-
             <li>
               <a class="styled-link">🔬3D Visual Reconstruction</a> (Gaussian Splatting,VGGT......): for building
               efficient and accurate scene representations.
@@ -302,7 +235,11 @@
               multi-sensor fusion, map-based reasoning.
             </li>
 
-
+            <li>
+              <a class="styled-link">🔬Vision-Language Navigation and Action</a>:connecting natural language with
+              spatial
+              behaviors.
+            </li>
 
           </ul>
         </div>
@@ -318,7 +255,7 @@
       <div style="height: 250px; overflow: auto;" class="table_background_x">
         <!-- 这里写具体的消息 -->
         <ul>
-          <!-- # mark 最新消息 -->
+          <!-- SECTION: News Items -->
           <!-- <li>
             [06/2025]
             <img src="../images/yanhua.png" style="height: 14px; vertical-align: middle; margin-right: 1px;">
@@ -548,12 +485,12 @@
 
 
 
-      <!-- # mark 教育经历 -->
+      <!-- SECTION: Education -->
       <h2 class="h2_background" id="edu">
         <img src="../images/school.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
         Education & Visiting
       </h2>
-      <table id="tbPublications" width="100%" align="center" class="table_background">
+      <table id="tbEducation" width="100%" align="center" class="table_background">
         <tbody>
 
 
@@ -695,7 +632,7 @@
 
 
 
-      <!-- # mark 论文 -->
+      <!-- SECTION: Papers & Projects -->
       <h2 class="h2_background" id="pub">
         <img src="../images/paper.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
         Papers & Projects
@@ -739,8 +676,7 @@
 
 
 
-        <!--########################-->
-        <!-- # done 第一篇文章 -->
+        <!-- SECTION: Paper 1 -->
         <tbody>
           <tr>
             <td colspan="2">
@@ -810,8 +746,7 @@
         </tbody>
 
 
-        <!--########################-->
-        <!-- # done 第二篇文章 -->
+        <!-- SECTION: Paper 2 -->
         <tbody>
           <td width="320" style="position: relative; padding-left: 20px;">
             <div class="vertical-line"></div> <!-- 这就是模拟的竖线 -->
@@ -860,8 +795,7 @@
 
 
 
-        <!--########################-->
-        <!--  # done 第三篇文章 -->
+        <!-- SECTION: Paper 3 -->
         <tbody>
           <td width="320" style="position: relative; padding-left: 20px;">
             <div class="vertical-line"></div> <!-- 这就是模拟的竖线 -->
@@ -905,7 +839,7 @@
         <p></p>
 
 
-        <!-- # done 非一作的合作文章 -->
+        <!-- SECTION: Co-authored Papers -->
 
 
         <tbody>
@@ -976,7 +910,7 @@
           <p></p>
         </tbody>
 
-        <!--########################-->
+        <!-- SECTION: Paper 3 (commented out) -->
         <!-- 第三篇文章 -->
 
 
@@ -1006,7 +940,7 @@
         </tbody>
 
 
-        <!--# done  第一个项目 -->
+        <!-- SECTION: Project 1 -->
         <tbody>
           <td width="320" style="position: relative; padding-left: 20px;">
             <div class="vertical-line"></div> <!-- 模拟竖线 -->
@@ -1074,12 +1008,12 @@
       </table>
 
 
-      <!-- # mark 实习经历 -->
+      <!-- SECTION: Industrial Experience -->
       <h2 class="h2_background" id="exp">
         <img src="../images/company.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
         Industrial Experience
       </h2>
-      <table id="tbPublications" width="100%" class="table_background">
+      <table id="tbExperience" width="100%" class="table_background">
 
 
         <!-- <tbody>
@@ -1131,8 +1065,7 @@
               </b>
             </p>
             <p class="pub-unified">🕒Apr. 2026 - Now</p>
-            <p class="pub-unified">🗺️ <a href="https://tairos.tencent.com/">Embodied Intelligence Research Center</a>,
-              ShenZhen, China</p>
+            <p class="pub-unified">🗺️ <a href="https://tairos.tencent.com/">Embodied Intelligence Research Center</a>, ShenZhen, China</p>
             <p class="pub-unified">👬worked with Mentor (Shenghao Zhang) and Leader ( <a
                 href="https://ygling2008.github.io/">Yonggen Ling</a>)
             </p>
@@ -1184,7 +1117,7 @@
 
 
 
-      <!-- # mark 个人获奖 -->
+      <!-- SECTION: Individual Awards -->
       <h2 class="h2_background" id="Awards">
         <img src="../images/honor.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
         Individual Awards
@@ -1253,7 +1186,7 @@
 
 
 
-      <!-- # mark 专业服务 -->
+      <!-- SECTION: Professional Services -->
       <h2 class="h2_background" id="Service">
         <img src="../images/tech-support.png" style="height: 25px; vertical-align: middle; margin-right: 1px;">
         Professional Services
@@ -1290,7 +1223,7 @@
 
       <div class="friends-gray-line"></div>
 
-      <!-- # mark朋友链接 -->
+      <!-- SECTION: Friends & Collaborators -->
       <div class="friends-section">
         <h3>🤜🤛 Friends & Collaborators</h3>
         <p> <strong>I sincerely
@@ -1457,17 +1390,6 @@
       <div style="display:inline-block;width:850px;color:gray;font-size: 12px;">
         Copyright @ <span id="current-date"></span> Hongkun Luo. All rights reserved.
       </div>
-
-      <script>
-        // 获取当前日期
-        const date = new Date();
-
-        // 使用英文格式显示（长格式：October 1, 2025）
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = date.toLocaleDateString('en-US', options);
-
-        document.getElementById('current-date').textContent = formattedDate;
-      </script>
       <div class="container" style="text-align: center;">
         <div style="display:inline-block;width:500px; background-color:#F1F5F6;">
           <script type="text/javascript" id="clustrmaps"
@@ -1717,345 +1639,7 @@
 
 
 
-      <script>
-        // 初始化所有联系弹窗（微信+QQ+两个邮箱）
-        function initContactModals() {
-          // ========== 通用元素与方法 ==========
-          // 通用弹窗显示方法
-          function showModal(modal) {
-            modal.style.display = 'flex';
-            setTimeout(() => modal.classList.add('show'), 10);
-          }
 
-          // 通用弹窗关闭方法
-          function closeModal(modal) {
-            modal.classList.remove('show');
-            setTimeout(() => modal.style.display = 'none', 300);
-          }
-
-          // 复制文本通用方法（带提示）
-          function copyText(text, btn) {
-            navigator.clipboard.writeText(text).then(() => {
-              const originalText = btn.textContent;
-              btn.textContent = '复制成功！';
-              btn.style.opacity = '0.9';
-              setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.opacity = '1';
-              }, 1500);
-            }).catch(err => {
-              alert('复制失败，请手动复制：' + text);
-              console.error('复制错误:', err);
-            });
-          }
-
-          // 复制文本通用方法（带提示）
-          function copyEnglishText(text, btn) {
-            navigator.clipboard.writeText(text).then(() => {
-              const originalText = btn.textContent;
-              btn.textContent = 'Copy Success！';
-              btn.style.opacity = '0.9';
-              setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.opacity = '1';
-              }, 1500);
-            }).catch(err => {
-              alert('Copy Failed, Please Manually Copy: ' + text);
-              console.error('Copy Error:', err);
-            });
-          }
-
-          // ========== 微信弹窗逻辑（保留图片跳转） ==========
-          const wechatLink = document.getElementById('wechatLink');
-          const wechatModal = document.getElementById('wechatModal');
-          const wechatConfirmBtn = document.getElementById('modalConfirm');
-          const wechatCancelBtn = document.getElementById('modalCancel');
-
-          if (wechatLink && wechatModal) {
-            wechatLink.addEventListener('click', (e) => {
-              e.preventDefault();
-              showModal(wechatModal);
-            });
-            wechatCancelBtn.addEventListener('click', () => closeModal(wechatModal));
-            wechatConfirmBtn.addEventListener('click', () => {
-              closeModal(wechatModal);
-              window.open('../images/wechat_code.png', '_blank');
-            });
-            wechatModal.addEventListener('click', (e) => e.target === wechatModal && closeModal(wechatModal));
-          }
-
-          // ========== QQ弹窗逻辑（保留图片跳转） ==========
-          const qqLink = document.getElementById('qqLink');
-          const qqModal = document.getElementById('qqModal');
-          const qqConfirmBtn = document.getElementById('qqModalConfirm');
-          const qqCancelBtn = document.getElementById('qqModalCancel');
-
-          if (qqLink && qqModal) {
-            qqLink.addEventListener('click', (e) => {
-              e.preventDefault();
-              showModal(qqModal);
-            });
-            qqCancelBtn.addEventListener('click', () => closeModal(qqModal));
-            qqConfirmBtn.addEventListener('click', () => {
-              closeModal(qqModal);
-              window.open('../images/qq_num.png', '_blank');
-            });
-            qqModal.addEventListener('click', (e) => e.target === qqModal && closeModal(qqModal));
-          }
-
-          // ========== Gmail弹窗逻辑（无图片跳转，仅复制+关闭） ==========
-          const gmailLink = document.getElementById('gmailLink');
-          const gmailModal = document.getElementById('gmailModal');
-          const gmailConfirmBtn = document.getElementById('gmailModalConfirm');
-          const gmailCancelBtn = document.getElementById('gmailModalCancel');
-          const copyGmailBtn = document.getElementById('copyGmail');
-          const copyGmailEnBtn = document.getElementById('copyGmailEn');
-          const gmailText = document.getElementById('gmailText').textContent;
-
-          if (gmailLink && gmailModal) {
-            gmailLink.addEventListener('click', () => showModal(gmailModal));
-            gmailCancelBtn.addEventListener('click', () => closeModal(gmailModal));
-            // 确定按钮仅关闭弹窗，无跳转
-            gmailConfirmBtn.addEventListener('click', () => closeModal(gmailModal));
-            gmailModal.addEventListener('click', (e) => e.target === gmailModal && closeModal(gmailModal));
-            // 复制功能
-            copyGmailBtn.addEventListener('click', () => copyText(gmailText, copyGmailBtn));
-            copyGmailEnBtn.addEventListener('click', () => copyEnglishText(gmailText, copyGmailEnBtn));
-          }
-
-          // ========== 学校邮箱弹窗逻辑（无图片跳转，仅复制+关闭） ==========
-          const schoolMailLink = document.getElementById('schoolMailLink');
-          const schoolMailModal = document.getElementById('schoolMailModal');
-          const schoolMailConfirmBtn = document.getElementById('schoolMailModalConfirm');
-          const schoolMailCancelBtn = document.getElementById('schoolMailModalCancel');
-          const copySchoolMailBtn = document.getElementById('copySchoolMail');
-          const copySchoolMailEnBtn = document.getElementById('copySchoolMailEn');
-          const schoolMailText = document.getElementById('schoolMailText').textContent;
-
-          if (schoolMailLink && schoolMailModal) {
-            schoolMailLink.addEventListener('click', () => showModal(schoolMailModal));
-            schoolMailCancelBtn.addEventListener('click', () => closeModal(schoolMailModal));
-            // 确定按钮仅关闭弹窗，无跳转
-            schoolMailConfirmBtn.addEventListener('click', () => closeModal(schoolMailModal));
-            schoolMailModal.addEventListener('click', (e) => e.target === schoolMailModal && closeModal(schoolMailModal));
-            // 复制功能
-            copySchoolMailBtn.addEventListener('click', () => copyText(schoolMailText, copySchoolMailBtn));
-            copySchoolMailEnBtn.addEventListener('click', () => copyEnglishText(schoolMailText, copySchoolMailEnBtn));
-          }
-
-          // ========== 修复：将新增弹窗逻辑移至函数内部，可正常调用show/closeModal ==========
-          // 专业咨询弹窗逻辑
-          const consultTrigger = document.getElementById('consultTrigger');
-          const consultModal = document.getElementById('consultModal');
-          const consultConfirmBtn = document.getElementById('consultModalConfirm');
-          const consultCancelBtn = document.getElementById('consultModalCancel');
-          if (consultTrigger && consultModal) {
-            consultTrigger.addEventListener('click', () => showModal(consultModal));
-            consultCancelBtn.addEventListener('click', () => closeModal(consultModal));
-            consultConfirmBtn.addEventListener('click', () => closeModal(consultModal));
-            consultModal.addEventListener('click', (e) => e.target === consultModal && closeModal(consultModal));
-          }
-
-          // Coffee Chat弹窗逻辑
-          const chatTrigger = document.getElementById('chatTrigger');
-          const chatModal = document.getElementById('chatModal');
-          const chatConfirmBtn = document.getElementById('chatModalConfirm');
-          const chatCancelBtn = document.getElementById('chatModalCancel');
-          if (chatTrigger && chatModal) {
-            chatTrigger.addEventListener('click', () => showModal(chatModal));
-            chatCancelBtn.addEventListener('click', () => closeModal(chatModal));
-            chatConfirmBtn.addEventListener('click', () => closeModal(chatModal));
-            chatModal.addEventListener('click', (e) => e.target === chatModal && closeModal(chatModal));
-          }
-
-          // 摘要预览弹窗逻辑
-          const abstractModal = document.getElementById('abstractModal');
-          const abstractModalBody = document.getElementById('abstractModalBody');
-          const abstractModalConfirmBtn = document.getElementById('abstractModalConfirm');
-
-          // 显示摘要函数 - 从 HTML 元素的 data 属性读取数据
-          window.showAbstract = function (element) {
-            const title = element.getAttribute('data-title');
-            const abstract = element.getAttribute('data-abstract');
-            if (title && abstract) {
-              abstractModalBody.innerHTML = `
-                <h3 style="color: #224B8D; margin-bottom: 15px; font-size: 16px;">${title}</h3>
-                <p style="line-height: 1.8; color: #4E5969; font-size: 14px;">${abstract}</p>
-              `;
-              showModal(abstractModal);
-            }
-          };
-
-          if (abstractModalConfirmBtn) {
-            abstractModalConfirmBtn.addEventListener('click', () => closeModal(abstractModal));
-          }
-          if (abstractModal) {
-            abstractModal.addEventListener('click', (e) => e.target === abstractModal && closeModal(abstractModal));
-          }
-
-
-        }
-
-
-
-
-
-        // 页面加载完成后执行
-        document.addEventListener('DOMContentLoaded', function () {
-          initContactModals();
-
-          // 原有日期逻辑
-          const date = new Date();
-          const options = { year: 'numeric', month: 'long', day: 'numeric' };
-          document.getElementById('current-date').textContent = date.toLocaleDateString('en-US', options);
-
-          // 背景音乐控制
-          const bgMusic = document.getElementById('bgMusic');
-          const musicToggle = document.getElementById('musicToggle');
-          const musicIcon = musicToggle.querySelector('img');
-          let isPlaying = false;
-
-          if (bgMusic && musicToggle) {
-            // 设置音量
-            bgMusic.volume = 0.5;
-
-            // 点击音乐图标切换播放/暂停
-            musicToggle.addEventListener('click', function () {
-              if (isPlaying) {
-                bgMusic.pause();
-                musicIcon.classList.remove('music-playing');
-              } else {
-                bgMusic.play();
-                musicIcon.classList.add('music-playing');
-              }
-              isPlaying = !isPlaying;
-            });
-          }
-        });
-      </script>
-
-      <script>
-        function switchTab(tabName) {
-          // 隐藏所有 tab 内容
-          document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.classList.remove('active');
-          });
-
-          // 移除所有 tab 按钮的 active 状态
-          document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-          });
-
-          // 显示选中的 tab 内容
-          const selectedTab = document.getElementById(tabName);
-          if (selectedTab) {
-            selectedTab.classList.add('active');
-          }
-
-          // 激活对应的 tab 按钮
-          event.target.classList.add('active');
-        }
-
-        // 页面加载后，将论文部分分别移到对应的 tab
-        document.addEventListener('DOMContentLoaded', function () {
-          const table = document.getElementById('pubTable');
-          if (table) {
-            const tbodies = table.querySelectorAll('tbody');
-            let allContent = '';
-            let firstAuthorContent = '';
-            let coAuthoredContent = '';
-            let projectsContent = '';
-
-            // 存储所有论文/项目用于按时间排序
-            let allPapers = [];
-
-            let currentSection = 'first-author';
-
-            tbodies.forEach(tbody => {
-              const text = tbody.textContent;
-
-              if (text.includes('My first author papers')) {
-                currentSection = 'first-author';
-                firstAuthorContent += tbody.outerHTML;
-                allContent += tbody.outerHTML;
-              } else if (text.includes('My co-authored papers')) {
-                currentSection = 'co-authored';
-                coAuthoredContent += tbody.outerHTML;
-                allContent += tbody.outerHTML;
-              } else if (text.includes('My selected projects')) {
-                currentSection = 'projects';
-                projectsContent += tbody.outerHTML;
-                allContent += tbody.outerHTML;
-              } else {
-                // 提取时间（格式：2025.03）
-                const dateMatch = text.match(/(\d{4}\.\d{2})/);
-                let dateValue = '';
-                let yearValue = 0;
-                let monthValue = 0;
-
-                if (dateMatch) {
-                  const [year, month] = dateMatch[1].split('.');
-                  yearValue = parseInt(year);
-                  monthValue = parseInt(month);
-                  dateValue = dateMatch[1];
-                }
-
-                // 存储论文/项目信息
-                allPapers.push({
-                  html: tbody.outerHTML,
-                  section: currentSection,
-                  year: yearValue,
-                  month: monthValue,
-                  date: dateValue
-                });
-
-                if (currentSection === 'first-author') {
-                  firstAuthorContent += tbody.outerHTML;
-                } else if (currentSection === 'co-authored') {
-                  coAuthoredContent += tbody.outerHTML;
-                } else if (currentSection === 'projects') {
-                  projectsContent += tbody.outerHTML;
-                }
-                allContent += tbody.outerHTML;
-              }
-            });
-
-            // 将内容分别放入对应的 tab
-            document.getElementById('all').innerHTML = '<table width="100%" align="center" class="table_background">' + allContent + '</table>';
-            document.getElementById('first-author').innerHTML = '<table width="100%" align="center" class="table_background">' + firstAuthorContent + '</table>';
-            document.getElementById('co-authored').innerHTML = '<table width="100%" align="center" class="table_background">' + coAuthoredContent + '</table>';
-            document.getElementById('projects').innerHTML = '<table width="100%" align="center" class="table_background">' + projectsContent + '</table>';
-
-            // 按时间排序（降序：时间越晚越在上面）
-            allPapers.sort((a, b) => {
-              if (a.year !== b.year) {
-                return b.year - a.year; // 年份降序
-              }
-              return b.month - a.month; // 月份降序
-            });
-
-            // 生成按时间排序的内容
-            let byTimeContent = '';
-
-            // 按年份分组显示
-            let currentYear = null;
-            allPapers.forEach(paper => {
-              // 添加年份标题
-              if (paper.year !== 0 && paper.year !== currentYear) {
-                currentYear = paper.year;
-                byTimeContent += '<tbody><tr><td colspan="2"><div class="border-line"></div></td></tr></tbody>';
-                byTimeContent += `<tbody><tr><td colspan="2" style="padding: 15px 0 5px 0;"><h3 style="color: #224B8D; font-size: 14px; font-weight: bold; margin: 0;">⭐️ ${currentYear}</h3></td></tr></tbody>`;
-              }
-              byTimeContent += paper.html;
-            });
-
-            document.getElementById('by-time').innerHTML = '<table width="100%" align="center" class="table_background">' + byTimeContent + '</table>';
-
-            // 移除原始表格
-            table.remove();
-          }
-        });
-      </script>
 
 
     </div>

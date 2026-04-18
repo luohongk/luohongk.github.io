@@ -1,0 +1,1527 @@
+/* =============================================================
+ * scholar.css — scholar/index.html 专属样式（合并自 jemdoc.css + cv.css）
+ * Author : Hongkun Luo
+ * =============================================================
+ *
+ * 目录（Ctrl+F 搜索 § 快速定位）
+ *   Part I  — jemdoc 基础样式
+ *     § J0  html & body
+ *     § J1  layout（菜单 / 内容区）
+ *     § J2  排版元素（a / h / p / ul / li / pre / code）
+ *     § J3  页脚
+ *     § J4  代码块 & 信息块
+ *     § J5  代码高亮
+ *     § J6  其他基础（打印 / 图片 / 表格）
+ *   Part II — scholar 自定义样式
+ *     § 0   全局重置
+ *     § 1   排版基础（p / ul / li / italic）
+ *     § 2   导航栏 & 按钮
+ *     § 3   Tooltip 提示
+ *     § 4   布局容器（table_background / h2 背景）
+ *     § 5   研究兴趣区块
+ *     § 6   论文 Tab 切换
+ *     § 7   论文条目（pub_container / pub_image / 竖线）
+ *     § 8   装饰线（border-line / gray-line）
+ *     § 9   奖项走马灯
+ *     § 10  好友 & 合作者区块
+ *     § 11  弹窗（modal）
+ *     § 12  音乐控制动画
+ * ============================================================= */
+
+
+/* ============================================================
+ * Part I — jemdoc 基础样式
+ * ============================================================ */
+
+/* § J0  html & body */
+
+html {
+  background-color: #eeeeee;
+}
+
+body {
+  font-family: Georgia, serif;
+  color: #000;
+  text-align: left;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  max-width: 1000px;
+  font-size: 14px;
+}
+
+.body-shadow-box {
+  background-color: rgba(241, 245, 246, 0.918);
+  padding: 10px 20px 40px;
+  border-radius: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.851);
+  max-width: 1000px;
+  margin: auto;
+  border: 3px dashed #2755B4;
+}
+
+
+/* § J1  layout */
+
+table#tlayout {
+  border: none;
+  border-collapse: separate;
+  background: white;
+}
+
+#layout-menu {
+  background: #f6f6f6;
+  border: 1px solid #dddddd;
+  padding-top: 0.5em;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 1.0em;
+  width: auto;
+  white-space: nowrap;
+  text-align: left;
+  vertical-align: top;
+}
+
+#layout-menu td {
+  background: #f4f4f4;
+  vertical-align: top;
+}
+
+#layout-content {
+  padding-top: 0.5em;
+  padding-left: 1.0em;
+  padding-right: 1.0em;
+  border: none;
+  background: rgba(241, 245, 246, 0.918);
+  text-align: left;
+  vertical-align: top;
+}
+
+#layout-menu a {
+  line-height: 1.5em;
+  margin-left: 0.5em;
+}
+
+#layout-menu a.current:link,
+#layout-menu a.current:visited {
+  color: #022b6d;
+  border-bottom: 1px gray solid;
+}
+
+#layout-menu a:link,
+#layout-menu a:visited,
+#layout-menu a:hover {
+  color: #527bbd;
+  text-decoration: none;
+}
+
+div.menu-category {
+  border-bottom: 1px solid gray;
+  margin-top: 0.8em;
+  padding-top: 0.2em;
+  padding-bottom: 0.1em;
+  font-weight: bold;
+}
+
+div.menu-item {
+  padding-left: 16px;
+  text-indent: -16px;
+}
+
+#fwtitle {
+  margin: 2px;
+}
+
+#fwtitle #toptitle {
+  padding-left: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+
+/* § J2  排版元素 */
+
+a,
+a > tt {
+  color: #224b8d;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px gray dotted;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1, h2, h3 {
+  color: #527bbd;
+  margin-top: 0.7em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.2em;
+  line-height: 1.0;
+  padding-top: 0.5em;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+h1 {
+  font-size: 150%;
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  padding-top: 0.8em;
+  font-size: 125%;
+}
+
+h2 + h3 {
+  padding-top: 0.2em;
+}
+
+h3 {
+  font-size: 100%;
+  border-bottom: none;
+}
+
+#layout-content h1:first-child,
+#layout-content h2:first-child,
+#layout-content h3:first-child {
+  margin-top: -0.7em;
+}
+
+div#toptitle {
+  padding-bottom: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+div#toptitle + h2,
+div#toptitle + h3 {
+  margin-top: 0em;
+}
+
+div#subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0.1em;
+}
+
+div#toptitle h1,
+#layout-content div#toptitle h1 {
+  margin-bottom: 0;
+  padding-bottom: 0.1em;
+  padding-top: 0;
+  margin-top: 0.5em;
+  border-bottom: none;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+  padding: 0;
+  line-height: 1.3;
+  font-size: 100%;
+}
+
+ul, ol, dl {
+  margin-top: 0.2em;
+  padding-top: 0;
+  margin-bottom: 0.8em;
+}
+
+ul {
+  list-style-position: outside;
+  list-style-type: square;
+}
+
+ol {
+  list-style-position: outside;
+  list-style-type: decimal;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+li {
+  list-style: disc;
+  list-style-position: inside;
+  margin-bottom: 4px;
+  text-indent: -1.5em;
+}
+
+li p,
+dd p {
+  margin-bottom: 0.3em;
+}
+
+p + ul,
+p + ol {
+  margin-top: -0.5em;
+}
+
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+dl {
+  margin-left: 20px;
+}
+
+dd {
+  color: #222222;
+}
+
+dd > *:first-child {
+  margin-top: 0;
+}
+
+tt {
+  background: #ffffdd;
+}
+
+pre, tt {
+  font-size: 90%;
+  font-family: monaco, monospace;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+
+/* § J3  页脚 */
+
+div#footer {
+  font-size: small;
+  border-top: 1px solid #c0c0c0;
+  padding-top: 0.1em;
+  margin-top: 4.0em;
+  color: #c0c0c0;
+}
+
+div#footer a {
+  color: #80a0b0;
+}
+
+div#footer-text {
+  float: left;
+  padding-bottom: 10px;
+}
+
+
+/* § J4  代码块 & 信息块 */
+
+p + div.codeblock {
+  margin-top: -0.6em;
+}
+
+div.codeblock,
+div.infoblock {
+  margin-right: 0%;
+  margin-top: 1.2em;
+  margin-bottom: 1.3em;
+}
+
+div.blocktitle {
+  font-weight: bold;
+  color: #cd7b62;
+  margin-top: 1.2em;
+  margin-bottom: 0.1em;
+}
+
+div.blockcontent {
+  border: 1px solid silver;
+  padding: 0.3em 0.5em;
+}
+
+div.infoblock > div.blockcontent {
+  background: #ffffee;
+}
+
+div.codeblock > div.blockcontent {
+  background: #f6f6f6;
+}
+
+div.blockcontent p + ul,
+div.blockcontent p + ol {
+  margin-top: 0.4em;
+}
+
+div.infoblock p {
+  margin-bottom: 0;
+}
+
+div.infoblock li p,
+div.infoblock dd p {
+  margin-bottom: 0.5em;
+}
+
+div.infoblock p + p {
+  margin-top: 0.8em;
+}
+
+
+/* § J5  代码高亮 */
+
+span.pycommand { color: #000070; }
+span.statement  { color: #008800; }
+span.builtin    { color: #000088; }
+span.special    { color: #990000; }
+span.operator   { color: #880000; }
+span.error      { color: #aa0000; }
+
+span.comment, span.comment > *,
+span.string,  span.string  > * {
+  color: #606060;
+}
+
+
+/* § J6  其他基础 */
+
+@media print {
+  #layout-menu { display: none; }
+}
+
+img {
+  border: none;
+}
+
+img.eq {
+  padding: 0;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  margin: 0;
+}
+
+img.eqwl {
+  padding-left: 2em;
+  padding-top: 0.6em;
+  padding-bottom: 0.2em;
+  margin: 0;
+}
+
+table + table {
+  margin-top: 1em;
+}
+
+tr.heading {
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
+
+table.imgtable,
+table.imgtable td {
+  border: none;
+  text-align: left;
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ============================================================
+ * Part II — scholar 自定义样式
+ * ============================================================ */
+
+/* ============================================================
+ * § 0  全局重置
+ * ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+
+/* ============================================================
+ * § 1  排版基础
+ * ============================================================ */
+
+p {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 14px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li::before {
+  content: "➔";
+  color: black;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+/* 通用斜体标题（论文标题 / 学校名） */
+.italic {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.italic_school {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.italic_school img {
+  vertical-align: middle;
+}
+
+/* 简介段落 */
+.introduction {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.introduction img {
+  vertical-align: middle;
+}
+
+.introduction_connect {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #e93839;
+  line-height: 1.5;
+}
+
+.introduction_highlight {
+  color: #00a6ed;
+  border-bottom: 3px dashed #e93839;
+  font-weight: bold;
+}
+
+.introduction_highlight_no_underline {
+  color: #00a6ed;
+  font-weight: bold;
+}
+
+/* 样式链接 */
+.styled-link {
+  color: #00a6ed;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.styled-link:last-child {
+  margin-right: 0;
+}
+
+/* 分节文字（如 "Notes: ..." / "My first author papers" ） */
+.line-text {
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 75%;
+}
+
+.line-text a,
+.line-text a strong {
+  font-family: "Times New Roman", Times, serif !important;
+  font-weight: bold !important;
+  font-style: italic !important;
+  font-size: inherit;
+  color: #224B8D;
+}
+
+/* u 标签：蓝色虚线下划线 */
+u {
+  text-decoration: underline !important;
+  text-decoration-color: #2f94d3 !important;
+  text-decoration-style: dashed !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 8px !important;
+}
+
+.spacer {
+  margin-top: 10px;
+}
+
+
+/* ============================================================
+ * § 2  导航栏 & 按钮
+ * ============================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background-color: #daecf2;
+  padding: 0;
+  text-align: center;
+  z-index: 10;
+  align-items: center;
+  border-bottom: 6px double #2755b4;
+}
+
+.content {
+  padding-top: 0;
+}
+
+.button_container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr) auto;
+  gap: 10px;
+  width: 90%;
+  margin: auto;
+  height: 100%;
+  position: relative;
+  z-index: 4;
+}
+
+.button_container .button:last-child {
+  margin-right: 0;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgba(11, 62, 171, 0.865);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  position: relative;
+  z-index: 100;
+  height: 85%;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  background-color: rgba(229, 236, 235, 0.939);
+  color: #280802b8;
+  transform: scale(1.02);
+}
+
+.button:active {
+  background-color: #2755b4;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.clicked {
+  transform: scale(0.95);
+  background-color: #0056b3;
+  transition: transform 0.1s, background-color 0.3s;
+}
+
+
+/* ============================================================
+ * § 3  Tooltip 提示
+ * ============================================================ */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: #0077cc;
+}
+
+.tooltip .tooltiptext {
+  display: inline-block;
+  max-width: 300px;
+  background-color: #224B8D;
+  color: #ecf2f2;
+  font-weight: bold;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 46%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #224B8D transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* ============================================================
+ * § 4  布局容器
+ * ============================================================ */
+
+.table_background {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(19, 160, 207, 0.075);
+}
+
+.note_background {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(218, 210, 53, 0.1);
+}
+
+.table_background_x {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(19, 160, 207, 0.075);
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+.table_interest {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(19, 160, 207, 0.075);
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+.h2_background {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(0, 166, 237, 0.15);
+  padding-top: 8px;
+}
+
+
+/* ============================================================
+ * § 5  研究兴趣区块
+ * ============================================================ */
+
+.research_interest {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(19, 160, 207, 0.075);
+  padding-top: 10px;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.research_interest p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.research_interest ul {
+  margin-top: 5px;
+  padding-left: 30px;
+  list-style-type: none;
+}
+
+.research_interest li {
+  margin-bottom: 5px;
+  list-style-type: none;
+}
+
+.star-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+
+
+/* ============================================================
+ * § 6  论文 Tab 切换
+ * ============================================================ */
+
+.tab-container {
+  display: flex;
+  gap: 6px;
+  margin: 2px 0 0;
+  padding: 0;
+  background-color: #E2EFF3;
+  border-radius: 8px;
+}
+
+.tab-btn {
+  padding: 10px 0;
+  background: #E2EFF3;
+  border: none;
+  border-radius: 5px;
+  color: #003974;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 54, 159, 0.15);
+}
+
+.tab-btn:hover {
+  background: rgba(0, 166, 237, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 166, 237, 0.2);
+}
+
+.tab-btn.active {
+  background: #00369F;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 54, 159, 0.3);
+}
+
+/* Tab 分隔线 */
+.tab-divider {
+  width: 1px;
+  height: 20px;
+  border-left: 2px dashed rgba(0, 54, 159, 0.3);
+  margin: 0 2px;
+  align-self: center;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ============================================================
+ * § 7  论文条目
+ * ============================================================ */
+
+.pub_container {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.pub_image {
+  width: 250px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  border: 5px solid transparent;
+  border-radius: 5px;
+}
+
+.pub_text-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  background-color: #00369f;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* 论文列左侧竖色条 */
+.vertical-line {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  height: 90%;
+  width: 6px;
+  background-color: #224B8D;
+  border-radius: 3px;
+}
+
+.vertical-line-industry {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  height: 90%;
+  width: 6px;
+  background-color: #527BBD;
+  border-radius: 3px;
+}
+
+/* tbody 特殊标记 */
+tbody.special {
+  position: relative;
+}
+
+/* 论文文字样式 */
+.pub {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* 论文标题 */
+.pub-title {
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  font-weight: bold !important;
+}
+
+/* 论文正文（作者、期刊等） */
+.pub-unified {
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* ============================================================
+ * § 8  装饰线
+ * ============================================================ */
+
+/* 论文分节装饰线（动画） */
+.border-line {
+  position: relative;
+  width: 28%;
+  height: 3px;
+  margin-left: 0;
+  margin-top: 8px;
+  border-radius: 3px;
+  background:
+    linear-gradient(to right,
+      transparent 0%,
+      #9CB5CF 20%,
+      transparent 30%,
+      transparent 70%,
+      #9CB5CF 80%,
+      transparent 100%),
+    repeating-linear-gradient(to right,
+      #224B8D 0px,
+      #224B8D 6px,
+      transparent 6px,
+      transparent 12px);
+  background-size: 100% 100%, 40% 100%;
+  background-position: center, center;
+  background-repeat: no-repeat;
+  animation: pulseLine 2s infinite ease-in-out;
+}
+
+@keyframes pulseLine {
+  0%, 100% { opacity: 0.6; transform: scaleX(1); }
+  50%       { opacity: 1;   transform: scaleX(1.02); }
+}
+
+/* 页脚灰色分隔线（带中央图标） */
+.gray-line {
+  position: relative;
+  margin: 20px 0;
+}
+
+.gray-line::before,
+.gray-line::after {
+  content: "";
+  display: inline-block;
+  width: 48%;
+  height: 1px;
+  border-top: 1.5px dashed rgba(128, 128, 128, 0.5);
+  position: absolute;
+  top: 50%;
+}
+
+.gray-line::before { left: 0; }
+.gray-line::after  { right: 0; }
+
+.star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: gray;
+}
+
+/* 好友区块上方细线 */
+.friends-gray-line {
+  border-top: 1px dashed rgba(128, 128, 128, 0.5);
+  margin: 0;
+}
+
+
+/* ============================================================
+ * § 9  奖项走马灯
+ * ============================================================ */
+
+.body_awards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  margin: 0;
+  background-color: #E2EEF3;
+  overflow: hidden;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.carousel img {
+  width: 150px;
+  height: 150px;
+  margin: 0 5px;
+  border-radius: 15px;
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
+/* ============================================================
+ * § 10 好友 & 合作者区块
+ * ============================================================ */
+
+.friends-section {
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 0;
+  background: #E2EFF3;
+  backdrop-filter: blur(8px);
+  box-shadow: none;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.friends-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px dashed #999999;
+}
+
+.friends-section h3 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #1A369F;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.friends-section h3::after {
+  content: none;
+}
+
+.friends-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.friend-card {
+  background: #E2EFF3;
+  border-radius: 4px;
+  padding: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  border: 1px dashed #3d86e6;
+  text-align: center;
+}
+
+.friend-card:hover {
+  background: #dbeafe;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.12);
+}
+
+.friend-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: #1e40af;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.friend-link:hover,
+.friend-link:focus {
+  color: #2563eb;
+  outline: none;
+}
+
+.friend-link::before,
+.friend-link::after {
+  content: none !important;
+}
+
+.friend-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 8px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-top: 1px;
+}
+
+.friend-meta {
+  margin-top: 4px;
+  font-size: 8px;
+  color: #2563eb;
+  font-style: italic;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.friend-item {
+  margin-bottom: 0;
+  font-family: 'Verdana', sans-serif;
+  font-size: 12px;
+  line-height: 0.5;
+}
+
+.friend-item strong a {
+  font-weight: bold;
+  color: #0960bd;
+  text-decoration: none;
+}
+
+.friend-item strong a:hover {
+  color: #ca3707;
+}
+
+.friends-intro {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #1277d0ce;
+}
+
+/* 咨询 / Coffee Chat 触发按钮组 */
+.friends-card-container {
+  display: flex;
+  gap: 12px;
+  margin: 15px 0 0;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.friends-trigger-card {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  background: #CDE9F4;
+  border: 2px solid #CDE9F4;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #2754B4;
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  box-shadow: 0 3px 10px rgba(91, 127, 217, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.friends-trigger-card:hover {
+  background: #1A369F;
+  border-color: #1A369F;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 54, 159, 0.45);
+}
+
+.friends-trigger-card:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(91, 127, 217, 0.3);
+}
+
+.trigger-icon {
+  font-size: 14px;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.1); }
+}
+
+/* 联系链接 */
+.email-link {
+  color: #234B8D;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.email-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.coffee-chat {
+  color: #234B8D;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.coffee-chat:hover {
+  color: #234B8D;
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+ * § 11 弹窗（modal）
+ * ============================================================ */
+
+/* --- 遮罩层 & 容器 --- */
+.wechat-modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease;
+}
+
+.wechat-modal-content {
+  background: #fff;
+  width: 50%;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 100000;
+  overflow: hidden;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wechat-modal-mask.show .wechat-modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* 顶部彩色条（默认：微信绿） */
+.wechat-modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #07C160, #165DFF);
+}
+
+/* --- 弹窗标题 --- */
+.wechat-modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1D2129;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #F2F3F5;
+  position: relative;
+}
+
+.wechat-modal-title::before {
+  content: "📱";
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* --- 弹窗正文 --- */
+.wechat-modal-body {
+  line-height: 1.8;
+  color: #4E5969;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.wechat-modal-body .cn-section {
+  margin-bottom: 20px;
+}
+
+.wechat-modal-body h4 {
+  margin: 0 0 10px;
+  color: #1D2129;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.cn-section h4 { color: #07C160; }
+.en-section h4 { color: #165DFF; }
+
+.wechat-modal-body ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.wechat-modal-body li {
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.wechat-modal-body li::before {
+  content: "✓";
+  position: absolute;
+  left: -18px;
+  color: #07C160;
+  font-size: 12px;
+}
+
+/* --- 弹窗底部按钮 --- */
+.wechat-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.wechat-modal-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.wechat-modal-confirm {
+  background: linear-gradient(135deg, #07C160, #06B058);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(7, 193, 96, 0.25);
+}
+
+.wechat-modal-confirm:hover {
+  background: linear-gradient(135deg, #06B058, #05A050);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(7, 193, 96, 0.3);
+}
+
+.wechat-modal-cancel {
+  background: #F2F3F5;
+  color: #4E5969;
+}
+
+.wechat-modal-cancel:hover {
+  background: #E5E6EB;
+  color: #1D2129;
+  transform: translateY(-2px);
+}
+
+.wechat-modal-btn:active {
+  transform: translateY(0);
+}
+
+/* --- 邮箱弹窗专属尺寸 --- */
+#gmailModal .wechat-modal-content,
+#schoolMailModal .wechat-modal-content {
+  max-width: 750px;
+  width: 95%;
+  max-height: 85vh;
+  height: auto;
+  overflow: hidden;
+}
+
+#gmailModal .wechat-modal-body,
+#schoolMailModal .wechat-modal-body {
+  max-height: calc(85vh - 120px);
+  overflow-y: auto;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
+
+#gmailModal .wechat-modal-body::-webkit-scrollbar,
+#schoolMailModal .wechat-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+#gmailModal .wechat-modal-body::-webkit-scrollbar-thumb,
+#schoolMailModal .wechat-modal-body::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+#gmailModal .wechat-modal-body::-webkit-scrollbar-track,
+#schoolMailModal .wechat-modal-body::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+/* Gmail 配色 */
+#gmailModal .wechat-modal-content::before { background: linear-gradient(90deg, #EA4335, #DB4437); }
+#gmailModal .cn-section h4,
+#gmailModal .en-section h4               { color: #EA4335; }
+#gmailModal .wechat-modal-confirm        { background: linear-gradient(135deg, #EA4335, #DB4437); }
+#gmailModal .wechat-modal-confirm:hover  { box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3); }
+
+/* 学校邮箱配色 */
+#schoolMailModal .wechat-modal-content::before { background: linear-gradient(90deg, #165DFF, #0088CC); }
+#schoolMailModal .cn-section h4,
+#schoolMailModal .en-section h4               { color: #165DFF; }
+#schoolMailModal .wechat-modal-confirm        { background: linear-gradient(135deg, #165DFF, #0088CC); }
+#schoolMailModal .wechat-modal-confirm:hover  { box-shadow: 0 4px 12px rgba(22, 93, 255, 0.3); }
+
+/* 专业咨询弹窗配色 */
+#consultModal .wechat-modal-content::before { background: linear-gradient(90deg, #00a6ed, #1277d0ce); }
+#consultModal .wechat-modal-confirm        { background: linear-gradient(135deg, #00a6ed, #1277d0ce); box-shadow: 0 4px 12px rgba(0, 166, 237, 0.25); }
+#consultModal .wechat-modal-confirm:hover  { box-shadow: 0 6px 16px rgba(0, 166, 237, 0.3); background: linear-gradient(135deg, #1277d0ce, #0960bd); }
+#consultModal .wechat-modal-title::before  { content: "🔔"; }
+
+/* Coffee Chat 弹窗配色 */
+#chatModal .wechat-modal-content::before { background: linear-gradient(90deg, #234B8D, #527BBD); }
+#chatModal .wechat-modal-confirm        { background: linear-gradient(135deg, #234B8D, #527BBD); box-shadow: 0 4px 12px rgba(35, 75, 141, 0.25); }
+#chatModal .wechat-modal-confirm:hover  { box-shadow: 0 6px 16px rgba(35, 75, 141, 0.3); background: linear-gradient(135deg, #527BBD, #2755b4); }
+#chatModal .wechat-modal-title::before  { content: "💡"; }
+
+/* --- 邮箱展示 & 复制按钮 --- */
+.email-display-box {
+  margin-top: 15px !important;
+  padding: 12px 16px !important;
+  background: #F8F9FA !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border: 1px solid #E5E6EB !important;
+  flex-wrap: wrap;
+}
+
+.email-text {
+  font-weight: 600 !important;
+  color: #1D2129 !important;
+  font-size: 15px !important;
+  flex: 1 !important;
+  word-break: break-all !important;
+  min-width: 200px;
+}
+
+.copy-email-btn {
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+}
+
+.copy-email-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.gmail-copy-btn  { background: #EA4335 !important; color: #fff !important; }
+.school-copy-btn { background: #165DFF !important; color: #fff !important; }
+
+
+/* ============================================================
+ * § 12 音乐控制动画
+ * ============================================================ */
+
+@keyframes float {
+  0%   { transform: translateY(0) rotate(0deg);       opacity: 1; }
+  100% { transform: translateY(-40px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 0 rgba(233, 55, 57, 0)); }
+  50%       { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(233, 55, 57, 0.6)); }
+}
+
+.music-playing {
+  animation: musicPulse 1.5s ease-in-out infinite;
+}
