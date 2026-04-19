@@ -542,7 +542,7 @@ li::before {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   font-style: italic;
-  font-size: 75%;
+  font-size: 90%;
 }
 
 .line-text a,
@@ -787,7 +787,17 @@ u {
   font-size: 14px;
 }
 
-/* ── News 区块：年份分组 + 整体滚动 ── */
+/* 页脚版权行 */
+.footer-copyright {
+  display: block;
+  width: 100%;
+  color: gray;
+  font-size: 12px;
+  text-align: left !important;
+  padding-left: 4px;
+}
+
+
 
 .news-bg {
   background-color: rgba(19, 160, 207, 0.075);

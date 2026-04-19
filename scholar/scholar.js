@@ -34,6 +34,24 @@ ga('send', 'pageview');
  * ============================================================ */
 
 /**
+ * 通过 id 打开弹窗（供 HTML onclick 直接调用）
+ * @param {string} modalId
+ */
+window.openModal = function (modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) showModal(modal);
+};
+
+/**
+ * 通过 id 关闭弹窗（供 HTML onclick 直接调用）
+ * @param {string} modalId
+ */
+window.closeModalById = function (modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) closeModal(modal);
+};
+
+/**
  * 显示指定弹窗
  * @param {HTMLElement} modal
  */
