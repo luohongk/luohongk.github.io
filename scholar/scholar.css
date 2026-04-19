@@ -805,7 +805,7 @@ u {
 
 /* 外层滚动容器 */
 .news-container {
-  height: 360px;
+  height: 270px;
   overflow-y: auto;
   overflow-x: auto;
   white-space: nowrap;
