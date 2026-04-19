@@ -787,6 +787,123 @@ u {
   font-size: 14px;
 }
 
+/* ── News 区块：年份分组 + 整体滚动 ── */
+
+.news-bg {
+  background-color: rgba(19, 160, 207, 0.075);
+}
+
+/* 外层滚动容器 */
+.news-container {
+  height: 360px;
+  overflow-y: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 6px 4px 4px;
+  box-sizing: border-box;
+  font-style: normal;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* 条目列表 */
+.news-list {
+  list-style: none;
+  padding: 0 4px;
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.news-list * {
+  font-weight: normal !important;
+}
+
+.news-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  padding: 1px 1px;
+  border-radius: 3px;
+  transition: background 0.15s;
+  line-height: 1.2;
+  white-space: nowrap;
+  border-bottom: none;
+  list-style: none;
+  list-style-position: unset;
+  text-indent: 0;
+  margin-bottom: 0;
+}
+.news-list li:hover      { background: rgba(34, 75, 141, 0.05); }
+.news-list li::before    { content: none; }
+
+.news-list li:last-child { border-bottom: none; }
+
+.news-list li .news-body {
+  flex-shrink: 0;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+/* 日期徽章 */
+.news-date {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: bold;
+  color: #000;
+  background: #CDE9F4;
+  border-radius: 3px;
+  padding: 0 10px;
+  min-width: 72px;
+  height: 18px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  /* 加粗 */
+  font-weight: bold;
+}
+
+/* 类型标签 */
+.news-tag {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 0 8px;
+  height: 18px;
+  line-height: 18px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.news-tag .tag-emoji  { display: inline-flex; align-items: center; line-height: 1; }
+.news-tag .tag-label  { display: inline-flex; align-items: center; line-height: 1; }
+
+.news-tag-paper   { background: #fff0e6; color: #c84b00; border: 1px solid #f5c9a8; }
+.news-tag-award   { background: #fffbe6; color: #a07000; border: 1px solid #f5e4a8; }
+.news-tag-intern  { background: #e8f4ff; color: #1a5fa8; border: 1px solid #a8d0f5; }
+.news-tag-service { background: #f0fff4; color: #1a7a3c; border: 1px solid #a8e6c0; }
+.news-tag-talk    { background: #f5f0ff; color: #6a1ab8; border: 1px solid #d4a8f5; }
+.news-tag-misc    { background: #f5f5f5; color: #555;    border: 1px solid #ddd;    }
+
+/* 滚动条美化（仅 webkit） */
+.news-container::-webkit-scrollbar        { width: 5px; height: 5px; }
+.news-container::-webkit-scrollbar-track  { background: transparent; }
+.news-container::-webkit-scrollbar-thumb  { background: #b0bfd8; border-radius: 3px; }
+.news-container::-webkit-scrollbar-thumb:hover { background: #7a9ccf; }
+
 
 /* ============================================================
  * § 6  论文 Tab 切换
