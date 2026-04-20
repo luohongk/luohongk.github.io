@@ -899,6 +899,7 @@ u {
   font-weight: bold;
   border-radius: 3px;
   padding: 0 8px;
+  min-width: 62px;
   height: 18px;
   line-height: 18px;
   white-space: nowrap;
@@ -1132,11 +1133,42 @@ tbody.special {
   color: gray;
 }
 
-/* 好友区块上方细线 */
+/* 好友区块上方分隔线（Professional Services 下方） */
 .friends-gray-line {
-  border-top: 1px dashed rgba(128, 128, 128, 0.5);
-  margin: 0;
+  display: flex;
+  align-items: center;
+  margin: 1px 0 0;
 }
+
+.fgl-line {
+  flex: 1;
+  height: 1px;
+  border-radius: 2px;
+  animation: breatheLine 2.5s ease-in-out infinite;
+}
+.fgl-line-left  {
+  background: linear-gradient(90deg, transparent 0%, #a0bcd8 40%, #4a6fa5 100%);
+}
+.fgl-line-right {
+  background: linear-gradient(90deg, #4a6fa5 0%, #a0bcd8 60%, transparent 100%);
+}
+
+.fgl-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.fstar {
+  font-style: normal;
+  display: inline-block;
+  animation: starTwinkle 1.8s ease-in-out infinite;
+}
+.fstar.fs1 { color: #a0bcd8; font-size: 7px;  animation-delay: 0s; }
+.fstar.fs2 { color: #7aaee0; font-size: 9px;  animation-delay: 0.4s; }
+.fstar.fs3 { color: #4a6fa5; font-size: 10px; animation-delay: 0.8s; }
 
 
 /* ============================================================
@@ -1182,7 +1214,7 @@ tbody.special {
  * ============================================================ */
 
 .friends-section {
-  margin: 10px 0;
+  margin: 1px 0;
    padding: 20px 20px 0;
   border-radius: 0;
   background: #E2EFF3;
@@ -1194,13 +1226,7 @@ tbody.special {
 }
 
 .friends-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  border-top: 1px dashed #999999;
+  content: none;
 }
 
 .friends-section h3 {
@@ -1313,13 +1339,73 @@ tbody.special {
 .friends-closing-note {
   margin-top: 18px;
   padding: 10px 20px;
-  font-size: 12px;
+  font-size: 13px;
   font-style: italic;
+  font-weight: bold;
+  font-family: "Palatino Linotype", "Palatino", "Book Antiqua", Georgia, serif;
   color: #4a6fa5;
-  border-top: 1px dashed #a0bcd8;
+  border-top: none;
+  position: relative;
   text-align: center;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
   line-height: 1.6;
+}
+
+/* 呼吸线 + 星星分隔行 */
+.closing-divider {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.closing-line {
+  flex: 1;
+  height: 1px;
+  border-radius: 1px;
+  animation: breatheLine 2.5s ease-in-out infinite;
+}
+.closing-line-left  {
+  background: linear-gradient(90deg, transparent 0%, #a0bcd8 40%, #4a6fa5 100%);
+}
+.closing-line-right {
+  background: linear-gradient(90deg, #4a6fa5 0%, #a0bcd8 60%, transparent 100%);
+}
+
+.closing-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+
+.cstar {
+  font-style: normal;
+  animation: starTwinkle 1.8s ease-in-out infinite;
+  display: inline-block;
+}
+.cstar.s1 { color: #a0bcd8; font-size: 10px; animation-delay: 0s; }
+.cstar.s2 { color: #7aaee0; font-size: 13px; animation-delay: 0.4s; }
+.cstar.s3 { color: #4a6fa5; font-size: 16px; animation-delay: 0.8s;
+            filter: drop-shadow(0 0 3px #7aaee0); }
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); filter: drop-shadow(0 0 0px transparent); }
+  50%       { opacity: 1;   transform: scale(1.2);  filter: drop-shadow(0 0 5px #a8d0f5); }
+}
+
+@keyframes breatheLine {
+  0%, 100% { opacity: 0.45; transform: scaleX(0.92); }
+  50%       { opacity: 1;    transform: scaleX(1); }
+}
+
+@keyframes fistPulse {
+  0%, 100% { transform: scale(1)    rotate(-5deg); opacity: 0.8; }
+  25%       { transform: scale(1.25) rotate(5deg);  opacity: 1;   }
+  50%       { transform: scale(1.1)  rotate(-3deg); opacity: 0.9; }
+  75%       { transform: scale(1.2)  rotate(4deg);  opacity: 1;   }
 }
 
 .friends-closing-icon {
