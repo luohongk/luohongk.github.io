@@ -734,6 +734,11 @@ u {
   font-style: italic;
 }
 
+.table_interes::-webkit-scrollbar        { width: 5px; height: 5px; }
+.table_interes::-webkit-scrollbar-track  { background: transparent; }
+.table_interes::-webkit-scrollbar-thumb  { background: #b0bfd8; border-radius: 3px; }
+.table_interes::-webkit-scrollbar-thumb:hover { background: #7a9ccf; }
+
 .h2_background {
   width: 100%;
   border-collapse: collapse;
@@ -787,6 +792,8 @@ u {
   font-size: 14px;
 }
 
+.star-list li::before { content: none; }
+
 /* 页脚版权行 */
 .footer-copyright {
   display: block;
@@ -809,7 +816,7 @@ u {
   overflow-y: auto;
   overflow-x: auto;
   white-space: nowrap;
-  padding: 6px 4px 4px;
+  padding: 0px 0px 4px;
   box-sizing: border-box;
   font-style: normal;
   font-family: "Times New Roman", Times, serif;
@@ -818,7 +825,7 @@ u {
 /* 条目列表 */
 .news-list {
   list-style: none;
-  padding: 0 4px;
+  padding: 0 0px;
   margin: 0;
   font-family: "Times New Roman", Times, serif;
   font-size: 12px;
