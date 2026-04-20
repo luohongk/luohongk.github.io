@@ -1193,12 +1193,12 @@
         <!-- 简洁触发按钮：左右布局，替代原有长文本卡片，大幅节省空间 -->
         <div class="friends-card-container">
           <!-- 专业咨询触发按钮 -->
-          <div class="friends-trigger-card" onclick="openModal('consultModal')">
+          <div id="consultTrigger" class="friends-trigger-card" onclick="openModal('consultModal')">
             <span class="trigger-icon">🔔</span>
             <span class="trigger-text">Free Professional Consultation (Please Click)</span>
           </div>
           <!-- Coffee Chat 触发按钮 -->
-          <div class="friends-trigger-card" onclick="openModal('chatModal')">
+          <div id="chatTrigger" class="friends-trigger-card" onclick="openModal('chatModal')">
             <span class="trigger-icon">💡</span>
             <span class="trigger-text">Coffee Chat(Please Click)</span>
           </div>
@@ -1340,7 +1340,7 @@
         </div><!-- end friends-list -->
 
         <div class="friends-closing-note">
-          🤝 I sincerely appreciate the inspiring opportunities to exchange ideas and collaborate with the following friends.
+          💐🌷🌹🌸🌺 I sincerely appreciate the inspiring opportunities to exchange ideas and collaborate with the following friends.
         </div>
 
       </div>
@@ -1388,8 +1388,8 @@
     </p>
       </div>
       <div class="wechat-modal-footer">
-    <button class="wechat-modal-btn wechat-modal-confirm" onclick="closeModalById(‘consultModal’)">OK / 确定</button>
-    <button class="wechat-modal-btn wechat-modal-cancel" onclick="closeModalById(‘consultModal’)">Cancel / 取消</button>
+    <button id="consultModalConfirm" class="wechat-modal-btn wechat-modal-confirm" onclick="closeModalById(‘consultModal’)">OK / 确定</button>
+    <button id="consultModalCancel" class="wechat-modal-btn wechat-modal-cancel" onclick="closeModalById(‘consultModal’)">Cancel / 取消</button>
       </div>
     </div>
   </div>
@@ -1409,8 +1409,8 @@
     </p>
       </div>
       <div class="wechat-modal-footer">
-    <button class="wechat-modal-btn wechat-modal-confirm" onclick="closeModalById(‘chatModal’)">OK / 确定</button>
-    <button class="wechat-modal-btn wechat-modal-cancel" onclick="closeModalById(‘chatModal’)">Cancel / 取消</button>
+    <button id="chatModalConfirm" class="wechat-modal-btn wechat-modal-confirm" onclick="closeModalById(‘chatModal’)">OK / 确定</button>
+    <button id="chatModalCancel" class="wechat-modal-btn wechat-modal-cancel" onclick="closeModalById(‘chatModal’)">Cancel / 取消</button>
       </div>
     </div>
   </div>
