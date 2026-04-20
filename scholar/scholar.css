@@ -1183,7 +1183,7 @@ tbody.special {
 
 .friends-section {
   margin: 10px 0;
-  padding: 20px;
+   padding: 20px 20px 0;
   border-radius: 0;
   background: #E2EFF3;
   backdrop-filter: blur(8px);
@@ -1205,7 +1205,7 @@ tbody.special {
 
 .friends-section h3 {
   font-size: 1rem;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   color: #1A369F;
   font-weight: 700;
   text-transform: uppercase;
@@ -1309,11 +1309,29 @@ tbody.special {
   color: #1277d0ce;
 }
 
+/* 朋友列表底部致谢语 */
+.friends-closing-note {
+  margin-top: 18px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-style: italic;
+  color: #4a6fa5;
+  border-top: 1px dashed #a0bcd8;
+  text-align: center;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+}
+
+.friends-closing-icon {
+  margin-right: 6px;
+  font-style: normal;
+}
+
 /* 咨询 / Coffee Chat 触发按钮组 */
 .friends-card-container {
   display: flex;
   gap: 12px;
-  margin: 15px 0 0;
+  margin: 2px 0 0;
   flex-wrap: wrap;
   width: 100%;
 }
