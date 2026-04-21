@@ -1847,6 +1847,399 @@ tbody.special {
 
 
 /* ============================================================
+ * § 13  移动端响应式（Mobile Responsive）
+ * ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* ── 防止整页横向溢出 ── */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ── 整体 body & 主容器 ── */
+  body {
+    margin-top: 60px;
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+
+  .body-shadow-box {
+    border-radius: 16px;
+    padding: 8px 10px 24px;
+    border-width: 2px;
+  }
+
+  #layout-content {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+
+  /* ── 导航栏：改为单行横向滚动，防止越界 ── */
+  .navbar {
+    height: auto;
+    min-height: 48px;
+    padding: 6px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .button_container {
+    display: flex;
+    flex-wrap: nowrap;          /* 不换行，单行横滚 */
+    justify-content: flex-start;
+    grid-template-columns: unset;
+    gap: 6px;
+    width: max-content;         /* 随内容伸展，不截断 */
+    min-width: 100%;
+    padding: 0 8px;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .button {
+    font-size: 11px;
+    height: auto;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px #999;
+    flex: 0 0 auto;             /* 不压缩不拉伸 */
+    line-height: 1.3;
+    white-space: nowrap;
+    position: static;           /* 覆盖 position:relative，使 overflow-x:auto 生效 */
+    z-index: auto;
+  }
+
+
+  /* ── 个人简介 — 多列表格变单列 ── */
+  /* Biography 表格：照片列隐藏，文字列独占全宽 */
+  #tbBiography tr > td:nth-child(2),
+  #tbBiography tr > td:nth-child(3) {
+    display: none !important;
+  }
+
+  #tbBiography tr > td:first-child {
+    display: block;
+    width: 100% !important;
+  }
+
+  /* 教育表格图片列隐藏，文字列全宽 */
+  #tbEducation td:first-child,
+  #tbExperience td:first-child {
+    display: none !important;
+  }
+
+  #tbEducation td:last-child,
+  #tbExperience td:last-child {
+    display: block;
+    width: 100% !important;
+  }
+
+  /* 简介段落字号 */
+  .introduction {
+    font-size: 14px;
+  }
+
+  .introduction_connect {
+    font-size: 14px;
+  }
+
+  /* 图标行（社交链接）允许换行 */
+  #layout-content > table > tbody td:first-child {
+    padding-right: 4px;
+  }
+
+
+  /* ── 研究兴趣区块 ── */
+  .research_interest {
+    white-space: normal;
+  }
+
+  .research_interest ul {
+    padding-left: 10px;
+  }
+
+  .star-list {
+    font-size: 13px;
+  }
+
+
+  /* ── News 区块 ── */
+  .news-container {
+    height: 220px;
+    white-space: normal;
+  }
+
+  .news-list li {
+    flex-wrap: wrap;
+    white-space: normal;
+    gap: 4px;
+    align-items: flex-start;
+    padding: 3px 2px;
+  }
+
+  .news-list li .news-body {
+    white-space: normal;
+    flex-shrink: 1;
+    word-break: break-word;
+    line-height: 1.4;
+    font-size: 11px;
+  }
+
+  .news-date {
+    font-size: 10px;
+    min-width: 60px;
+    padding: 0 6px;
+  }
+
+  .news-tag {
+    font-size: 9px;
+    min-width: 50px;
+    padding: 0 5px;
+  }
+
+
+  /* ── h2 标题行 ── */
+  .h2_background {
+    font-size: 15px;
+    padding-top: 6px;
+  }
+
+  .h2_background img {
+    height: 20px !important;
+  }
+
+
+  /* ── 论文 Tab 按钮 ── */
+  .tab-container {
+    flex-wrap: wrap;
+    gap: 4px;
+    border-radius: 6px;
+    padding: 4px;
+  }
+
+  .tab-btn {
+    font-size: 11px;
+    padding: 7px 0;
+    flex: 1 1 calc(33% - 8px);
+    min-width: 80px;
+  }
+
+  .tab-divider {
+    display: none;
+  }
+
+
+  /* ── 论文条目 — 图片 + 文字变单列 ── */
+  /* 论文 pubTable 的每个 tbody 内的 td 都改为 block */
+  #pubTable td,
+  #pubTable tbody,
+  .tab-content table td,
+  .tab-content table tbody {
+    display: block;
+    width: 100% !important;
+  }
+
+  /* 论文图片列隐藏（手机读内容为主） */
+  #pubTable td[width="320"],
+  .tab-content table td[width="320"] {
+    display: none !important;
+  }
+
+  /* 竖色条隐藏（图片列被隐藏后无意义） */
+  .vertical-line,
+  .vertical-line-industry {
+    display: none;
+  }
+
+  /* 论文标题字号 */
+  .pub-title {
+    font-size: 14px !important;
+  }
+
+  .italic {
+    font-size: 14px;
+  }
+
+  /* 论文徽章行自适应 */
+  .pub-links {
+    gap: 4px;
+  }
+
+  .pub-link,
+  .pub-date {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+
+
+  /* ── 工业经验 / 教育 — 文字列 ── */
+  .italic_school {
+    font-size: 14px;
+  }
+
+
+  /* ── 个人获奖文字：允许换行，去掉 nowrap ── */
+  .table_background_x {
+    white-space: normal;
+    overflow-x: hidden;
+    font-size: 13px;
+  }
+
+  .table_background_x p {
+    white-space: normal;
+    word-break: break-word;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 4px;
+  }
+
+
+  /* ── 奖项走马灯 ── */
+  .body_awards {
+    height: 120px;
+  }
+
+  .carousel img {
+    width: 110px;
+    height: 110px;
+  }
+
+
+  /* ── 好友 & 合作者 ── */
+  .friends-section {
+    padding: 12px 8px 0;
+  }
+
+  .friends-list {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 6px;
+  }
+
+  .friend-card {
+    padding: 6px;
+  }
+
+  .friend-link {
+    font-size: 11px;
+  }
+
+  .friends-card-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .friends-trigger-card {
+    min-width: unset;
+    width: 100%;
+  }
+
+
+  /* ── 弹窗 ── */
+  .wechat-modal-content {
+    width: 92% !important;
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .wechat-modal-title {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .wechat-modal-body {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .wechat-modal-footer {
+    gap: 8px;
+  }
+
+  .wechat-modal-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .email-display-box {
+    flex-direction: column;
+    gap: 8px !important;
+    align-items: flex-start !important;
+  }
+
+  .email-text {
+    font-size: 13px !important;
+    min-width: unset !important;
+    word-break: break-all;
+  }
+
+
+  /* ── 地图统计：强制覆盖内联 width:500px ── */
+  .container {
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #clustrmap-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+
+  /* ── tooltip（移动端禁用悬停 tooltip，避免误触） ── */
+  .tooltip .tooltiptext {
+    display: none;
+  }
+
+}
+
+
+/* 超小屏（手机竖屏 ≤ 480px）进一步微调 */
+@media (max-width: 480px) {
+  body {
+    margin-top: 52px;
+  }
+
+  .button {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  .tab-btn {
+    font-size: 10px;
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .introduction {
+    font-size: 13px;
+  }
+
+  .pub-title {
+    font-size: 13px !important;
+  }
+
+  .italic {
+    font-size: 13px;
+  }
+
+  .h2_background {
+    font-size: 14px;
+  }
+
+  .friends-list {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+  }
+}
+
+
+/* ============================================================
  * § 12 音乐控制动画
  * ============================================================ */
 
