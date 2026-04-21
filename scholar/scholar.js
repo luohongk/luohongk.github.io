@@ -383,6 +383,30 @@ function buttonClick(button) {
 }
 
 /* ============================================================
+ * 十、汉堡菜单（移动端导航）
+ * ============================================================ */
+
+function initHamburgerMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const navMenu   = document.getElementById('nav-menu');
+  if (!hamburger || !navMenu) return;
+
+  // 切换开关
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+
+  // 点任意导航按钮后自动收起菜单
+  navMenu.querySelectorAll('.button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+    });
+  });
+}
+
+/* ============================================================
  * 九、DOMContentLoaded 统一初始化入口
  * ============================================================ */
 
@@ -391,4 +415,5 @@ document.addEventListener('DOMContentLoaded', function () {
   initPubTabs();
   initBgMusic();
   initFooterDate();
+  initHamburgerMenu();
 });

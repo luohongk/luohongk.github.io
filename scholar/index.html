@@ -21,8 +21,18 @@
 
 <body>
   <div class="body-shadow-box">
-    <div class="navbar">
-      <div class="button_container">
+    <div class="navbar" id="mainNavbar">
+      <!-- 移动端汉堡栏（PC 端隐藏） -->
+      <div class="hamburger-bar">
+        <span class="nav-logo">🤖 Hongkun Luo</span>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <!-- 导航按钮（PC 端原始网格，移动端折叠菜单） -->
+      <div class="button_container" id="nav-menu">
         <button class="button" onclick="buttonClick(this); smoothScroll('#biography')">Brief Introduction</button>
         <button class="button" onclick="buttonClick(this); smoothScroll('#news')">News</button>
         <button class="button" onclick="buttonClick(this); smoothScroll('#edu')">Education & Visiting</button>
