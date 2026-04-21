@@ -1877,23 +1877,21 @@ tbody.special {
   }
 
 
-  /* ── 导航栏：改为单行横向滚动，防止越界 ── */
+  /* ── 导航栏：移动端多行自动换行 ── */
   .navbar {
     height: auto;
     min-height: 48px;
     padding: 6px 0;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: visible;
   }
 
   .button_container {
     display: flex;
-    flex-wrap: nowrap;          /* 不换行，单行横滚 */
+    flex-wrap: wrap;            /* 允许换行，多行排列 */
     justify-content: flex-start;
     grid-template-columns: unset;
     gap: 6px;
-    width: max-content;         /* 随内容伸展，不截断 */
-    min-width: 100%;
+    width: 100%;
     padding: 0 8px;
     height: auto;
     box-sizing: border-box;
@@ -1905,10 +1903,10 @@ tbody.special {
     padding: 5px 10px;
     border-radius: 10px;
     box-shadow: 0 3px #999;
-    flex: 0 0 auto;             /* 不压缩不拉伸 */
+    flex: 0 0 auto;             /* 按内容自然宽度排列 */
     line-height: 1.3;
     white-space: nowrap;
-    position: static;           /* 覆盖 position:relative，使 overflow-x:auto 生效 */
+    position: static;           /* 覆盖 position:relative，避免溢出 */
     z-index: auto;
   }
 
