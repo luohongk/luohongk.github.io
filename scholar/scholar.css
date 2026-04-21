@@ -2106,8 +2106,7 @@ tbody.special {
   }
 
 
-  /* ── 论文条目 — 图片 + 文字变单列 ── */
-  /* 论文 pubTable 的每个 tbody 内的 td 都改为 block */
+  /* ── 论文条目 — 图片列改为上方小图，文字列单列 ── */
   #pubTable td,
   #pubTable tbody,
   .tab-content table td,
@@ -2116,13 +2115,32 @@ tbody.special {
     width: 100% !important;
   }
 
-  /* 论文图片列隐藏（手机读内容为主） */
+  /* 图片列：不再隐藏，改为全宽居中展示 */
   #pubTable td[width="320"],
   .tab-content table td[width="320"] {
-    display: none !important;
+    display: block !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    text-align: center;
   }
 
-  /* 竖色条隐藏（图片列被隐藏后无意义） */
+  /* 图片本体放大、居中 */
+  #pubTable td[width="320"] .pub_image,
+  .tab-content table td[width="320"] .pub_image {
+    width: 96% !important;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* pub_container 居中 */
+  #pubTable td[width="320"] .pub_container,
+  .tab-content table td[width="320"] .pub_container {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+  }
+
+  /* 竖色条移动端隐藏（图片列改版后无意义） */
   .vertical-line,
   .vertical-line-industry {
     display: none;
