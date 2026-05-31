@@ -52,6 +52,7 @@
         transform: translateY(-100px) rotate(0deg) scale(1);
         opacity: 1;
       }
+
       100% {
         transform: translateY(100vh) rotate(720deg) scale(0.5);
         opacity: 0;
@@ -87,9 +88,12 @@
     }
 
     @keyframes musicPulse {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 2px 8px rgba(156, 201, 242, 0.4);
       }
+
       50% {
         box-shadow: 0 3px 15px rgba(156, 201, 242, 0.8);
       }
@@ -131,6 +135,7 @@
         transform: translateY(0) rotate(0deg);
         opacity: 1;
       }
+
       100% {
         transform: translateY(-40px) rotate(360deg);
         opacity: 0;
@@ -179,8 +184,8 @@
         <!-- 名字和社交图标 -->
         <div class="header-title-row">
           <div class="name-section">
-          <h1 class="main-title">⭐<span class="name-highlight">Hongkun Luo</span>⭐</h1>
-          <span class="subtitle name-highlight-cn">罗宏昆</span>
+            <h1 class="main-title">⭐<span class="name-highlight">Hongkun Luo</span>⭐</h1>
+            <span class="subtitle name-highlight-cn">罗宏昆</span>
           </div>
           <div class="social-links">
             <a href="https://www.cumt.edu.cn/" target="_blank" class="social-icon" title="中国矿业大学">
@@ -202,7 +207,8 @@
         <div class="seeking-info">
           <div class="email-badge">Quietly radiant, with depth beneath the calm.</div>
           <p class="seeking-text-cn">我正在积极寻找科研合作、研究助理职位、企业实习、2027 fall Ph.D.的机会</p>
-          <p class="seeking-text-en">✨ I am actively seeking research collaboration, RA positions, internships, and 2027 fall Ph.D. opportunities ✨</p>
+          <p class="seeking-text-en">✨ I am actively seeking research collaboration, RA positions, internships, and 2027
+            fall Ph.D. opportunities ✨</p>
 
         </div>
       </div>
@@ -226,7 +232,8 @@
             <div class="browser-dots">
               <span></span><span></span><span></span>
             </div>
-            <a href="https://luohongkun.top/resource/" target="_blank" class="browser-url">🔗 luohongkun.top/resource</a>
+            <a href="https://luohongkun.top/resource/" target="_blank" class="browser-url">🔗
+              luohongkun.top/resource</a>
           </div>
           <div class="resource-badge-container">
             <span class="resource-badge primary">深度资源</span>
@@ -264,7 +271,7 @@
           <a href="https://luohongkun.top/resource/" target="_blank" class="resource-btn">
             <span>立即访问</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
             </svg>
           </a>
         </div>
@@ -295,7 +302,8 @@
               <div class="contact-icon">🌐</div>
               <div class="contact-content">
                 <span class="contact-label">学术主页</span>
-                <a href="https://luohongkun.top/scholar/" target="_blank" class="contact-link">luohongkun.top/scholar</a>
+                <a href="https://luohongkun.top/scholar/" target="_blank"
+                  class="contact-link">luohongkun.top/scholar</a>
               </div>
             </div>
             <div class="contact-item">
@@ -503,9 +511,11 @@
 
         <!-- done地图统计模块 -->
         <div class="map-wrapper">
-          <script type="text/javascript" id="clustrmaps"
+          <!-- <script type="text/javascript" id="clustrmaps"
             src="//clustrmaps.com/map_v2.js?d=oEhAn4y-Du0QKgIzDN4N9xO-uh1PCEigkroDd6pf5TI&cl=2DA6E0&t=tt&w=a&co=f1f5f6ca&ct=000033&cmn=E93839&cmo=00C5BE">
-            </script>
+            </script> -->
+          <script type='text/javascript' id='mapmyvisitors'
+            src='https://mapmyvisitors.com/map.js?cl=2a56b5&w=300&t=tt&d=tXchQijqioKhdSEtWKq8i-6P_4Vk7w_hnfwHKSsNGSY&co=f1f5f6&cmo=27e1ea&cmn=ff5353&ct=000000'></script>
         </div>
       </div>
 
@@ -517,7 +527,7 @@
 
 <script>
   // 樱花动画脚本
-  (function() {
+  (function () {
     const container = document.getElementById('sakura-container');
     const sakuraCount = 250; // 樱花数量
 
@@ -549,14 +559,14 @@
   })();
 
   // 背景音乐控制
-  (function() {
+  (function () {
     const bgMusic = document.getElementById('bg-music');
     const musicControl = document.getElementById('music-control');
     const musicIcon = document.getElementById('music-icon');
     let isPlaying = false; // 初始状态为暂停，等待自动播放
     let autoPlayAttempted = false; // 标记是否已经尝试过自动播放
 
-    window.toggleMusic = function() {
+    window.toggleMusic = function () {
       if (isPlaying) {
         bgMusic.pause();
         musicIcon.textContent = '🎵';
@@ -565,7 +575,7 @@
         // 检查是否有有效的音频源
         const source = bgMusic.querySelector('source');
         const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
-                               (source && source.src && source.src !== window.location.href);
+          (source && source.src && source.src !== window.location.href);
 
         if (!hasValidSource) {
           alert('请先在 audio 标签中设置背景音乐的文件路径！');
@@ -582,7 +592,7 @@
     function attemptAutoplay() {
       const source = bgMusic.querySelector('source');
       const hasValidSource = (bgMusic.src && bgMusic.src !== window.location.href) ||
-                             (source && source.src && source.src !== window.location.href);
+        (source && source.src && source.src !== window.location.href);
       if (hasValidSource && !isPlaying && !autoPlayAttempted) {
         autoPlayAttempted = true;
         bgMusic.play().then(() => {
@@ -600,13 +610,13 @@
     attemptAutoplay();
 
     // 初始化：如果音乐正在播放，更新UI状态
-    bgMusic.addEventListener('play', function() {
+    bgMusic.addEventListener('play', function () {
       isPlaying = true;
       musicIcon.textContent = '⏸️';
       musicControl.classList.add('playing');
     });
 
-    bgMusic.addEventListener('pause', function() {
+    bgMusic.addEventListener('pause', function () {
       isPlaying = false;
       musicIcon.textContent = '🎵';
       musicControl.classList.remove('playing');
