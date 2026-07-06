@@ -430,6 +430,31 @@
       animation: glow 3s ease-in-out infinite;
     }
 
+    /* 顶部白条 */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: #ffffff;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+    }
+
+    .top-bar-brand {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    body {
+      padding-top: 64px;
+    }
+
     /* 响应式 */
     @media (max-width: 768px) {
       .container { padding: 50px 16px; }
@@ -443,6 +468,11 @@
   </style>
 </head>
 <body>
+  <!-- 顶部白条 -->
+  <div class="top-bar">
+    <span class="top-bar-brand">Hongkun Luo API</span>
+  </div>
+
   <!-- 背景层 -->
   <div class="bg-layer"></div>
   <div class="grid-overlay"></div>
