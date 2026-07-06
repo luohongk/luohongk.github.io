@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hongkun Luo API</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+      50% { box-shadow: 0 0 0 20px rgba(99, 102, 241, 0); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    @keyframes orbitSlow {
+      from { transform: rotate(0deg) translateX(300px) rotate(0deg); }
+      to { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
+    }
+
+    @keyframes orbitFast {
+      from { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+      to { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background: #0a0e1a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 动态背景 */
+    .bg-layer {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, #0a0e1a 0%, #111827 100%);
+      animation: gradientShift 15s ease infinite;
+      background-size: 200% 200%;
+    }
+
+    /* 网格装饰 */
+    .grid-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* 浮动光球 */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      width: 400px; height: 400px;
+      background: rgba(99, 102, 241, 0.2);
+      top: -100px; left: -100px;
+      animation: orbitSlow 30s linear infinite;
+    }
+    .orb-2 {
+      width: 300px; height: 300px;
+      background: rgba(168, 85, 247, 0.15);
+      bottom: -50px; right: -50px;
+      animation: orbitFast 20s linear infinite reverse;
+    }
+    .orb-3 {
+      width: 250px; height: 250px;
+      background: rgba(14, 165, 233, 0.12);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 头部区域 */
+    .header {
+      text-align: center;
+      margin-bottom: 80px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 32px;
+    }
+
+    .logo-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #6366f1, #a855f7, #0ea5e9);
+      animation: gradientShift 4s ease infinite;
+      background-size: 200% 200%;
+      opacity: 0.7;
+      filter: blur(2px);
+    }
+
+    .logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.1);
+    }
+
+    .title {
+      font-size: 56px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 0%, #c7d2fe 50%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+      font-weight: 300;
+    }
+
+    .timestamp {
+      font-size: 14px;
+      color: #64748b;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(99, 102, 241, 0.1);
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+
+    /* CTA 按钮 */
+    .cta-section {
+      text-align: center;
+      margin-bottom: 80px;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 22px 56px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      font-size: 19px;
+      font-weight: 700;
+      border-radius: 16px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 
+        0 8px 32px rgba(99, 102, 241, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    }
+
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 
+        0 16px 48px rgba(99, 102, 241, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    }
+
+    .cta-hint {
+      margin-top: 16px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* 功能卡片 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .feature-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      border-radius: 20px;
+      padding: 36px 30px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .feature-card:nth-child(1) { animation-delay: 0.3s; }
+    .feature-card:nth-child(2) { animation-delay: 0.4s; }
+    .feature-card:nth-child(3) { animation-delay: 0.5s; }
+    .feature-card:nth-child(4) { animation-delay: 0.6s; }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #6366f1, #a855f7, transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 
+        0 20px 60px rgba(99, 102, 241, 0.12),
+        0 0 40px rgba(99, 102, 241, 0.05) inset;
+    }
+
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 18px;
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .feature-card:nth-child(2) .feature-icon { animation-delay: 0.5s; }
+    .feature-card:nth-child(3) .feature-icon { animation-delay: 1s; }
+    .feature-card:nth-child(4) .feature-icon { animation-delay: 1.5s; }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: #94a3b8;
+      line-height: 1.8;
+    }
+
+    /* 快速上手区域 */
+    .quickstart {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      border-radius: 24px;
+      padding: 48px;
+      margin-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out 0.7s both;
+    }
+
+    .quickstart::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(99, 102, 241, 0.03), transparent 30%);
+      animation: orbitSlow 20s linear infinite;
+    }
+
+    .quickstart-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      position: relative;
+      counter-reset: step;
+    }
+
+    .steps li {
+      position: relative;
+      padding: 20px 24px 20px 72px;
+      margin-bottom: 16px;
+      background: rgba(99, 102, 241, 0.05);
+      border-radius: 14px;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      font-size: 16px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      transition: all 0.3s ease;
+      counter-increment: step;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    .steps li:hover {
+      background: rgba(99, 102, 241, 0.1);
+      border-color: rgba(99, 102, 241, 0.3);
+      transform: translateX(8px);
+    }
+
+    .steps li strong {
+      color: #a5b4fc;
+    }
+
+    /* 底部 */
+    .footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(99, 102, 241, 0.15);
+      animation: fadeInUp 0.8s ease-out 0.9s both;
+    }
+
+    .footer a {
+      color: #818cf8;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover { color: #a5b4fc; }
+
+    .footer-link {
+      font-size: 15px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #475569;
+      margin-top: 12px;
+    }
+
+    /* 装饰星点 */
+    .stars {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .container { padding: 50px 16px; }
+      .title { font-size: 36px; }
+      .subtitle { font-size: 17px; }
+      .cta-btn { padding: 18px 36px; font-size: 16px; }
+      .quickstart { padding: 28px 20px; }
+      .feature-card { padding: 28px 22px; }
+      .features-grid { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 背景层 -->
+  <div class="bg-layer"></div>
+  <div class="grid-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="stars" id="stars"></div>
+
+  <div class="container">
+    <!-- 头部 -->
+    <div class="header">
+      <div class="logo-wrapper">
+        <img src="https://files.seeusercontent.com/2026/03/28/r7Qr/logo.jpg" alt="Hongkun Luo API Logo" class="logo">
+      </div>
+      <h1 class="title">Hongkun Luo API</h1>
+      <p class="subtitle">罗宏昆 AI API 分享网站 · v1.0.0-rc.16</p>
+      <span class="timestamp">系统启动时间：2026-07-06 20:13:05</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <a href="https://api.luohongkun.top/console" target="_blank" class="cta-btn">
+        <span>🔑</span>
+        <span>前往控制台获取API密钥</span>
+      </a>
+      <p class="cta-hint">点击跳转至个人后台，复制专属调用密钥、查看额度与调用记录</p>
+    </div>
+
+    <!-- 功能卡片 -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3 class="feature-title">全品类AI接口</h3>
+        <p class="feature-desc">大模型对话、文生图、语音合成、向量嵌入等接口一站式聚合调用</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">实时用量统计</h3>
+        <p class="feature-desc">控制台查看剩余额度、每日消耗、历史调用明细，消费一目了然</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3 class="feature-title">密钥安全管理</h3>
+        <p class="feature-desc">独立API Key，支持一键重置、销毁，隔离账号风险</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <h3 class="feature-title">透明服务规范</h3>
+        <p class="feature-desc">注册需同意用户协议与隐私政策，权责清晰合规可查</p>
+      </div>
+    </div>
+
+    <!-- 快速上手 -->
+    <div class="quickstart">
+      <h2 class="quickstart-title">
+        <span>🚀</span>
+        <span>三分钟快速上手</span>
+      </h2>
+      <ol class="steps">
+        <li>完成账号注册，勾选同意《用户协议》《隐私政策》</li>
+        <li>点击上方按钮进入 <strong>控制台</strong> 管理面板</li>
+        <li>复制你的专属API密钥，嵌入项目请求头</li>
+        <li>发起接口调用，实时查看额度消耗与返回结果</li>
+      </ol>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+      <p class="footer-link">控制台地址：<a href="https://api.luohongkun.top/console" target="_blank">https://api.luohongkun.top/console</a></p>
+      <p class="footer-copy">© 2026 Hongkun Luo All Rights Reserved | 版本 v1.0.0-rc.16</p>
+    </div>
+  </div>
+
+  <script>
+    // 生成随机星点
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      star.style.animationDuration = (2 + Math.random() * 3) + 's';
+      star.style.width = star.style.height = (1 + Math.random() * 2) + 'px';
+      starsContainer.appendChild(star);
+    }
+
+    // 鼠标跟随光效
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      document.querySelector('.bg-layer').style.background = `
+        radial-gradient(ellipse at ${x * 100}% ${y * 100}%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(14, 165, 233, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #0a0e1a 0%, #111827 100%)
+      `;
+    });
+  </script>
+</body>
+</html>
