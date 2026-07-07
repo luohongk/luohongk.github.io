@@ -680,6 +680,46 @@ powershell -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((Invoke-We
       </div>
     </div>
 
+    <!-- API Key 更新 -->
+    <div class="install">
+      <h2 class="install-title">
+        <span>🔄</span>
+        <span>API Key 更新</span>
+      </h2>
+      <p class="install-sub">当你在控制台重置或更换了 API Key 后，按下方命令更新本地环境变量即可生效。</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="key-linux">Linux / macOS</button>
+        <button class="tab-btn" data-tab="key-windows">Windows</button>
+      </div>
+
+      <!-- Linux / macOS -->
+      <div class="tab-panel active" id="tab-key-linux">
+        <p class="platform-hint">将下面命令中的密钥替换为你的新 API Key（bash 用户请把 ~/.zshrc 换成 ~/.bashrc）</p>
+        <div class="code-block">
+          <button class="copy-btn">复制</button>
+          <pre><span class="comment"># 1. 写入新的 API Key 到环境变量</span>
+echo 'export LUOHONGKUN_API_KEY="你的新APIKey"' &gt;&gt; ~/.zshrc
+
+<span class="comment"># 2. 使配置立即生效</span>
+source ~/.zshrc</pre>
+        </div>
+      </div>
+
+      <!-- Windows -->
+      <div class="tab-panel" id="tab-key-windows">
+        <p class="platform-hint">在 PowerShell 中执行以下命令</p>
+        <div class="code-block">
+          <button class="copy-btn">复制</button>
+          <pre><span class="comment"># 1. 写入新的 API Key 到用户环境变量（永久生效）</span>
+[System.Environment]::SetEnvironmentVariable("LUOHONGKUN_API_KEY", "你的新APIKey", "User")
+
+<span class="comment"># 2. 使当前会话立即生效</span>
+$env:LUOHONGKUN_API_KEY = "你的新APIKey"</pre>
+        </div>
+      </div>
+    </div>
+
     <!-- 功能卡片 -->
     <div class="features-grid">
       <div class="feature-card">
