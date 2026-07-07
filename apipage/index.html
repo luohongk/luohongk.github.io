@@ -387,6 +387,123 @@
       color: #6366f1;
     }
 
+    /* 安装教程区域 */
+    .install {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 2px solid rgba(99, 102, 241, 0.35);
+      border-radius: 24px;
+      padding: 48px;
+      margin: 0 auto 80px;
+      max-width: 860px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(99, 102, 241, 0.18);
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    .install::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #0ea5e9);
+    }
+
+    .install-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .install-sub {
+      font-size: 15px;
+      color: #64748b;
+      margin-bottom: 28px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.12);
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      font-size: 15px;
+      font-weight: 600;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+    }
+
+    .tab-btn.active {
+      color: #6366f1;
+      border-bottom-color: #6366f1;
+    }
+
+    .tab-btn:hover { color: #6366f1; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeInUp 0.4s ease-out; }
+
+    .tab-panel .platform-hint {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    .code-block {
+      position: relative;
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px 20px;
+      margin-bottom: 14px;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: 13.5px;
+      line-height: 1.9;
+      color: #e2e8f0;
+      white-space: pre;
+    }
+
+    .code-block .comment { color: #64748b; }
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 5px 12px;
+      background: rgba(99, 102, 241, 0.2);
+      color: #c7d2fe;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .copy-btn:hover {
+      background: rgba(99, 102, 241, 0.35);
+      color: #fff;
+    }
+
     /* 底部 */
     .footer {
       text-align: center;
@@ -509,6 +626,60 @@
       <p class="cta-hint">还没有账号？点击注册，开始体验AI API服务</p>
     </div>
 
+    <!-- 安装教程 -->
+    <div class="install">
+      <h2 class="install-title">
+        <span>⚙️</span>
+        <span>Codex 安装教程</span>
+      </h2>
+      <p class="install-sub">选择你的操作系统，按顺序复制执行以下命令即可完成安装配置。</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="linux">Linux / macOS</button>
+        <button class="tab-btn" data-tab="windows">Windows</button>
+      </div>
+
+      <!-- Linux / macOS -->
+      <div class="tab-panel active" id="tab-linux">
+        <p class="platform-hint">已在 Ubuntu 20.04 测试通过</p>
+        <div class="code-block">
+          <button class="copy-btn">复制</button>
+          <pre><span class="comment"># 1. 安装 Node.js 与 npm</span>
+sudo apt install nodejs npm -y
+
+<span class="comment"># 2. 配置 NodeSource 22.x 源</span>
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+
+<span class="comment"># 3. 安装 Node.js</span>
+sudo apt install -y nodejs
+
+<span class="comment"># 4. 全局安装 Codex</span>
+sudo npm install -g @openai/codex
+
+<span class="comment"># 5. 运行一键配置脚本</span>
+bash <(curl -fsSL https://cdn.jsdelivr.net/gh/luohongk/luohongkun-api-setup@main/codex.sh)</pre>
+        </div>
+      </div>
+
+      <!-- Windows -->
+      <div class="tab-panel" id="tab-windows">
+        <p class="platform-hint">在 PowerShell 中执行以下命令</p>
+        <div class="code-block">
+          <button class="copy-btn">复制</button>
+          <pre><span class="comment"># 1. 安装 Node.js 22.x（使用 winget）</span>
+winget install OpenJS.NodeJS.LTS
+
+<span class="comment"># 若无 winget，可前往 https://nodejs.org 下载安装包手动安装</span>
+
+<span class="comment"># 2. 全局安装 Codex</span>
+npm install -g @openai/codex
+
+<span class="comment"># 3. 运行一键配置脚本</span>
+powershell -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((Invoke-WebRequest -UseBasicParsing 'https://cdn.jsdelivr.net/gh/luohongk/luohongkun-api-setup@main/codex.ps1').Content))"</pre>
+        </div>
+      </div>
+    </div>
+
     <!-- 功能卡片 -->
     <div class="features-grid">
       <div class="feature-card">
@@ -527,7 +698,6 @@
         <p class="feature-desc">独立API Key，支持一键重置、销毁，隔离账号风险</p>
       </div>
     </div>
-    </div>
 
     <!-- 快速上手 -->
     <div class="quickstart">
@@ -542,6 +712,7 @@
         <li>发起接口调用，实时查看额度消耗与返回结果</li>
       </ol>
     </div>
+
 
     <!-- 底部 -->
     <div class="footer">
@@ -576,6 +747,28 @@
         radial-gradient(ellipse at 50% 80%, rgba(14, 165, 233, 0.03) 0%, transparent 50%),
         linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)
       `;
+    });
+
+    // Tab 切换
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // 复制命令
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.parentElement.querySelector('pre').innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = '已复制 ✓';
+          setTimeout(() => { btn.textContent = orig; }, 1500);
+        });
+      });
     });
   </script>
 </body>
