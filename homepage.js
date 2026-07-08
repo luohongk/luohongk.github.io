@@ -1,38 +1,42 @@
-  document.addEventListener("DOMContentLoaded", function () {
-      const yearSpan = document.getElementById("current-year");
-      yearSpan.textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", function () {
+  const yearSpan = document.getElementById("current-year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-      // HTML 解析完成后立即触发动画
-      document.body.classList.add('loading-complete');
-    });
+  document.body.classList.add('loading-complete');
 
+  const notesList = document.getElementById("notes-container");
+  if (notesList) {
     fetch("notes.txt")
-    .then(response => response.text())
-    .then(data => {
-      const container = document.getElementById("notes-container");
-      const lines = data.split("\n");
+      .then(response => response.text())
+      .then(data => {
+        const lines = data.split("\n");
 
-      lines.forEach(line => {
-        const trimmed = line.trim();
-        if (trimmed === "") return;
+        lines.forEach(line => {
+          const trimmed = line.trim();
+          if (trimmed === "") return;
 
-        // 正则匹配格式：图标路径 链接 说明（说明可以包含空格）
-        const match = trimmed.match(/^(\S+)\s+(\S+)\s+(.+)$/);
-        if (!match) return;
+          const match = trimmed.match(/^(\S+)\s+(\S+)\s+(.+)$/);
+          if (!match) return;
 
-        const [_, iconPath, url, description] = match;
+          const [, iconPath, url, description] = match;
 
-        const p = document.createElement("p");
-        p.innerHTML = `
-          <img src="${iconPath}" alt="icon"
-               style="width: 16px; height: 16px; vertical-align: middle;margin-bottom=0px;">
-          <a href="${url}" target="_blank">${description}</a>`;
-        container.appendChild(p);
+          const p = document.createElement("p");
+          p.innerHTML = `
+            <img src="${iconPath}" alt="icon" loading="lazy" decoding="async"
+                 style="width: 16px; height: 16px; vertical-align: middle;margin-bottom=0px;">
+            <a href="${url}" target="_blank">${description}</a>`;
+          notesList.appendChild(p);
+        });
+      })
+      .catch(error => {
+        notesList.innerText = "⚠️ 无法加载笔记内容：" + error;
       });
-    })
-    .catch(error => {
-      document.getElementById("notes-container").innerText = "⚠️ 无法加载笔记内容：" + error;
-    });
+  }
+
+  showAllNotes();
+});
 
 
 
@@ -40,6 +44,7 @@
 function toggleSearch() {
   const container = document.getElementById('searchContainer');
   const searchBox = document.getElementById('searchBox');
+  if (!container || !searchBox) return;
   
   if (container.style.display === 'none') {
     container.style.display = 'block';
@@ -52,10 +57,13 @@ function toggleSearch() {
 }
 
 function searchNotes() {
-  const searchTerm = document.getElementById('searchBox').value.trim().toLowerCase();
+  const searchBox = document.getElementById('searchBox');
   const notesContainer = document.getElementById('notesContainer');
-  const allNotes = notesContainer.getElementsByTagName('p');
   const searchStats = document.getElementById('searchStats');
+  if (!searchBox || !notesContainer || !searchStats) return;
+
+  const searchTerm = searchBox.value.trim().toLowerCase();
+  const allNotes = notesContainer.getElementsByTagName('p');
   
   let visibleCount = 0;
   
@@ -90,8 +98,10 @@ function searchNotes() {
 
 function showAllNotes() {
   const notesContainer = document.getElementById('notesContainer');
-  const allNotes = notesContainer.getElementsByTagName('p');
   const searchStats = document.getElementById('searchStats');
+  if (!notesContainer || !searchStats) return;
+
+  const allNotes = notesContainer.getElementsByTagName('p');
   
   // 显示所有笔记
   for (let i = 0; i < allNotes.length; i++) {
@@ -100,8 +110,3 @@ function showAllNotes() {
   
   searchStats.textContent = `共 ${allNotes.length} 个笔记`;
 }
-
-// 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', function() {
-  showAllNotes();
-});

@@ -1,5 +1,6 @@
 @font-face {
   font-family: "FontinSans";
+  font-display: swap;
   src: url("fonts/fontin_sans_r_45b-webfont.eot");
   src:
     url("fonts/fontin_sans_r_45b-webfont.woff") format("woff"),
@@ -1773,5 +1774,4 @@ a:active {
     font-size: 16px;
   }
 }
-
 
