@@ -675,7 +675,7 @@ winget install OpenJS.NodeJS.LTS
 npm install -g @openai/codex
 
 <span class="comment"># 3. 运行一键配置脚本</span>
-powershell -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((Invoke-WebRequest -UseBasicParsing 'https://cdn.jsdelivr.net/gh/luohongk/luohongkun-api-setup@main/codex.ps1').Content))"</pre>
+powershell -ExecutionPolicy Bypass -Command '$r = Invoke-WebRequest -UseBasicParsing "https://cdn.jsdelivr.net/gh/luohongk/luohongkun-api-setup@main/codex.ps1"; $c = $r.Content; if ($c -is [byte[]]) { $c = [System.Text.Encoding]::UTF8.GetString($c) }; &amp; ([scriptblock]::Create([string]$c))'</pre>
         </div>
       </div>
     </div>
