@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initHomepage() {
   const yearSpan = document.getElementById("current-year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
@@ -36,7 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   showAllNotes();
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initHomepage);
+} else {
+  initHomepage();
+}
 
 
 
