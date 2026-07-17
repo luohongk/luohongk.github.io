@@ -1637,6 +1637,15 @@ tbody.special {
   opacity: 1;
 }
 
+.wechat-modal-mask:target {
+  display: flex;
+}
+
+.wechat-modal-mask:target .wechat-modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
 /* 顶部彩色条（默认：微信绿） */
 .wechat-modal-content::before {
   content: "";

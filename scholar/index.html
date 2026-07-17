@@ -15,7 +15,7 @@
   <meta name="description" content="Hongkun Luo&#39; home page">
   <link rel="shortcut icon" href="../images/logo.jpg">
   <link rel="stylesheet" href="./scholar.css" type="text/css">
-  <script src="./scholar.js" type="text/javascript" defer></script>
+  <script src="./scholar.js?v=20260717" type="text/javascript"></script>
   <title>🤖Hongkun Luo (罗宏昆)🤖</title>
 </head>
 
@@ -133,7 +133,7 @@
 
               <!-- QQ图标 -->
               <div class="tooltip">
-                <a href="javascript:;" onclick="openModal('qqModal')">
+                <a href="#qqModal" data-modal-open="qqModal">
                   <img src="../images/QQ.png" height="25px" style="margin-bottom:-3px">
                 </a>
                 <span class="tooltiptext">QQ:2638923243</span>
@@ -141,7 +141,7 @@
 
               <!-- 微信图标 -->
               <div class="tooltip">
-                <a href="javascript:;" onclick="openModal('wechatModal')">
+                <a href="#wechatModal" data-modal-open="wechatModal">
                   <img src="../images/wechat.png" height="25px" style="margin-bottom:-3px">
                 </a>&nbsp;
                 <span class="tooltiptext">wechat:luohongkun0715</span>
@@ -155,7 +155,7 @@
                   src="../images/zhihu.png" height="25px" style="margin-bottom:-4px"></a>&nbsp;&nbsp;&nbsp;&nbsp; -->
               <!-- Gmail图标 -->
               <div class="tooltip">
-                <a href="javascript:;" onclick="openModal('gmailModal')">
+                <a href="#gmailModal" data-modal-open="gmailModal">
                   <img src="../images/gmail.png" height="25px" style="margin-bottom:-4px">
                 </a>&nbsp;
                 <span class="tooltiptext">Gmail:luohongkun0715@gmail.com</span>
@@ -163,7 +163,7 @@
 
               <!-- 学校邮箱图标 -->
               <div class="tooltip">
-                <a href="javascript:;" onclick="openModal('schoolMailModal')">
+                <a href="#schoolMailModal" data-modal-open="schoolMailModal">
                   <img src="../images/email.png" height="25px" style="margin-bottom:-4px">
                 </a>
                 <span class="tooltiptext">Email:luohongkun@whu.edu.cn</span>
@@ -1248,12 +1248,12 @@
         <!-- 简洁触发按钮：左右布局，替代原有长文本卡片，大幅节省空间 -->
         <div class="friends-card-container">
           <!-- 专业咨询触发按钮 -->
-          <div id="consultTrigger" class="friends-trigger-card" onclick="openModal('consultModal')">
+          <div id="consultTrigger" class="friends-trigger-card" data-modal-open="consultModal">
             <span class="trigger-icon">🔔</span>
             <span class="trigger-text">Free Professional Consultation (Please Click)</span>
           </div>
           <!-- Coffee Chat 触发按钮 -->
-          <div id="chatTrigger" class="friends-trigger-card" onclick="openModal('chatModal')">
+          <div id="chatTrigger" class="friends-trigger-card" data-modal-open="chatModal">
             <span class="trigger-icon">💡</span>
             <span class="trigger-text">Coffee Chat (Please Click)</span>
           </div>
@@ -1426,7 +1426,7 @@
       <div class="container" style="text-align: center;">
         <!-- done 地图统计模块 -->
         <div id="clustrmap-wrap" style="display:inline-block;width:500px; background-color:#F1F5F6;">
-          <script type='text/javascript' id='mapmyvisitors'
+          <script type='text/javascript' id='mapmyvisitors' async defer
             src='https://mapmyvisitors.com/map.js?cl=2a56b5&w=a&t=tt&d=X2O01EQu8PnO5XxrEFg82PIQ8ntBYXzPfb5J7ZoI3IM&co=f1f5f6&cmn=3dc5d6&ct=000000'></script>
         </div>
       </div>
@@ -1443,7 +1443,7 @@
   <!-- ===== 所有弹窗：直接放在 body 最外层 ===== -->
   <!-- done 弹窗模块 -->
   <!-- 1. 专业咨询弹窗：完全复用微信/QQ弹窗的类名、结构、样式 -->
-  <div class="wechat-modal-mask" id="consultModal" onclick="if(event.target===this)closeModalById(‘consultModal’)">
+  <div class="wechat-modal-mask" id="consultModal">
     <div class="wechat-modal-content">
       <div class="wechat-modal-title">Free Professional Consultation</div>
       <div class="wechat-modal-body">
@@ -1457,16 +1457,14 @@
         </p>
       </div>
       <div class="wechat-modal-footer">
-        <button id="consultModalConfirm" class="wechat-modal-btn wechat-modal-confirm"
-          onclick="closeModalById(‘consultModal’)">OK / 确定</button>
-        <button id="consultModalCancel" class="wechat-modal-btn wechat-modal-cancel"
-          onclick="closeModalById(‘consultModal’)">Cancel / 取消</button>
+        <button id="consultModalConfirm" class="wechat-modal-btn wechat-modal-confirm" data-modal-close>OK / 确定</button>
+        <button id="consultModalCancel" class="wechat-modal-btn wechat-modal-cancel" data-modal-close>Cancel / 取消</button>
       </div>
     </div>
   </div>
 
   <!-- 2. Coffee Chat 弹窗 -->
-  <div class="wechat-modal-mask" id="chatModal" onclick="if(event.target===this)closeModalById(‘chatModal’)">
+  <div class="wechat-modal-mask" id="chatModal">
     <div class="wechat-modal-content">
       <div class="wechat-modal-title">Coffee Chat</div>
       <div class="wechat-modal-body">
@@ -1480,29 +1478,27 @@
         </p>
       </div>
       <div class="wechat-modal-footer">
-        <button id="chatModalConfirm" class="wechat-modal-btn wechat-modal-confirm"
-          onclick="closeModalById(‘chatModal’)">OK / 确定</button>
-        <button id="chatModalCancel" class="wechat-modal-btn wechat-modal-cancel"
-          onclick="closeModalById(‘chatModal’)">Cancel / 取消</button>
+        <button id="chatModalConfirm" class="wechat-modal-btn wechat-modal-confirm" data-modal-close>OK / 确定</button>
+        <button id="chatModalCancel" class="wechat-modal-btn wechat-modal-cancel" data-modal-close>Cancel / 取消</button>
       </div>
     </div>
   </div>
 
   <!-- 摘要预览弹窗 -->
-  <div class="wechat-modal-mask" id="abstractModal" onclick="if(event.target===this)closeModalById('abstractModal')">
+  <div class="wechat-modal-mask" id="abstractModal">
     <div class="wechat-modal-content">
       <div class="wechat-modal-title">📄 Abstract Preview / 摘要预览</div>
       <div class="wechat-modal-body" id="abstractModalBody">
         <p style="line-height: 1.8; color: #4E5969;">Loading...</p>
       </div>
       <div class="wechat-modal-footer">
-        <button class="wechat-modal-btn wechat-modal-confirm" onclick="closeModalById('abstractModal')">OK / 确定</button>
+        <button class="wechat-modal-btn wechat-modal-confirm" data-modal-close>OK / 确定</button>
       </div>
     </div>
   </div>
 
   <!-- 微信弹窗 -->
-  <div class="wechat-modal-mask" id="wechatModal" onclick="if(event.target===this)closeModalById('wechatModal')">
+  <div class="wechat-modal-mask" id="wechatModal">
     <div class="wechat-modal-content">
       <div class="wechat-modal-title">WeChat Contact Notice / 微信联系须知</div>
       <div class="wechat-modal-body">
@@ -1526,16 +1522,16 @@
         </div>
       </div>
       <div class="wechat-modal-footer">
-        <button class="wechat-modal-btn wechat-modal-confirm"
-          onclick="closeModalById('wechatModal');window.open('../images/wechat_code.png','_blank')">OK / 确定</button>
-        <button class="wechat-modal-btn wechat-modal-cancel" onclick="closeModalById('wechatModal')">Cancel /
+        <button class="wechat-modal-btn wechat-modal-confirm" data-modal-close data-modal-url="../images/wechat_code.png"
+          data-modal-target="_blank">OK / 确定</button>
+        <button class="wechat-modal-btn wechat-modal-cancel" data-modal-close>Cancel /
           取消</button>
       </div>
     </div>
   </div>
 
   <!-- QQ弹窗 -->
-  <div class="wechat-modal-mask" id="qqModal" onclick="if(event.target===this)closeModalById('qqModal')">
+  <div class="wechat-modal-mask" id="qqModal">
     <div class="wechat-modal-content">
       <div class="wechat-modal-title">QQ Contact Notice / QQ联系须知</div>
       <div class="wechat-modal-body">
@@ -1561,15 +1557,15 @@
         </div>
       </div>
       <div class="wechat-modal-footer">
-        <button class="wechat-modal-btn wechat-modal-confirm"
-          onclick="closeModalById('qqModal');window.open('../images/qq_num.png','_blank')">OK / 确定</button>
-        <button class="wechat-modal-btn wechat-modal-cancel" onclick="closeModalById('qqModal')">Cancel / 取消</button>
+        <button class="wechat-modal-btn wechat-modal-confirm" data-modal-close data-modal-url="../images/qq_num.png"
+          data-modal-target="_blank">OK / 确定</button>
+        <button class="wechat-modal-btn wechat-modal-cancel" data-modal-close>Cancel / 取消</button>
       </div>
     </div>
   </div>
 
   <!-- Gmail弹窗 -->
-  <div class="wechat-modal-mask" id="gmailModal" onclick="if(event.target===this)closeModalById('gmailModal')">
+  <div class="wechat-modal-mask" id="gmailModal">
     <div class="wechat-modal-content">
       <div class="wechat-modal-title">Gmail Contact Notice / Gmail联系须知</div>
       <div class="wechat-modal-body">
@@ -1622,15 +1618,14 @@
         </div>
       </div>
       <div class="wechat-modal-footer">
-        <button class="wechat-modal-btn wechat-modal-cancel" onclick="closeModalById('gmailModal')">Cancel / 取消</button>
-        <button class="wechat-modal-btn wechat-modal-confirm" onclick="closeModalById('gmailModal')">OK / 确定</button>
+        <button class="wechat-modal-btn wechat-modal-cancel" data-modal-close>Cancel / 取消</button>
+        <button class="wechat-modal-btn wechat-modal-confirm" data-modal-close>OK / 确定</button>
       </div>
     </div>
   </div>
 
   <!-- 学校邮箱弹窗 -->
-  <div class="wechat-modal-mask" id="schoolMailModal"
-    onclick="if(event.target===this)closeModalById('schoolMailModal')">
+  <div class="wechat-modal-mask" id="schoolMailModal">
     <div class="wechat-modal-content">
       <div class="wechat-modal-title">School Email Contact Notice / 学校邮箱联系须知</div>
       <div class="wechat-modal-body">
@@ -1683,9 +1678,9 @@
         </div>
       </div>
       <div class="wechat-modal-footer">
-        <button class="wechat-modal-btn wechat-modal-cancel" onclick="closeModalById('schoolMailModal')">Cancel /
+        <button class="wechat-modal-btn wechat-modal-cancel" data-modal-close>Cancel /
           取消</button>
-        <button class="wechat-modal-btn wechat-modal-confirm" onclick="closeModalById('schoolMailModal')">OK /
+        <button class="wechat-modal-btn wechat-modal-confirm" data-modal-close>OK /
           确定</button>
       </div>
     </div>

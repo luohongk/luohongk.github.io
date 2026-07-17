@@ -140,105 +140,45 @@ window.switchTab = function (tabName) {
 };
 
 /* ============================================================
- * 四、初始化所有联系弹窗
+ * 四、初始化所有弹窗（事件委托）
  * ============================================================ */
 
-function initContactModals() {
-  // ---------- 微信弹窗 ----------
-  const wechatLink    = document.getElementById('wechatLink');
-  const wechatModal   = document.getElementById('wechatModal');
-  const wechatConfirm = document.getElementById('modalConfirm');
-  const wechatCancel  = document.getElementById('modalCancel');
+function initModalDelegation() {
+  if (initModalDelegation.ready) return;
+  initModalDelegation.ready = true;
 
-  if (wechatLink && wechatModal) {
-    wechatLink.addEventListener('click', (e) => { e.preventDefault(); showModal(wechatModal); });
-    wechatCancel.addEventListener('click',  () => closeModal(wechatModal));
-    wechatConfirm.addEventListener('click', () => { closeModal(wechatModal); window.open('../images/wechat_code.png', '_blank'); });
-    wechatModal.addEventListener('click',   (e) => e.target === wechatModal && closeModal(wechatModal));
-  }
+  document.addEventListener('click', function (event) {
+    const target = event.target instanceof Element ? event.target : event.target.parentElement;
+    if (!target) return;
 
-  // ---------- QQ 弹窗 ----------
-  const qqLink    = document.getElementById('qqLink');
-  const qqModal   = document.getElementById('qqModal');
-  const qqConfirm = document.getElementById('qqModalConfirm');
-  const qqCancel  = document.getElementById('qqModalCancel');
+    const openTrigger = target.closest('[data-modal-open]');
+    if (openTrigger) {
+      event.preventDefault();
+      const modal = document.getElementById(openTrigger.dataset.modalOpen);
+      if (modal) showModal(modal);
+      return;
+    }
 
-  if (qqLink && qqModal) {
-    qqLink.addEventListener('click', (e) => { e.preventDefault(); showModal(qqModal); });
-    qqCancel.addEventListener('click',  () => closeModal(qqModal));
-    qqConfirm.addEventListener('click', () => { closeModal(qqModal); window.open('../images/qq_num.png', '_blank'); });
-    qqModal.addEventListener('click',   (e) => e.target === qqModal && closeModal(qqModal));
-  }
+    const closeTrigger = target.closest('[data-modal-close]');
+    if (closeTrigger) {
+      event.preventDefault();
+      const modal = closeTrigger.closest('.wechat-modal-mask');
+      if (modal) closeModal(modal);
 
-  // ---------- Gmail 弹窗 ----------
-  const gmailLink    = document.getElementById('gmailLink');
-  const gmailModal   = document.getElementById('gmailModal');
-  const gmailConfirm = document.getElementById('gmailModalConfirm');
-  const gmailCancel  = document.getElementById('gmailModalCancel');
-  const copyGmailBtn   = document.getElementById('copyGmail');
-  const copyGmailEnBtn = document.getElementById('copyGmailEn');
-  const gmailAddress   = document.getElementById('gmailText') ? document.getElementById('gmailText').textContent : '';
+      const url = closeTrigger.dataset.modalUrl;
+      if (url) {
+        window.open(url, closeTrigger.dataset.modalTarget || '_self');
+      }
+      return;
+    }
 
-  if (gmailLink && gmailModal) {
-    gmailLink.addEventListener('click',  () => showModal(gmailModal));
-    gmailCancel.addEventListener('click',  () => closeModal(gmailModal));
-    gmailConfirm.addEventListener('click', () => closeModal(gmailModal));
-    gmailModal.addEventListener('click',   (e) => e.target === gmailModal && closeModal(gmailModal));
-    if (copyGmailBtn)   copyGmailBtn.addEventListener('click',   () => copyText(gmailAddress, copyGmailBtn));
-    if (copyGmailEnBtn) copyGmailEnBtn.addEventListener('click', () => copyEnglishText(gmailAddress, copyGmailEnBtn));
-  }
-
-  // ---------- 学校邮箱弹窗 ----------
-  const schoolMailLink    = document.getElementById('schoolMailLink');
-  const schoolMailModal   = document.getElementById('schoolMailModal');
-  const schoolMailConfirm = document.getElementById('schoolMailModalConfirm');
-  const schoolMailCancel  = document.getElementById('schoolMailModalCancel');
-  const copySchoolBtn     = document.getElementById('copySchoolMail');
-  const copySchoolEnBtn   = document.getElementById('copySchoolMailEn');
-  const schoolAddress     = document.getElementById('schoolMailText') ? document.getElementById('schoolMailText').textContent : '';
-
-  if (schoolMailLink && schoolMailModal) {
-    schoolMailLink.addEventListener('click',  () => showModal(schoolMailModal));
-    schoolMailCancel.addEventListener('click',  () => closeModal(schoolMailModal));
-    schoolMailConfirm.addEventListener('click', () => closeModal(schoolMailModal));
-    schoolMailModal.addEventListener('click',   (e) => e.target === schoolMailModal && closeModal(schoolMailModal));
-    if (copySchoolBtn)   copySchoolBtn.addEventListener('click',   () => copyText(schoolAddress, copySchoolBtn));
-    if (copySchoolEnBtn) copySchoolEnBtn.addEventListener('click', () => copyEnglishText(schoolAddress, copySchoolEnBtn));
-  }
-
-  // ---------- 专业咨询弹窗 ----------
-  const consultTrigger = document.getElementById('consultTrigger');
-  const consultModal   = document.getElementById('consultModal');
-  const consultConfirm = document.getElementById('consultModalConfirm');
-  const consultCancel  = document.getElementById('consultModalCancel');
-
-  if (consultTrigger && consultModal) {
-    consultTrigger.addEventListener('click', () => showModal(consultModal));
-    consultCancel.addEventListener('click',  () => closeModal(consultModal));
-    consultConfirm.addEventListener('click', () => closeModal(consultModal));
-    consultModal.addEventListener('click',   (e) => e.target === consultModal && closeModal(consultModal));
-  }
-
-  // ---------- Coffee Chat 弹窗 ----------
-  const chatTrigger = document.getElementById('chatTrigger');
-  const chatModal   = document.getElementById('chatModal');
-  const chatConfirm = document.getElementById('chatModalConfirm');
-  const chatCancel  = document.getElementById('chatModalCancel');
-
-  if (chatTrigger && chatModal) {
-    chatTrigger.addEventListener('click', () => showModal(chatModal));
-    chatCancel.addEventListener('click',  () => closeModal(chatModal));
-    chatConfirm.addEventListener('click', () => closeModal(chatModal));
-    chatModal.addEventListener('click',   (e) => e.target === chatModal && closeModal(chatModal));
-  }
-
-  // ---------- 摘要预览弹窗关闭按钮 ----------
-  const abstractModal   = document.getElementById('abstractModal');
-  const abstractConfirm = document.getElementById('abstractModalConfirm');
-
-  if (abstractConfirm) abstractConfirm.addEventListener('click', () => closeModal(abstractModal));
-  if (abstractModal)   abstractModal.addEventListener('click', (e) => e.target === abstractModal && closeModal(abstractModal));
+    if (target.classList.contains('wechat-modal-mask')) {
+      closeModal(target);
+    }
+  });
 }
+
+initModalDelegation();
 
 /* ============================================================
  * 五、初始化论文 Tab 内容（将 pubTable 按类别/时间分发到各 Tab）
@@ -411,7 +351,6 @@ function initHamburgerMenu() {
  * ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
-  initContactModals();
   initPubTabs();
   initBgMusic();
   initFooterDate();
