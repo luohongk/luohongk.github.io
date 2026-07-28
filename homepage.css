@@ -840,6 +840,11 @@ a:active {
     width: 100%;
     margin: 0 auto;
   }
+
+  #visitor_map {
+    width: calc(100% - 30px);
+    padding: 14px 18px;
+  }
 }
 
 /* CSS 样式 */
@@ -889,6 +894,9 @@ a:active {
 #visitor_map {
   background: linear-gradient(135deg, #003E8B 0%, #01A7ED 100%);
   padding: 16px 28px;
+  width: calc(100% - 56px);
+  margin: 0 auto;
+  box-sizing: border-box;
   text-align: center;
   font-weight: 600;
   font-size: 15px;
@@ -1252,13 +1260,13 @@ a:active {
 /* 头部 */
 .basicinfo-header {
   background: linear-gradient(135deg, #003E8B 0%, #01A7ED 100%);
-  padding: 14px 18px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   position: relative;
   overflow: hidden;
-  height: 54px; /* 统一头部高度 - 减小 */
+  height: 48px;
   box-sizing: border-box;
 }
 
@@ -1274,14 +1282,14 @@ a:active {
 }
 
 .basicinfo-icon {
-  font-size: 24px;
+  font-size: 22px;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .basicinfo-header h4 {
   color: white;
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   font-family: "Times New Roman", Times, serif;
   letter-spacing: 0.5px;
@@ -1289,9 +1297,9 @@ a:active {
 
 /* 个人展示区 */
 .basicinfo-profile {
-  padding: 14px 18px;
+  padding: 10px 14px;
   display: flex;
-  gap: 14px;
+  gap: 10px;
   background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(227,239,244,0.5) 100%);
   border-bottom: 1px solid rgba(0, 62, 139, 0.1);
 }
@@ -1299,8 +1307,8 @@ a:active {
 .profile-photo {
   flex-shrink: 0;
   position: relative;
-  width: 85px;
-  height: 120px;
+  width: 74px;
+  height: 104px;
 }
 
 .profile-photo img {
@@ -1326,16 +1334,16 @@ a:active {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 6px;
   justify-content: center;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 52px;
-  padding: 8px 10px;
+  gap: 8px;
+  min-height: 43px;
+  padding: 6px 8px;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(236, 249, 255, 0.92) 100%);
   border-radius: 12px;
@@ -1364,13 +1372,13 @@ a:active {
 }
 
 .contact-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  font-size: 15px;
   flex-shrink: 0;
   background: linear-gradient(135deg, #003E8B 0%, #01A7ED 70%, #10b981 100%);
   box-shadow: 0 5px 14px rgba(0, 62, 139, 0.2);
@@ -1441,17 +1449,17 @@ a:active {
 
 /* 信息区块 */
 .basicinfo-info {
-  padding: 14px 18px 10px;
+  padding: 10px 14px 8px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .info-card {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  padding: 10px;
+  gap: 8px;
+  padding: 7px 8px;
   background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(227,239,244,0.9) 100%);
   border-radius: 10px;
   border: 1px solid rgba(0, 62, 139, 0.15);
@@ -1466,13 +1474,13 @@ a:active {
 }
 
 .info-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
   flex-shrink: 0;
   background: linear-gradient(135deg, #003E8B 0%, #01A7ED 100%);
   box-shadow: 0 4px 12px rgba(0, 62, 139, 0.25);
@@ -1484,8 +1492,8 @@ a:active {
 }
 
 .info-content h5 {
-  margin: 0 0 4px 0;
-  font-size: 13px;
+  margin: 0 0 2px 0;
+  font-size: 12.5px;
   color: #2d3748;
   font-weight: 700;
   font-family: "FontinSans", sans-serif;
@@ -1495,7 +1503,7 @@ a:active {
   margin: 0;
   font-size: 11px;
   color: #4a5568;
-  line-height: 1.5;
+  line-height: 1.35;
   font-family: "FontinSans", sans-serif;
 }
 
@@ -1789,8 +1797,8 @@ a:active {
   }
 
   .profile-photo {
-    width: 90px;
-    height: 125px;
+    width: 78px;
+    height: 110px;
   }
 
   .lifephoto-grid {
